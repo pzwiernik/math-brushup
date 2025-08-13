@@ -1,3 +1,4 @@
+![Course cover](./img/course_cover.png)
 # 19BE02 Calculus and Linear Algebra - Fall 2025
 ## Math brush-up
 
