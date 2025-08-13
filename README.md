@@ -41,6 +41,6 @@ The following books complement the material presented in the lecture.
 
 ## Lectures and timeline (tentative)
 
-| Day | Lectures  | Notes | Tutorials |  Timeline |
-| --- |  --- | --- | --- | --- | 
-| **1** | Introduction, sequences, limits, differentiation, continuity.  | [slides1](./slides/Lecture1.pdf) | RZ: [tut1](./tutorials/tutorial1.html) |  [syllabus]() |
+| Day | Lectures  | Notes | Tutorials |  
+| --- |  --- | --- | --- | 
+| **1** | Introduction, sequences, limits, differentiation, continuity.  | [slides1](./slides/Lecture1.pdf) | RZ: [tut1](./tutorials/tutorial1.html) |  
