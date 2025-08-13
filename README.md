@@ -36,7 +36,6 @@ The following books complement the material presented in the lecture.
 
 * (SB) C. P. Simon and L. Blume (1994) [Mathematics for Economists](https://www.academia.edu/download/48636981/Blume-Mathematics-for-Economists.pdf)
 * (WS) F. Werner and Y. N. Sotskov (2006) [Mathematics of Economics and Business](https://library.oapen.org/bitstream/handle/20.500.12657/102241/1/9781134319312.pdf)
-\item {\it Mathematics of Economics and Business} by F. Werner and Y. N. Sotskov
 
 ***
 
