@@ -41,6 +41,6 @@ The following books complement the material presented in the lecture.
 
 ## Lectures and timeline (tentative)
 
-| Week | Lectures  | Notes | Tutorials | Lecture date  | Timeline |
-| --- |  --- | --- | --- | --- | --- | 
-| **1** | Introduction, some linear algebra, matrix decompositions<br/>Random vectors, covariance matrices.  | [slides1](./slides/slides_intro.pdf) <br> [notes1](./lectures/lecture1.pdf) | RZ: [tut1](./tutorials/tutorial1.html) |  8 Jan| [syllabus]() |
+| Day | Lectures  | Notes | Tutorials |  Timeline |
+| --- |  --- | --- | --- | --- | 
+| **1** | Introduction, sequences, limits, differentiation, continuity.  | [slides1](./slides/Lecture1.pdf) | RZ: [tut1](./tutorials/tutorial1.html) |  [syllabus]() |
