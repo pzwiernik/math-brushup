@@ -1,5 +1,5 @@
-# 19BE02 - Fall 2025
-## Calculus and Linear Algebra
+# 19BE02 Calculus and Linear Algebra - Fall 2025
+## Math brush-up
 
 The goal of this course is to review the basic tools of Calculus and
 Linear Algebra that will be used in the Master programs in
