@@ -1,0 +1,111 @@
+%%%%%%%%% GENERAL PACKAGES
+%\usepackage[dvipsnames]{xcolor}
+%\usepackage{pdfpages}
+%\usetheme[progressbar=frametitle]{metropolis}
+%\setbeamercolor{background canvas}{bg=white}
+%\usepackage{appendixnumberbeamer}
+%\usepackage{booktabs}
+%\usepackage[scale=2]{ccicons}
+%\usepackage{pgfplots}
+%\usepgfplotslibrary{dateplot}
+%\usepackage{xspace}
+%\newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
+%\usepackage[absolute,overlay]{textpos}
+
+%%%%%%%%% COLOR THEME
+
+% Define some colors:
+\definecolor{DarkFern}{HTML}{407428}
+\definecolor{DarkCharcoal}{HTML}{4D4944}
+\definecolor{AlertColor}{RGB}{89,124,158}
+\definecolor{HighLight}{RGB}{96,95,134}
+\definecolor{Important}{RGB}{234,122,133}
+\definecolor{Yellow}{HTML}{00539C}
+\colorlet{Fern}{DarkFern!85!white}
+\colorlet{Charcoal}{DarkCharcoal!85!white}
+\colorlet{LightCharcoal}{Charcoal!50!white}
+\colorlet{HighLight2}{AlertColor}
+\colorlet{DarkRed}{red!70!black}
+\colorlet{DarkBlue}{blue!70!black}
+\colorlet{DarkGreen}{green!70!black}
+\definecolor{RoyalBlue}{HTML}{00539C}
+\definecolor{Peach}{HTML}{EEA47F}
+\definecolor{ForestGreen}{HTML}{2C5F2D}
+\definecolor{MossGreen}{HTML}{E8FCC9}
+% Use the colors:
+\setbeamercolor{title}{fg=Fern}
+\setbeamercolor{frametitle}{fg=MossGreen,bg=ForestGreen}
+\setbeamercolor{normal text}{fg=Charcoal!70!black}
+\setbeamercolor{block title}{fg=black,bg=Fern!25!white}
+\setbeamercolor{block body}{fg=black,bg=Fern!10!white}
+\setbeamercolor{block title alerted}{fg=black,bg=DarkRed!25!white}
+\setbeamercolor{block body alerted}{fg=black,bg=DarkRed!10!white}
+\setbeamercolor{alerted text}{fg=DarkRed}
+\setbeamercolor{itemize item}{fg=Charcoal}
+
+
+
+%%%%%%%%% OTHER COMMANDS
+\newcommand{\indep}{\perp\!\!\! \perp}
+\newcommand{\comment}[1]{}
+\newcommand{\bs}{\boldsymbol}
+\newcommand{\tr}{\text{trace}}
+\newcommand{\sgn}{{\rm sgn}}
+\def\T{\top}
+%\newcommand{\det}{\text{det}}
+\newcommand{\var}{\mathrm{var}}
+\newcommand{\cC}{{\cal C}}
+\newcommand{\cG}{{\cal G}}
+\newcommand{\cV}{{\cal V}}
+\newcommand{\cE}{{\cal E}}
+\newcommand{\cM}{{\cal M}}
+\newcommand{\cP}{{\cal P}}
+\newcommand{\cX}{{\cal X}}
+\newcommand{\cY}{{\cal Y}}
+\newcommand{\X}{\mathbf{X}}
+\newcommand{\Y}{\mathbf{Y}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\z}{\mathbf{z}}
+
+\newcommand{\argmin}{\operatornamewithlimits{argmin}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
+
+
+\setbeamertemplate{itemize subitem}{\tiny\raise1.5pt\hbox{\donotcoloroutermaths$\blacktriangleright$}}
+\setbeamertemplate{itemize subsubitem}{\tiny\raise1.5pt\hbox{\donotcoloroutermaths$\blacktriangleright$}}
+\setbeamertemplate{enumerate item}{\insertenumlabel.}
+\setbeamertemplate{enumerate subitem}{\insertenumlabel.\insertsubenumlabel}
+\setbeamertemplate{enumerate subsubitem}{\insertenumlabel.\insertsubenumlabel.\insertsubsubenumlabel}
+\setbeamertemplate{enumerate mini template}{\insertenumlabel}
+
+\newcommand{\TODO}[1]{{\color{red}{[TODO: #1]}}}
+
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\E}{\mathbb E}
+\renewcommand{\P}{\mathbb P}
+
+
+\DeclareMathOperator*{\cov}{cov}
+
+
+\newsavebox{\zerobox}
+\newenvironment{nospace}
+{\par\edef\theprevdepth{\the\prevdepth}\nointerlineskip
+  \setbox\zerobox=\vtop to 0pt\bgroup
+  \hrule height0pt\kern\dimexpr\baselineskip-\topskip\relax
+}
+{\par\vss\egroup\ht\zerobox=0pt \wd\zerobox=0pt \dp\zerobox=0pt
+  \box\zerobox}
+
+\usepackage{soul}
+\makeatletter
+\let\HL\hl
+\renewcommand\hl{%
+  \let\set@color\beamerorig@set@color
+  \let\reset@color\beamerorig@reset@color
+  \HL}
+  \makeatother
