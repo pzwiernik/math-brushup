@@ -44,4 +44,8 @@ The following books complement the material presented in the lecture.
 
 | Day | Lectures  | Notes | Tutorials |  
 | --- |  --- | --- | --- | 
-| **1** | Introduction, sequences, limits, differentiation, continuity.  | [slides1](./slides/Lecture1.pdf) | RZ: [tut1](./tutorials/tutorial1.html) |  
+| 1 | Introduction, sequences, limits, differentiation, continuity.  | slides 1 |  |  
+| 2 |   | slides 2 |  |  
+| 3 |   | slides 3 |  |  
+| 4 |   | slides 4 |  |  
+| 5 |   | slides 5 |  |  
