@@ -24,9 +24,8 @@ Mathematics Brush-up\\ $\;$\\ $\;$\\
 
 
 %--------------- slide 1  ----------------%
-\begin{frame}
-\frametitle{Goal the course}
-%\begin{small}
+\begin{frame}{Goal of the course}
+
 \textcolor{blue}{Review} basic tools that are useful in different areas of economics and finance.\\[6mm]
 
 These tools will be \textcolor{blue}{crucial} for all the \textcolor{blue}{courses} of your program.\\[6mm]
@@ -38,11 +37,7 @@ These tools will be \textcolor{blue}{crucial} for all the \textcolor{blue}{cours
 \item {\it Mathematics for Economists} by C. P. Simon and L. Blume
 
 \item {\it Mathematics of Economics and Business} by F. Werner and Y. N. Sotskov
-\end{enumerate}
-
-
-%\end{small}
-\end{frame}
+\end{enumerate}\end{frame}
 
 \begin{frame}{Cultivate a Critical Mindset}
 Technical knowledge requires effort. 
@@ -60,9 +55,8 @@ Technical knowledge requires effort.
 \end{frame}
 
 
-\begin{frame}
-\frametitle{Index}
-%\begin{small}
+\begin{frame}{Index}
+
 \begin{enumerate}
 \item Sequences and series
 \item Functions of one variable
@@ -74,15 +68,11 @@ Technical knowledge requires effort.
 \item Eigenvalue problems and quadratic forms
 \item Functions of several variables
 \item Introduction to differential equations
-\end{enumerate}
-
-%\end{small}
-\end{frame}
+\end{enumerate}\end{frame}
 
 
-\begin{frame}
-\frametitle{Sequences }
-%%\begin{small}
+\begin{frame}{Sequences }
+%
 \textcolor{blue}{Sequence}: an infinite set of numbers arranged in a definite order. \\[3mm]
 
 \textcolor{blue}{Notation:} $\{a_n\}_{n=1,2,3,...}$ where each $a_n$ is a real number.
@@ -111,11 +101,11 @@ $a_1$ is given, $d=$difference
 
 $a_1$ is given, $r=$ratio
 \end{enumerate}
-%%\end{small}
+%
 \end{frame}
 
 \begin{frame}{}
-%%\begin{small}
+%
 Sequences arise in many economic applications, e.g. in \textcolor{blue}{economics of finance and investment}.
 \vskip 12pt
 Sequences help to understand the concept of a \textcolor{blue}{limit of a function} and the significance of the \textcolor{blue}{number $e$}. 
@@ -125,14 +115,13 @@ Sequences help to understand the concept of a \textcolor{blue}{limit of a functi
 \textcolor{blue}{Read} Chapter 2 of Werner-Sotskov 
 \vskip 12pt
  \textcolor{blue}{Exercises:} 2.4, 2.5, 2.7 (Werner-Sotskov)
-%%\end{small}
+%
 \end{frame}
 
 
 
-\begin{frame}
-\frametitle{Economic examples  }
-%\begin{small}
+\begin{frame}{Economic examples  }
+
 \begin{enumerate}
 \item {Invest} an amount $P$(principal) at an \textcolor{blue}{annual interest rate} $R$. After $n$ years the total amount is the \textcolor{blue}{geometric sequence}
 $$a_n=P(1+R)^n\qquad (\text{ratio}=1+R, a_1=P(1+R))$$
@@ -152,12 +141,10 @@ $$
 
 The investment grows $8.243 \%$ in one year, which is called the \alert{equivalent annual rate} (EAR), that is, the rate that compounded annually, gives the same yield.
 
-\end{enumerate}
-%\end{small}
-\end{frame}
+\end{enumerate}\end{frame}
 
 \begin{frame}{}
-%\begin{small}
+
 \begin{enumerate}
 \item[] \textcolor{blue}{Remark}:  EAR does not depend on $P$ or $n$. In fact, it is equal to
 $$
@@ -173,14 +160,11 @@ $$
 a_n=\frac{A}{(1+R)^n}
 $$
 
-\textcolor{blue}{Example}: would you prefer $1000$ euros now or 1050 in one year? It depends on $R$! \end{enumerate}
-%\end{small}
-\end{frame}
+\textcolor{blue}{Example}: would you prefer $1000$ euros now or 1050 in one year? It depends on $R$! \end{enumerate}\end{frame}
 
 
-\begin{frame}
-\frametitle{Properties of a sequence}
-%\begin{small}
+\begin{frame}{Properties of a sequence}
+
  A sequence is  \textcolor{blue}{increasing} if for every $n$, $a_{n+1} \geq a_n$, and \textcolor{blue}{strictly increasing} if $a_{n+1}  >a_n$. \begin{tiny} (which is equivalent to $a_{n+1}-a_n>0$, or $\frac{a_{n+1}}{{a_n}}>1$ if $a_n>0$) \end{tiny}
 \vskip 12pt
 A sequence is \textcolor{blue}{decreasing} if for every $n$, $a_{n+1} \leq a_n$, and \textcolor{blue}{strictly decreasing} if $a_{n+1}  <a_n$.
@@ -206,8 +190,7 @@ for all  $n$, $a_{n} \in [-C, C]$.
 }
 
 
-\begin{frame}
-\frametitle{Limit of a sequence}
+\begin{frame}{Limit of a sequence}
 
 
  A finite number $a$ is called the \alert{limit} of a sequence $\{a_n\}$ if as $n$ gets larger, $a_n$ gets closer to $a$. \textcolor{blue}{Notation:} \hl{$\lim_{n \rightarrow \infty} a_n=a$}.
@@ -227,15 +210,10 @@ A sequence is said to be \textcolor{blue}{convergent} if it has a limit. Otherwi
 
 \end{enumerate}
 
- 
+ \end{frame}
 
+\begin{frame}{Limit of a sequence}
 
-%\end{small}
-\end{frame}
-
-\begin{frame}
-\frametitle{Limit of a sequence}
-%\begin{small}
 \begin{alertblock}{Definition: $a$ is a limit of the sequence $\{a_n\}$\;\; $(\lim_{n\to \infty}a_n=a$)}
 \qquad\qquad$
 \forall \epsilon >0 \;\;\; \exists N_{\epsilon}>0\;\;\; s.t\;\;\;\;\;\forall n>N_{\epsilon}\quad\quad \vert a_n-a \vert < \epsilon.
@@ -249,7 +227,7 @@ $
  	\item $\lim_{n\to\infty} a_n=a$ is the same as $\lim_{n\to \infty} |a_n-a|=0$\\[2mm]
  	\item If $a_n=a$ for all $n$ then $\lim_{n\to\infty}a_n=a$.
  \end{itemize}
-%\end{small}
+
 \begin{block}{If formal definition hard to work with, try to use \alert{bounds} instead, e.g.}
 $$
 0\;<\;\tfrac{1}{2n^2-1}\;\leq\; \tfrac{1}{n}, \quad n \geq 1 \quad \mbox{{(\small and so the middle sequence converges to zero)}	}.
@@ -257,9 +235,8 @@ $$
 \end{block}
 \end{frame}
 
-\begin{frame}
-\frametitle{Limit of a sequence}
-%\begin{small}
+\begin{frame}{Limit of a sequence}
+
 \textcolor{blue}{More Examples} 
 \begin{enumerate}
 
@@ -274,15 +251,10 @@ $$
 $$ 
 and the present discounted value of an amount $A$ received in $n$ years is $A e^{-Rn}$. 
 \vskip 12pt
-\textcolor{blue}{Example:} if the interest is compounded continuously at an APR of $8\%$, then the EAR is $8.329\%$ \begin{tiny}(since $e^{0.08}-1=0.08329$) \end{tiny}  
+\textcolor{blue}{Example:} if the interest is compounded continuously at an APR of $8\%$, then the EAR is $8.329\%$ \begin{tiny}(since $e^{0.08}-1=0.08329$) \end{tiny}  \end{frame}
 
+\begin{frame}{Limit of a sequence}
 
-%\end{small}
-\end{frame}
-
-\begin{frame}
-\frametitle{Limit of a sequence}
-%\begin{small}
 \textcolor{blue}{Theorem:} Every bounded and monotone sequence is convergent. \\\begin{tiny} (useful to show convergence but not to compute limits) \end{tiny}
 \vskip 12pt
 \textcolor{blue}{Remark:} Observe that only bounded  \begin{tiny}(for example $a_n=(-1)^n$)\end{tiny} or only monotone  \begin{tiny}(for example $a_n=n$)\end{tiny} is not sufficient for being convergent.
@@ -298,15 +270,10 @@ and the present discounted value of an amount $A$ received in $n$ years is $A e^
 then $$\lim_{n \rightarrow \infty} (a_n+b_n)=a+b, \quad\lim_{n \rightarrow \infty} a_nb_n=ab,
 \quad\lim_{n \rightarrow \infty} \frac{a_n}{b_n}=\frac{a}{b},$$
 the last equality being true only if $b_n,b\neq0$.
- 
+ \end{frame}
 
+\begin{frame}{Partial sums}
 
-%\end{small}
-\end{frame}
-
-\begin{frame}
-\frametitle{Partial sums}
-%\begin{small}
 The \textcolor{blue}{nth partial sum $s_n$} of a sequence $\{a_n\}$ is defined as the sum of the first $n$ terms:
 $$
 s_n\;\;=\;\;a_1+\cdots+a_n\;\;=\;\;\sum_{k=1}^n a_k.
@@ -327,15 +294,10 @@ $
 
 \item The nth partial sum of a \textcolor{blue}{geometric sequence} with ratio $r \neq 1$ is $$s_n=a_1 \frac{1-r^n}{1-r}.$$
 \begin{tiny}These formulas can help to compute the limit of a sequence\end{tiny}
-\end{enumerate}
+\end{enumerate}\end{frame}
 
+\begin{frame}{Economic example }
 
-%\end{small}
-\end{frame}
-
-\begin{frame}
-\frametitle{Economic example }
-%\begin{small}
 \textcolor{blue}{Regular savings:} We \textcolor{blue}{invest} an amount $A$ at the beginning of every year at an \textcolor{blue}{annual interest rate} $R$. After $n$ years the total amount is given by the \textcolor{blue}{geometric partial sum} 
 
 \begin{align*}
@@ -343,13 +305,10 @@ s_n&=A(1+R)^n+A(1+R)^{n-1}+\cdots+A(1+R)\\
 &= A(1+R)\frac{(1-(1+R)^n)}{1-(1+R)}\\
 &=\frac{A(1+R)}{R}((1+R)^n-1)
 \end{align*}
-\begin{tiny} Here $a_1=A(1+R)$ and $r=1+R$\end{tiny}
-%\end{small}
-\end{frame}
+\begin{tiny} Here $a_1=A(1+R)$ and $r=1+R$\end{tiny}\end{frame}
 
-\begin{frame}
-\frametitle{Series and convergence of series}
-%\begin{small}
+\begin{frame}{Series and convergence of series}
+
 The sequence $\{s_n\}$ of partial sums of a sequence $\{a_n\}$ is called a \textcolor{blue}{series}. 
 \vskip 12pt
 A series $\{ s_n\}$ is said to converge if it has a limit $s$. In this case, the value $s$ is called the \textcolor{blue}{sum} of the series:
@@ -362,11 +321,7 @@ $$
 $$
 s=\sum_{k=1}^{\infty} a_1 r^{k-1}=\lim_{n \rightarrow \infty}
 a_1 \frac{1-r^n}{1-r}=\frac{a_1}{1-r}. 
-$$
-
-
-%\end{small}
-\end{frame}
+$$\end{frame}
 
 
 \begin{frame}[plain] % "plain" removes header/footers
@@ -377,9 +332,8 @@ $$
 
 
 
-\begin{frame}
-\frametitle{Chapter 2: Functions of one variable}
-%\begin{small}
+\begin{frame}{Chapter 2: Functions of one variable}
+
 
 
 A \textcolor{blue}{one variable function} is simply a mapping that assigns a unique number $y$ in $\R$ to each number $x$ in $\R$. We write $f(x)=y$. 
@@ -388,13 +342,10 @@ $x$ is called the independent variable, or in economic applications, \textcolor{
 \vskip 12pt
 \textcolor{blue}{Economic examples:} endogenous variables: cost, revenue, profit, demand, production, utility, etc. and exogenous variables: time, labor, capital, price, etc.
 \vskip 12pt
-\textcolor{blue}{Read} Chapter 3 of Werner-Sotskov and Sections 2.1, 2.2, 5.1, 5.2, 5.3 of Simon-Blume
-%\end{small}
-\end{frame}
+\textcolor{blue}{Read} Chapter 3 of Werner-Sotskov and Sections 2.1, 2.2, 5.1, 5.2, 5.3 of Simon-Blume\end{frame}
 
-\begin{frame}
-\frametitle{Graph and domain}
-%\begin{small}
+\begin{frame}{Graph and domain}
+
 \begin{block}{Definition}
 The \textcolor{blue}{graph} of a functions consists of all points $(x,y)$ in $\R^2$ such that $y=f(x)$.
 \vskip 12pt
@@ -404,10 +355,7 @@ The \textcolor{blue}{domain} $D$ of a function are the numbers $x$ at which $f(x
 
 \textcolor{blue}{Example}: The domain of the function $f(x)=\frac{1}{x}$ is $D=\R \setminus \{0\}$. 
 \vskip 12pt
-Sometimes it is interesting to consider a function in a \textcolor{blue}{restricted domain}.
-
-%\end{small}
-\end{frame}
+Sometimes it is interesting to consider a function in a \textcolor{blue}{restricted domain}.\end{frame}
 
 
 \begin{frame}{
@@ -428,7 +376,7 @@ $$\vert f(x) \vert \leq C,\quad \text{for any } x \in D.$$
 \end{frame}
 
 \begin{frame}{Convex/concave functions}
-%\begin{small}
+
 If $x_1<x_2$ are two points in $\R$, the points of the form 
 $$t x_1+(1-t)x_2,$$ where $t \in [0,1]$ are called the \textcolor{blue}{convex combination} of $x_1$ and $x_2$.\\ {\scriptsize (They give all the points lying in the interval $[x_1,x_2]$)}
 
@@ -440,18 +388,14 @@ $$f(t x_1+(1-t)x_2)\leq t\, f(x_1)+(1-t) f(x_2)$$
 (resp. $\geq$). If for $t \in (0,1)$ and $x_1 \neq x_2$ the sign $<$ (resp. $>$) holds then it is \textcolor{blue}{strictly convex} (resp. \textcolor{blue}{strictly concave}).
 \end{frame}
 
-\begin{frame}
-\frametitle{Convex function}
+\begin{frame}{Convex function}
 
 \begin{figure}
 \includegraphics[width=4in]{img/convex} 
-\end{figure}
-
-
-\end{frame}
+\end{figure}\end{frame}
 
 \begin{frame}{Quasi-convex/concave functions}
-%\begin{small}
+
 
 A function $f:D \rightarrow \R$, where $D$ is convex is called \textcolor{blue}{quasi convex} if for every  $x_1,x_2 \in D$ and $t \in [0,1]$, 
 $$f(t x_1+(1-t)x_2)\leq \max(f(x_1), f(x_2)).$$
@@ -466,9 +410,7 @@ $$f(t x_1+(1-t)x_2)\geq \min(f(x_1), f(x_2)).$$
 
 \textcolor{blue}{Theorem:} any strictly increasing function is quasiconvex and quasiconcave.
 
-\begin{tiny} Proof: if $x_1<x_2$ then $f(x_1) \leq f(t x_1+(1-t)x_2)\leq f(x_2)$.\end{tiny}
-%\end{small}
-\end{frame}
+\begin{tiny} Proof: if $x_1<x_2$ then $f(x_1) \leq f(t x_1+(1-t)x_2)\leq f(x_2)$.\end{tiny}\end{frame}
 
 \begin{frame}{Economic example: logistic growth function}
 The standard logistic growth function is: 
@@ -491,9 +433,9 @@ Interpretation: At first, the rate of increase increases, but after some point i
 \end{frame}
 
 \begin{frame}{Economic example}
-%\begin{small}
+
 The logistic growth function is used to describe \textcolor{blue}{epidemic growth models}.  Check the following prediction versus epidemic curves over time of the  COVID-19 in China.
-%\end{small}
+
 \begin{figure}
 \includegraphics[width=0.60\textwidth]{img/figure}
 \end{figure}
@@ -514,9 +456,8 @@ The logistic growth function is used to describe \textcolor{blue}{epidemic growt
 \end{tikzpicture}
 \end{frame}
 
-\begin{frame}
-\frametitle{Examples of functions}
-%\begin{small}
+\begin{frame}{Examples of functions}
+
 \begin{enumerate}
 \item \textcolor{blue}{monomials}: $f(x)=a x^k$, $k$ natural number.
 
@@ -538,21 +479,16 @@ The logistic growth function is used to describe \textcolor{blue}{epidemic growt
 \item \textcolor{blue}{base e logarithm function}: $f(x)=\log x$ \begin{tiny}(defined as the unique function such that $e^{\log (x)}=x$ and $\log(e^x)=x$)  \end{tiny} 
 
 \qquad \textcolor{blue}{recall:} $e^{x+y}=e^x e^y$, $e^0=1$,\\ \qquad\quad\qquad $\log(xy)=\log(x)+\log(y)$, $\log(1)=0$, $\log(a^x)=x\log(a)$.
-\end{enumerate}
+\end{enumerate}\end{frame}
 
-%\end{small}
-\end{frame}
-
-\begin{frame}
-\frametitle{Exponential functions}
+\begin{frame}{Exponential functions}
 \begin{figure}
 \includegraphics[width=2.5in]{img/exp} 
 \end{figure}
 \end{frame}
 
-\begin{frame}
-\frametitle{Chapter 3: Differentiation}
-%\begin{small}
+\begin{frame}{Chapter 3: Differentiation}
+
  \textcolor{blue}{Differentiation} gives information on how the function changes with respect to small changes of the independent variable.
 \vskip 12pt
 \textcolor{blue}{Example:} how does the change of the price of some product affect the amount of product customers will buy ?
@@ -562,16 +498,12 @@ Differential calculus gives also information about extreme points, monotonicity,
 \textcolor{blue}{Read} Chapter 4 of Werner-Sotskov, Chapters 2 to 5 of Simon-Blume
 \vskip 12pt
 \textcolor{blue}{Exercises:} 4.6(c), 4.10, 4.14, 4.15(a)-(c), 4.16(d), 4.17(b) (Werner-Sotskov), 5.5 (b)-(c)-(e) (Simon-Blume)
-
-
-%\end{small}
 \end{frame}
 
 
-\begin{frame}
-\frametitle{Limit of a function}
+\begin{frame}{Limit of a function}
 \begin{alertblock}{}
-Let $f:D  \rightarrow \R$ and let $x_0 \in \R$. We say that $L$ is the l\textcolor{blue}{imit} of $f$ as $x$ tends to $x_0$ if for any sequence $\{x_n\} \in D$ convergent to $x_0$, the sequence
+Let $f:D  \rightarrow \R$ and let $x_0 \in \R$. We say that $L$ is the \textcolor{blue}{limit} of $f$ as $x$ tends to $x_0$ if for any sequence $\{x_n\} \in D$ convergent to $x_0$, the sequence
 $\{f(x_n)\}$ converges to $L$. 	\\[3mm]
 \textcolor{blue}{Notation:} $\lim_{x \rightarrow x_0} f(x)=L$. \textcolor{blue}{Remark:} we do note need that $x_0 \in D$.
 \end{alertblock}
@@ -584,12 +516,10 @@ the last equality being true only if $y_2\neq0$ and $g(x) \neq 0$ around $x_0$.
 \end{block}
 %$$\lim_{x \rightarrow x_0} \sqrt{f(x)}=\sqrt{y_1}, \quad\lim_{x \rightarrow x_0} [f(x)]^n=y_1^n,
 %\quad\lim_{x \rightarrow x_0} a^{f(x)}=a^{y_1}.$$
-
-%\end{small}
 \end{frame}
 
 \begin{frame}{Continuity of a function}
-%\begin{small}
+
 \begin{alertblock}{Definition}
 We say that a function $f$ is \textcolor{blue}{continuous}
 at $x_0 \in D$ if $$\lim_{x \rightarrow x_0} f(x)=f(x_0).$$
@@ -602,13 +532,10 @@ $g(x)\neq 0$ around $x_0$, then $\frac{f}{g}$ is continuous at $x_0$.
 
 \vskip 12pt
 \textcolor{blue}{Theorem:} If $f:[a,b] \rightarrow \R$ is continuous then it is bounded.
-
-%\end{small}
 \end{frame}
 
 
 \begin{frame}{Continuity of a function}
-%\begin{small}
 The \textcolor{blue}{composition} of two functions $f$ and $g$ is the function  defined as
 $h(x)=f(g(x))$, for all $x \in D_g$. 
 \textcolor{blue}{Notation:} $h=f \circ g$.
@@ -626,13 +553,10 @@ Let $f:[a,b] \rightarrow \R$ be a \textcolor{blue}{strictly monotone continuous 
 \end{block}
 
 \begin{tiny} (For example, $e^{\log(x)}=x$ and $\log(e^x)=x$.) \end{tiny}
-
-
-%\end{small}
 \end{frame}
 
 \begin{frame}{Derivative}
-%\begin{small}
+
 Let $f:(a,b) \rightarrow \R$. The function $f$ is said to be \textcolor{blue}{differentiable} at $x \in (a,b)$ if the limit
 $$
 \lim_{h \rightarrow 0} \frac{f(x+h)-f(x)}{h},
@@ -647,15 +571,10 @@ exists. In this case, it denoted $f'(x)$ and called the \textcolor{blue}{derivat
 \textcolor{blue}{Example:} $f(x)=\vert x\vert$ is continuous but not differentiable at $0$.
 \vskip 12pt
 \begin{tiny}In economics, continuity is a reasonable assumption (a small change in $x$ gives a small change in $y$).\\ 
-Differentiability tell us how smooth is that change\end{tiny}.
-
-
-%\end{small}
+Differentiability tell us how smooth is that change\end{tiny}
 \end{frame}
 
-\begin{frame}
-\frametitle{Geometric intepretation}
-%\begin{small}
+\begin{frame}{Geometric interpretation}
 If $f$ is differentiable at $x_0$, the equation of the tangent  line
 to the curve $y=f(x)$ at point $(x_0, f(x_0))$ is
 $$
@@ -665,14 +584,12 @@ That is, the derivative of $f$ at $x_0$ is the \textcolor{blue}{slope of this ta
 \begin{figure}
 \includegraphics[width=2.5in]{img/derivative} \\
 slope of the \textcolor{green}{secant line} through P and Q $=\frac{f(x+h)-f(x)}{h}$\\
-slope of the \textcolor{red}{tangent line} through P $=f'(x)$%\end{small}
+slope of the \textcolor{red}{tangent line} through P $=f'(x)$
 \end{figure}
 \end{frame}
 
 
-\begin{frame}
-\frametitle{Economic example}
-%\begin{small}
+\begin{frame}{Economic example}
 In economics, the following \textcolor{blue}{crude approximation} is used
 $$
 f'(x) \approx f(x+1)-f(x).
@@ -687,18 +604,14 @@ Then the derivative is often called the \textcolor{blue}{marginal}, since it is 
 $$
 f'(x)\Delta x \approx f(x+\Delta x)-f(x).
 $$
-%In differential notation
-%$$
-%f'(x) dx \approx df.
-%$$
-%
-%
-%\end{small}
+In differential notation
+$$
+f'(x) dx \approx df.
+$$
 \end{frame}
 
-\begin{frame}
-\frametitle{Differentiation rules}
-%\begin{small}
+\begin{frame}{Differentiation rules}
+
 \textcolor{blue}{Derivatives of elementary functions:}
 \begin{enumerate}
 \item $f(x)=c$, $\;$ $f'(x)=0$, where $c$ is a constant.
@@ -714,17 +627,12 @@ $$
 \begin{tiny}Proof of 8: $(a^x)'=(e^{x\log(a)})'=a^x \log(a)$ (by the chain rule)\end{tiny}
 
 \begin{tiny} Example of 3: $(\sqrt{x})'=\frac{1}{2\sqrt{x}}$ \end{tiny}
-
-
-
-%\end{small}
 \end{frame}
 
 
 
-\begin{frame}
-\frametitle{Differentiation rules}
-%\begin{small}
+\begin{frame}{Differentiation rules}
+
 
 
 
@@ -737,10 +645,6 @@ $fg$ and $f/g$ (the last one provided that $g(x) \neq 0$), and
 \item $\left(\frac{f}{g}\right)'(x)=\frac{f'(x) g(x)-g'(x)f(x)}{g^2(x)}$.
 \end{itemize}
 %\begin{tiny} The second and third formulas follow from the chain rule \end{tiny}
-
-
-
-%\end{small}
 \end{frame}
 
 
@@ -803,9 +707,12 @@ h'(x)=a^{v(x)}\ln(a)\,v'(x)$.
 \end{itemize}
 \end{frame}
 
+\begin{frame}{Some of the contributors}
+	\centering\includegraphics[scale=.2]{vbreaks/caganer1}
+\end{frame}
 
 \begin{frame}{Differentiation rules}
-%\begin{small}
+
 \textcolor{blue}{Theorem (derivative of the inverse):} Let $f$ be a strictly monotone continuous function  differentiable at $x \in D_f$. Then the inverse $f^{-1}$ is differentiable at $y=f(x)$ if and only if $f'(x) \neq 0$, and in this case
 $$
 (f^{-1})'(y)=\frac{1}{f'(x)}=\frac{1}{f'(f^{-1}(y))}.
@@ -815,14 +722,10 @@ $$
 \textcolor{blue}{Example:}  $f(x)=e^x$, $f'(x)=e^x > 0$, therefore, $(\log)'(y)=\frac{1}{y}$ for all $y>0$.
 \vskip 11pt
 \textcolor{blue}{Higher-order derivatives:} If $f'$ is differentiable,  its derivative is called the \textcolor{blue}{second derivative} of $f$ and  denoted $f''$. Similarly, we can define \textcolor{blue}{higher-order derivatives}, and $f^{(n)}$ is called the $n$th derivative of $f$. If $f^{(n)}$ is continuous, we say that $f$ is $n$ times \textcolor{blue}{continuously differentiable} or \hl{$C^{n}$} for short.
-
-
-%\end{small}
 \end{frame}
 
-\begin{frame}
-\frametitle{Limits}
-%\begin{small}
+\begin{frame}{Limits}
+
  \textcolor{blue}{Theorem (L'H\^opital's rule):} Let $f,g$ be  two $C^1$ functions in $(a,b)$ with $g' \neq 0$
 in $(a,b)$. Assume that one of the next hypothesis is satisfied:
 \begin{itemize}
@@ -846,15 +749,11 @@ e^{\lim_{x \rightarrow 0} \frac{\log (1+x)}{x}}=e^{\lim_{x \rightarrow 0} \frac{
 \end{split}
 \end{equation*}
 \begin{tiny}We have used l'H\^opital's rule in the third equality and the last property in page 28 in the second one.\end{tiny}
-
-
-%\end{small}
 \end{frame}
 
 
-\begin{frame}
-\frametitle{Monotonicity}
-%\begin{small}
+\begin{frame}{Monotonicity}
+
 \textcolor{blue}{Theorem:} Consider $f$ differentiable in $(a,b)$. Then 
 \begin{enumerate}
 \item $f$ is increasing on $[a,b]$
@@ -875,9 +774,6 @@ Therefore, $f$ is strictly increasing on $(-\infty, -3]$ and $[-1, \infty)$, whi
 
 \begin{tiny}This implies that $-3$ is a local max and $-1$ is a local min (see next slide). 
 However, there are no global optima since $\lim_{ x \rightarrow \pm \infty} f(x)=\pm \infty$.  \end{tiny}
-
-
-%\end{small}
 \end{frame}
 
 
@@ -887,22 +783,15 @@ However, there are no global optima since $\lim_{ x \rightarrow \pm \infty} f(x)
 
 
 
-\begin{frame}
-\frametitle{Optimal points: 1st order conditions}
-%\begin{small}
+\begin{frame}{Optimal points: 1st order conditions}
+
 Let $f:D \rightarrow \R$. A point $x_0 \in D$ is called a \textcolor{blue}{local max} (resp. \textcolor{blue}{local min}) of $f$ if there is an interval $(a,b) \subset D$ containing $x_0$ such that $$f(x)\leq f(x_0), \quad \text{ for all } x \in (a,b)$$ (resp. $f(x) \geq f(x_0)$)
 \vskip 12pt
 We say that $x_0$ is a \textcolor{blue}{global max} (resp. \textcolor{blue}{global min}) if $$f(x)\leq f(x_0)\quad \text{for all } x \in D$$ (resp. $f(x) \geq f(x_0)$) 
 
 \begin{tiny} Boundary points are typically not considered as local max or min, we call a max or a min an optimum  \end{tiny}
 
- 
-
-
-
-
-%\end{small}
-\end{frame}
+ \end{frame}
 
 \begin{frame}{Optimal points}
 \begin{figure}
@@ -922,7 +811,7 @@ Points $x$ such that $f'(x)=0$ are called \textcolor{blue}{stationary points}.
 
 
 \begin{frame}{Economic example}
-%\begin{small}
+
 Suppose you own a property whose market value will be $V(t)$ pesos $t$ years from now. If the interest rate is $R$, this means that the present value is $P(t)=V(t) e^{-Rt}$.
 What is the optimal time $t_0$ to sell this property ? We maximize its present value with respect  to $t$.
 \vskip 12pt
@@ -938,26 +827,21 @@ $$
 P(t)=10000e^{\sqrt{t}-0.06 t}.
 $$
 The optimal time to sell is $t \approx 69.44$, which is the global max of $P$ on $[0, \infty)$.
-
-
-%\end{small}
 \end{frame}
 
-\begin{frame}
-\frametitle{Plot of the present value $P(t)$}
+\begin{frame}{Plot of the present value $P(t)$}
 
 
 \begin{figure}
 \includegraphics[width=3.5in]{img/plot} 
 \end{figure}
-%\begin{small}To check  that  a  local optimum is global we need to look at the value  of  the  function at the  extreme points of the domain. 
+To check  that  a  local optimum is global we need to look at the value  of  the  function at the  extreme points of the domain. 
 
-Here $P(0)=10000$ and $\lim_{t \rightarrow \infty} P(t)=0$.%\end{small}
+Here $P(0)=10000$ and $\lim_{t \rightarrow \infty} P(t)=0$.
 \end{frame}
 
-\begin{frame}
-\frametitle{Optimal points: 2nd order conditions}
-%\begin{small}
+\begin{frame}{Optimal points: 2nd order conditions}
+
 \textcolor{blue}{Theorem:} Let $f:(a,b) \rightarrow \R$ a $C^n$ function, and $x \in (a,b)$ a stationary point. If
 $$
 f'(x)=f''(x)=\dots=f^{(n-1)}(x)=0, \quad \text{and} \quad f^{(n)}(x) \neq 0,
@@ -977,25 +861,22 @@ $$
 f''(x)=\frac{2(1-3\log3x+\log^23x)}{x^3}
 $$
 Since $f''(x_1)>0$ and $f''(x_2)<0$, $x_1$ is a local min and $x_2$ is a local max.
-%\end{small}
 \end{frame}
 
 
-\begin{frame}
-\frametitle{Plot of $f(x)=\frac{\log^2 3x}{x}$, $x>0$}
+\begin{frame}{Plot of $f(x)=\frac{\log^2 3x}{x}$, $x>0$}
 
 \begin{figure}
 \includegraphics[width=3.5in]{img/ima} 
 \end{figure}
-%\begin{small}Since $\lim_{x \rightarrow \infty} f(x)=0$, $\lim_{x \rightarrow 0} f(x)=\infty$
-and $f(x_1)=0$, $f(x_2)>0$, $x_1$ is a global min but there a no global max.%\end{small}
+Since $\lim_{x \rightarrow \infty} f(x)=0$, $\lim_{x \rightarrow 0} f(x)=\infty$
+and $f(x_1)=0$, $f(x_2)>0$, $x_1$ is a global min but there a no global max.
 \end{frame}
 
 
 
-\begin{frame}
-\frametitle{Convexity and concavity}
-%\begin{small}
+\begin{frame}{Convexity and concavity}
+
  \textcolor{blue}{Theorem:} Let $f$ be a twice differentiable on $(a,b)$. Then:
 \begin{enumerate}
 \item $f$ is convex (concave) on $[a,b]$ if and only if $f''(x)\geq 0$  ($f''(x)\leq 0$) for all $x \in (a,b)$.
@@ -1013,23 +894,19 @@ Then, $f$ is strictly convex on $[-\sqrt{3},0] \cup [\sqrt{3}, \infty)$ and stri
  \textcolor{blue}{Theorem:} If $f$ and $g$ are convex (or concave), then $f \circ g$ is convex (or concave).
  
 \textcolor{blue}{Example:} $f(x)=e^{x^2}$ is strictly convex on $[0, \infty)$.
-
-%\end{small}
 \end{frame}
 
-\begin{frame}
-\frametitle{Plot of $f(x)=\frac{2x}{x^2+1}$}
+\begin{frame}{Plot of $f(x)=\frac{2x}{x^2+1}$}
 
 \begin{figure}
 \includegraphics[width=3.5in]{img/ima1} 
 \end{figure}
 
-%\begin{small}The points 0, $\sqrt{3}$ and $-\sqrt{3}$ are inflexion points. The points $1$ and $-1$ are global max and min since $\lim_{x \rightarrow \infty} f(x)=0$ and $\lim_{x \rightarrow -\infty} f(x)=0$.%\end{small}
+The points 0, $\sqrt{3}$ and $-\sqrt{3}$ are inflexion points. The points $1$ and $-1$ are global max and min since $\lim_{x \rightarrow \infty} f(x)=0$ and $\lim_{x \rightarrow -\infty} f(x)=0$.
 \end{frame}
 
-\begin{frame}
-\frametitle{Convexity and concavity}
-%\begin{small}
+\begin{frame}{Convexity and concavity}
+
 Let $f$ be a twice differentiable on $(a,b)$. A point $x \in (a,b)$ is called an \textcolor{blue}{inflexion point} if $f$ changes at $x$ from being concave to convex, or vice versa.
 \vskip 12pt
 \textcolor{blue}{Theorem:} Let $f:D_f \rightarrow \R$ $C^n$ on $(a,b)$. $f$ has an inflexion point at $x \in (a,b)$ if and only if
@@ -1042,9 +919,6 @@ where $n$ is \textcolor{blue}{odd}.
 \vskip 12pt
  \textcolor{blue}{Example:} $f(x)=x^3$, $f'(x)=3x^2$, $f''(x)=6x$, $f'''(x)=6>0$, 
 so 0 is an inflexion point.
-
-
-%\end{small}
 \end{frame}
 
 
@@ -1062,18 +936,14 @@ $$
 the points $(a, f(a))$ and $(b,f(b))$. Thus, the mean value theorem says that there exists $c \in (a,b)$, such that the tangent line to $f$ at $c$ is parallel to the secant line.
 \end{frame}
 
-\begin{frame}
-\frametitle{Geometry of the mean-value theorem}
+\begin{frame}{Geometry of the mean-value theorem}
 Recall: \ldots there exists $c \in (a,b)$ such that
 $$
 f'(c)=\frac{f(b)-f(a)}{b-a}\qquad\mbox{(or}\;\; f(b)=f(a)+f'(c)(b-a)\mbox{)}.
 $$
 \begin{figure}
 \includegraphics[width=2.5in]{img/secant} 
-
 \end{figure}
-
-
 \end{frame}
 
 \begin{frame}{Taylor formula}
@@ -1093,8 +963,7 @@ If  $n>2$,
  
   The error is small if $x$ is close to $x_0$, therefore, this theorem says that differentiable functions may be \textcolor{blue}{locally approximated
  by a polynomial} called the \textcolor{DarkRed}{Taylor polynomial}.
-%\end{small}
-\end{frame}
+ \end{frame}
 
 \begin{frame}{Taylor's error}
 \begin{alertblock}{The remainder term has the form}
@@ -1117,88 +986,88 @@ R^y_2(x) = \frac{f^{(3)}(y)}{3!}(x-1)^3 = \frac{1}{3y^3}(x-1)^3,
 which, for $x>1$, is bounded by $\frac13(x-1)^3$.
 \end{frame}
 
-\begin{frame}{What is a European call option?}
-\small
-A \textbf{European call option} is a contract that gives its owner the right (but not the obligation) 
-to \emph{buy} a stock for a fixed \emph{strike price} $K$ at a specific \emph{maturity date} $T$.
-
-\medskip
-Payoff at maturity:
-\[
-\text{Payoff} = \max(S_T - K,\, 0)
-\]
-- If $S_T > K$: you can buy at $K$ and immediately sell at $S_T$, earning $S_T - K$.
-- If $S_T \le K$: you would not exercise the option (payoff is 0).
-
-\medskip
-\textbf{Value before maturity:} At time $t<T$, the option has market value $C_t(S_t)$,  
-depending on:
-\begin{itemize}
-\item the current stock price $S_t$,
-\item time to maturity $T-t$,
-\item volatility, interest rates, and other market factors.
-\end{itemize}
-%
-%\begin{center}
-%\includegraphics[scale=.3]{img/callpayoff.png}
-%\end{center}
-\end{frame}
-
-
-\begin{frame}{Reducing risk with a hedge}
-\small
-Suppose at $t=0$ we:
-\begin{itemize}
-\item \textbf{Own one call option} with value $C_0(S_0)$.
-\item \textbf{Sell $\Delta_0$ shares} of the stock, where 
-$\Delta_0 = C_0'(S_0)$ measures how much the option value changes per unit change in the stock price.
-\end{itemize}
-
-The total portfolio value is:
-\[
-\Pi_0 = C_0(S_0) - \Delta_0 S_0.
-\]
-
-\medskip
-If the stock price changes from $S_0$ to $S_0 + x$ (small $x$), the new portfolio value is:
-\[
-\Pi_1 = C_0(S_0 + x) - \Delta_0 (S_0 + x).
-\]
-
-\medskip
-\textbf{Profit or loss} from this price move:
-\[
-V_0 = \Pi_1 - \Pi_0 = C_0(S_0+x) - C_0(S_0) - \Delta_0\,x.
-\]
-%\begin{center}
-%\includegraphics[width=0.6\linewidth]{img/hedgedportfolio.png}
-%\end{center}
-\end{frame}
-
-\begin{frame}{Taylor approximation and remaining risk}
-\small
-Using Taylor's formula for $C_0(S_0+x)$:
-\[
-C_0(S_0+x) = C_0(S_0) + \Delta_0\,x + \frac12 \Gamma_0\,x^2 + O(x^3),
-\]
-where $\Gamma_0 = C_0''(S_0)$ measures how fast the Delta changes.
-
-\medskip
-Substitute into $V_0$:
-\[
-V_0 = \frac12 \Gamma_0\,x^2 + O(x^3).
-\]
-
-\textbf{Interpretation:}
-\begin{itemize}
-\item Choosing $\Delta_0$ as above removes the \emph{first-order} effect of small price changes.
-\item The remaining risk is due to the curvature of $C_0(S)$, called \textbf{Gamma risk}.
-\end{itemize}
+%\begin{frame}{What is a European call option?}
+%\small
+%A \textbf{European call option} is a contract that gives its owner the right (but not the obligation) 
+%to \emph{buy} a stock for a fixed \emph{strike price} $K$ at a specific \emph{maturity date} $T$.
 %
 %\medskip
-%\textbf{Example:} 1-month call option, $K=100$, $S_0=100$, volatility 20\%.
-%\begin{figure}
-%\includegraphics[width=1in]{img/deltahb}
-%\end{figure}
-\end{frame}
+%Payoff at maturity:
+%\[
+%\text{Payoff} = \max(S_T - K,\, 0)
+%\]
+%- If $S_T > K$: you can buy at $K$ and immediately sell at $S_T$, earning $S_T - K$.
+%- If $S_T \le K$: you would not exercise the option (payoff is 0).
+%
+%\medskip
+%\textbf{Value before maturity:} At time $t<T$, the option has market value $C_t(S_t)$,  
+%depending on:
+%\begin{itemize}
+%\item the current stock price $S_t$,
+%\item time to maturity $T-t$,
+%\item volatility, interest rates, and other market factors.
+%\end{itemize}
+%%
+%%\begin{center}
+%%\includegraphics[scale=.3]{img/callpayoff.png}
+%%\end{center}
+%\end{frame}
+%
+%
+%\begin{frame}{Reducing risk with a hedge}
+%\small
+%Suppose at $t=0$ we:
+%\begin{itemize}
+%\item \textbf{Own one call option} with value $C_0(S_0)$.
+%\item \textbf{Sell $\Delta_0$ shares} of the stock, where 
+%$\Delta_0 = C_0'(S_0)$ measures how much the option value changes per unit change in the stock price.
+%\end{itemize}
+%
+%The total portfolio value is:
+%\[
+%\Pi_0 = C_0(S_0) - \Delta_0 S_0.
+%\]
+%
+%\medskip
+%If the stock price changes from $S_0$ to $S_0 + x$ (small $x$), the new portfolio value is:
+%\[
+%\Pi_1 = C_0(S_0 + x) - \Delta_0 (S_0 + x).
+%\]
+%
+%\medskip
+%\textbf{Profit or loss} from this price move:
+%\[
+%V_0 = \Pi_1 - \Pi_0 = C_0(S_0+x) - C_0(S_0) - \Delta_0\,x.
+%\]
+%%\begin{center}
+%%\includegraphics[width=0.6\linewidth]{img/hedgedportfolio.png}
+%%\end{center}
+%\end{frame}
+%
+%\begin{frame}{Taylor approximation and remaining risk}
+%\small
+%Using Taylor's formula for $C_0(S_0+x)$:
+%\[
+%C_0(S_0+x) = C_0(S_0) + \Delta_0\,x + \frac12 \Gamma_0\,x^2 + O(x^3),
+%\]
+%where $\Gamma_0 = C_0''(S_0)$ measures how fast the Delta changes.
+%
+%\medskip
+%Substitute into $V_0$:
+%\[
+%V_0 = \frac12 \Gamma_0\,x^2 + O(x^3).
+%\]
+%
+%\textbf{Interpretation:}
+%\begin{itemize}
+%\item Choosing $\Delta_0$ as above removes the \emph{first-order} effect of small price changes.
+%\item The remaining risk is due to the curvature of $C_0(S)$, called \textbf{Gamma risk}.
+%\end{itemize}
+%%
+%%\medskip
+%%\textbf{Example:} 1-month call option, $K=100$, $S_0=100$, volatility 20\%.
+%%\begin{figure}
+%%\includegraphics[width=1in]{img/deltahb}
+%%\end{figure}
+%\end{frame}
 \end{document}

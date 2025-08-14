@@ -25,74 +25,53 @@ Mathematics Brush-up\\ $\;$\\ $\;$\\
 
 
 
-\begin{frame}
-\frametitle{Chapter 4: Integration}
-\begin{small}
- In many applications, a function $f$ is given, and we are looking for $F$ whose derivative is $f$.
+\begin{frame}{Chapter 4: Integration}
+
+Often, a function $f$ is given, and we are looking for \hl{$F$ whose derivative is $f$}.
 \vskip 12pt
 \textcolor{blue}{Example:} the marginal cost function $C'$ is given (we know how cost changes according the production), and we want to find $C$.
 \vskip 12pt
-The function $F$ can be found by \textcolor{blue}{integration}, which is the reverse process of differentiation.
+$F$ can be found by \textcolor{blue}{integration}, which is the reverse process of differentiation.
 \vskip 12pt
 \textcolor{blue}{Read}  Chapter 5 of Werner-Sotskov 
 \vskip 12pt
 \textcolor{blue}{Exercises:} 5.1 (a)-(b), 5.2 (a)-(b), 5.3 (c) (Werner-Sotskov)
-
-
-\end{small}
 \end{frame}
-\begin{frame}
-\frametitle{Indefinite integrals}
-\begin{small}
+\begin{frame}{Indefinite integrals}
+
 A differentiable function $F$ is called an \textcolor{blue}{antiderivative} of a function $f$ if $F'(x)=f(x)$, for all $x \in D_F=D_f$.
 \vskip 12pt
 \textcolor{blue}{Theorem:} Then, all antiderivatives of $f$ are of the form $\tilde{F}(x)=F(x)+c$ where $c$ is any constant.
 \vskip 12pt
 The \textcolor{blue}{indefinite integral} of $f$ is defined as $$\int f(x) dx=F(x)+c$$
 
-\textcolor{blue}{Properties:}
+\textcolor{blue}{Properties (integration is a linear operation):}
 \begin{enumerate}
 \item $\int (f(x)+g(x)) dx=\int f(x) dx+\int g(x) dx$.
 \item $\int cf(x) dx= c \int f(x) dx$.
-\end{enumerate}
+\end{enumerate}\end{frame}
 
-
-
-
-\end{small}
-\end{frame}
-
-\begin{frame}
-\frametitle{Indefinite integrals}
-\begin{small}
-
-
+\begin{frame}{Indefinite integrals}
 \textcolor{blue}{Some indefinite integrals:}
 \begin{enumerate}
-\item $\int x^n dx =\frac{x^{n+1}}{n+1} +c$, $n \neq -1$  
-\item $\int \frac{1}{x} dx=\log \vert x \vert +c$ 
-\item $\int e^x dx= e^x +c$.
-\item $\int \sin(x) dx=-\cos(x)+c \qquad $
-\item $\int \cos(x) dx=\sin(x)+c$
-\item $\int a^x dx=\frac{a^x}{\log a} +c, a>0, a \neq 1$
-
+\item $\int x^n dx =\frac{x^{n+1}}{n+1} +c$, $n \neq -1$  \\[3mm]
+\item $\int \frac{1}{x} dx=\log \vert x \vert +c$ \\[3mm]
+\item $\int e^x dx= e^x +c$.\\[3mm]
+\item $\int \sin(x) dx=-\cos(x)+c \qquad $\\[3mm]
+\item $\int \cos(x) dx=\sin(x)+c$\\[3mm]
+\item $\int a^x dx=\frac{a^x}{\log a} +c, a>0, a \neq 1$\\[3mm]
 \end{enumerate}
-\begin{tiny} Proof: differentiate the right hand side to obtain the expression  inside the integral \end{tiny}
-
-
-
-\end{small}
+\begin{small} Proof: differentiate the right hand side to obtain the expression  inside the integral \end{small}
 \end{frame}
 
-\begin{frame}
-\frametitle{Integration by substitution}
-\begin{small}
-\textcolor{blue}{Theorem:} Assume that $f$ has an antiderivative $F$, and let $g$  continuously differentiable.
+\begin{frame}{Integration by substitution}
+\begin{block}{Theorem (Integration by substitution)}
+Assume that $f$ has an antiderivative $F$, and let $g$  continuously differentiable.
 Then setting $t=g(x)$, we obtain 
 $$
 \int f(g(x)) g'(x) dx=\int f(t) dt=F(t)+c=F(g(x))+c.
-$$
-
+$$	
+\end{block}
  \textcolor{blue}{Examples:}
 $$
 1. \int (ax+b)^n dx= \frac{1}{a} \int t^n dt=\frac{t^{n+1}}{a(n+1)}+c=\frac{(ax+b)^{n+1}}{a(n+1)}+c 
@@ -104,44 +83,37 @@ $$
 2. \int \frac{e^x}{\sqrt[3]{1+e^x}} dx=\int t^{-1/3} dt=\frac{3}{2} t^{2/3}+c=
 \frac32 (1+e^x)^{2/3}+c 
 $$
-
  \begin{tiny} ($t=1+e^x, dt=e^x dx$)\end{tiny}
-
-
-\end{small}
 \end{frame}
 
-\begin{frame}
-\frametitle{Integration by parts}
-\begin{small}
-\textcolor{blue}{Theorem:} Let $u,v$ two differentiable functions. Then
+\begin{frame}{Integration by parts}
+\begin{block}{Theorem (Integration by parts)}
+Let $u,v$ two differentiable functions. Then
 $$
  \int u(x)v'(x) dx=u(x)v(x)- \int u'(x)v(x) dx.
-$$
+$$	
+\vspace{-5mm}\begin{tiny}Proof: Apply the product  rule to $(u(x)v(x))'$ and integrate. \end{tiny}
+\end{block}
+\bigskip 
 
-\begin{tiny}Proof: Apply the product  rule to $(u(x)v(x))'$ and integrate. \end{tiny}
-
-\textcolor{blue}{Examples:} 
-$$
-1. \int \log x dx=x \log x-\int dx=x(\log x -1) +c 
+\textcolor{blue}{Example:} Apply the theorem with $u=\log(x), v'=1$ to get 
+	$$
+\int \log x dx=x \log x-\int dx=x(\log x -1) +c 
  $$
- 
- \begin{tiny} Apply the Theorem with $u=\log(x), v'=1$\end{tiny}
- 
+ \end{frame}
+
+\begin{frame}{Another example}
+First integrate by substitution $\sqrt{x}=t, 2 \sqrt{x} dt=dx$ then integrate by parts with $u=t, v'=\sin t$ to get
 \begin{equation*} \begin{split}
-2. &\int \sin \sqrt{x} dx=2 \int t \sin t \, dt= 2 (-t\cos t +\int \cos t \, dt)\\
+&\int \sin \sqrt{x} dx=2 \int t \sin t \, dt= 2 (-t\cos t +\int \cos t \, dt)\\
 &\qquad =2(-t\cos t+\sin t) +c =2(-\sqrt{x} \cos \sqrt{x}+\sin \sqrt{x})+c
  \end{split}
- \end{equation*}
- 
-  \begin{tiny} First integrate by substitution $\sqrt{x}=t, 2 \sqrt{x} dt=dx$ then integrate by parts with $u=t, v'=\sin t$\end{tiny}
-\end{small}
-
-
+ \end{equation*}	
 \end{frame}
-\begin{frame}
-\frametitle{The definite integral}
-\begin{small}
+
+
+\begin{frame}{The definite integral}
+
 The \textcolor{blue}{definite integral} of $f:[a,b] \rightarrow \R_+$ continuous equals the 
 \textcolor{blue}{area} covered by the $x$-axis and the graph of $f$.
 \vskip 12pt
@@ -163,14 +135,8 @@ The \textcolor{blue}{definite integral} of $f:[a,b] \rightarrow \R_+$ continuous
 $$
 \int_a^b f(x) dx\leq \int_a^b g(x) dx.
 $$
-\end{enumerate}
+\end{enumerate}\end{frame}\begin{frame}{The definite integral}
 
-
-
-\end{small}
-\end{frame}\begin{frame}
-\frametitle{The definite integral}
-\begin{small}
 \textcolor{blue}{Theorem:} Let $f$ continuous on $[a,b]$ with antiderivative $F$. Then 
 $$
 \int_a^b f(x) dx=F(b)-F(a).
@@ -190,15 +156,11 @@ C(400)-C(300)&=\int_{300}^{400} C'(x) dx=(6x-60\log \vert x+1 \vert) \bigg\vert_
 &\approx 582.79
 \end{split}
 \end{equation*}
-
-
-\end{small}
 \end{frame}
 
 
-\begin{frame}
-\frametitle{Application of the  integral: Proof of the number $e$}
-\begin{small}
+\begin{frame}{Application of the  integral: Proof of the number $e$}
+
 We can define the \textcolor{blue}{ logarithm function} as
 $$
 \log x =\int_1^x \frac{1}{t} dt.
@@ -215,15 +177,11 @@ Therefore
 $$
 \frac{1}{n+1} \leq  \log \left(1+\frac1n \right) \leq \frac1n.
 $$
-
-
-\end{small}
 \end{frame}
 
 
-\begin{frame}
-\frametitle{Application: Proof of the number $e$}
-\begin{small}
+\begin{frame}{Application: Proof of the number $e$}
+
  Taking the  exponential, we get
 $$
 e^{\frac{1}{1+n}} \leq 1+\frac1n \leq e^{\frac1n}.
@@ -239,14 +197,10 @@ $$
 $$
 
 Taking the limit as $n \rightarrow \infty$ we obtain the result.
-
-
-\end{small}
 \end{frame}
 
-\begin{frame}
-\frametitle{Application of the  integral: Taylor's formula $n=2$}
-\begin{small}
+\begin{frame}{Application of the  integral: Taylor's formula $n=2$}
+
 Applying 3 times the theorem in slide 8, we get
 \begin{equation*} \begin{split}
 &f(x)=f(x_0)+\int_{x_0}^x f'(t_1) dt_1 \\
@@ -259,13 +213,10 @@ Applying 3 times the theorem in slide 8, we get
 Finally, using the intermediate value theorem, we get that there exists $y \in (x_0, x)$ such that
 $$
 \int_{x_0}^x \int_{x_0}^{t_1} \int_{x_0}^{t_2} f'''(t_3) dt_3  dt_2 dt_1=f'''(y) \frac{(x-x_0)^3}{3!}.
-$$
-\end{small}
-\end{frame}
+$$\end{frame}
 
-\begin{frame}
-\frametitle{Chapter 5: Vectors}
-\begin{small}
+\begin{frame}{Chapter 5: Vectors}
+
 A \textcolor{blue}{vector} is an ordered $n$-tuple
 \vskip 12pt
 This is important in economics, since it can describe a bundle of commodities such that the $i$th value represents the quantity of the $i$th commodity.
@@ -274,16 +225,10 @@ This is important in economics, since it can describe a bundle of commodities su
 \vskip 12pt
 
  \textcolor{blue}{Exercises:} 6.2, 6.3, 6.4, 6.6, 6.7, 6.8 (Werner-Sotskov)
-
-
-
-
-\end{small}
 \end{frame}
 
-\begin{frame}
-\frametitle{Definition}
-\begin{small}
+\begin{frame}{Definition}
+
 A \textcolor{blue}{vector} $\bf{v}=$ is an ordered $n$-tuple of real numbers $v_1,\dots,v_n$ called the \textcolor{blue}{coordinates}, which points a \textcolor{blue}{direction} between two $n$-dimensional points.
 \textcolor{blue}{Notation:}
 \begin{equation*}
@@ -304,14 +249,10 @@ v_n
 \end{equation*}
 
 Special vectors: the \textcolor{blue}{zero vector} ${\bf 0}'=(0,0,\dots,0)$, and the $i$th \textcolor{blue}{unit vector} ${\bf e_i}'=(0,\dots,0,1,0,\dots,0)$, the 1 is at the $i$th component.
-
-
-\end{small}
 \end{frame}
 
-\begin{frame}
-\frametitle{Operations on vectors}
-\begin{small}
+\begin{frame}{Operations on vectors}
+
 \textcolor{blue}{Sum of two vectors}:
 \begin{equation*}
 \bf{u}+\bf{v}=\begin{pmatrix}u_1\\
@@ -347,24 +288,16 @@ v_n
 \textcolor{blue}{Difference of two vectors}: $\bf{u}-\bf{v}=\bf{u}+(-1)\bf{v}$.
 \vskip 10pt
 Theses properties satisfy the usual \textcolor{blue}{distributive, commutative and associative laws}.
-
-
-\end{small}
 \end{frame}
 
-\begin{frame}
-\frametitle{Sum and difference of two vectors}
+\begin{frame}{Sum and difference of two vectors}
 
 \begin{figure}
 \includegraphics[width=2.5in]{img/sum} 
-\end{figure}
-\begin{small}
-\end{small}
-\end{frame}
+\end{figure}\end{frame}
 
-\begin{frame}
-\frametitle{Scalar or inner product}
-\begin{small}
+\begin{frame}{Scalar or inner product}
+
 The \textcolor{blue}{scalar or inner product} of two vectors ${\bf u}, {\bf v}\in \R^n$ is defined as
 $$
 {\bf u}' {\bf v}=u_1 v_1+\cdots +u_nv_n.
@@ -381,12 +314,8 @@ $$
 $$
 {\bf u}' {\bf v}=20 \cdot 30+15 \cdot 40+ 40 \cdot 10=1600
 $$
+\end{frame}\begin{frame}{Norm of a vector}
 
-
-\end{small}
-\end{frame}\begin{frame}
-\frametitle{Norm of a vector}
-\begin{small}
 The \textcolor{blue}{norm of a vector} ${\bf v} \in \R^n$ is defined as
 $$
 \vert {\bf v}\vert=\sqrt{ {\bf v}' {\bf v}}=\sqrt{v_1^2+\dots+v^2_n}.
@@ -414,16 +343,10 @@ $ \begin{tiny}Proof: use the  Law of Cosines \end{tiny}
 \item \textcolor{blue}{Cauchy-Schwarz inequality:} $ {\bf u}' {\bf v} \leq  \vert {\bf u} \vert \, \vert {\bf v} \vert$ \begin{tiny}Proof: use 4.\end{tiny}
 
 \item $\vert {\bf u} +{\bf v}\vert\leq \vert {\bf u}\vert +\vert {\bf v}\vert$. \begin{tiny}Proof: use 5. and $\vert {\bf u}+ {\bf v}\vert^2=\vert {\bf u} \vert^2 +\vert {\bf v}\vert^2+2 {\bf u}' {\bf v}$ \end{tiny}
-\end{enumerate}
+\end{enumerate}\end{frame}
 
 
-
-\end{small}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{The Law of Cosines}
+\begin{frame}{The Law of Cosines}
 $$
 c^2=a^2+b^2-2ab \cos(C).
 $$
@@ -431,15 +354,11 @@ $$
 \includegraphics[width=2.5in]{img/cos} 
 \end{figure}
 \begin{tiny}Proof: by Pythagoras Theorem $x^2+y^2=b^2$ and $(a-x)^2+y^2=c^2$. Subtract
-both equations to eliminate $y^2$ to get $c^2=a^2+b^2-2ab (x/b)$. Use the definition of the  cosine to conclude.\end{tiny}
-\begin{small}
-\end{small}
-\end{frame}
+both equations to eliminate $y^2$ to get $c^2=a^2+b^2-2ab (x/b)$. Use the definition of the  cosine to conclude.\end{tiny}\end{frame}
 
 
-\begin{frame}
-\frametitle{Orthogonal vectors}
-\begin{small}
+\begin{frame}{Orthogonal vectors}
+
 \textcolor{blue}{Example:} Let ${\bf u}'=(2, -1, 3)$, ${\bf v}'=(5,-4,-1)$. Then
 $$
 {\bf u}' {\bf v}=11\leq \vert {\bf u} \vert \, \vert {\bf v} \vert=\sqrt{14} \sqrt{42} \approx 24.24.
@@ -457,15 +376,11 @@ Since $\cos(90^{\circ})=0$, by Properties 4. and 5. we get  that two vectors  ${
 $$
 \vert {\bf u}- {\bf v}\vert^2=\vert {\bf u} \vert^2 +\vert {\bf v}\vert^2.
 $$
-
-
-\end{small}
 \end{frame}
 
 
-\begin{frame}
-\frametitle{Another proof of Cauchy-Schwarz inequality}
-\begin{small}
+\begin{frame}{Another proof of Cauchy-Schwarz inequality}
+
 We want to prove that ${\bf u}' {\bf v} \leq  \vert {\bf  u} \vert \, \vert {\bf v} \vert$ for all $\bf{u}$ and $\bf{v}$ in $\R^n$.
 \vskip 12pt
 If $\vert \bf{u} \vert$ and/or $\vert \bf{v} \vert$ are 0 it is trivial, so we assume they are both non-zero.
@@ -480,14 +395,10 @@ Since $\vert {\bf w_1}-{\bf w}_2 \vert^2 \geq 0$, developing this inequality  we
  Observe that if both vectors are non-zero, then we have \textcolor{blue}{equality}  if and only if $\bf{u}=\lambda \bf{v}$
 for some $\lambda \neq 0$, that is, the vectors are  \textcolor{blue}{co-linear}. 
 \vskip 12pt
-Two co-linear vectors are also called \textcolor{blue}{linearly dependent}. This notion can be  generalized to a family of $m$ vectors in $\R^n$ as follows.
+Two co-linear vectors are also called \textcolor{blue}{linearly dependent}. This notion can be  generalized to a family of $m$ vectors in $\R^n$ as follows.\end{frame}
 
-\end{small}
-\end{frame}
+\begin{frame}{Linear dependence and independence}
 
-\begin{frame}
-\frametitle{Linear dependence and independence}
-\begin{small}
 
 A \textcolor{blue}{linear combination} of $m$ vectors in $\R^n$ ${\bf v_1},\dots, \bf{v}_m$ is the vector in $\R^n$ defined as
 $$
@@ -505,12 +416,8 @@ If this equation
 has the only solution $\lambda_1=\cdots =\lambda_m=0$, then $\bf{v}_1,\dots, \bf{v}_m$ are said to be \textcolor{blue}{linearly independent}.
 \vskip 12pt
 Observe that (\ref{1}) is a \textcolor{blue}{linear system of $n$ equations and $m$ unknowns} (Chapter 8).
+\end{frame}\begin{frame}{Linear dependence and independence}
 
-
-\end{small}
-\end{frame}\begin{frame}
-\frametitle{Linear dependence and independence}
-\begin{small}
 \textcolor{blue}{Remark:} $\bf{v}_1,\dots, \bf{v}_m$ are \textcolor{blue}{linearly dependent} if and only if at least one of them equals a linear combination of all others.
 
 \begin{tiny}Proof: if $\lambda_k \neq 0$, then $\bf{v}_k$ writes as  a linear combination of all others.\end{tiny}
@@ -523,15 +430,9 @@ Observe that (\ref{1}) is a \textcolor{blue}{linear system of $n$ equations and 
 \item The vectors ${\bf v_1}'=(3,1)$ and ${\bf v_2}'=(-1,2)$ are linearly independent since the system $\lambda_1 {\bf v_1}+\lambda_2 \bf{v}_2=\bf{0}$ has the unique solution $\lambda_1=\lambda_2=0$.\begin{tiny} (2 vectors are l.i. if and only if they don't lie in the same line and 3 vectors are l.i. if and only if they don't lie in the same plane) \end{tiny}
 \vskip 11pt
 \item The set of unit vectors $\bf{e}_1, \dots, \bf{e}_n$ in $\R^n$ forms a set of linearly independent vectors. 
-\end{enumerate}
+\end{enumerate}\end{frame}
+\begin{frame}{Vector spaces}
 
-
-
-\end{small}
-\end{frame}
-\begin{frame}
-\frametitle{Vector spaces}
-\begin{small}
 Any set of $n$ linearly independent vectors $\bf{v}_1,\dots, \bf{v}_n$ forms a \textcolor{blue}{basis} of $\R^n$ since any vector $\bf{u}$ in $\R^n$ writes as a linear combination of these vectors:
 $$
 {\bf u}=\lambda_1 {\bf v_1}+\cdots+\lambda_n {\bf v_n}. 
@@ -539,14 +440,10 @@ $$
 We  say that they \textcolor{blue}{span} $\R^n$.
 \vskip 12pt
 The set of unit vectors $\bf{e}_1, \dots, \bf{e}_n$ in $\R^n$ is called the \textcolor{blue}{standard basis} of $\R^n$ since the scalars of the linear combination are the coordinates of $\bf{u}$.
-
-
-\end{small}
 \end{frame}
 
-\begin{frame}
-\frametitle{Vector spaces}
-\begin{small}
+\begin{frame}{Vector spaces}
+
 
 
 
@@ -562,30 +459,22 @@ $$
 with $\lambda_k \neq 0$. The $\bf{v}_1,\dots,\bf{v}_{k-1}, \bf{u}_k, \bf{v}_{k+1}, \dots,\bf{v}_n$ is also a basis of $\R^n$. \begin{tiny}(since $\lambda_k \neq 0$ it will span the same space) \end{tiny}
 \vskip 12pt
 Therefore, $\R^n$ has infinitely many basis.
-
-
-\end{small}
 \end{frame}
 
 
 
 
-\begin{frame}
-\frametitle{Vector spaces}
-\begin{small}
+\begin{frame}{Vector spaces}
+
 If we consider the  linear combinations of a set (that is, the span) of $k<n$ linearly independent vectors $\bf{v}_1,\dots, \bf{v}_k$ of $\R^n$, we obtain a smaller space than $\R^n$ called a \textcolor{blue}{subspace} of $\R^n$. We say they form a basis of this subspace of dimension $k$.
 \vskip 12pt
 Therefore, a \textcolor{blue}{basis of a subspace} is a set  of \textcolor{blue}{linearly independent} vectors that \textcolor{blue}{spans}  the subspace.
 \vskip 12pt
 If the  vectors $\bf{v}_1,\dots, \bf{v}_k$ are linearly dependent, then they span a subspace of dimension $<k$. The dimension is the maximum number of linearly independent vectors in the family.
-
-
-\end{small}
 \end{frame}
 
-\begin{frame}
-\frametitle{Vector spaces}
-\begin{small}
+\begin{frame}{Vector spaces}
+
 
 
 \textcolor{blue}{Examples:} 
@@ -594,15 +483,11 @@ If the  vectors $\bf{v}_1,\dots, \bf{v}_k$ are linearly dependent, then they spa
 \item 1 vector in $\R^2$ spans a line (subspace of dimension 1).
 \item the set of solutions to an homogeneous system  $A\bf{x}=\bf{0}$  where $A$ is $m \times n$ matrix is a subspace of $\R^n$ (Chapter 7).
 \end{enumerate}
-
-
-\end{small}
 \end{frame}
 
 
-\begin{frame}
-\frametitle{Examples}
-\begin{small}
+\begin{frame}{Examples}
+
 \begin{enumerate}
 \item  The vectors ${\bf v_1}'=(1,0,0)$, ${\bf v_2}'=(1,2,0)$ and ${\bf v_3}'=(1,2,3)$ form a basis of $\R^3$.
 The vector ${\bf u}=(3,2,1)$ writes as $$(3,2,1)=2{\bf v_1}'+\frac23{\bf v_2}'+\frac13 {\bf v_3}'.$$
@@ -615,17 +500,15 @@ Therefore, $\{\bf{u}, \bf{v}_2, \bf{v}_3\}$, $\{\bf{v}_1, \bf{u}, \bf{v}_3\}$ an
 \item The dimension of the subspace spanned by the vectors
 ${\bf v_1}'=(0,1,0,1)$, ${\bf v_2}'=(1,1,0,1)$, ${\bf v_3}'=(1,0,0,0)$
 and ${\bf v_4}'=(0,-1,0,1)$ is 3. A basis of this subspace is $\{\bf{v}_1, \bf{v}_2, \bf{v}_4\}$ but not $\{\bf{v}_1, \bf{v}_2, \bf{v}_3\}$. \begin{tiny}In fact, $\bf{v}_1+\bf{v}_3=\bf{v}_2$, thus $\bf{v}_4$ cannot be replaced. \end{tiny}
+\end{enumerate}\end{frame}
 
-
-\end{enumerate}
-
-\end{small}
+\begin{frame}{}
+\centering\includegraphics[height=\paperheight]{img/LinAlg10days.png}	
 \end{frame}
 
 
-\begin{frame}
-\frametitle{Chapter 6: Matrices and determinants}
-\begin{small}
+\begin{frame}{Chapter 6: Matrices and determinants}
+
 \textcolor{blue}{Matrices} replace the use of tables that relates two different economic units. 
 
 \vskip 12pt
@@ -638,15 +521,11 @@ For example, to calculate how many units of raw material are required for the fi
 \textcolor{blue}{Determinants} are useful to compute the inverse of a matrix, to solve linear equations (Chapter 7) or to find eigenvalues (Chapter 9).
 \vskip 12pt
 \textcolor{blue}{Exercises:} 7.6, 
-7.9(b),(c),(d), 7.12, 7.14(a), 7.16, 7.18 (Werner-Sotskov)
+7.9(b),(c),(d), 7.12, 7.14(a), 7.16, 7.18 (Werner-Sotskov)\end{frame}
 
 
-\end{small}
-\end{frame}
+\begin{frame}{Matrices}
 
-\begin{frame}
-\frametitle{Matrices}
-\begin{small}
 An $m\times n$ \textcolor{blue}{matrix} is rectangular array of elements $a_{ij}$ of the form 
 \begin{align*}A=(a_{ij})=\begin{pmatrix}a_{11} & a_{12} & \cdots & a_{1n}\\
 a_{21} & a_{22} & \dots & a_{2n} \\
@@ -657,14 +536,10 @@ a_{m1}& a_{m2} &\cdots & a_{mn}
 $m$ is the number of rows, and $n$ is the number of columns and we denote by $a_{i,j}$ the entry in row $i$ and column $j$.
 \vskip 12pt
 If $m=n$ it is called \textcolor{blue}{square} matrix. 
-
-
-\end{small}
 \end{frame}
 
-\begin{frame}
-\frametitle{Matrices}
-\begin{small}
+\begin{frame}{Matrices}
+
 
 If $A$ is a $m \times n$ matrix with entries $a_{i,j}$ then its \textcolor{blue}{transpose} $A'$ is the $n\times m$ matrix with entries $a_{ji}$.
 \vskip 12pt
@@ -680,15 +555,11 @@ A'=\begin{pmatrix}2& 7\\
 \end{align*}
 
 A square matrix is \textcolor{blue}{symmetric} if $A'=A$ and \textcolor{blue}{antisymmetric} if $A'=-A$. 
-
-
-\end{small}
 \end{frame}
 
 
-\begin{frame}
-\frametitle{Matrices}
-\begin{small}
+\begin{frame}{Matrices}
+
  A $n \times n$ \textcolor{blue}{diagonal matrix} and the \textcolor{blue}{Identity matrix} are defined respectively as
 \begin{align*}D=\begin{pmatrix} d_1 & 0 & \cdots &0\\
 0 & d_2 & \cdots &0 \\
@@ -713,14 +584,10 @@ l_{n1} &l_{n2} & \cdots &l_{nn}
 \end{pmatrix}.
 \end{align*}
 
-The $m \times n$ \textcolor{blue}{zero matrix} has all entries equal to zero. 
+The $m \times n$ \textcolor{blue}{zero matrix} has all entries equal to zero. \end{frame}
 
-\end{small}
-\end{frame}
+\begin{frame}{Matrix operations}
 
-\begin{frame}
-\frametitle{Matrix operations}
-\begin{small}
 \textcolor{blue}{Addition of matrices: }If $A=(a_{ij})$ and $B=(b_{ij})$  are $m \times n$ matrices, then the matrix
 $A+B=(a_{ij}+b_{ij})$ is also $m \times n$.
 \vskip 12pt
@@ -729,14 +596,11 @@ the matrix $\lambda A=(\lambda a_{ij})$ is also $m \times n$ .
 \vskip 12pt
 \textcolor{blue}{Definition:} $-A=(-1)A$ and $A-B=A+(-B)$.
 \vskip 12pt
-The addition and scalar multiplication satisfy the usual \textcolor{blue}{commutative}, \textcolor{blue}{associative} and \textcolor{blue}{distributive} laws.
-\end{small}
-\end{frame}
+The addition and scalar multiplication satisfy the usual \textcolor{blue}{commutative}, \textcolor{blue}{associative} and \textcolor{blue}{distributive} laws.\end{frame}
 
 
-\begin{frame}
-\frametitle{Matrix operations}
-\begin{small}
+\begin{frame}{Matrix operations}
+
 \textcolor{blue}{Product:} Let $A=(a_{ij})$ be a $m \times p$ matrix and $B=(b_{ij})$ a $p \times n$ matrix. Then the product $AB=(c_{ij})$ is the $m\times n$ matrix defined as
 $$
 c_{ij}=a_{i1} b_{1j}+a_{i2} b_{2j}+\cdots +a_{ip} b_{pj}.
@@ -751,14 +615,11 @@ $$
 \end{pmatrix}=\begin{pmatrix}30&  15\\
 15 & 66
 \end{pmatrix}
-\end{align*}
-\end{small}
-\end{frame}
+\end{align*}\end{frame}
 
 
-\begin{frame}
-\frametitle{Matrix operations}
-\begin{small}
+\begin{frame}{Matrix operations}
+
 \textcolor{blue}{Properties:} 
 \begin{enumerate}
 \item associative: $(AB)C=A(BC)$
@@ -772,14 +633,10 @@ $(\lambda A)'=\lambda A'$, and $$(AB)'=B'A'.$$
 
 \textcolor{blue}{Remark:} the matrix  $AA'$ is always square and symmetric.
 
-\begin{tiny}Proof: $(AA')'=(A')'A'=AA'$.  \end{tiny}
+\begin{tiny}Proof: $(AA')'=(A')'A'=AA'$.  \end{tiny}\end{frame}
 
-\end{small}
-\end{frame}
+\begin{frame}{Orthogonal matrices}
 
-\begin{frame}
-\frametitle{Orthogonal matrices}
-\begin{small}
 A $n \times n $ matrix $A$ is called \textcolor{blue}{orthogonal} if  $AA'=I$.
 \vskip 12pt
 \textcolor{blue}{Remark:} If $A$ is orthogonal, the row (and column) vectors are pairwise orthogonal and unit vectors.
@@ -796,13 +653,9 @@ A $n \times n $ matrix $A$ is called \textcolor{blue}{orthogonal} if  $AA'=I$.
 0 & 1
 \end{pmatrix}
 \end{align*}
-
-
-\end{small}
 \end{frame}
-\begin{frame}
-\frametitle{Matrix operations: elementary operations}
-\begin{small}
+\begin{frame}{Matrix operations: elementary operations}
+
 The following columns (or row) operations in a matrix $A$ are called \textcolor{blue}{elementary operations of type 1, 2 or 3} between columns (or rows):
 
 \begin{enumerate}
@@ -814,16 +667,12 @@ The following columns (or row) operations in a matrix $A$ are called \textcolor{
 
 \item \textcolor{blue}{Add} to a column (or row) the multiple of another column (or row).
 
-\end{enumerate}
-
-\end{small}
-\end{frame}
+\end{enumerate}\end{frame}
 
 
 
-\begin{frame}
-\frametitle{Determinants}
-\begin{small}
+\begin{frame}{Determinants}
+
 If $A$ is an $n \times n$ matrix, we denote by $A_{ij}$ the submatrix obtained from $A$ by deleting row $i$ and column $j$. Then $A_{ij}$ is a square matrix of order $(n-1) \times (n-1)$.
 \vskip 12pt
  The \textcolor{blue}{determinant} of an $n \times n$ matrix $A$ is defined recursively as
@@ -851,23 +700,18 @@ a_{31}& a_{32}
 &\qquad \qquad -a_{12} a_{21} a_{33}-a_{13}a_{22} a_{31}.
 \end{split}
 \end{equation*}
-
-
-\end{small}
 \end{frame}
 
-\begin{frame}
-\frametitle{Determinants}
-\begin{small}A trick to remember the formula for $n=3$ is:\end{small}
+\begin{frame}{Determinants}
+A trick to remember the formula for $n=3$ is:
 \begin{figure}
 \includegraphics[width=4in]{img/deter} 
 \end{figure}
 \end{frame}
 
 
-\begin{frame}
-\frametitle{Determinants}
-\begin{small}
+\begin{frame}{Determinants}
+
 \textcolor{blue}{Theorem (cofactor expansion of a determinant):} If $A$ is an $n \times n$ matrix the determinant can be computed expanding by any row $i$:
 \begin{equation*}
 \vert A \vert=\sum_{j=1}^n (-1)^{i+j} a_{ij} \vert A_{ij} \vert.
@@ -893,15 +737,11 @@ The determinants of the submatrices $\vert A_{ij} \vert$ are called \textcolor{b
 \end{vmatrix}=-16
 \end{split}
 \end{equation*}
-
-
-\end{small}
 \end{frame}
 
 
-\begin{frame}
-\frametitle{Determinants}
-\begin{small}
+\begin{frame}{Determinants}
+
 \textcolor{blue}{Properties of determinants:}
 \begin{enumerate}
 \item det($A$)=det($A'$).
@@ -921,15 +761,11 @@ The determinants of the submatrices $\vert A_{ij} \vert$ are called \textcolor{b
 
 \item The determinant of $A$ is zero (\textcolor{blue}{singular matrix}): if two rows or columns of $A$ are equal, or if all elements of a row or columns are zero, or if a row or column is the sum of multiples of other rows or columns.
 
-\end{enumerate}
-
-\end{small}
-\end{frame}
+\end{enumerate}\end{frame}
 
 
-\begin{frame}
-\frametitle{Determinants}
-\begin{small}
+\begin{frame}{Determinants}
+
 Using Properties 2. and 5., one can compute the  determinant of any matrix by  \textcolor{blue}{Gauss elimination}.
 \vskip 12pt
 \textcolor{blue}{Example:} 
@@ -951,15 +787,11 @@ Using Properties 2. and 5., one can compute the  determinant of any matrix by  \
 \end{equation*}
 
 \begin{tiny}In the first step we have replaced $r_2$ by $r_2-3r_1$ and in the second we have replaced $r_3$ by $r_3-r_1$.\end{tiny}
-
-
-\end{small}
 \end{frame}
 
 
-\begin{frame}
-\frametitle{Determinants}
-\begin{small}
+\begin{frame}{Determinants}
+
 Let $A$ be a $n \times n$ matrix, $\bf{x}$ a vector (variable) in $\R^n$ and $\bf{b}$ a vector (given) in $\R^n$. Then the equation $$A\bf{x}=\bf{b}$$ is a \textcolor{blue}{linear system} of $n$ equations and $n$ variables.
 \vskip 10pt
 Assume that $A$ is a \textcolor{blue}{non-singular} matrix $(\vert A \vert \neq 0)$, and let $A_j(\bf{b})$ the matrix obtained replacing column $j$ of $A$ by $\bf{b}$.
@@ -982,13 +814,9 @@ $$
 4
 \end{pmatrix}
 \end{equation*}
-Solution: ${\bf x}'=(\frac{75}{8},-\frac{63}{16}, -\frac{19}{16})$.
+Solution: ${\bf x}'=(\frac{75}{8},-\frac{63}{16}, -\frac{19}{16})$.\end{frame}
+\begin{frame}{Linear mappings}
 
-\end{small}
-\end{frame}
-\begin{frame}
-\frametitle{Linear mappings}
-\begin{small}
 A \textcolor{blue}{mapping} $A: \mathbb{R}^n\rightarrow \R^m$ is called \textcolor{blue}{linear} if for all ${\bf x_1},  {\bf x_2}, {\bf x} \in \mathbb{R}^n$ and $\lambda \in \R$,
 $$  
 A({\bf x_1}+{\bf x_2})=A({\bf x_1})+A({\bf x_2}) \quad \text{ and } \quad
@@ -998,16 +826,10 @@ $$
 \vskip 12pt
 If $A:\mathbb{R}^n\rightarrow \R^m$ is a linear mapping, then there exists an $m \times n$ matrix $A$ such that $$A({\bf x})=A {\bf x} \quad \text{for all }\quad {\bf x} \in \R^n.$$
 
-
-
-
-
-\end{small}
 \end{frame}
 
-\begin{frame}
-\frametitle{Examples of linear mappings}
-\begin{small}
+\begin{frame}{Examples of linear mappings}
+
 \begin{enumerate}
 \item Consider the linear transformation of the plane corresponding to the matrix
 \begin{equation*} 
@@ -1041,17 +863,13 @@ A\begin{pmatrix}1\\
 1 \\
 \end{pmatrix}.
 \end{equation*}
-\end{enumerate}
-
-\end{small}
-\end{frame}
+\end{enumerate}\end{frame}
 
 
 
 
-\begin{frame}
-\frametitle{The inverse matrix}
-\begin{small}
+\begin{frame}{The inverse matrix}
+
 We say that a square matrix $A$ is \textcolor{blue}{invertible} if there exists a matrix $A^{-1}$ called the \textcolor{blue}{inverse} of $A$ such that
 $$
 A A^{-1}=A^{-1}A=I.
@@ -1067,16 +885,10 @@ $$
 \item $(\lambda A)^{-1}=\frac{1}{\lambda} A^{-1}$ if $\lambda \neq 0$.
 \item $\vert A^{-1} \vert=\frac{1}{\vert A \vert}$.
 
-\end{enumerate}
+\end{enumerate}\end{frame}
 
+\begin{frame}{The inverse matrix}
 
-
-\end{small}
-\end{frame}
-
-\begin{frame}
-\frametitle{The inverse matrix}
-\begin{small}
 
 
 \textcolor{blue}{Theorem:} A square matrix is invertible if and only if $A$ is non-singular (that is, $\vert A \vert \neq 0$).
@@ -1085,17 +897,11 @@ $$
 
 \textcolor{blue}{Theorem:} If $A$ is a square and non-singular matrix, then the linear system
 $A{\bf x}={\bf b}$ has a unique solution given by $${\bf x}=A^{-1}{\bf b}.$$
- 
+ \end{frame}
 
 
+\begin{frame}{The inverse matrix}
 
-\end{small}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{The inverse matrix}
-\begin{small}
 \textcolor{blue}{Theorem:} If $A$ is a square and non-singular matrix, then 
 $$
 A^{-1}=\frac{1}{\vert A \vert } ((-1)^{i+j} \vert A_{ij} \vert)',
@@ -1117,18 +923,14 @@ For $n>2$ this formula is sometimes computationally \textcolor{blue}{inefficient
 In practice it is better to use \textcolor{blue}{elementary row operations} Starting form the $n \times 2n$ matrix $(A \, \vert\,  I)$,
 we proceed by elementary row operations until we arrive at $(I \, \vert \, A^{-1})$.
 Here only operations between ROWS are allowed (as when solving a system of equations).
-
-
-\end{small}
 \end{frame}
 
 
 
 
 
-\begin{frame}
-\frametitle{Input-output model}
-\begin{small}
+\begin{frame}{Input-output model}
+
 $n$ firms produce one good each.
 \vskip 10pt
 $a_{ij}$=units of good $i$ needed to produce 1 unit of good $j$
@@ -1142,33 +944,26 @@ $A{\bf x}$ represents the \textcolor{blue}{internal demand} vector for each of t
 \vskip 10pt
 
 The \textcolor{blue}{supply and demand law} tells us that the output ${\bf x}$ should be equal to the demand $A\bf{x}+{\bf y}$. We obtain the \textcolor{blue}{Input-output model}: $${\bf x}=A{\bf x}+{\bf y} \quad \Leftrightarrow \quad (I-A){\bf x}={\bf y} \quad \Leftrightarrow \quad {\bf x}=(I-A)^{-1}{\bf y},$$
-if $I-A$ is invertible!
-
-\end{small}
-\end{frame}
+if $I-A$ is invertible!\end{frame}
 
 
 
-\begin{frame}
-\frametitle{Input-output model}
-\begin{small}
+\begin{frame}{Input-output model}
+
 \textcolor{blue}{Example:}  
-\end{small}
+
 \begin{figure}
 \includegraphics[width=3in]{img/io} 
 \end{figure}
-\begin{small}
+
 \textcolor{blue}{Solution:}  \begin{equation*} 
  A=\begin{pmatrix}
 0.3 & 0.0583\\
 0.00083 & 0.14167\\
 \end{pmatrix}
-\end{equation*}
-\end{small}
-\end{frame}
-\begin{frame}
-\frametitle{Input-output model}
-\begin{small}
+\end{equation*}\end{frame}
+\begin{frame}{Input-output model}
+
  A family of examples of $A$ is :
  \vskip 10pt
 \textcolor{blue}{Theorem:} If $A$ is a square triangular matrix with all the elements of the diagonal equal to zero, then $I-A$ is invertible and
@@ -1191,9 +986,6 @@ $$
 \end{pmatrix}
 \end{equation*}
 
-Solution: ${\bf x}'=(66,15, 4)$.
-
-\end{small}
-\end{frame}
+Solution: ${\bf x}'=(66,15, 4)$.\end{frame}
 \end{document}
 
