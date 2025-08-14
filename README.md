@@ -5,7 +5,9 @@
 The goal of this course is to review the basic tools of Calculus and
 Linear Algebra that will be used in the Master programs in
 Economics and Finance.
+
 ***
+
 ### Announcements:
 - Apr 18: Two final office hours: Tuesday and Wednesday 2-4pm, UY 9171 (same time, same room). 
 
