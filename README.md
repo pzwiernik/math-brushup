@@ -1,10 +1,18 @@
 # 19BE02 Calculus and Linear Algebra - Fall 2025
 ## Math brush-up
-![Course cover](course_cover.png)
+<table>
+<tr>
+<td style="width:55%; vertical-align:top;">
+  <img src="course_cover.png" alt="Course cover" width="100%">
+</td>
+<td style="width:45%; vertical-align:top; padding-left:15px;">
+  This intensive course reviews key tools in calculus and linear algebra that will be essential for success in the Master’s programs in Economics and Finance.  
+  Because we cover a large amount of material in a short period, the pace is demanding. Students are encouraged to use the course strategically: it provides an opportunity to refresh fundamental concepts, to identify personal gaps in mathematical background, and to establish good study habits before the start of the program.
+</td>
+</tr>
+</table>
 
-The goal of this course is to review the basic tools of Calculus and
-Linear Algebra that will be used in the Master programs in
-Economics and Finance.
+
 
 ***
 
