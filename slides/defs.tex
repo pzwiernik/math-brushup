@@ -12,10 +12,10 @@
 %\newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
 %\usepackage[absolute,overlay]{textpos}
 
-\setbeamertemplate{navigation symbols}{}   % remove nav icons
-% (optional)
-\setbeamertemplate{headline}{}            % remove header bar
-\setbeamertemplate{footline}{}            % remove footer bar
+
+
+
+
 
 %%%%%%%%% COLOR THEME
 
@@ -37,6 +37,7 @@
 \definecolor{Peach}{HTML}{EEA47F}
 \definecolor{ForestGreen}{HTML}{2C5F2D}
 \definecolor{MossGreen}{HTML}{E8FCC9}
+\definecolor{SeaGreen}{HTML}{2E8B57}
 % Use the colors:
 \setbeamercolor{title}{fg=Fern}
 \setbeamercolor{frametitle}{fg=MossGreen,bg=ForestGreen}
@@ -60,6 +61,7 @@
 %\newcommand{\det}{\text{det}}
 \newcommand{\var}{\mathrm{var}}
 \newcommand{\cC}{{\cal C}}
+\renewcommand{\d}{{\rm d}}
 \newcommand{\cG}{{\cal G}}
 \newcommand{\cV}{{\cal V}}
 \newcommand{\cE}{{\cal E}}
@@ -79,12 +81,34 @@
 \renewcommand{\>}{\rangle}
 
 
+%
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[text line]{%
+    \hfill\strut{%
+        \scriptsize\sf\color{black!60}%
+        \quad\insertframenumber/\inserttotalframenumber
+    }
+    %\hfill
+    }
+
+
+\usenavigationsymbolstemplate{}
+\setbeamersize{text margin left=.2cm,text margin right=.2cm} 
+\addtobeamertemplate{frametitle}{}{\vspace{-1.2mm}}
+\setbeamertemplate{itemize item}{$\bullet$}
+
 \setbeamertemplate{itemize subitem}{\tiny\raise1.5pt\hbox{\donotcoloroutermaths$\blacktriangleright$}}
 \setbeamertemplate{itemize subsubitem}{\tiny\raise1.5pt\hbox{\donotcoloroutermaths$\blacktriangleright$}}
 \setbeamertemplate{enumerate item}{\insertenumlabel.}
 \setbeamertemplate{enumerate subitem}{\insertenumlabel.\insertsubenumlabel}
 \setbeamertemplate{enumerate subsubitem}{\insertenumlabel.\insertsubenumlabel.\insertsubsubenumlabel}
 \setbeamertemplate{enumerate mini template}{\insertenumlabel}
+
+
+
+
+
 
 \newcommand{\TODO}[1]{{\color{red}{[TODO: #1]}}}
 

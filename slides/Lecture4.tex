@@ -1,624 +1,608 @@
 \documentclass[11pt,aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc} % safe for pdfLaTeX / TexpadTeX
 \input{./defs.tex}
 
-
-%\usecolortheme{whale}
-
+% Title block: keep moving arguments simple (no \\[...])
 \title[Calculus and Linear Algebra]{Lecture 4: Calculus and Linear Algebra}
-\author[Piotr Zwiernik, Barcelona School of Economics]{Piotr Zwiernik \\ $\;$\\
-Mathematics Brush-up\\ $\;$\\ $\;$\\
-\includegraphics[width=1.5in]{img/bse.png}  
-}
+\author[Piotr Zwiernik]{Piotr Zwiernik\\Mathematics Brush-up}
+\institute[Barcelona School of Economics]{Barcelona School of Economics}
+\titlegraphic{\vspace{-0.5em}\includegraphics[width=1.5in]{img/bse.png}}
 \date{}
 
-%\beamerdefaultoverlayspecification{<+->}
-
 \begin{document}
+
+% ------------------------------------------------
 \begin{frame}
-\titlepage
+  \titlepage
 \end{frame}
+% ------------------------------------------------
 
+% ------------------------------------------------
+\begin{frame}{Chapter 9: Functions of several variables}
 
-\begin{frame}
-\frametitle{Chapter 9: Functions of several variables}
-\begin{small}
-In many economic applications, we have to deal with situations where \textcolor{blue}{several variables} have to be included in the mathematical model. 
-\vskip 12pt
-\textcolor{blue}{Example}: The \textcolor{blue}{Cobb-Douglas production function} applied to an agricultural production gives the number of units produced depending on the capital invested, the labour and the area of land used for the production.
-\vskip 12pt
-\textcolor{blue}{Read}  Chapter 11 of Werner-Sotskov and Chapters 14 and 17 of Simon-Blume
-\vskip 12pt
-\textcolor{blue}{Exercises:} 11.11 a), 11.21, 11.22 (Werner-Sotskov)
-
-
-\end{small}
-\end{frame}
-
-
-
-\begin{frame}
-\frametitle{Definition}
-\begin{small}
-A \textcolor{blue}{function of several variables} is a map $f: D \rightarrow \R$ where $D \subset \R^n$ is the domain, and for any point $(x_1,\dots,x_n)\in D$ it assigns a number
-$f(x_1,\dots,x_n)$.
-
-\begin{tiny}We can only plot $n=2$!\end{tiny}
-\vskip 10pt
-If $n=2$, the graph of $f$ with $z=f(x,y)$ is called a \textcolor{blue}{surface} and it is plotted in $\R^3$.
-\vskip 12pt
-If $n=2$ a \textcolor{blue}{level curve} of $f$ is a curve in $\R^2$ given by $$z=f(x,y)=C.$$
-
-
-
-
-
-\end{small}
-\end{frame}
-
-
-
-\begin{frame}
-\frametitle{Example}
-\begin{small} $f(x,y)=100-x^2-y^2$\end{small} \begin{tiny}the surface is a smooth cone and the level curves are circles centered at zero\end{tiny}
-\begin{figure}
-\includegraphics[width=2.5in]{img/level_curve} 
-\end{figure}
-\end{frame}
-
-\begin{frame}
-\frametitle{Economic example}
-\begin{small}
- \textcolor{blue}{Cobb-Douglas production function} $$P(L,K)=b L^{\alpha} K^{\beta}$$
- \begin{tiny}$P$ is the total production, $L$ is the labor, $K$ the capital, $b$ the total factor productivity, and $\alpha$ and $\beta$ are the output elasticities of labor and capital, respectively. The parameters $b$, $\alpha$ and $\beta$ are constants computed by available technology. \end{tiny}
- 
- The domain is 
-$D=\{(L,K) \in \R^2: L \geq 0, K \geq 0\}$.
-\end{small}
-\begin{figure}
-\includegraphics[width=2.5in]{img/cd.jpg} 
-\end{figure}
-\end{frame}
-
-\begin{frame}
-\frametitle{Cobb-Douglas production function}
-\begin{small}
-The  parameters  $\alpha$, and $\beta$ measure the \textcolor{blue}{output change} in  levels of labor or capital change. For example, if $\alpha=0.15$, a $1\%$ increase in  labor would lead to approximately a $0.15\%$ increase  in output.
- \vskip 12pt
- If $\alpha+\beta=1$, the  production function has  \textcolor{blue}{constant returns to scale} (the  output increases by the same proportional change). That is, if  $L$ and $K$ each increase by  $20\%$, then $P$ increases  by $20\%$.
- \vskip 12pt
- If $\alpha+\beta<1$, the returns to scale are \textcolor{blue}{decreasing}.
- \vskip 12pt
- If $\alpha+\beta>1$,  the returns to scale are \textcolor{blue}{increasing}.
- 
-\end{small}
-
-\end{frame}
-
-\begin{frame}
-\frametitle{Multivariate Gaussian density}
-\begin{small}
- A random vector ${\bf X}$ in $\R^d$ has a 
- \textcolor{blue}{multivariate Gaussian distribution}
- with a nonsingular covariance matrix $\Sigma$ if $\Sigma$ is positive definite and the density function of $X$ is
- $$
- f({\bf x})=(2 \pi)^{-d/2} \text{det}(\Sigma)^{-1/2} \exp \left(
--\frac12 ({\bf x}-{\bf m})' \Sigma^{-1} ({\bf x}-{\bf m})\right)
- $$
- where ${\bf x} \in \R^d$, ${\bf m}=E({\bf X})$, and 
- $$
- \Sigma=E(({\bf X}-{\bf m})({\bf X}-{\bf m})').
- $$
-\end{small}
-\end{frame}
-
-\begin{frame}
-\frametitle{Multivariate Gaussian density}
-\begin{small}
-\textcolor{blue}{Example:} $d=2$, ${\bf m}={\bf 0}$, $\sigma_1^2=1$, $\sigma_2^2=4$
-\end{small}
-\begin{figure}
-\includegraphics[width=3in]{img/multiv} 
-\end{figure}
-\end{frame}
-
-\begin{frame}
-\frametitle{Partial derivatives}
-\begin{small}
-A function $f: D \subset\R^2 \rightarrow \R$ is \textcolor{blue}{partially differentiable} with respect to $x$ at $(x,y)$ if the limit
-$$
-\lim_{h\rightarrow 0} \frac{f(x+h,y)-f(x,y)}{h} \qquad \text{exists},
-$$
-and is \textcolor{blue}{partially differentiable} with respect to $y$ at $(x,y)$ if the limit
-$$
-\lim_{h\rightarrow 0} \frac{f(x,y+h)-f(x,y)}{h} \qquad \text{exists}.
-$$
-Both limits are called the \textcolor{blue}{partial derivatives} of $f$ with respect to $x$ and $y$ and denoted $f_x(x,y)$, $f_y(x,y)$ or 
-$\frac{\partial f(x,y)}{\partial x} $, $\frac{\partial f(x,y)}{\partial y}$.
-\vskip 10pt
-\textcolor{blue}{Example:} Total cost of a firm producing $x$ units of product $A$ and $y$ units of product $B$ is
-$$
-C(x,y)=200+22x+16y^{3/2}.
-$$ 
-\textcolor{blue}{Marginal costs:} $C_x(x,y)=22, C_y(x,y)=24 \sqrt{y}$.
-
-
-\end{small}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Cobb-Douglas production function}
-\begin{small}
-The partial derivative $\frac{\partial P}{\partial L}$ is the rate at  which production changes with respect to the amount of labor. It is called the \textcolor{blue}{marginal productivity of labor}.
- \vskip 10pt
- The partial derivative $\frac{\partial P}{\partial K}$ is the rate at  which production changes with respect to the amount of capital. It is called the \textcolor{blue}{marginal productivity of capital}.
- \vskip 10pt
- The \textcolor{blue}{assumptions}  made by Cobb and Douglas are:
- \begin{enumerate}
-\item  If either labor or capital vanish then so will the  production.
-\item The marginal productivity of labor is \textcolor{blue}{proportional} to the  amount  of production per unit of labor, that is,
-$$
-\frac{\partial P}{\partial L}=\alpha \frac{P}{L} \quad \text{ for some }  \alpha.
-$$
-\item The marginal productivity of capital is \textcolor{blue}{proportional} to the  amount  of production per unit of capital, that is,
-$$
-\frac{\partial P}{\partial K}=\beta \frac{P}{K}\quad \text{for some } \beta.
-$$
-\begin{tiny}(In Chapter 10 we will show that these assumptions imply that $P=b L^{\alpha} K^{\beta}$) \end{tiny}
- \end{enumerate}
- 
-\end{small}
-
-\end{frame}
-
-\begin{frame}
-\frametitle{Tangent plane and total derivative}
-\begin{small}
-\textcolor{blue}{Geometric interpretation:} $f_x(x_0,y_0)$ (resp.   $f_y(x_0,y_0)$) is the slope of the tangent line $f_T(x)$ to the curve of intersection of the surface $z=f(x,y)$ and the plane $y=y_0$ (resp. $x=x_0$) at $(x_0,y_0,z_0)$, where $z_0=f(x_0, y_0)$.
-\vskip 12pt
- Both tangent lines $f_T(x)$ and $f_T(y)$ span a plane $f_T(x,y)$ which is called the \textcolor{blue}{tangent plane} to $z=f(x,y)$ at $(x_0,y_0,z_0)$, and the equation of the tangent plane is
-$$
-f_T(x,y)=f(x_0,y_0)+f_x(x_0, y_0) (x-x_0) +f_y(x_0, y_0) (y-y_0).
-$$
-
-\vskip 12pt
- The tangent plane gives and approximation of the total change of the function from $(x_0, y_0)$ to $(x,y)$, when both points are close:
-$$
-f(x,y)-f(x_0,y_0)\approx f_x(x_0, y_0) (x-x_0) +f_y(x_0, y_0) (y-y_0),
-$$
-which can be seen as a \textcolor{blue}{total derivative}. In differential notation:
-$$
-df= f_x(x_0, y_0) dx +f_y(x_0, y_0) dy.
-$$
-
-
-\end{small}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Tangent plane}
-\begin{figure}
-\includegraphics[width=3in]{img/tp.jpg} 
-\end{figure}
-\end{frame}
-
-
-
-
-\begin{frame}
-\frametitle{Higher Partial derivatives}
-\begin{small}
-We can consider \textcolor{blue}{higher-order partial derivatives} of $f:D \subset \R^n \rightarrow \R$, when they exists. For example
-$$
-f_{xy}(x,y)=\frac{\partial}{\partial y} \left( \frac{\partial f(x,y)}{\partial x}\right)=
-\frac{\partial^2 f(x,y)}{\partial y \partial x}.
-$$ 
-\vskip 12pt
- \textcolor{blue}{Theorem (Young):} If $f_{xy}$ and $f_{yx}$ are continuous, they coincide.
-\vskip 12pt
- \textcolor{blue}{Example:} $f(x,y)=\sin(3x-y)$, $f_{xy}=f_{yx}=3 \sin(3x-y)$.
-
-
-\end{small}
-\end{frame}
-\begin{frame}
-\frametitle{The gradient}
-\begin{small}
-Let ${\bf x}=(x_1,\ldots,x_n) \in D$.The vector
-$$
-\nabla f({\bf x})=(f_{x_1}({\bf x}),\dots,f_{x_n}({\bf x})).
-$$
-is called the \textcolor{blue}{gradient} of $f$ at ${\bf x}$, when all partial derivatives exist.
-\vskip 10pt
-
- \textcolor{blue}{Example:} $f(x,y)=2x^2+\frac12 y^2$, $\nabla f(x,y)=(4x, y)$, 
-$\nabla f(1,2)=(4, 2)$ 
+\begin{Large}
+Many economic and data science models depend on \textcolor{SeaGreen}{several variables simultaneously}.
+\end{Large}
 
 \vskip 10pt
- The gradient gives the direction which the function $f$ at ${\bf x}$ \textcolor{blue}{increases the most}, since it is orthogonal to the tangent line to the level curve at this point.
-\vskip 10pt
-
- \textcolor{blue}{Example:} production function: $f(x,y)=3x^2y+0.5 x e^y$, $x=$labour, $y=$capital,
-$\nabla f(x,y)=(6xy+0.5 e^y, 3x^2+0.5xe^y)$
-\vskip 10pt
-$\nabla f(10,\log 12)=(155.09, 360)$, so to increase at maximum the production, the firm should increase labour and capital in the ratio $155.09:360$, that is, if we increase the labor by 1 we increase the capital by 2.32.
-
-
-\end{small}
-\end{frame}
-
-\begin{frame}
-\frametitle{Example: $f(x,y)=2x^2+\frac12 y^2$}
-\begin{small}$\nabla f(x,y)=(4x, y)$, $\nabla f(1,2)=(4, 2)$, therefore the maximum direction of increase at point $(1,2)$ is the direction $(4,2)$. 
-\vskip 10pt
-The point $(1,2)$ is at the level curve $2x^2+\frac12y^2=4$.\end{small}
-\begin{figure}
-\includegraphics[width=2in]{img/level_ex} 
-\end{figure}
-\end{frame}
-
-\begin{frame}
-\frametitle{Differentiation rules for matrices}
-\begin{small}
-Consider two vectors ${\bf x}=(x_1,...,x_n)$ and ${\bf y}=(y_1,...,y_m)$ in $\R^n$ and $\R^m$, respectively, where each $y_i$ depends on ${\bf x}$. Then we denote by $
-\frac{d {\bf y}}{d {\bf x}}$
-the Jacobian $m \times n$ matrix with entries $\frac{\partial y_i}{\partial x_j}$.
-
-\begin{tiny} If $m=1$, then the Jacobian is just the gradient.\end{tiny}
-
-\vskip 12pt
-\textcolor{blue}{Examples:}
-
-\begin{enumerate}
-\item If $A$ is a $m \times n$ matrix, then
-$$
-\frac{d (A {\bf x})}{d{\bf x}}=A
-$$
-
-\begin{tiny} If $m=1$ the we deduce that $\frac{d ({\bf a}'{\bf x})}{d{\bf x}}={\bf a}$.\end{tiny}
-
-\item If $A$ is a $n \times n$ matrix, then
-$$
-\frac{d ({\bf x}'A{\bf x})}{d{\bf x}}={\bf x}'(A+A').
-$$
-\end{enumerate}
-\end{small}
-\end{frame}
-
-\begin{frame}
-\frametitle{Unconstrained optimization}
-\begin{small}
-A function $f:D \subset \R^n \rightarrow \R$ has a \textcolor{blue}{local max} (\textcolor{blue}{min})
-at ${\bf x}_0$ if there exists a ball $B_r({\bf x_0})\subset D$ such that
-$$
-f({\bf x}) \leq f({\bf x}_0) \qquad (f({\bf x}) \geq f({\bf x}_0) )
-$$
-for all ${\bf x} \in B_r({\bf x}_0)$. If the inequality holds for all ${\bf x} \in D$, we say it is a \textcolor{blue}{global max} (\textcolor{blue}{min}).
-\vskip 10pt
-We say that ${\bf x}$ is an \textcolor{blue}{interior point} if there exists a ball $B_r({\bf x})\subset D$.
-\vskip 10pt
- \textcolor{blue}{Theorem (Necessary 1st order condition):} If $f$ has a local max or min at ${\bf x}$ and it is an interior point then $\nabla f ({\bf x})={\bf 0}$.
-\vskip 10pt
- Interior points ${\bf x}$ that $\nabla f ({\bf x})={\bf 0}$ are called \textcolor{blue}{stationary points}. 
-\vskip 10pt
- Stationary points that are neither a local max or min are called \textcolor{blue}{saddle points}.
-
-
-\end{small}
-\end{frame}
-
-\begin{frame}
-\frametitle{Unconstrained optimization}
-\begin{figure}
-\includegraphics[width=5in]{img/minmaxsaddle.png} 
-\end{figure}
-\end{frame}
-
-\begin{frame}
-\frametitle{Local optimality conditions}
-\begin{small}
-Let $f: D \subset\R^n \rightarrow \R$ twice continuously differentiable ($f \in C^2$).
-
-\textcolor{blue}{The Hessian matrix} of $f$ at point ${\bf x}$ is defined as:
-$$
-H_f({\bf x})=\left(f_{x_i x_j}({\bf x})\right)_{1 \leq i,j \leq n}.
-$$
-Observe that the Hessian matrix is always \textcolor{blue}{symmetric}, as $f \in C^2$.
-
-
-
-\textcolor{blue}{Theorem (Sufficient 2nd order condition):} Let ${\bf x}$ be a stationary point of $f$. Then:
-\begin{enumerate}
-\item If $H_f({\bf x})$ is negative (positive) definite, then ${\bf x}$ is a local
-max (min) 
-\item If $H_f({\bf x})$ is indefinite, then ${\bf x}$ is a saddle point.
-
-\begin{tiny}Otherwise, we don't know it from this theorem. \end{tiny}
-\end{enumerate}
-
- \textcolor{blue}{Theorem ($n=2$):} Let ${\bf x}$ be a stationary point of $f$. Then:
-\begin{enumerate}
-\item If $\vert H_f({\bf x})\vert >0$ \begin{tiny}(that is, $f_{xx}({\bf x})f_{yy}({\bf x})>f_{xy}^2({\bf x})$) \end{tiny}, then:
+\textcolor{SeaGreen}{Examples:}
 \begin{itemize}
-\item If $f_{xx}({\bf x})<0$ or $f_{yy}({\bf x})<0$, then ${\bf x}$ is a local max.
-\item If $f_{xx}({\bf x})>0$ or $f_{yy}({\bf x})>0$, then ${\bf x}$ is a local min.
+\item \textbf{Economics:} Cobb--Douglas production $Y=K^\alpha L^{1-\alpha}$, or utility $U(x,y)$.
+\item \textbf{Data science:} Loss functions $L(\theta_1,\ldots,\theta_d)$ depending on many parameters.
 \end{itemize}
-\item If $\vert H_f({\bf x})\vert <0$, then ${\bf x}$ is a saddle point.
 
-\begin{tiny}Otherwise, we don't know it from this theorem. \end{tiny}
-\end{enumerate}
-
-
-
-\end{small}
-\end{frame}
-
-\begin{frame}
-\frametitle{Examples}
-\begin{small}
-\begin{enumerate}
-
-\item Let $f(x,y)=x^2-y^2-xy$. Since $\nabla f(x,y)=(2x-y, -2y-x)$, the \textcolor{blue}{stationary points} are $(0,0)$. The Hessian matrix is
-\begin{equation*}
-H_f(x,y)=\begin{pmatrix}
-2 & -1 \\
--1 & -2
-\end{pmatrix}
-\end{equation*}
-which is \textcolor{blue}{indefinite}, so $(0,0)$ is a \textcolor{blue}{saddle point}.
-
-\begin{tiny} We will see that in this case the function is neither concave nor convex\end{tiny}
-
-\item Let $f(x,y)=x^2+y^4$. Stationary points: $(0,0)$. The Hessian matrix at $(0,0)$ is
-\begin{equation*}
-H_f(0,0)=\begin{pmatrix}
-2 & 0 \\
-0 & 0
-\end{pmatrix}
-\end{equation*}
-which is positive semi-definite
-so we cannot conclude from the Hessian matrix but it is clear that $(0,0)$ is \textcolor{blue}{ global minimum} since $f \geq 0$.
-
-\item Let $f(x,y)=x^3+y^3$. Stationary points: $(0,0)$. Similar as 2. but it is clear that $(0,0)$ is a \textcolor{blue}{saddle point}.
-\end{enumerate}
-\end{small}
-\end{frame}
-
-
-
-
-\begin{frame}
-\frametitle{Convex domain}
-\begin{small}
-The domain of a function $f:D \subset \R^n \rightarrow \R$ is said to be \textcolor{blue}{convex} if any line segment joining two points in the domain lies completely within the domain.
-\end{small}
-\begin{figure}
-\includegraphics[width=4in]{img/convex_set} 
-\end{figure}
-\end{frame}
-
-
-
-\begin{frame}
-\frametitle{Global optimality conditions}
-\begin{small}
-A function $f:D \subset \R^n \rightarrow \R$ where $D$ is convex is said to be \textcolor{blue}{convex} (resp. \textcolor{blue}{concave}) if the line segment between any two points on the graph of the function lies above (rep. below) or on the graph.
-\vskip 12pt
-\textcolor{blue}{Theorem:} $f:D \subset \R^n \rightarrow \R$ where $D$ is convex satisfies:
-\begin{enumerate}
-\item $H_f({\bf x})$ is negative (positive) semi-definite on $D$ $\Leftrightarrow$ $f$ is concave (convex) on $D$
-\item $H_f({\bf x})$ is negative (positive) definite on $D$ $\Leftrightarrow$ $f$ is strictly concave (strictly convex) on $D$
-
-\item  If $f$ is convex (concave) on $D$, then all stationary points are global min (max).
-\end{enumerate}
-
-
-\end{small}
-\end{frame}
-
-
-
-\begin{frame}
-\frametitle{Example}
-\begin{small}
-Let $f(x,y)=2x-y-x^2+xy-y^2$. 
 \vskip 8pt
-\begin{tiny}Since $\nabla f(x,y)=(2-2x+y, -1+x-2y)$, the \textcolor{blue}{stationary points} are $x=(0,1)$. The Hessian matrix is
-\begin{equation*}
-H_f(x,y)=\begin{pmatrix}
--2 & 1 \\
-1 & -2
-\end{pmatrix}
-\end{equation*}
-which is \textcolor{blue}{negative definite}, so $f$ is strictly concave and $(0,1)$ is a \textcolor{blue}{global maximum}.\end{tiny}
-\end{small}
+\textcolor{SeaGreen}{Reading:} Werner--Sotskov (Ch. 11); Simon--Blume (Chs. 14, 17).\\
+\textcolor{SeaGreen}{Exercises:} 11.11(a), 11.21, 11.22 (Werner--Sotskov).
+\end{frame}
+
+% ------------------------------------------------
+\begin{frame}{What is a multivariable function?}
+
+A \textcolor{SeaGreen}{function of $n$ variables} is a map
+\[
+f:\ D \subset \R^n \to \R, 
+\qquad \mathbf{x}=(x_1,\dots,x_n)\mapsto f(\mathbf{x}).
+\]
+
+\begin{itemize}
+\item For $n=2$: graph $z=f(x,y)$ is a \textcolor{SeaGreen}{surface} in $\R^3$.
+\item \textcolor{SeaGreen}{Level curves} (contours): 
+\[
+\{(x,y)\in D:\ f(x,y)=c\}.
+\]
+\item For $n>2$: use \textcolor{SeaGreen}{slices or projections} to visualize.
+\end{itemize}
+\end{frame}
+
+% ------------------------------------------------
+\begin{frame}{Example: quadratic function}
+
+\[
+f(x,y)=100-x^2-y^2
+\]
+
+\begin{columns}
+\column{0.5\textwidth}
+\begin{itemize}
+\item Graph of $f$: paraboloid.
+\item Level curves: concentric circles.
+\end{itemize}
+
+\column{0.5\textwidth}
+\includegraphics[width=\textwidth]{img/level_curve}
+\end{columns}
+\end{frame}
+% ------------------------------------------------
+\begin{frame}{Economic example: Cobb--Douglas}
+
+\textcolor{SeaGreen}{Cobb--Douglas production function}
+\[
+P(L,K)=b\,L^{\alpha}K^{\beta}.
+\]
+{\footnotesize
+\(P\) = output, \(L\) = labour, \(K\) = capital, \(b\) = total factor productivity, \(\alpha,\beta\) = output elasticities.}
+\vskip 6pt
+Domain:
+\[
+D=\{(L,K)\in\R^2:\ L\ge 0,\ K\ge 0\}.
+\]
+
 \begin{figure}
-\includegraphics[width=2in]{img/plotxy} 
+\includegraphics[width=2.5in]{img/cd.jpg}
 \end{figure}
 \end{frame}
 
-\begin{frame}
-\frametitle{Economic example}
-\begin{small}
- \textcolor{blue}{Example:} A firm can sell each piece of product $X/Y$ for $45/55$ euros. The revenue is $R(x,y)=45x+55y$. The production cost is
-$$
-C(x,y)=300+x^2+1.5 y^2-25 x- 35 y.$$ 
-The total profit is
-$$
-f(x,y)=R(x,y)-C(x,y).
-$$
-We want to know the \textcolor{blue}{maximum profit} the firm can make. We first find the stationary points of $f$:
-$$
-f_x=-2x+70=0, \; \; f_y=-3y+90=0 \quad \Longrightarrow {\bf  x}=(35,30).
-$$
-We next check the 2nd order conditions:
-since $H_f({\bf x})$ is negative definite, ${\bf x}$ is a local max of $f$.  Is it  a global  max? Yes, since $H_f({\bf x})$ is negative definite for all ${\bf x}$ so strictly concave. The maximal profit is $f(35,30)=2275$.
+% ------------------------------------------------
+\begin{frame}{Returns to scale in Cobb--Douglas}
 
+\begin{itemize}
+\item \(\alpha\) (resp.\ \(\beta\)) measures the \textcolor{SeaGreen}{\% change in output} after a \(1\%\) change in labour (resp.\ capital), ceteris paribus.
+\item If \(\alpha+\beta=1\), there are \textcolor{SeaGreen}{constant returns to scale}: scaling \((L,K)\) by \(t>0\) scales \(P\) by \(t\).
+\item If \(\alpha+\beta<1\), \textcolor{SeaGreen}{decreasing returns}; if \(\alpha+\beta>1\), \textcolor{SeaGreen}{increasing returns}.
+\end{itemize}
 
-\end{small}
 \end{frame}
 
+% ------------------------------------------------
+\begin{frame}{Multivariate Gaussian density}
 
+A random vector \({\bf X}\in\R^d\) is \textcolor{SeaGreen}{multivariate normal} with mean \({\bf m}\) and positive definite covariance \(\Sigma\) if
+\[
+f({\bf x})=(2\pi)^{-d/2}(\det \Sigma)^{-1/2}
+\exp\!\left(-\tfrac12({\bf x}-{\bf m})^{\top}\Sigma^{-1}({\bf x}-{\bf m})\right),
+\]
+where 
+\begin{itemize}
+	\item \({\bf m}=E({\bf X})\) is the mean,
+	\item \(\Sigma=E\!\big(({\bf X}-{\bf m})({\bf X}-{\bf m})^{\top}\big)\) is the covariance matrix.\\[4mm]
+\end{itemize}
+Note: $f$ is strictly positive. It depends on $\x$ through the Mahalonobis distance $$\|\x-\bs m\|_{\Sigma}\;:=\;\sqrt{({\bf x}-{\bf m})^{\top}\Sigma^{-1}({\bf x}-{\bf m})}$$
+Thus, the level sets are the elipsoids $\{\x:\|\x-\bs m\|={\rm const}\}$.
+\end{frame}
 
-\begin{frame}
-\frametitle{Method of least squares}
-\begin{small}
- Consider a linear system of equations $A {\bf x}={\bf b}$ that has \textcolor{blue}{no solution}.
+% ------------------------------------------------
+\begin{frame}{Multivariate Gaussian density}
 
-
-\begin{tiny}That is, ${\bf b}$ does not belong to the span of columns of $A$\end{tiny}
-
-\vskip 12pt
-The solutions $\hat{{\bf x}}$ that make $\vert {\bf b}-A \hat{{\bf x}} \vert$ minimal are called \textcolor{blue}{least square solutions}.
+\textcolor{SeaGreen}{Example:} \(d=2\), \({\bf m}={\bf 0}\), variances \(\sigma_1^2=1\), \(\sigma_2^2=4\) (zero covariance).
 
 \begin{figure}
-\includegraphics[width=2in]{img/least_squares} 
-\end{figure}
-
-\begin{tiny} This is equivalent to find the \textcolor{blue}{orthogonal projection} of ${\bf b}$ onto the span of the columns of $A$ \end{tiny}
-
-
-\end{small}
-\end{frame}
-
-\begin{frame}
-\frametitle{Method of least squares}
-\begin{small}
-The solution is $\hat{{\bf x}}$ is such that
-$$
-\langle A\hat{{\bf x}}-{\bf b},  A{\bf x}\rangle=0, \quad \text{ for all } {\bf x}.
-$$
-
- This is equivalent to
-$$
-(A\hat{{\bf x}}-{\bf b})^T A{\bf x}=(\hat{{\bf  x}}' A' A -{\bf b}' A ) {\bf x}=0,
-$$
-for all ${\bf x}$.
-\vskip 10pt
-
-Therefore, $\hat{{\bf x}}$ is the solution to the linear system of equations
-$$
-A' {\bf b}= A'  A \hat{{\bf x}}.
-$$
-
-\begin{tiny} This system has a unique solution if and only if the columns of $A$ are linearly independent. In this case, 
-$$
-\hat{{\bf  x}}=(A' A)^{-1} A' {\bf b}.
-$$
-\end{tiny}
-
-
-\end{small}
-\end{frame}
-
-
-
-\begin{frame}
-\frametitle{Linear fit }
-\begin{small}
-Assume that we have $n$ \textcolor{blue}{measurements}
-${\bf x}=(x_1,...,x_n)$ and ${\bf y}=(y_1,...,y_n)$ of two variables $x$ and $y$, respectively.
-\vskip 12pt
-We want to find the line $y=ax+b$ that describes the relation between both variables using the least square approximation. That is, 
-\begin{equation*}
-\begin{pmatrix}
-x_1 & 1\\
-x_2 & 1 \\
-\vdots & \vdots \\
-x_n& 1 
-\end{pmatrix} \begin{pmatrix}
-a\\
-b  
-\end{pmatrix} =\begin{pmatrix}
-y_1\\
-y_2 \\
-\vdots\\
-y_n 
-\end{pmatrix}
-\end{equation*} 
-
-In this case, the solution to the linear system $
-A' {\bf b}= A'  A \hat{{\bf  x}}
-$ is
-\begin{equation*} \begin{split}
-a&=\frac{n \sum_{i=1}^n x_i y_i-\left(\sum_{i=1}^n x_i\right) \left( \sum_{i=1}^n y_i\right)}{n \sum_{i=1}^n x_i^2-\left( \sum_{i=1}^n x_i\right)^2} \\
-b&=\frac{\sum_{i=1}^n y_i-a \sum_{i=1}^n x_i}{n}
-\end{split}
-\end{equation*}
-
-
-\end{small}
-\end{frame}
-
-\begin{frame}
-\frametitle{Linear  fit}
-\begin{figure}
-\includegraphics[width=3in]{img/linear_fit} 
+\includegraphics[width=3in]{img/multiv}
 \end{figure}
 \end{frame}
 
-\begin{frame}
-\frametitle{Polynomial fit }
-\begin{small}
-Assume that we have $n$ \textcolor{blue}{measurements}
-${\bf x}=(x_1,...,x_n)$ and ${\bf y}=(y_1,...,y_n)$ of two variables $x$ and $y$, respectively.
-\vskip 12pt
- We want to find the polynomial of degree $m$, $y=c_0+c_1 x+c_2 x^2+\cdots+c_m x^m$ that describes the relation between both variables.
-\vskip 12pt
-Here $A$ is the $n \times m+1$ matrix of a column of ones, the observations ${\bf x}$, ${\bf x}^2, \ldots,
-{\bf x}^m$.  The vector ${\bf b}$ is the vector ${\bf y}$, and the least square solution is $(c_0, c_1, \ldots, c_m)$.
-\vskip 12pt
-Again we need to solve the system of equations $
-A' {\bf b}= A'  A \hat{{\bf x}}.
-$ 
+% ------------------------------------------------
+\begin{frame}{Partial derivatives}
+\begin{block}{Definition}
+For \(f:D\subset\R^2\to\R\), the partial derivatives at \((x,y)\) are
+\[
+f_x(x,y)=\lim_{h\to 0}\frac{f(x+h,y)-f(x,y)}{h},\qquad
+f_y(x,y)=\lim_{h\to 0}\frac{f(x,y+h)-f(x,y)}{h},
+\]
+when these limits exist.	 (We also use more standar notation $\frac{\partial f}{\partial x}(x,y)$, $\frac{\partial f}{\partial y}(x,y)$)
+\end{block}
+\begin{alertblock}{}
+	Equivalently, fix $y$ and define $g(x)=f(x,y)$. Then $f_x(x,y)=g'(x)$.
+\end{alertblock}
 
+\textcolor{SeaGreen}{Example (marginal costs):} if
+\[
+C(x,y)=200+22x+16y^{3/2},
+\]
+then \(C_x(x,y)=22\) and \(C_y(x,y)=24\sqrt{y}\).
 
-\end{small}
 \end{frame}
 
-\begin{frame}
-\frametitle{Example: quadratic fit }
-\begin{small}
- We want to find the  best  quadratic polynomial that  fits  the data
-${\bf x}=(-1, -0.5, 0, 0.5, 1)$ and ${\bf y}=(1, 0.5, 0, 0.5, 2)$.
-\vskip 12pt
- Here $m=2$, $n=5$, 
-\begin{equation*}
-A=\begin{pmatrix}
-1 & -1 & 1\\
-1 & -0.5 & 0.25 \\
-1 & 0 & 0 \\
-1& 0.5 &0.25 \\
-1& 1 & 1
-\end{pmatrix} 
-\end{equation*} 
-and
-\begin{equation*}
-A'  A=\begin{pmatrix}
-5 & 0 & 2.5\\
-0 & 2.5 & 0 \\
-2.5 & 0 & 2.125 
-\end{pmatrix} \quad 
-A' {\bf b}=\begin{pmatrix}
-4\\
-1 \\
-3.25
-\end{pmatrix} 
-\end{equation*}
+% ------------------------------------------------
+\begin{frame}{Cobb--Douglas: marginal productivities}
 
-The solution to this system is the  polynomial  $0.0857+0.4x+1.4286 x^2$.
+For \(P(L,K)=b\,L^{\alpha}K^{\beta}\),
+\[
+\frac{\partial P}{\partial L}=\alpha\,\frac{P}{L},\qquad
+\frac{\partial P}{\partial K}=\beta\,\frac{P}{K}.
+\]
+\textcolor{SeaGreen}{Interpretation:} marginal productivity of labour/capital is proportional to average productivity per unit.
+{\footnotesize Under suitable regularity, these proportionality laws lead back to the Cobb--Douglas form.}
 
-
-\end{small}
 \end{frame}
 
-\begin{frame}
-\frametitle{Example:quadratic  fit}
-\begin{small}We plot the polynomial $0.0857+0.4x+1.4286 x^2$ and the data.\end{small}
+\begin{frame}{Tangent plane and linear approximation}
+
+Geometrically, \(f_x(x_0,y_0)\) (resp.\ \(f_y(x_0,y_0)\)) is the slope of the tangent to the curve cut by the plane \(y=y_0\) (resp.\ \(x=x_0\)) at \((x_0,y_0,z_0)\), where \(z_0=f(x_0,y_0)\).
+
+\vskip 6pt
+The \textcolor{SeaGreen}{tangent plane} at \((x_0,y_0,z_0)\) is
+\[
+z = f(x_0,y_0)+f_x(x_0,y_0)(x-x_0)+f_y(x_0,y_0)(y-y_0).
+\]
+
+\vskip 6pt
+\textcolor{SeaGreen}{Linear (first-order) approximation} near \((x_0,y_0)\):
+\[
+f(x,y)\approx f(x_0,y_0)+f_x(x_0,y_0)\,\Delta x+f_y(x_0,y_0)\,\Delta y,
+\]
+\medskip
+
+In differential notation: \(df\approx f_x\,dx+f_y\,dy\).
+\end{frame}
+% ------------------------------------------------
+\begin{frame}{Tangent plane (visual)}
 \begin{figure}
-\includegraphics[width=3in]{img/least_squares2} 
+\includegraphics[width=3in]{img/tp.jpg}
 \end{figure}
 \end{frame}
+
+% ------------------------------------------------
+\begin{frame}{Higher partial derivatives}
+
+Higher derivatives are defined by iterating partials, e.g.
+\[
+f_{xy}(x,y)=\frac{\partial}{\partial y}\!\left(\frac{\partial f}{\partial x}(x,y)\right)
+=\frac{\partial^2 f}{\partial y\,\partial x}(x,y).
+\]
+\vskip 6pt
+\textcolor{SeaGreen}{Young's theorem:} If \(f_{xy}\) and \(f_{yx}\) are continuous near a point, then \(f_{xy}=f_{yx}\) there.
+\vskip 4pt
+\textcolor{SeaGreen}{Example:} \(f(x,y)=\sin(3x-y)\Rightarrow f_{xy}=f_{yx}=3\sin(3x-y)\).
+
+\end{frame}
+
+% ------------------------------------------------
+\begin{frame}[label=LinAp]{The gradient and linear approximation}
+
+For ${\bf x}\in\R^n$, the \textcolor{SeaGreen}{gradient} is
+\[
+\nabla f({\bf x})=\big(f_{x_1}({\bf x}),\dots,f_{x_n}({\bf x})\big).
+\]
+
+\vskip 6pt
+\begin{alertblock}{best linear approximation}	
+If $f$ is a $C^1$-function, then for $\bs h\in \R^n$,
+\[
+f({\bf x}+\bs h)=f({\bf x})+\langle \nabla f({\bf x}),\bs h\rangle + o(\|\bs h\|).
+\]
+
+So the gradient gives the \alert{best linear approximation} of $f$ near ${\bf x}$.
+\end{alertblock}
+\end{frame}
+
+% ------------------------------------------------
+\begin{frame}{Why is the gradient the direction of steepest ascent?}
+
+Take $\bs h=t\bs u$ with $\|\bs u\|=1$, $t>0$ small. Then
+\[
+f({\bf x}+t\bs u) = f({\bf x}) + t\,\langle \nabla f({\bf x}),\bs u\rangle+o(t).
+\]
+
+\vskip 6pt
+The instantaneous rate of change in direction $\bs u$ is
+\[
+D_u f({\bf x})\;:=\;\lim_{t\to 0}\frac{f({\bf x}+t\bs u)-f({\bf x})}{t} \;=\; \langle \nabla f({\bf x}),u\rangle.
+\]
+
+\vskip 6pt
+By Cauchy–Schwarz,
+\[
+|D_u f({\bf x})| \le \|\nabla f({\bf x})\|,
+\]
+with equality if $u$ points in the same direction as $\nabla f({\bf x})$.
+
+\vskip 6pt
+\textcolor{SeaGreen}{Conclusion:}  
+$\nabla f({\bf x})$ points in the direction of \alert{steepest increase},  
+$-\nabla f({\bf x})$ in the direction of \alert{steepest decrease}.
+\end{frame}
+
+% ------------------------------------------------
+\begin{frame}{Example: gradient and level curves}
+\begin{minipage}{6cm}
+	\begin{figure}
+\includegraphics[width=0.95\textwidth]{img/gradient_level_sets}
+\end{figure}
+\end{minipage}\begin{minipage}{9cm}
+	Let $f(x,y)=2x^2+\tfrac12 y^2$.
+\[
+\nabla f(x,y) = (4x,y).
+\]
+At $(1,2)$, $\nabla f=(4,2)$.
+
+\vskip 6pt
+\textcolor{SeaGreen}{Geometry:}  
+The gradient is perpendicular to the level curve 
+\[
+2x^2+\tfrac12 y^2=c
+\]
+through $(1,2)$.
+\end{minipage}
+Note: {$\nabla f$ is always normal to level sets. Why?}
+
+\end{frame}
+
+% ------------------------------------------------
+\begin{frame}{Jacobian and matrix differentiation rules}
+
+Let \(F:\R^n \to \R^m\).  
+The \textcolor{SeaGreen}{Jacobian matrix} of \(F\) at \({\bf x}\in\R^n\) is
+\[
+{\rm J}F({\bf x}) = 
+\left[\frac{\partial F_i}{\partial x_j}({\bf x})\right]_{i=1,\dots,m;\,j=1,\dots,n}
+\in \R^{m\times n}.
+\]
+
+\begin{itemize}
+\item If \(m=1\), then \(F=f:\R^n \to \R\) and  
+\({\rm J}f({\bf x}) = \nabla f({\bf x})^{\top}\).
+\end{itemize}
+
+\vskip 8pt
+\textcolor{SeaGreen}{Useful identities:}
+\begin{enumerate}
+\item If \(F({\bf x})=A{\bf x}\) with \(A\in\R^{m\times n}\), then \({\rm J}F({\bf x}) = A\).
+\item If \(f({\bf x})={\bf a}^{\top}{\bf x}\) with \({\bf a}\in\R^n\), then \(\nabla f({\bf x})={\bf a}\).
+\item If \(f({\bf x})={\bf x}^{\top}A{\bf x}\) with \(A\in\R^{n\times n}\), then  
+\(\nabla f({\bf x})=(A+A^{\top}){\bf x}\).  
+If \(A\) is symmetric: \(\nabla f({\bf x})=2A{\bf x}\).
+\end{enumerate}
+
+\end{frame}
+% ------------------------------------------------
+\begin{frame}{Unconstrained optimization}
+
+A point \({\bf x}_0\) is a \textcolor{SeaGreen}{local maximum} (\textcolor{SeaGreen}{minimum}) if there exists a ball \(B_r({\bf x}_0)\subset D\) such that
+\[
+f({\bf x})\le f({\bf x}_0)\quad (\text{resp.\ } f({\bf x})\ge f({\bf x}_0))
+\quad\text{for all }{\bf x}\in B_r({\bf x}_0).
+\]
+If this holds on all of \(D\), the optimum is \textcolor{SeaGreen}{global}.
+\vskip 6pt
+If \({\bf x}_0\) is an interior local extremum and \(f\) is differentiable, then the \textcolor{SeaGreen}{first-order condition} holds:
+\[
+\nabla f({\bf x}_0)={\bf 0}.
+\]
+Such points are \textcolor{SeaGreen}{stationary}; a stationary point that is neither max nor min is a \textcolor{SeaGreen}{saddle}.\\[4mm]
+
+Indeed: By Slide~\ref{LinAp}, if $\nabla f({\bf x}_0)\neq {\bf 0}$, an infinitesimal move can increase/decrease the value of $f$.
+\end{frame}
+
+% ------------------------------------------------
+\begin{frame}{Unconstrained optimization (pictures)}
+\begin{figure}
+\includegraphics[width=5in]{img/minmaxsaddle.png}
+\end{figure}
+\end{frame}
+
+% ------------------------------------------------
+\begin{frame}{Local optimality: second-order tests}
+
+Assume \(f\in C^2\) and let \(H_f({\bf x})=[f_{x_i x_j}({\bf x})]_{i,j}\) be the (symmetric) Hessian.
+\vskip 6pt
+\textcolor{SeaGreen}{At a stationary point \({\bf x}_0\):}
+\begin{itemize}
+\item \(H_f({\bf x}_0)\) positive definite \(\Rightarrow\) local minimum.
+\item \(H_f({\bf x}_0)\) negative definite \(\Rightarrow\) local maximum.
+\item \(H_f({\bf x}_0)\) indefinite \(\Rightarrow\) saddle.
+\end{itemize}
+\vskip 6pt
+\textcolor{SeaGreen}{\(n=2\) test:} Let \(D_2=f_{xx}f_{yy}-f_{xy}^2\) at \({\bf x}_0\).
+\[
+\begin{array}{l}
+D_2>0,\ f_{xx}>0 \Rightarrow \text{local min},\\
+D_2>0,\ f_{xx}<0 \Rightarrow \text{local max},\\
+D_2<0 \Rightarrow \text{saddle},\quad D_2=0:\ \text{inconclusive}.
+\end{array}
+\]
+
+\end{frame}
+
+% ------------------------------------------------
+\begin{frame}{Examples}
+
+\begin{enumerate}
+\item \(f(x,y)=x^2-y^2-xy\). Then \(\nabla f=(2x-y,\,-2y-x)\). The only stationary point is \((0,0)\). The Hessian
+\(
+H_f=\begin{pmatrix}2&-1\\ -1&-2\end{pmatrix}
+\)
+is \textcolor{SeaGreen}{indefinite} \(\Rightarrow\) \((0,0)\) is a \textcolor{SeaGreen}{saddle}.
+\item \(f(x,y)=x^2+y^4\). Stationary point: \((0,0)\). 
+\(
+H_f(0,0)=\begin{pmatrix}2&0\\ 0&0\end{pmatrix}
+\)
+is positive semidefinite; \(f\ge 0\) so \((0,0)\) is a \textcolor{SeaGreen}{global minimum}.
+\item \(f(x,y)=x^3+y^3\). Stationary point: \((0,0)\). The Hessian at \((0,0)\) is \(0\); the point is a \textcolor{SeaGreen}{saddle}.
+\end{enumerate}
+
+\end{frame}
+
+% ------------------------------------------------
+\begin{frame}{Convex domains}
+
+A set \(D\subset\R^n\) is \textcolor{SeaGreen}{convex} if for any \({\bf x},{\bf y}\in D\) and \(t\in[0,1]\), the point \((1-t){\bf x}+t{\bf y}\in D\).
+
+\begin{figure}
+\includegraphics[width=4in]{img/convex_set}
+\end{figure}
+\end{frame}
+
+% ------------------------------------------------
+\begin{frame}{Convexity, concavity, and global optimality}
+
+\begin{alertblock}{Definition (Convexity/Concavity)}
+Let \(D \subset \R^n\) be convex.  
+A function \(f:D\to\R\) is \textcolor{SeaGreen}{convex} if for all \({\bf x},{\bf y}\in D\) and \(\theta\in[0,1]\),
+\[
+f(\theta{\bf x}+(1-\theta){\bf y}) 
+\;\leq\; \theta f({\bf x})+(1-\theta)f({\bf y}),
+\]
+i.e.\ the graph lies \emph{below} every chord.\\[2mm]
+$\bullet$  $f$ is \textcolor{SeaGreen}{concave} if the inequality is reversed,
+i.e.\ the graph lies \emph{above} every chord.
+\end{alertblock}
+
+\medskip
+\begin{block}{Curvature test (for \(C^2\) functions)}
+\begin{enumerate}
+\item \(H_f({\bf x})\succeq 0\) on \(D\) \(\;\Leftrightarrow\;\) \(f\) convex.  
+      \(H_f({\bf x})\preceq 0\) on \(D\) \(\;\Leftrightarrow\;\) \(f\) concave.
+\item Strict definiteness implies strict convexity/concavity.
+\end{enumerate}
+\end{block}
+
+\medskip
+\textcolor{SeaGreen}{Key fact:} If \(f\) is convex (concave) on \(D\), any stationary point is a \textbf{global} minimum (maximum).
+
+\end{frame}
+
+% ------------------------------------------------
+\begin{frame}{Example}
+
+Let \(f(x,y)=2x-y-x^2+xy-y^2\). Then
+\[
+\nabla f=(2-2x+y,\ -1+x-2y),\qquad
+H_f=\begin{pmatrix}-2&1\\[2pt]1&-2\end{pmatrix}.
+\]
+\(H_f\) is \textcolor{SeaGreen}{negative definite} \(\Rightarrow\) \(f\) is strictly concave. The unique stationary point solves \(\nabla f={\bf 0}\), giving \((x,y)=(0,1)\), which is a \textcolor{SeaGreen}{global maximum}.
+
+\begin{figure}
+\includegraphics[width=2in]{img/plotxy}
+\end{figure}
+\end{frame}
+
+% ------------------------------------------------
+\begin{frame}{Economic example: profit maximization}
+
+A firm sells products \(X/Y\) at \(45/55\) euros. Revenue \(R(x,y)=45x+55y\). Cost
+\[
+C(x,y)=300+x^2+1.5\,y^2-25x-35y.
+\]
+Profit \(f(x,y)=R(x,y)-C(x,y)\). Then
+\[
+f_x=-2x+70,\qquad f_y=-3y+90 \ \Rightarrow\ (x^\ast,y^\ast)=(35,30).
+\]
+Since \(H_f=\begin{pmatrix}-2&0\\[2pt]0&-3\end{pmatrix}\) is negative definite everywhere, \(f\) is strictly concave and \((35,30)\) is the \textcolor{SeaGreen}{global maximum}. The maximal profit is \(f(35,30)=2275\).
+
+\end{frame}
+
+% ------------------------------------------------
+\begin{frame}{Least squares as orthogonal projection}
+Given data $X\in\R^{n\times d}$ and response $y\in\R^n$, the least–squares estimator solves
+\[
+\hat\beta=\arg\min_\beta \|y-X\beta\|^2,
+\qquad
+\hat y=X\hat\beta.
+\]
+\textcolor{SeaGreen}{Geometric view (recall Lecture 2):} $\hat y$ is the orthogonal projection of $y$ onto the column space $\mathcal C(X)$, hence
+\[
+X^\top (y-X\hat\beta)=0
+\quad\Longleftrightarrow\quad
+(X^\top X)\hat\beta=X^\top y
+\ \ (\text{if $X^\top X$ invertible}).
+\]
+
+\medskip
+\textcolor{SeaGreen}{Polynomial regression:}  
+A common use of least squares is fitting nonlinear trends by expanding the design matrix $X$.  
+For instance, with one predictor $x$, we can set
+\[
+X=\begin{pmatrix}
+1 & x_1 & x_1^2 & \cdots & x_1^m\\
+\vdots & \vdots & \vdots & & \vdots \\
+1 & x_n & x_n^2 & \cdots & x_n^m
+\end{pmatrix},
+\]
+so that the fitted model is $y\approx c_0+c_1 x+\cdots+c_m x^m$.
+\end{frame}
+% ------------------------------------------------
+\begin{frame}{Ridge regression: stabilizing high–variance fits}
+When $X^\top X$ is ill-conditioned or $d$ is large, add $\ell_2$ regularization:
+\[
+\hat\beta_\lambda=\arg\min_\beta \big(\|y-X\beta\|^2+\lambda\|\beta\|^2\big)
+\quad\Longrightarrow\quad
+\hat\beta_\lambda=(X^\top X+\lambda I)^{-1}X^\top y.
+\]
+\textcolor{SeaGreen}{Spectral view:} if $X^\top X=U{\rm diag}(s_1^2,\ldots,s_d^2)U^\top$, then
+\[
+\hat\beta_\lambda
+=\sum_{j=1}^d \frac{s_j}{s_j^2+\lambda}\, u_j\, \langle y,\, X u_j\rangle,
+\]
+so ridge \textcolor{SeaGreen}{shrinks} directions with small $s_j$ (low variance) the most $\big(\tfrac{s_j}{s_j^2+\lambda}<\tfrac1{s_j}\big)$, reducing variance and overfitting.
+\end{frame}
+
+% ------------------------------------------------
+\begin{frame}{Overfitting vs. ridge: degree-9 polynomial demo}
+\alert{$n=10$ points} from $y=\sin x+\varepsilon$ on $[-3,3]$, \alert{degree $9$} polynomial.
+\[
+\text{OLS (no penalty)} \quad \text{vs.}\quad \text{Ridge with }\lambda=\tfrac13.
+\]
+\begin{figure}
+\centering
+\includegraphics[width=0.6\textwidth]{img/ridge_overfitting.png}
+\end{figure}
+{\footnotesize OLS wiggles violently between sparse points; ridge damps the high-frequency coefficients and tracks the signal more smoothly.}
+\end{frame}
+
+
+% ------------------------------------------------
+\begin{frame}{Modern applied examples (multivariable)}
+
+\begin{itemize}
+\item \textcolor{SeaGreen}{Portfolio risk (mean--variance):}
+\[
+f({\bf w})={\bf w}^{\top}\Sigma\,{\bf w},\quad
+g({\bf w})=\mu^{\top}{\bf w},\quad
+{\bf w}\in\R^n,\ \sum_i w_i=1,\ w_i\ge 0.
+\]
+\item \textcolor{SeaGreen}{Logistic regression (binary choice):}
+\[
+J(\beta)=\frac{1}{n}\sum_{i=1}^n\!\Big(\log\big(1+e^{x_i^{\top}\beta}\big)-y_i\,x_i^{\top}\beta\Big)
+\quad(\text{convex in }\beta).
+\]
+\item \textcolor{SeaGreen}{CES utility/production:}
+\[
+U(x)=\Big(\sum_{i=1}^n \alpha_i x_i^{\rho}\Big)^{\!1/\rho},\quad
+P(L,K)=A\big(\theta\big)\,L^{\alpha}K^{\beta}.
+\]
+\end{itemize}
+
+\end{frame}
+
+
+% ------------------------------------------------
+\begin{frame}{Gradient descent }
+
+Goal: minimize \(f(\theta)\).
+\[
+\theta_{t+1}=\theta_t-\eta_t\,\nabla f(\theta_t).
+\]
+\textbf{Pieces you pick:}
+\begin{itemize}
+\item \textbf{Step size} \(\eta_t\): constant, diminishing, or via backtracking.
+\item \textbf{Stop} when \(\|\nabla f(\theta_t)\|\) small.
+%\item \textbf{Guarantee (sketch):} if \(J\) is convex with \(L\)-Lipschitz gradient, then for \(0<\eta<2/L\) constant, GD converges to a global minimizer.
+\end{itemize}
+{\footnotesize In practice: feature scaling and a good \(\eta_t\) schedule matter a lot.}
+
+\end{frame}
+
+% ------------------------------------------------
+\begin{frame}{GD on least squares (closed form vs iterations)}
+Least squares problem has a closed form solution. This still requires inverting a potentially large matrix $X^\top X$. GD gives an alternative  way to find a solution. 
+\[
+f(\beta)=\frac{1}{n}\|X\beta-{\bf y}\|^2,\qquad
+\nabla f(\beta)=\frac{2}{n}\,X^{\top}(X\beta-{\bf y}).
+\]
+\textbf{GD update:}
+\[
+\beta_{t+1}=\beta_t-\eta\,\frac{2}{n}\,X^{\top}\big(X\beta_t-{\bf y}\big).
+\]
+\textbf{Ridge:}
+\[
+f_{\lambda}(\beta)=\frac{1}{n}\|X\beta-{\bf y}\|^2+\lambda\|\beta\|_2^2,\quad
+\nabla f_{\lambda}=\frac{2}{n}X^{\top}(X\beta-{\bf y})+2\lambda\beta.
+\]
+{\footnotesize Closed form exists \((X^{\top}X)^{-1}X^{\top}{\bf y}\), but GD scales better to huge \(n,p\) or streaming data.}
+
+\end{frame}
+
+
+% ------------------------------------------------
+\begin{frame}{Constrained optimization: Lagrange and KKT (teaser)}
+
+Equality constraints \(g_i(x)=0\) and inequality constraints \(h_j(x)\le 0\).
+The Lagrangian:
+\[
+\mathcal{L}(x,\lambda,\mu)=f(x)+\sum_i \lambda_i g_i(x)+\sum_j \mu_j h_j(x).
+\]
+\textbf{KKT conditions} (when they apply):
+\begin{itemize}
+\item \textbf{Stationarity: } \(\nabla_x \mathcal{L}(x^*,\lambda^*,\mu^*)=\mathbf{0}\).
+\item \textbf{Primal feasibility: } \(g_i(x^*)=0,\; h_j(x^*)\le 0\).
+\item \textbf{Dual feasibility: } \(\mu_j^*\ge 0\).
+\item \textbf{Complementary slackness: } \(\mu_j^*\,h_j(x^*)=0\).
+\end{itemize}
+\textbf{Example (budgeted utility max):} maximize \(U(x)\) s.t. \(p^{\top}x\le B\).
+Then \(\mathcal{L}(x,\mu)=U(x)+\mu\,(B-p^{\top}x)\) and at optimum
+\(\nabla U(x^*)=\mu^* p\), \(p^{\top}x^*\le B\), \(\mu^*\ge 0\), \(\mu^*(B-p^{\top}x^*)=0\).
+
+\end{frame}
+
+% ------------------------------------------------
+\begin{frame}{When to use second order methods?}
+
+In general, we update $\theta_t$ as
+$$
+\theta_{t+1}\;:=\;\arg\min f(\theta_t)+\<\nabla f(\theta_t),\theta\>+\tfrac12 (\theta-\theta_t)^\top \alert{K} (\theta-\theta_t).
+$$
+If $\alert{K}=I_n$, we recover gradient descent. \\[2mm]
+If $\alert{K}=\nabla\nabla^\top f(\theta_t)$, we get the \textcolor{SeaGreen}{Newton method}. \\[2mm]
+
+
+\begin{itemize}
+\item \textbf{Newton:} \(\theta_{t+1}=\theta_t-H^{-1}(\theta_t)\nabla J(\theta_t)\) (fast near solution, expensive to form/solve).
+\item \textbf{Quasi-Newton (e.g., BFGS, L\!-\!BFGS):} approximate \(H^{-1}\) from gradients only; great for medium scale convex problems.
+\item \textbf{Takeaway:} for huge data/models use (S)GD; for smaller smooth convex problems, quasi-Newton shines.
+\end{itemize}
+
+\end{frame}
+
+% ------------------------------------------------
 \end{document}
-
