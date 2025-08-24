@@ -2,10 +2,10 @@
 ## Math brush-up
 <table>
 <tr>
-<td style="width:45%; vertical-align:top;">
-  <img src="course_cover.png" alt="Course cover" width="100%">
+<td style="width:40%; vertical-align:top;">
+  <img src="course_cover.png" alt="Course cover" width="80%">
 </td>
-<td style="width:55%; vertical-align:top; padding-left:15px;">
+<td style="width:60%; vertical-align:top; padding-left:15px;">
   This intensive course reviews key tools in calculus and linear algebra that will be essential for success in the Master’s programs in Economics and Finance.  
   Because we cover a large amount of material in a short period, the pace is demanding. Students are encouraged to use the course strategically: it provides an opportunity to refresh fundamental concepts, to identify personal gaps in mathematical background, and to establish good study habits before the start of the program.
 </td>
