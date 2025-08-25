@@ -21,7 +21,7 @@
 ***
 
 ### Announcements:
-- Aug 25: On our Google Classroom I created an experimental [forum](https://classroom.google.com/u/2/w/NzcwNDYxODI2ODky/tc/Nzk5NzA1OTA0NDE3). 
+- Aug 25: I created an experimental [forum](https://classroom.google.com/u/2/w/NzcwNDYxODI2ODky/tc/Nzk5NzA1OTA0NDE3) on our Google Classroom. 
 
 ***
 
