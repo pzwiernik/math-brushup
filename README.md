@@ -26,7 +26,7 @@
 | Prof |  [Piotr Zwiernik](https://pzwiernik.github.io/) |
 | :--- | :--- |
 | Email | piotr.zwiernik@upf.edu |
-| Office hours | each lecture day, 15:30-17:00 (20.202) |
+| Office hours | each lecture day, 10:00-11:00 (20.202) |
 
 ### Teaching Assistant:
 
@@ -39,6 +39,7 @@ The course consists of five lecture days: September 4,5,(weekend),8,9,10.
 Each day is organized as follows: 11-1pm and 2-4pm (lecture), 4-5pm (tutorials).
 
 All classes take place in room **40.002** (UPF's Ciutadela campus).
+
 
 ***
 
