@@ -31,7 +31,7 @@
 | Prof |  [Piotr Zwiernik](https://pzwiernik.github.io/) |
 | :--- | :--- |
 | Email | piotr.zwiernik@upf.edu |
-| Office hours | each lecture day, 10:00-11:00 (20.202) |
+| Office hours | each lecture day, 10:00-10:50 (20.202) |
 
 ### Teaching Assistant:
 
