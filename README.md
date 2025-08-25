@@ -8,7 +8,8 @@
 <td style="width:60%; vertical-align:top; padding-left:15px;">
   This intensive course reviews key tools in calculus and linear algebra that will be essential for success in the Master’s programs in Economics and Finance.  
   Because we cover a large amount of material in a short period, the pace is demanding. Students are encouraged to use the course strategically: it provides an opportunity to refresh fundamental concepts, to identify personal gaps in mathematical background, and to establish good study habits before the start of the program. <br>
-
+<br>
+  
   This website contains most of the relevant information about the course; see also our <a href="https://classroom.google.com/c/NzcwNDYxODI2ODky?cjc=ekc5e2d4">Google Classroom</a> for complementary bits. 
 </td>
 </tr>
