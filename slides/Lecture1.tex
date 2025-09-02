@@ -4,9 +4,9 @@
 
 %\usecolortheme{whale}
 
-\title[Calculus and Linear Algebra]{Lecture 1 : Calculus}
-\author[Piotr Zwiernik, Barcelona School of Economics]{Piotr Zwiernik \\ $\;$\\
-Mathematics Brush-up\\ $\;$\\ $\;$\\
+\title[Calculus and Linear Algebra]{Lecture 1 : Introduction and Basic Calculus}
+\author[Piotr Zwiernik, Barcelona School of Economics]{Piotr Zwiernik \\[3mm] 
+19BE02: Calculus and Linear Algebra\\ $\;$\\ $\;$\\
 \includegraphics[width=1in]{img/bse.png}  
 }
 \date{}
@@ -24,6 +24,30 @@ Mathematics Brush-up\\ $\;$\\ $\;$\\
 
 
 %--------------- slide 1  ----------------%
+
+\begin{frame}{Course structure}
+\bigskip
+
+\begin{minipage}{9.5cm}
+	\textbf{Instructor:} Piotr Zwiernik (piotr.zwiernik@bse.eu).\\[4mm]
+	\textbf{Five lectures:} today, Friday, Monday, Tuesday, Wednesday.\\[4mm]
+	\textbf{Each day:} 4 hours of lectures, 1 hour of tutorials.  \\[4mm]
+	\textbf{Lectures:} 11-1pm and 2-4pm.\\[4mm]
+		\textbf{Tutorials:} 4-5pm.\\[4mm]
+	\textbf{TA:} Francisco Calvillo (francisco.calvillo@bse.eu).\\[4mm]
+\end{minipage}\begin{minipage}{5cm}
+	\centering\includegraphics[width=0.95\textwidth]{img/course_cover.png}
+\end{minipage}
+	\bigskip
+	
+	\textbf{Grading:} This course is not graded. But there will be an exam on Friday, Sept 19th, 10-11am. \\[6mm]
+	
+	
+	\textbf{Course website:} \url{https://pzwiernik.github.io/math-brushup/}.
+\end{frame}
+
+
+
 \begin{frame}{Goal of the course}
 
 \textcolor{SeaGreen}{Review} core tools of calculus that power modern economics, finance, and data-driven policy.\\[6mm]
@@ -37,7 +61,38 @@ These tools are \textcolor{SeaGreen}{crucial} in courses on micro/macro, econome
 \item {\it Mathematics for Economists} by C. P. Simon and L. Blume
 \item {\it Mathematics of Economics and Business} by F. Werner and Y. N. Sotskov
 \end{enumerate}
+(any other standard textbook should be fine)
 \end{frame}
+
+\begin{frame}{Course content}
+
+\begin{enumerate}
+\item Sequences and series
+\item Functions of one variable
+\item Differentiation
+\item Integration
+\item Vectors
+\item Matrices and determinants
+\item Systems of linear equations
+\item Eigenvalue problems and quadratic forms
+\item Functions of several variables
+%\item Introduction to differential equations
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Cultivate a Critical Mindset}
+
+
+Technical knowledge requires effort. 
+\begin{itemize}
+  \item[$\bullet$] \textbf{If a step feels ``magical'', stop.} Ask \emph{why} it works, not just \emph{how}.\\[3mm]
+  \item[$\bullet$] \textbf{Challenge every answer --- especially given by LLMs.}\\
+        Large-language models can sound confident yet be wrong; verify with first principles or a textbook.\\[3mm]
+  \item[$\bullet$] \textbf{Use multiple lenses.}\\  
+        Check special cases, sketch a graph, test numerically, or search for a counterexample.
+\end{itemize}
+\end{frame}
+
 
 \begin{frame}{Welcome to Our Class Q\&A Forum!}
     \begin{block}{Purpose: A Space for Collaborative Learning}
@@ -55,48 +110,24 @@ These tools are \textcolor{SeaGreen}{crucial} in courses on micro/macro, econome
             \end{block}
         \end{column}
         \begin{column}{0.48\textwidth}
-            \begin{block}{Your Role \& My Role}
-                \textbf{Your Role: Be Active!}
+            \begin{block}{}
+                \textbf{Be Active!}
                 \begin{itemize}
                     \item \textbf{Ask:} Don't hesitate to post a question.
                     \item \textbf{Answer:} If you know the answer to a classmate's question, please reply! 
                 \end{itemize}
-                \textbf{My Role: Facilitator}
-                \begin{itemize}
-                    \item I will check the forum 2-3 times a day to guide discussions and answer questions that remain open. 
-                \end{itemize}
+\textcolor{DarkRed}{I will check the forum 2-3 times a day. }
             \end{block}
         \end{column}
     \end{columns}
 \end{frame}
 
 
-\begin{frame}{Cultivate a Critical Mindset}
-Technical knowledge requires effort. 
-\begin{itemize}
-  \item[$\bullet$] \textbf{If a step feels ``magical'', stop.} Ask \emph{why} it works, not just \emph{how}.\\[3mm]
-  \item[$\bullet$] \textbf{Challenge every answer --- especially given by LLMs.}\\
-        Large-language models can sound confident yet be wrong; verify with first principles or a textbook.\\[3mm]
-  \item[$\bullet$] \textbf{Use multiple lenses.}\\  
-        Check special cases, sketch a graph, test numerically, or search for a counterexample.
-\end{itemize}
-\end{frame}
 
-
-\begin{frame}{Index}
-
-\begin{enumerate}
-\item Sequences and series
-\item Functions of one variable
-\item Differentiation
-\item Integration
-\item Vectors
-\item Matrices and determinants
-\item Systems of linear equations
-\item Eigenvalue problems and quadratic forms
-\item Functions of several variables
-\item Introduction to differential equations
-\end{enumerate}
+\begin{frame}[plain,noframenumbering]{}
+	\begin{center}
+		\alert{\Huge Sequences}
+	\end{center}
 \end{frame}
 
 
@@ -105,14 +136,14 @@ Technical knowledge requires effort.
 A \textcolor{SeaGreen}{sequence} is an ordered list of real numbers $(a_1,a_2,\ldots)$ indexed by $n\in\mathbb{N}$. \\[3mm]
 
 \textcolor{SeaGreen}{Notation:} $\{a_n\}_{n=1}^{\infty}$ where each $a_n\in\mathbb{R}$.\\[6pt]
-Define by a \textcolor{SeaGreen}{formula} or a \textcolor{SeaGreen}{recursion}.
+Defined by a \textcolor{SeaGreen}{formula} or a \textcolor{SeaGreen}{recursion}.
 \vskip 10pt
 \textcolor{SeaGreen}{Examples:} 
 \begin{enumerate}
-\item $a_n=\dfrac{n-1}{2n+1}$\quad  \begin{tiny}$(a_1=0, a_2=\frac15,a_3=\frac27,\ldots)$ \end{tiny}
-\item $a_1=2, \; a_{n+1}=2a_n-1$\quad  \begin{tiny}$(2,3,5,9,\ldots)$ \end{tiny}
-\item $a_1=1, a_2=1, \; a_{n+1}=a_n+a_{n-1}$\quad  \begin{tiny}(Fibonacci)\end{tiny}
-\item \alert{Arithmetic}: $a_{n}=a_1+(n-1)d$
+\item $a_n=\dfrac{n-1}{2n+1}$\quad  \begin{small}$(a_1=0, a_2=\frac15,a_3=\frac27,\ldots)$ \end{small}\\[3mm]
+\item $a_1=2, \; a_{n+1}=2a_n-1$\quad  \begin{small}$(2,3,5,9,\ldots)$ \end{small}\\[3mm]
+\item $a_1=1, a_2=1, \; a_{n+1}=a_n+a_{n-1}$\quad  \begin{small}(Fibonacci)\end{small}\\[3mm]
+\item \alert{Arithmetic}: $a_{n}=a_1+(n-1)d$\\[3mm]
 \item \alert{Geometric}: $a_n=a_1 r^{\,n-1}$
 \end{enumerate}
 %
@@ -132,39 +163,52 @@ Define by a \textcolor{SeaGreen}{formula} or a \textcolor{SeaGreen}{recursion}.
 %
 \end{frame}
 
+\begin{frame}{Small motivating example: Creator economy revenue}
 
+Imagine a YouTuber uploading videos one by one. Each video gets a certain number of views:
+\[
+v_1,\ v_2,\ v_3,\ \dots
+\]
+and YouTube pays the creator a fixed rate of \(c\) euros per 1,000 views (\textit{RPM}).  
 
-\begin{frame}{Small motivating examples}
-\begin{enumerate}
-\item \textbf{EAR vs APR in FinTech.}  
-Let \( P \) be the initial investment. If a platform advertises an \textit{annual percentage rate} (APR) \( R \) but compounds \( m \) times/year, then after \( n \) years:
+\medskip
+The revenue from video \(k\) is
+\[
+r_k = c \cdot \frac{v_k}{1000}.
+\]
+
+\medskip
+The \textcolor{SeaGreen}{total revenue after $n$ videos} is then the sequence
+\[
+S_n = r_1 + r_2 + \cdots + r_n.
+\]
+This is also an example of a \alert{partial sum}; more on that in a second.
+\end{frame}
+
+\begin{frame}{Small motivating example: EAR vs APR in FinTech}
+Let \( a_0=P \) be the initial investment. If a platform advertises an \textit{annual percentage rate} (APR) \( R \) but applies interest \( m \) times per year, then after \( n \) years:
 \[
 a_n = P\left(1+\frac{R}{m}\right)^{mn}.
 \]
 The one-year \textit{effective annual rate} (EAR) is:
 \[
-\left(1+\frac{R}{m}\right)^m - 1.
+\frac{a_1-a_0}{a_0}\;=\;\left(1+\frac{R}{m}\right)^m - 1.
 \]
-{\small (APR is the quoted yearly rate without compounding; APY/EAR accounts for compounding.)}\\[3mm]
-
+{\small (APR is the quoted yearly rate ignoring compounding; APY/EAR accounts for the fact that interest itself earns interest when applied multiple times in a year.)}
 %\item \textbf{Subscription growth.}  
 %If a product grows at a net rate \( r \) per period (after accounting for cancellations, called “churn”), then:
 %\[
 %\text{Subs}_{n} = \text{Subs}_{0}(1+r)^n.
 %\]
+\end{frame}
 
-\item \textbf{Creator economy revenue.}  
-If the number of views per video is \( v_n \) and the cost-per-thousand views (\textit{CPM}) is \( c \),  
-total revenue over \( n \) videos is:
-\[
-s_n = \sum_{k=1}^n c\,v_k.
-\]
-\end{enumerate}
+\begin{frame}[plain]{What is the actual daily interest? (ignoring fineprint)}
+	\includegraphics[width=\textwidth]{img/revolut_aer.png}
 \end{frame}
 
 \begin{frame}{Properties of a sequence}
 
-A sequence is \textcolor{SeaGreen}{increasing} if $a_{n+1}\ge a_n$ (strictly if $>$).\\[3mm]
+A sequence is \textcolor{SeaGreen}{increasing} if $a_{n+1}\ge a_n$ (strictly if $>$) for all $n=1,2,\ldots$.\\[3mm]
 \textcolor{SeaGreen}{Decreasing} if $a_{n+1}\le a_n$ (strictly if $<$).\\[3mm]
 \textcolor{SeaGreen}{Monotone} if increasing or decreasing.\\[3mm]
 \textcolor{SeaGreen}{Bounded} if $\exists C>0$ s.t. $|a_n|\le C$ for all $n$.\\[5mm]
@@ -183,11 +227,20 @@ A sequence is \textcolor{SeaGreen}{increasing} if $a_{n+1}\ge a_n$ (strictly if 
 \end{frame}
 }
 
+\begin{frame}[plain,noframenumbering]{}
+	\begin{center}
+		\alert{\Huge Limit of a sequence}
+	\end{center}
+\end{frame}
+
 
 \begin{frame}{Limit of a sequence}
- A real number $a$ is the \alert{limit} of $\{a_n\}$ if as $n\to\infty$, $a_n$ gets arbitrarily close to $a$. \textcolor{SeaGreen}{Notation:} \hl{$\lim_{n \rightarrow \infty} a_n=a$}.
+A sequence $(a_n)_{n\in \mathbb N}$ \alert{converges to zero} if $a_n$ get arbitrarly close to zero. \\[3mm]
+More generally, $a\in \mathbb R$ is the \alert{limit} of $(a_n)_{n\in \mathbb N}$ if, as $n\to\infty$, $a_n$ gets arbitrarily close to $a$.\\
+(equivalently $d_n=|a_n-a|$ converges to zero)
+\\[3mm] \textcolor{SeaGreen}{Notation:} \hl{$\lim_{n \rightarrow \infty} a_n=a$}.
 \vskip 8pt
-A sequence is \textcolor{SeaGreen}{convergent} if it has a limit; otherwise it \textcolor{SeaGreen}{diverges}.
+A sequence  is \textcolor{SeaGreen}{convergent} if it has a limit; otherwise it \textcolor{SeaGreen}{diverges}.
 \vskip 8pt
 \textcolor{SeaGreen}{Examples} 
 \begin{enumerate}
@@ -200,7 +253,8 @@ A sequence is \textcolor{SeaGreen}{convergent} if it has a limit; otherwise it \
 
 
 
-\begin{frame}{Epsilon-definition}
+\begin{frame}{Formal definition}
+How do you formalize the statement ``gets arbitrarly close''?
 \begin{alertblock}{Definition: $a=\lim_{n\to\infty}a_n$}
 \qquad$
 \forall \epsilon >0 \quad\exists N_\epsilon\quad\text{s.t.}\;\;\forall n>N_\epsilon:\qquad |a_n-a| < \epsilon.
@@ -214,10 +268,16 @@ $
  	\item If $a_n=a$ for all $n$, then $\lim a_n=a$.
  \end{itemize}
 \bigskip
-\begin{block}{If formal definition hard to work with, try to squeezing with easier bounds}
-If $0<\frac{1}{2n^2-1}\le \frac{1}{n}$ for $n\ge 1$, then $\lim \frac{1}{2n^2-1}=0$.
+\begin{block}{Theorem(Squeeze theorem:) }
+If $a_n\leq b_n\leq c_n$ for all $n\in \mathbb N$ and $\lim_{n\to \infty}a_n=\lim_{n\to \infty}c_n=L$ then $\lim_{n\to \infty}b_n=L$.\\[3mm]
+\qquad e.g. $0<\frac{1}{2n^2-1}\le \frac{1}{n}$ for $n\in \mathbb N$, then $\lim_{n\to \infty} \frac{1}{2n^2-1}=0$.
 \end{block}
 \end{frame}
+
+\begin{frame}{Squeeze theorem}
+\centering 	\includegraphics[width=.8\textwidth]{img/police.png}
+\end{frame}
+
 
 \begin{frame}{Limits that matter in practice}
 
@@ -227,12 +287,14 @@ If $0<\frac{1}{2n^2-1}\le \frac{1}{n}$ for $n\ge 1$, then $\lim \frac{1}{2n^2-1}
 \item $\Bigl(1+\frac{x}{n}\Bigr)^n \to e^{x}$ for any real $x$
 \end{enumerate}
 
-\textcolor{SeaGreen}{Continuous compounding \& APY:} if APR is $R$, then
+\textcolor{SeaGreen}{Continuous compounding \& EAR:} If APR is $R$, then
 \[
 \lim_{m\to\infty}\Bigl(1+\frac{R}{m}\Bigr)^m=e^R,\quad
 \text{EAR}=e^R-1.
 \]
-\textcolor{SeaGreen}{Example:} APR $=8\%$ $\Rightarrow$ EAR $\approx 8.329\%$.
+\textcolor{SeaGreen}{Example:} APR $=8\%$ $\Rightarrow$ EAR $\approx 8.329\%$.\\[3mm]
+\quad With monthly compounding ($m=12$) EAR is $8.3\%$.\\ 
+\quad With daily compounding ($m=365$) EAR is $8.328\%$
 \end{frame}
 
 \begin{frame}{Monotone convergence and algebra of limits}
@@ -245,7 +307,7 @@ Every bounded monotone sequence is convergent.
 If $\lim a_n=a$ and $\lim b_n=b$, then
 \[
 \lim (a_n+b_n)=a+b,\quad 
-\lim (a_n b_n)=ab,\quad 
+\lim (a_n b_n)=ab. \qquad  \mbox{Moreover, }
 \lim \frac{a_n}{b_n}=\frac{a}{b} \;\text{ if }b_n,b\neq 0.
 \]	
 \end{block}
@@ -253,6 +315,11 @@ If $\lim a_n=a$ and $\lim b_n=b$, then
 %\textcolor{SeaGreen}{Data view:} A smoothed KPI (moving average) can converge even when the raw series is noisy, if underlying trend is stable and bounded perturbations vanish.
 \end{frame}
 
+\begin{frame}[plain,noframenumbering]{}
+	\begin{center}
+		\alert{\Huge Series}
+	\end{center}
+\end{frame}
 
 
 \begin{frame}{Partial sums and series}
@@ -271,19 +338,19 @@ s_n=\sum_{k=1}^n a_k.
 \item Let \emph{margin} be the profit earned per customer per period and $p$ be the customer retention rate. The total profit from a single customer over \( n \) periods is: \hl{$s_n = \sum_{k=1}^n \text{margin} \cdot p^k$}.
 
 \item  Let \( E_k \) be the emissions produced in period \( k \) (e.g., in tonnes of CO\(_2\)).  
-Then the total emissions over \( n \) periods are: \hl{$s_n = \sum_{k=1}^n E_k$}, which can be compared to a fixed carbon budget.
+The total emissions over \( n \) periods are: \hl{$s_n = \sum_{k=1}^n E_k$}, which can be compared to a fixed carbon budget.
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Series and convergence}
 
-A \textcolor{SeaGreen}{series} is the limit (if it exists) of partial sums: 
+Partial sums also form a sequence. A \textcolor{SeaGreen}{series} is the limit (if it exists) of partial sums: 
 \[
 \sum_{k=1}^{\infty} a_k\; :=\; \lim_{n\to\infty} s_n.
 \]
 \textcolor{SeaGreen}{Geometric series:} converges if and only if $|r|<1$ with
 \[
-\sum_{k=1}^{\infty} a_1 r^{k-1}=\frac{a_1}{1-r}.
+\sum_{k=1}^{\infty} a_1 r^{k-1}=\frac{a_1}{1-r} \qquad  \mbox{(we can show this formally).}
 \]
 \textcolor{SeaGreen}{Customer Lifetime Values:} Consider the example on the previous slide. With margin $m$ and monthly retention $p<1$, discounted at monthly rate $d$,
 \[
@@ -292,19 +359,13 @@ A \textcolor{SeaGreen}{series} is the limit (if it exists) of partial sums:
 \end{frame}
 
 
-\begin{frame}[plain] % "plain" removes header/footers
-  \centering\includegraphics[height=1.2\paperheight]{vbreaks/vb2.jpg}
-\end{frame}
-
-
-
 
 
 \begin{frame}{Chapter 2: Functions of one variable}
 
-A \textcolor{SeaGreen}{one-variable function} assigns a unique $y\in\mathbb{R}$ to each $x\in\mathbb{R}$: $y=f(x)$. 
+A \textcolor{SeaGreen}{one-variable function} assigns a unique $y\in\mathbb{R}$ to each $x\in\mathbb{R}$: \;\;\hl{$y=f(x)$}. 
 \vskip 10pt
-$x$: independent (exogenous) variable; $y$: dependent (endogenous) variable.
+\qquad $x$: independent (exogenous) variable; $y$: dependent (endogenous) variable.
 \vskip 8pt
 \textcolor{SeaGreen}{Examples in econ/data:} cost, revenue, demand, utility, probability of purchase vs. price, click-through rate vs. ad spend, etc.
 \vskip 8pt
@@ -316,12 +377,12 @@ $x$: independent (exogenous) variable; $y$: dependent (endogenous) variable.
 \begin{block}{Definition}
 The \textcolor{SeaGreen}{graph} of $f$ is $\{(x,y)\in\mathbb{R}^2: y=f(x)\}$.
 \vskip 6pt
-The \textcolor{SeaGreen}{domain} $D$ is the set of $x$ where $f(x)$ is defined. \\[4pt]
+The \textcolor{SeaGreen}{domain} $D$ is the set of $x$ where $f(x)$ is defined; $D\subseteq \R$. \\[4pt]
 \textcolor{SeaGreen}{Notation:} \hl{$f:D \rightarrow \mathbb{R}$}.	
 \end{block}
 \bigskip
 
-\textcolor{SeaGreen}{Example}: $f(x)=\dfrac{1}{x}$ has $D=\mathbb{R}\setminus\{0\}$. 
+\textcolor{SeaGreen}{Example}: $f(x)=\dfrac{1}{x}$ has $D=\mathbb{R}\setminus\{0\}$; $f(x)=\sin(x)$, $D=\R$. 
 \smallskip
 
 Sometimes we restrict the domain (e.g., prices $x\ge 0$).
@@ -330,14 +391,14 @@ Sometimes we restrict the domain (e.g., prices $x\ge 0$).
 
 \begin{frame}{Properties of functions}
 A function $f:D \rightarrow \mathbb{R}$ is \textcolor{SeaGreen}{increasing} if 
-$f(x_1)\le f(x_2)$ for any $x_1<x_2$ in $D$ (strict if $<$).\\[6pt]
+$f(x_1)\le f(x_2)$ for any $x_1<x_2$ in $D$ (strict if $f(x_1)<f(x_2)$).\\[6pt]
 \textcolor{SeaGreen}{Decreasing}: reverse inequality.\\[6pt]
 \textcolor{SeaGreen}{Bounded}: $\exists C>0$ s.t. $|f(x)|\le C$ for all $x\in D$. 
 \bigskip
 
 \textcolor{SeaGreen}{Examples:}
 \begin{itemize}
-\item \textbf{Price-demand curve} often decreasing on realistic intervals.
+\item \textbf{Price-demand curve} often decreasing on realistic intervals (then zero).
 \item \textbf{Learning curve} (error vs. epochs) typically decreasing and bounded below by $0$.
 \end{itemize}
 \end{frame}
@@ -351,7 +412,9 @@ A function $f:D\to\mathbb{R}$ on convex $D$ is \textcolor{SeaGreen}{convex} if
 \[
 f(tx_1+(1-t)x_2)\le tf(x_1)+(1-t)f(x_2)
 \]
-(and \textcolor{SeaGreen}{concave} if $\ge$). Strict versions replace $\le$ by $<$ for $t\in(0,1)$ and $x_1\ne x_2$.
+(and \textcolor{SeaGreen}{concave} if $\ge$). \\[4mm]
+
+For the strict version replace $\le$ by $<$ for $t\in(0,1)$ and $x_1\ne x_2$.
 \end{frame}
 
 \begin{frame}{Convex function}
@@ -374,13 +437,19 @@ f(tx_1+(1-t)x_2)\le \max\{f(x_1),f(x_2)\}.
 Any \textcolor{SeaGreen}{strictly increasing} function is both quasi-convex and quasi-concave.\\[4mm]
 \smallskip
 
-\textcolor{SeaGreen}{Economic examples:} Indifference curves are typically quasi-convex; profit in price can be quasi-concave on feasible ranges.
-\end{frame}
+\textcolor{SeaGreen}{Economic examples:} 
+\begin{itemize}
+  \item \textbf{Indifference curves:} If a consumer is indifferent between two bundles, any convex combination is at least as good as one of them. This gives quasi-convex preferences.
+  \item \textbf{Profits in price:} As a function of price, profits often rise, then fall (too cheap or too expensive reduces profit). This bell-shaped behavior is quasi-concave.
+\end{itemize}\end{frame}
+
+
+
 
 \begin{frame}{Economic example: logistic growth (adoption curves)}
-The logistic function 
+The logistic function with $L>0$, $k>0$, $t_0\in \R$:
 \[
-f(t) = \frac{L}{1 + e^{-k(t - t_0)}}
+f(t) \;=\; \frac{L}{1 + e^{-k(t - t_0)}}
 \]
 models \textcolor{SeaGreen}{technology/product adoption} or \textcolor{SeaGreen}{viral spread}. Early exponential growth, mid-phase inflection at $t_0$, saturation near $L$ (market size).
 \begin{minipage}{6cm}{}
@@ -405,35 +474,39 @@ Logistic curves fit \textcolor{SeaGreen}{epidemic growth}, but also \textcolor{S
 \begin{frame}[plain]{}
 \begin{tikzpicture}[remember picture,overlay]
   % Base image (centered; name it if you want to reference it later)
-  \node[inner sep=0,anchor=center,yshift=-0.67\paperheight] (bg) at (current page.center)
-       {\includegraphics[scale=0.7]{img/SFprogress0.png}};
-
+  \node[inner sep=0,anchor=center,yshift=-0.07\paperheight] (bg) at (current page.center)
+       {\includegraphics[scale=.7]{img/SFprogress0.png}};
   % Overlay image: place relative to page, with fine offsets
  \only<2>{ \node[anchor=north west,
         xshift=0.2\paperwidth, % move right
-        yshift=-0.8\paperheight] % move down
+        yshift=-0.18\paperheight] % move down
         at (current page.north west)
        {\includegraphics[width=0.45\paperwidth]{img/SF.jpg}};}
 \end{tikzpicture}
 \end{frame}
 
 \begin{frame}{Examples of functions}
-
 \begin{enumerate}
-\item \textcolor{SeaGreen}{Monomials}: $f(x)=a x^k$
-\item \textcolor{SeaGreen}{Polynomials}: sums of monomials
-\item \textcolor{SeaGreen}{Rational}: ratios of polynomials
-\item \textcolor{SeaGreen}{Exponential}: $f(x)=a^x$
-\item \textcolor{SeaGreen}{Trig}: $\sin x$, $\cos x$, \ldots
-\item \textcolor{SeaGreen}{Linear}: $f(x)=mx+b$ \begin{tiny}(slope $m$, intercept $b$; also $y-f(x_0)=m(x-x_0)$)\end{tiny}
-\item \textcolor{SeaGreen}{Natural exponential}: $f(x)=e^x$ \begin{tiny}($e^x=\lim_n (1+\frac{x}{n})^n$)\end{tiny}
+\item \textcolor{SeaGreen}{Monomials}: $f(x)=a x^k$, \;\;$a\in \R$.
+\item \textcolor{SeaGreen}{Polynomials}: finite sums of monomials.
+\item \textcolor{SeaGreen}{Rational}: ratios of polynomials.
+\item \textcolor{SeaGreen}{Exponential}: $f(x)=a^x$, \;\;$a>0$.
+\item \textcolor{SeaGreen}{Trigonometric}: $\sin x$, $\cos x$, \ldots
+\item \textcolor{SeaGreen}{Linear}: $f(x)=ax+b$ \begin{tiny}(slope $a$, intercept $b$; also $y-f(x_0)=a(x-x_0)$)\end{tiny}.
+\item \textcolor{SeaGreen}{Natural exponential}: $f(x)=e^x$ \begin{tiny}($e^x=\lim_n (1+\frac{x}{n})^n$)\end{tiny}.
 \item \textcolor{SeaGreen}{Natural log}: $f(x)=\log x$ \begin{tiny}($e^{\log x}=x$, $\log(e^x)=x$)\end{tiny}
 \end{enumerate}
 
-\smallskip
-\textcolor{SeaGreen}{Econ view:} demand curves (often decreasing), cost curves (often convex), utility (often concave), isoelastic forms, log-sum-exp in discrete choice.
+\medskip
+\textcolor{SeaGreen}{Economic examples} (often based on the above fundamental examples):
+\begin{itemize}
+  \item \textbf{Demand curves}: typically decreasing in price (law of demand).
+  \item \textbf{Cost curves}: often convex, since producing extra units gets more expensive at higher scale.
+  \item \textbf{Utility functions}: often concave, to capture \textit{diminishing marginal utility} (each extra unit of a good adds less satisfaction).
+  \item \textbf{Isoelastic forms}: $u(x)=\tfrac{x^{1-\rho}-1}{1-\rho}$, common in growth models and risk analysis.
+  \item \textbf{Log-sum-exp}: arises in discrete choice models; connects probabilities to utilities.
+\end{itemize}
 \end{frame}
-
 \begin{frame}{Exponential functions}
 \begin{figure}
 \includegraphics[width=2.5in]{img/exp} 
@@ -442,7 +515,10 @@ Logistic curves fit \textcolor{SeaGreen}{epidemic growth}, but also \textcolor{S
 
 \begin{frame}{Chapter 3: Differentiation}
 
- \textcolor{SeaGreen}{Differentiation} measures sensitivity: how $f(x)$ changes with small changes in $x$.
+ \textcolor{SeaGreen}{Differentiation} measures sensitivity: how $f(x)$ changes with small changes in $x$
+ $$
+ f(x+\Delta x)\approx f(x)+f'(x)\Delta x\quad\mbox{or, equivalently, } \quad \frac{f(x+\Delta x)-f(x)}{\Delta x}\approx f'(x).
+ $$
 \vskip 8pt
 \textcolor{SeaGreen}{Examples:} price $\to$ demand sensitivity, ad spend $\to$ clicks, carbon tax $\to$ emissions, risk $\to$ portfolio value.\\[6pt]
 Calculus also underpins extrema, monotonicity, convexity --- and the local behavior behind optimization and ML.
@@ -453,19 +529,25 @@ Calculus also underpins extrema, monotonicity, convexity --- and the local behav
 
 \end{frame}
 
+\begin{frame}[plain,noframenumbering]{}
+	\begin{center}
+		\alert{\Huge Functional Limits and Continuity}
+	\end{center}
+\end{frame}
+
 
 \begin{frame}{Limit of a function}
 \begin{alertblock}{}
-Let $f:D  \rightarrow \mathbb{R}$ and $x_0 \in \mathbb{R}$. $L=\lim_{x\to x_0} f(x)$ if for any sequence $x_n\in D$ with $x_n\to x_0$, we have $f(x_n)\to L$. 	\\[2mm]
+Let $f:D  \rightarrow \mathbb{R}$ and $x_0 \in \mathbb{R}$. We write \hl{$L=\lim_{x\to x_0} f(x)$} if  $$x_n\to x_0\quad \Longrightarrow \quad y_n:=f(x_n)\to L.$$ 	
 \textcolor{SeaGreen}{Remark:} $x_0$ need not be in $D$ (removable/essential discontinuities matter in econ too).
 \end{alertblock}
  \textcolor{SeaGreen}{Example:} $\lim_{x \rightarrow 0} x \sin\frac{1}{x}=0$ since $0\leq | x \sin\frac{1}{x}| \leq |x|$.
 \begin{block}{Algebra of limits}
-If $\lim f = y_1$ and $\lim g = y_2$ at $x_0$, then
+If $\lim_{x\to x_0} f(x) = y_1$ and $\lim_{x\to x_0} g(x) = y_2$, then
 \[
-\lim (f+g)=y_1+y_2,\quad 
-\lim (fg)=y_1 y_2,\quad 
-\lim \frac{f}{g}=\frac{y_1}{y_2}\text{ if }y_2\ne 0,\,g\ne 0\text{ near }x_0.
+\lim_{x\to x_0} (f(x)+g(x))=y_1+y_2,\quad 
+\lim_{x\to x_0} (f(x)g(x))=y_1 y_2,\quad 
+\lim_{x\to x_0} \frac{f(x)}{g(x)}=\frac{y_1}{y_2}\text{ if }y_2\ne 0,.
 \]
 \end{block}
 \end{frame}
@@ -483,43 +565,54 @@ If $f$ is continuous at every point of $B\subset D$, we say $f$ is continuous on
 $g(x)\neq 0$ around $x_0$, then $\frac{f}{g}$ is continuous at $x_0$.
 
 \vskip 8pt
-\textcolor{SeaGreen}{Heine-Borel fact (1D):} continuous $f:[a,b]\to\mathbb{R}$ is bounded.
+\textcolor{SeaGreen}{Heine-Borel fact (1D):} continuous $f:[a,b]\to\mathbb{R}$ is bounded.\\[4mm]
+\begin{block}{Non-example}
+	Consider the function $f(x)=\tfrac{|x|}{x}$ for $x\neq 0$ and  $f(0)=1$. This function is not continuous. Why?
+\end{block}
 \end{frame}
 
 
 \begin{frame}{Composition and inverse}
 \begin{alertblock}{Two important results}
-(composition) If $f,g$ are continuous, so is $h=g\circ f$; moreover
+(composition) If $f,g$ are continuous, so is $h(x)=g(f(x))$ (we also write $h=g\circ f$); moreover
 \[
 \lim_{x\to x_0} g(f(x))=g\!\left(\lim_{x\to x_0}f(x)\right).
 \]
 (inverse)	If $f:[a,b]\to\mathbb{R}$ is strictly monotone and continuous with $f(a)=c,f(b)=d$, then the inverse $f^{-1}:[c,d]\to[a,b]$ is also strictly monotone and continuous.
 \end{alertblock}
-\textcolor{SeaGreen}{Econ:}  
-Let \( p \) denote the price of a good and \( q \) the quantity sold.  
+\textcolor{SeaGreen}{Economic example:}  
+\( p =\) price of a good, \( q= \) quantity sold.  
 The \emph{demand function} \( q(p) \) gives the quantity \( q \) consumers will buy at price \( p \).  
 Equivalently, the \emph{inverse demand function} \( p(q) \) gives the price at which \( q \) units can be sold.  Revenue as a function of quantity is:
 \[
-R(q) = p(q) \cdot q,
+R(q) = p(q) \cdot q.
 \]
-which involves compositions.
 \end{frame}
 
-\begin{frame}{Derivative}
 
+\begin{frame}[plain,noframenumbering] % "plain" removes header/footers
+  \centering\includegraphics[height=1.2\paperheight]{vbreaks/vb2.jpg}
+\end{frame}
+
+
+\begin{frame}[plain,noframenumbering] \begin{center}
+	\alert{\Huge Differentiation}
+\end{center}\end{frame}
+
+\begin{frame}{Derivative}
 Let $f:(a,b) \rightarrow \mathbb{R}$. $f$ is \textcolor{SeaGreen}{differentiable} at $x$ if
 \[
 \lim_{h \rightarrow 0} \frac{f(x+h)-f(x)}{h}
 \]
 exists. Denote this limit by \hl{$f'(x)$}.\\[4mm]
 
-\textcolor{SeaGreen}{Fact:} differentiable $\Rightarrow$ continuous (not conversely: $|x|$ is continuous but not differentiable at $0$).\\[4mm]
+\textcolor{SeaGreen}{Fact:} differentiable $\Rightarrow$ continuous.\\[3mm] The converse does not hold: $|x|$ is continuous but not differentiable at $0$ (why?).
 
-\textcolor{SeaGreen}{Interpretation:} local linear approximation --- crucial in marginal analysis, price elasticity, and gradient-based optimization.
+%\textcolor{SeaGreen}{Interpretation:} local linear approximation --- crucial in marginal analysis, price elasticity, and gradient-based optimization.
 \end{frame}
 
 \begin{frame}{Geometric interpretation}
-If $f$ is differentiable at $x_0$, the tangent line at $(x_0,f(x_0))$ is
+If $f$ is differentiable at $x_0$, the tangent line to the graph of $f$ at $(x_0,f(x_0))$ is
 \[
 y=f(x_0)+f'(x_0)(x-x_0).
 \]
@@ -624,19 +717,22 @@ Both $g(t)$ and $T(t)$ vary with $t$.
 	\centering\includegraphics[scale=.25]{vbreaks/caganer1}
 \end{frame}
 
-\begin{frame}{Derivative of the inverse}
+\begin{frame}{The inverse function theorem (1D version)}
 
-\textcolor{SeaGreen}{Theorem:} If $f$ is strictly monotone, continuous, and differentiable at $x$ with $f'(x)\ne 0$, then $f^{-1}$ is differentiable at $y=f(x)$ and
+\begin{alertblock}{Theorem:}
+If $f$ is strictly monotone, continuous, and differentiable at $x$ with $f'(x)\ne 0$, then $f^{-1}$ is differentiable at $y=f(x)$ and
 \[
 (f^{-1})'(y)=\frac{1}{f'(x)}=\frac{1}{f'(f^{-1}(y))}.
 \]
-\begin{tiny}Since $f^{-1}(f(x))=x$, chain rule gives $(f^{-1})'(f(x))f'(x)=1$.\end{tiny}
-\bigskip
+\begin{tiny}Since $f^{-1}(f(x))=x$, chain rule gives $(f^{-1})'(f(x))f'(x)=1$.\end{tiny}	
+\end{alertblock}
+
 
 \textcolor{SeaGreen}{Example:} $f(x)=e^x$ $\Rightarrow$ $(\log)'(y)=1/y$.
 \bigskip
 
-\textcolor{SeaGreen}{Higher-order derivatives:} If $f'$ is differentiable,  its derivative is called the \textcolor{SeaGreen}{second derivative} of $f$ and  denoted $f''$. Similarly, we can define \textcolor{SeaGreen}{higher-order derivatives}, and $f^{(n)}$ is called the $n$th derivative of $f$. If $f^{(n)}$ is continuous, we say that $f$ is $n$ times \textcolor{SeaGreen}{continuously differentiable} or \hl{$C^{n}$} for short.
+\textcolor{SeaGreen}{Higher-order derivatives:} If $f'$ is differentiable,  its derivative is called the \textcolor{SeaGreen}{second derivative} of $f$ and  denoted $f''$. Similarly, we can define \textcolor{SeaGreen}{higher-order derivatives}, and $f^{(n)}$ is called the $n$th derivative of $f$.\\[3mm] 
+If $f^{(n)}$ is continuous, we say that $f$ is $n$ times \textcolor{SeaGreen}{continuously differentiable} or \hl{$C^{n}$} for short.
 \end{frame}
 
 \begin{frame}{L'H\^opital's rule}
@@ -655,10 +751,16 @@ then
 \textcolor{SeaGreen}{Example:} 
 \[
 \lim_{x\to 0}(1+x)^{1/x}
-= \exp\!\left(\lim_{x\to 0}\frac{\log(1+x)}{x}\right)
+=\lim_{x\to 0}\exp\left(\frac1x\log(1+x)\right)= \exp\!\left(\lim_{x\to 0}\frac{\log(1+x)}{x}\right)
 = \exp\!\left(\lim_{x\to 0}\frac{1}{1+x}\right)=e.
 \]
 \end{frame}
+
+\begin{frame}[plain,noframenumbering] \begin{center}
+	\alert{\Huge Optimization in 1D}
+\end{center}\end{frame}
+
+
 
 \begin{frame}{Monotonicity via derivatives}
 
@@ -678,19 +780,18 @@ If $f$ is differentiable on $(a,b)$:
 
 \begin{frame}{Optimal points: first-order conditions}
 \begin{block}{Local optima}
-Let $f:D\to\mathbb{R}$. A point $x_0\in D$ is a \textcolor{SeaGreen}{local max} if $\exists (a,b)\subset D$ with $x_0\in(a,b)$ and $f(x)\le f(x_0)$ for all $x\in(a,b)$.
+Let $f:D\to\mathbb{R}$. A point $x_0\in D$ is a \textcolor{SeaGreen}{local maximum} if $\exists (a,b)\subset D$ with $x_0\in(a,b)$ and $f(x)\le f(x_0)$ for all $x\in(a,b)$.
 Similarly for \textcolor{SeaGreen}{local min} with $\ge$.\\[4mm]
 	
 \end{block}
 
 \smallskip
 
-If $f$ has a local optimum at interior $x$ and is differentiable, then $f'(x)=0$ (\textcolor{SeaGreen}{necessary}, not sufficient).\\[4mm]
+If $f$ has a local optimum at interior $x$ and is differentiable, then $f'(x)=0$.\\[4mm]
 \smallskip
+To see why this is true, stare at $f(x_0+h)-f(x_0)\approx f'(x_0)h$.\\[4mm]
 
-\textcolor{SeaGreen}{Economic flavor:} 
-In profit maximization, the optimal quantity $q^*$ often satisfies the first-order condition $f'(q^*)=0$,  
-which, for profit $\pi(q) = R(q) - C(q)$, means \emph{marginal revenue} $R'(q)$ equals \emph{marginal cost} $C'(q)$.\\[4mm]
+This condition is \textcolor{SeaGreen}{necessary}, not sufficient; see e.g. $x^3$.\\[4mm]
 
 If $x$ is stationary ($f'(x)=0$) and $f$ is strictly increasing to the left and strictly decreasing to the right, then $x$ is a local max (reverse for min).
 
@@ -729,6 +830,11 @@ P'(t) = V'(t)e^{-Rt} - R\,V(t)e^{-Rt} = 0
 \textcolor{SeaGreen}{Example:} If $V(t) = 10000\,e^{\sqrt{t}}$ and $R = 6\%$,  
 then $P(t) = 10000\,e^{\sqrt{t} - 0.06\,t}$, which is maximized near $t \approx 69.44$.
 \end{frame}
+
+
+
+
+
 \begin{frame}{Plot of the present value $P(t)$}
 \begin{figure}
 \includegraphics[width=3.5in]{img/plot} 
@@ -738,15 +844,20 @@ To certify a \textcolor{SeaGreen}{global} optimum on an interval, compare values
 
 \begin{frame}{Second-order conditions}
 
-\textcolor{SeaGreen}{Test:} If $f'(x_*)=0$ and $f''(x_*)<0$ ($>0$), then $x_*$ is a strict local max (min). Higher-order tests extend this when $f''(x_*)=0$.
-\smallskip
+\textcolor{SeaGreen}{Test:} If $f'(x_0)=0$ and $f''(x_0)<0$ ($>0$), then $x_0$ is a strict local max (min).\\[4mm] 
+\qquad Indeed, \qquad {\small 
+$f(x_0+h)\;\approx\; f(x_0)+f'(x_0)h+\tfrac12 f''(x_0)h^2\;=\;f(x_0)+\tfrac12 f''(x_0)h^2$.}
+\bigskip
 
 \textcolor{SeaGreen}{Example:} For $f(x)=\dfrac{\log^2(3x)}{x}$ ($x>0$): 
 \[
 f'(x)=\frac{(2-\log 3x)\log 3x}{x^2},\quad
 f''(x)=\frac{2(1-3\log 3x + \log^2 3x)}{x^3}.
 \]
-Critical points at $x_1=\frac{1}{3}$ (min), $x_2=\frac{e^2}{3}$ (max).
+Critical points at $x_1=\frac{1}{3}$ (min), $x_2=\frac{e^2}{3}$ (max).\\[4mm]
+
+Question: What if $f''(x_0)=0$?
+
 \end{frame}
 
 
@@ -762,7 +873,6 @@ $f(x_1)=0$, $f(x_2)>0$ $\Rightarrow$ $x_1$ global min, no global max.
 
 
 \begin{frame}{Convexity and concavity}
-
 If $f$ is twice differentiable on $(a,b)$:
 \begin{enumerate}
 \item $f$ convex on $[a,b]$ $\Leftrightarrow$ $f''(x)\ge 0$ for all $x\in(a,b)$.
@@ -777,9 +887,13 @@ If $f$ is twice differentiable on $(a,b)$:
 
 \bigskip
 
-\textcolor{SeaGreen}{Economics:} costs often convex; utility often concave; regularized losses in ML are designed to be convex for tractable optimization.
+\textcolor{SeaGreen}{Economics:} 
+\begin{itemize}
+\item \textbf{Cost functions:} usually convex --- producing extra units becomes progressively more expensive (e.g.\ overtime wages, machine wear).  
+\item \textbf{Utility functions:} often concave --- reflects diminishing marginal utility (the first slice of pizza gives more satisfaction than the tenth).  
+\item \textbf{Machine learning:} convex losses (e.g.\ squared error, logistic loss + $\ell_2$ regularization) ensure optimization problems are tractable and stable.
+\end{itemize}
 \end{frame}
-
 \begin{frame}{Example of changing curvature}
 
 Let $f(x)=\dfrac{2x}{x^2+1}$. Then
@@ -800,13 +914,17 @@ Inflexion points at $x\in\{-\sqrt{3},0,\sqrt{3}\}$. Global max at $x=1$, min at 
 \end{frame}
 
 \begin{frame}{Inflexion points}
-If $f$ is $C^n$ on $(a,b)$, an \textcolor{SeaGreen}{inflexion point} at $x_*$ occurs when curvature changes sign. A sufficient test: 
+If $f$ is $C^n$ on $(a,b)$, an \textcolor{SeaGreen}{inflexion point} at $x_0$ occurs when curvature changes sign. A sufficient test: 
 \[
-f''(x_*)=\cdots=f^{(n-1)}(x_*)=0,\quad f^{(n)}(x_*)\ne 0,\quad n\ \text{odd}.
+f''(x_0)=\cdots=f^{(n-1)}(x_0)=0,\quad f^{(n)}(x_0)\ne 0,\quad n\ \text{odd}.
 \]
 \textcolor{SeaGreen}{Example:} $f(x)=x^3$ has $f''(0)=0$, $f^{(3)}(0)=6\ne 0$ $\Rightarrow$ inflexion at $0$.
 \end{frame}
 
+
+\begin{frame}[plain,noframenumbering] \begin{center}
+	\alert{\Huge Taylor series expansion}
+\end{center}\end{frame}
 
 \begin{frame}[label=mv]{Mean-value theorem}
 \begin{alertblock}{Mean Value Theorem}
