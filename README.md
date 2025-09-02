@@ -59,7 +59,7 @@ The following books complement the material presented in the lecture.
 
 | Day | Lectures  | Notes | Tutorials |  
 | --- |  --- | --- | --- | 
-| 1 | Introduction, sequences, 1D functions, limits, differentiation, continuity.  | slides1 |  |  
+| 1 | Introduction, sequences, 1D functions, limits, differentiation, continuity.  | [slides1](./slides/Lecture1.pdf) |  |  
 | 2 | Optimization in 1D, Taylor series, integration, Euclidean space, linear independence, orthogonality.  | slides2 |  |  
 | 3 | Matrices, determinants, rank, inverse, systems of linear equations.   | slides3 |  |  
 | 4 | Eigenvalues and eigenvactors, spectral decomposition, quadratic forms.  | slides4 |  |  
