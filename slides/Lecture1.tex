@@ -1,4 +1,4 @@
-\documentclass[11pt,aspectratio=169]{beamer}
+\documentclass[10pt]{beamer}
 \input{./defs.tex}
 \usepackage{tikz}
 
@@ -28,14 +28,14 @@
 \begin{frame}{Course structure}
 \bigskip
 
-\begin{minipage}{9.5cm}
+\begin{minipage}{8.2cm}
 	\textbf{Instructor:} Piotr Zwiernik (piotr.zwiernik@bse.eu).\\[4mm]
-	\textbf{Five lectures:} today, Friday, Monday, Tuesday, Wednesday.\\[4mm]
+	\textbf{Five lectures:} today, Fri, Mon, Tue, Wed.\\[4mm]
 	\textbf{Each day:} 4 hours of lectures, 1 hour of tutorials.  \\[4mm]
 	\textbf{Lectures:} 11-1pm and 2-4pm.\\[4mm]
 		\textbf{Tutorials:} 4-5pm.\\[4mm]
 	\textbf{TA:} Francisco Calvillo (francisco.calvillo@bse.eu).\\[4mm]
-\end{minipage}\begin{minipage}{5cm}
+\end{minipage}\begin{minipage}{4cm}
 	\centering\includegraphics[width=0.95\textwidth]{img/course_cover.png}
 \end{minipage}
 	\bigskip
@@ -171,7 +171,7 @@ v_1,\ v_2,\ v_3,\ \dots
 \]
 and YouTube pays the creator a fixed rate of \(c\) euros per 1,000 views (\textit{RPM}).  
 
-\medskip
+\bigskip
 The revenue from video \(k\) is
 \[
 r_k = c \cdot \frac{v_k}{1000}.
@@ -223,7 +223,7 @@ A sequence is \textcolor{SeaGreen}{increasing} if $a_{n+1}\ge a_n$ (strictly if 
 
 {
 \begin{frame}[plain]
-\centering\includegraphics[scale=0.27]{vbreaks/question1.png}
+\centering\includegraphics[width=\textwidth]{vbreaks/question1.png}
 \end{frame}
 }
 
@@ -399,7 +399,7 @@ $f(x_1)\le f(x_2)$ for any $x_1<x_2$ in $D$ (strict if $f(x_1)<f(x_2)$).\\[6pt]
 \textcolor{SeaGreen}{Examples:}
 \begin{itemize}
 \item \textbf{Price-demand curve} often decreasing on realistic intervals (then zero).
-\item \textbf{Learning curve} (error vs. epochs) typically decreasing and bounded below by $0$.
+\item \textbf{Learning curve} typically decreasing as algorithm progresses.
 \end{itemize}
 \end{frame}
 
@@ -439,7 +439,7 @@ Any \textcolor{SeaGreen}{strictly increasing} function is both quasi-convex and 
 
 \textcolor{SeaGreen}{Economic examples:} 
 \begin{itemize}
-  \item \textbf{Indifference curves:} If a consumer is indifferent between two bundles, any convex combination is at least as good as one of them. This gives quasi-convex preferences.
+  \item \textbf{Indifference curves:} If a consumer is indifferent between two bundles, any convex combination is at least as good as one of them. This gives quasi-convex preferences.\\[3mm]
   \item \textbf{Profits in price:} As a function of price, profits often rise, then fall (too cheap or too expensive reduces profit). This bell-shaped behavior is quasi-concave.
 \end{itemize}\end{frame}
 
@@ -452,11 +452,13 @@ The logistic function with $L>0$, $k>0$, $t_0\in \R$:
 f(t) \;=\; \frac{L}{1 + e^{-k(t - t_0)}}
 \]
 models \textcolor{SeaGreen}{technology/product adoption} or \textcolor{SeaGreen}{viral spread}. Early exponential growth, mid-phase inflection at $t_0$, saturation near $L$ (market size).
-\begin{minipage}{6cm}{}
+\medskip
+
+\begin{minipage}{5cm}{}
 	\begin{figure}
-\includegraphics[width=2in]{img/returns1.png} 
+\includegraphics[width=.9\textwidth]{img/returns1.png} 
 \end{figure}
-\end{minipage}\begin{minipage}{9cm}{}
+\end{minipage}\begin{minipage}{7cm}{}
 \small
 Interpretation: growth accelerates, then slows as saturation/frictions (capacity, regulation, budgets) bind. Same shape often appears in \textcolor{SeaGreen}{learning curves} (accuracy vs. data).
 \end{minipage}
@@ -475,7 +477,7 @@ Logistic curves fit \textcolor{SeaGreen}{epidemic growth}, but also \textcolor{S
 \begin{tikzpicture}[remember picture,overlay]
   % Base image (centered; name it if you want to reference it later)
   \node[inner sep=0,anchor=center,yshift=-0.07\paperheight] (bg) at (current page.center)
-       {\includegraphics[scale=.7]{img/SFprogress0.png}};
+       {\includegraphics[width=\textwidth]{img/SFprogress0.png}};
   % Overlay image: place relative to page, with fine offsets
  \only<2>{ \node[anchor=north west,
         xshift=0.2\paperwidth, % move right
@@ -503,8 +505,7 @@ Logistic curves fit \textcolor{SeaGreen}{epidemic growth}, but also \textcolor{S
   \item \textbf{Demand curves}: typically decreasing in price (law of demand).
   \item \textbf{Cost curves}: often convex, since producing extra units gets more expensive at higher scale.
   \item \textbf{Utility functions}: often concave, to capture \textit{diminishing marginal utility} (each extra unit of a good adds less satisfaction).
-  \item \textbf{Isoelastic forms}: $u(x)=\tfrac{x^{1-\rho}-1}{1-\rho}$, common in growth models and risk analysis.
-  \item \textbf{Log-sum-exp}: arises in discrete choice models; connects probabilities to utilities.
+    \item \textbf{Log-sum-exp}: arises in discrete choice models; connects probabilities to utilities.
 \end{itemize}
 \end{frame}
 \begin{frame}{Exponential functions}
@@ -547,7 +548,7 @@ If $\lim_{x\to x_0} f(x) = y_1$ and $\lim_{x\to x_0} g(x) = y_2$, then
 \[
 \lim_{x\to x_0} (f(x)+g(x))=y_1+y_2,\quad 
 \lim_{x\to x_0} (f(x)g(x))=y_1 y_2,\quad 
-\lim_{x\to x_0} \frac{f(x)}{g(x)}=\frac{y_1}{y_2}\text{ if }y_2\ne 0,.
+\lim_{x\to x_0} \frac{f(x)}{g(x)}=\frac{y_1}{y_2}\text{ if }y_2\ne 0.
 \]
 \end{block}
 \end{frame}
@@ -714,7 +715,7 @@ Both $g(t)$ and $T(t)$ vary with $t$.
 \end{frame}
 
 \begin{frame}{Some of the contributors (in form of \textit{caganers})}
-	\centering\includegraphics[scale=.25]{vbreaks/caganer1}
+	\centering\includegraphics[width=\textwidth]{vbreaks/caganer1}
 \end{frame}
 
 \begin{frame}{The inverse function theorem (1D version)}
@@ -749,11 +750,11 @@ then
 \bigskip
 
 \textcolor{SeaGreen}{Example:} 
-\[
+\begin{eqnarray*}
 \lim_{x\to 0}(1+x)^{1/x}
-=\lim_{x\to 0}\exp\left(\frac1x\log(1+x)\right)= \exp\!\left(\lim_{x\to 0}\frac{\log(1+x)}{x}\right)
-= \exp\!\left(\lim_{x\to 0}\frac{1}{1+x}\right)=e.
-\]
+&=&\lim_{x\to 0}\exp\left(\frac1x\log(1+x)\right)\\&=& \exp\!\left(\lim_{x\to 0}\frac{\log(1+x)}{x}\right)\\
+&=& \exp\!\left(\lim_{x\to 0}\frac{1}{1+x}\right)=e.	
+\end{eqnarray*}
 \end{frame}
 
 \begin{frame}[plain,noframenumbering] \begin{center}
