@@ -390,14 +390,14 @@ Sometimes we restrict the domain (e.g., prices $x\ge 0$).
 
 \begin{frame}{Properties of functions}
 A function $f:D \rightarrow \mathbb{R}$ is \textcolor{SeaGreen}{increasing} if 
-$f(x_1)\le f(x_2)$ for any $x_1<x_2$ in $D$ (strict if $f(x_1)<f(x_2)$).\\[6pt]
+$f(x_1)\le f(x_2)$ for any $x_1<x_2$ in $D$ (\alert{strictly} if $f(x_1)<f(x_2)$).\\[6pt]
 \textcolor{SeaGreen}{Decreasing}: reverse inequality.\\[6pt]
 \textcolor{SeaGreen}{Bounded}: $\exists C>0$ s.t. $|f(x)|\le C$ for all $x\in D$. 
 \bigskip
 
 \textcolor{SeaGreen}{Examples:}
 \begin{itemize}
-\item \textbf{Price-demand curve} often decreasing on realistic intervals (then zero).
+\item \textbf{Price-demand curve} often strictly decreasing on realistic intervals (then zero).
 \item \textbf{Learning curve} typically decreasing as algorithm progresses.
 \end{itemize}
 \end{frame}
@@ -409,7 +409,7 @@ For $x_1<x_2$ and $t\in[0,1]$, the \textcolor{SeaGreen}{convex combination} is $
 A set $D\subset\mathbb{R}$ is \textcolor{SeaGreen}{convex} if it contains convex combinations.\\[6pt]
 A function $f:D\to\mathbb{R}$ on convex $D$ is \textcolor{SeaGreen}{convex} if
 \[
-f(tx_1+(1-t)x_2)\le tf(x_1)+(1-t)f(x_2)
+f(tx_1+(1-t)x_2)\;\;\le\;\; tf(x_1)+(1-t)f(x_2)
 \]
 (and \textcolor{SeaGreen}{concave} if $\ge$). \\[4mm]
 
@@ -795,214 +795,6 @@ This condition is \textcolor{SeaGreen}{necessary}, not sufficient; see e.g. $x^3
 
 If $x$ is stationary ($f'(x)=0$) and $f$ is strictly increasing to the left and strictly decreasing to the right, then $x$ is a local max (reverse for min).
 
-\end{frame}
-
-\begin{frame}{Optimal points}
-\begin{figure}
-\includegraphics[width=2.5in]{img/max_min} 
-\end{figure}
-\end{frame}
-
-
-\begin{frame}{Example: Timing a sale (present value)}
-
-Suppose an asset’s market value is $V(t)$ at time $t$.  
-At a constant annual interest rate $R$, the \textbf{present value} of selling at time $t$ is
-\[
-P(t) = V(t)\,e^{-Rt},
-\]
-where $e^{-Rt}$ discounts future cash flows.
-
-\smallskip
-\textcolor{SeaGreen}{Goal:} Choose $t$ to maximize $P(t)$.
-
-\smallskip
-\textcolor{SeaGreen}{FOC (set derivative to zero):}
-\[
-P'(t) = V'(t)e^{-Rt} - R\,V(t)e^{-Rt} = 0
-\quad\Rightarrow\quad \frac{V'(t)}{V(t)} = R.
-\]
-
-\textcolor{SeaGreen}{Interpretation:} Sell when the asset’s \emph{instantaneous percentage growth rate}  
-(matches) the \emph{interest rate you could earn in the bank}.
-
-\bigskip
-\textcolor{SeaGreen}{Example:} If $V(t) = 10000\,e^{\sqrt{t}}$ and $R = 6\%$,  
-then $P(t) = 10000\,e^{\sqrt{t} - 0.06\,t}$, which is maximized near $t \approx 69.44$.
-\end{frame}
-
-
-
-
-
-\begin{frame}{Plot of the present value $P(t)$}
-\begin{figure}
-\includegraphics[width=3.5in]{img/plot} 
-\end{figure}
-To certify a \textcolor{SeaGreen}{global} optimum on an interval, compare values at boundaries and critical points. Here $P(0)=10000$, $\lim_{t\to\infty}P(t)=0$.
-\end{frame}
-
-\begin{frame}{Second-order conditions}
-
-\textcolor{SeaGreen}{Test:} If $f'(x_0)=0$ and $f''(x_0)<0$ ($>0$), then $x_0$ is a strict local max (min).\\[4mm] 
-\qquad Indeed, \qquad {\small 
-$f(x_0+h)\;\approx\; f(x_0)+f'(x_0)h+\tfrac12 f''(x_0)h^2\;=\;f(x_0)+\tfrac12 f''(x_0)h^2$.}
-\bigskip
-
-\textcolor{SeaGreen}{Example:} For $f(x)=\dfrac{\log^2(3x)}{x}$ ($x>0$): 
-\[
-f'(x)=\frac{(2-\log 3x)\log 3x}{x^2},\quad
-f''(x)=\frac{2(1-3\log 3x + \log^2 3x)}{x^3}.
-\]
-Critical points at $x_1=\frac{1}{3}$ (min), $x_2=\frac{e^2}{3}$ (max).\\[4mm]
-
-Question: What if $f''(x_0)=0$?
-
-\end{frame}
-
-
-\begin{frame}{Plot of $f(x)=\dfrac{\log^2 3x}{x}$, $x>0$}
-
-\begin{figure}
-\includegraphics[width=3.5in]{img/ima} 
-\end{figure}
-$\lim_{x \rightarrow \infty} f(x)=0$, $\lim_{x \rightarrow 0^+} f(x)=\infty$,
-$f(x_1)=0$, $f(x_2)>0$ $\Rightarrow$ $x_1$ global min, no global max.
-\end{frame}
-
-
-
-\begin{frame}{Convexity and concavity}
-If $f$ is twice differentiable on $(a,b)$:
-\begin{enumerate}
-\item $f$ convex on $[a,b]$ $\Leftrightarrow$ $f''(x)\ge 0$ for all $x\in(a,b)$.
-\item $f$ concave on $[a,b]$ $\Leftrightarrow$ $f''(x)\le 0$ for all $x\in(a,b)$.
-\item $f''>0$ ($<0$) $\Rightarrow$ $f$ strictly convex (concave).
-\end{enumerate}
-\bigskip
-
- \textcolor{SeaGreen}{Theorem:} If $f$ and $g$ are convex (or concave), then $f \circ g$ is convex (or concave).
- 
-\textcolor{SeaGreen}{Example:} $f(x)=e^{x^2}$ is strictly convex on $[0, \infty)$.
-
-\bigskip
-
-\textcolor{SeaGreen}{Economics:} 
-\begin{itemize}
-\item \textbf{Cost functions:} usually convex --- producing extra units becomes progressively more expensive (e.g.\ overtime wages, machine wear).  
-\item \textbf{Utility functions:} often concave --- reflects diminishing marginal utility (the first slice of pizza gives more satisfaction than the tenth).  
-\item \textbf{Machine learning:} convex losses (e.g.\ squared error, logistic loss + $\ell_2$ regularization) ensure optimization problems are tractable and stable.
-\end{itemize}
-\end{frame}
-\begin{frame}{Example of changing curvature}
-
-Let $f(x)=\dfrac{2x}{x^2+1}$. Then
-\[
-f'(x)=\frac{2(1-x^2)}{(x^2+1)^2},\qquad 
-f''(x)=\frac{4(x^3-3x)}{(x^2+1)^3}.
-\]
-So $f$ is strictly convex on $[-\sqrt{3},0]\cup [\sqrt{3},\infty)$ and strictly concave on $(-\infty,-\sqrt{3}]\cup[0,\sqrt{3}]$.
-\end{frame}
-
-\begin{frame}{Plot of $f(x)=\dfrac{2x}{x^2+1}$}
-
-\begin{figure}
-\includegraphics[width=3.5in]{img/ima1} 
-\end{figure}
-
-Inflexion points at $x\in\{-\sqrt{3},0,\sqrt{3}\}$. Global max at $x=1$, min at $x=-1$, and $\lim_{|x|\to\infty} f(x)=0$.
-\end{frame}
-
-\begin{frame}{Inflexion points}
-If $f$ is $C^n$ on $(a,b)$, an \textcolor{SeaGreen}{inflexion point} at $x_0$ occurs when curvature changes sign. A sufficient test: 
-\[
-f''(x_0)=\cdots=f^{(n-1)}(x_0)=0,\quad f^{(n)}(x_0)\ne 0,\quad n\ \text{odd}.
-\]
-\textcolor{SeaGreen}{Example:} $f(x)=x^3$ has $f''(0)=0$, $f^{(3)}(0)=6\ne 0$ $\Rightarrow$ inflexion at $0$.
-\end{frame}
-
-
-\begin{frame}[plain,noframenumbering] \begin{center}
-	\alert{\Huge Taylor series expansion}
-\end{center}\end{frame}
-
-\begin{frame}[label=mv]{Mean-value theorem}
-\begin{alertblock}{Mean Value Theorem}
-If $f$ is continuous on $[a,b]$ and differentiable on $(a,b)$,
-then $\exists c\in(a,b)$ such that
-\[
-f'(c)=\frac{f(b)-f(a)}{b-a}\quad(\text{equivalently } f(b)=f(a)+f'(c)(b-a)).
-\]
-\end{alertblock}
-\begin{tiny}Proof idea: consider $h(x)=(f(b)-f(a))x-(b-a)f(x)$; since $h(a)=h(b)$, $h$ has an interior extremum.\end{tiny}
-\bigskip
-
-\textcolor{SeaGreen}{Interpretation:} the instantaneous slope matches the secant slope at some point.
-\end{frame}
-
-\begin{frame}{Geometry of the mean-value theorem}
-Recall: $\exists c\in(a,b)$ s.t. 
-\[
-f'(c)=\frac{f(b)-f(a)}{b-a}.
-\]
-\begin{figure}
-\includegraphics[width=2.5in]{img/secant} 
-\end{figure}
-\end{frame}
-
-\begin{frame}{Taylor formula}
-\textcolor{SeaGreen}{Theorem (Taylor's formula of order $n$):} Let $f$ be $n+1$ times differentiable on $(a,b)$,
- and let $x_0 \in (a,b)$ given. Then, for any $x \in (a,b)$,
- if $n=1$,
-$$ f(x)=f(x_0)+f'(x_0)(x-x_0)+\text{error}.$$
-%If  $n=2$
-%$$f(x)=f(x_0)+f'(x_0)(x-x_0)+\frac{f''(x_0)}{2!}(x-x_0)^2+\text{error}.$$
-If  $n\geq 2$,
- \begin{equation*} \begin{split}
- f(x)=\textcolor{DarkRed}{f(x_0)+f'(x_0)(x-x_0)+\frac{f''(x_0)}{2!}(x-x_0)^2+
-\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n}+\text{error}.
- \end{split}
- \end{equation*}
- 
- 
-  The error is small if $x$ is close to $x_0$, therefore, this theorem says that differentiable functions may be \textcolor{SeaGreen}{locally approximated
- by a polynomial} called the \textcolor{DarkRed}{Taylor polynomial}.
- \bigskip
-
-\textcolor{SeaGreen}{Economics/data:} local linear/quadratic approximations underlie elasticity (log-linearization), Delta method, and second-order price responses.
-\end{frame}
-
-\begin{frame}{Taylor remainder and a handy expansion}
-\begin{alertblock}{Remainder (Lagrange form)}
-\[
-R_n^y(x)=\frac{f^{(n+1)}(y)}{(n+1)!}(x-x_0)^{n+1}\quad\text{for some }y\text{ between }x_0\text{ and }x.
-\]
-\end{alertblock}
-If $|f^{(n+1)}|\le M$ near $x_0$, then $|R_n^y(x)|\le \dfrac{M}{(n+1)!}|x-x_0|^{n+1}$.
-\smallskip
-
-\textcolor{SeaGreen}{Example (log around 1):} With $x_0=1$,
-\[
-\log x \approx (x-1)-\tfrac12(x-1)^2,\quad 
-R_2^y(x)=\frac{1}{3y^3}(x-1)^3.
-\]
-\textcolor{SeaGreen}{Finance quick check:} For small $r$, $\log(1+r)\approx r-\frac{r^2}{2}$ $\Rightarrow$ EAR $\approx$ APR $-\ \frac12 \text{APR}^2$ (small correction).
-\end{frame}
-
-% (Optional advanced finance slides removed as requested earlier; calculus focus retained.)
-
-
-\begin{frame}{Short comment about small-o notation}
-	Writing $|R_n^y(x)|\le \dfrac{M}{(n+1)!}|x-x_0|^{n+1}$ we conclude $\tfrac{R^y_n(x)}{|x-x_0|^{n}}\leq \dfrac{M}{(n+1)!}|x-x_0|$ and so
-	$$
-	\lim_{x\to x_0} \frac{R^y_n(x)}{|x-x_0|^{n}}\;=\;0.
-	$$
-	This we write as $ R^y_n(x)=o(|x-x_0|^{n})$.\\[5mm]
-	
-\begin{alertblock}{In particular: If $f$ is twice differentiable:}
-	$f(x+h)\;=\;f(x)+f'(x)h + o(|h|)$.
-\end{alertblock}
-The generalization of this last expression to multivariate functions will provide powerful insights into their optimization. 
 \end{frame}
 
 
