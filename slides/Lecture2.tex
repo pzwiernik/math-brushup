@@ -1,4 +1,4 @@
-\documentclass[11pt,aspectratio=169]{beamer}
+\documentclass[11pt]{beamer}
 \input{./defs.tex}
 \usepackage[absolute,overlay]{textpos}
 
@@ -41,6 +41,11 @@ Often a function $f$ is given and we are looking for \hl{$F$ whose derivative is
 \textcolor{SeaGreen}{Read} Chapter 5 of Werner-Sotskov \quad
 \textcolor{SeaGreen}{Exercises} 5.1(a)-(b), 5.2(a)-(b), 5.3(c)
 \end{frame}
+
+\begin{frame}[plain,noframenumbering] \begin{center}
+	\alert{\Huge Indefinite integrals}
+\end{center}\end{frame}
+
 
 \begin{frame}{Indefinite integrals}
 A differentiable $F$ is an \textcolor{SeaGreen}{antiderivative} of $f$ if $F'(x)=f(x)$ on a common domain.
@@ -104,6 +109,8 @@ For differentiable $u,v$,
 \]
 {\tiny Proof: Differentiate $u(x)v(x)$ and integrate.}
 \end{block}
+\bigskip
+
 \textcolor{SeaGreen}{Example:} with $u=\log x$, $v'=1$,
 \[
 \int \log x\,dx = x\log x - \int 1\,dx = x(\log x-1)+c.
@@ -136,6 +143,9 @@ Back-substitute $t=\sqrt{x}$:
 \end{frame}
 
 
+\begin{frame}[plain,noframenumbering] \begin{center}
+	\alert{\Huge Definite integrals}
+\end{center}\end{frame}
 
 
 
@@ -209,13 +219,16 @@ and let $n\to\infty$.
 
 \begin{frame}{Application: Taylor with integral remainder (up to $n=2$)}
 Apply FTC repeatedly:
+
+{\small
 \begin{align*}
 f(x)
 &= f(x_0)+\int_{x_0}^x f'(t_1)\,dt_1 \\
 &= f(x_0)+f'(x_0)(x-x_0)+\int_{x_0}^x\!\int_{x_0}^{t_1} f''(t_2)\,dt_2\,dt_1 \\
 &= f(x_0)+f'(x_0)(x-x_0)+\frac{f''(x_0)}{2}(x-x_0)^2
 + \int_{x_0}^x\!\int_{x_0}^{t_1}\!\int_{x_0}^{t_2} f^{(3)}(t_3)\,dt_3\,dt_2\,dt_1.
-\end{align*}
+\end{align*}}
+
 By the intermediate value theorem there is $y$ between $x_0$ and $x$ with
 \[
 \int\!\!\int\!\!\int f^{(3)}(t_3)\,dt_3\,dt_2\,dt_1
@@ -245,6 +258,13 @@ A \textcolor{SeaGreen}{vector} is an ordered $n$-tuple of real numbers: $\bs v=(
 
 \textcolor{SeaGreen}{Exercises} 6.2, 6.3, 6.4, 6.6, 6.7, 6.8
 \end{frame}
+
+\begin{frame}[plain,noframenumbering] \begin{center}
+	\alert{\Huge Vectors and the Euclidean space}
+\end{center}\end{frame}
+
+
+
 
 \begin{frame}{Definition and notation}
 A \textcolor{SeaGreen}{vector} ${\bf v}$ is an ordered $n$-tuple $(v_1,\dots,v_n)$ of real numbers called \textcolor{SeaGreen}{coordinates}.
@@ -297,15 +317,20 @@ Equivalently,
 \[
 \cos(\angle(\bs u,\bs v))=\frac{\langle \bs u,\bs v\rangle}{\|\bs u\|\,\|\bs v\|}.
 \]
-\begin{minipage}{9cm}
+\begin{minipage}{0.6\textwidth}
 	\begin{small}
 	We prove that $c^2=a^2+b^2-2ab \cos(C)$:\\[3mm]
 By Pythagoras, $x^2+y^2=b^2$ and $(a-x)^2+y^2=c^2$. Subtract to eliminate $y^2$ to get $c^2=a^2+b^2-2a x$. Use $\cos C = x/b$.
 \end{small}
-\end{minipage}\begin{minipage}{5cm}
-	\includegraphics[width=2.5in]{img/cos}
+\end{minipage}\begin{minipage}{0.4\textwidth}
+	\includegraphics[width=\textwidth]{img/cos}
 \end{minipage}
 \end{frame}
+
+\begin{frame}[plain,noframenumbering] \begin{center}
+	\alert{\Huge Orthogonality and linear independence}
+\end{center}\end{frame}
+
 
 \begin{frame}{Orthogonality}
 \textcolor{SeaGreen}{Definition:} $\bs u\perp \bs v$ if $\langle \bs u,\bs v\rangle=0$.
@@ -412,8 +437,6 @@ We recall basic facts about matrices.
 \textcolor{SeaGreen}{Exercises} 7.6, 7.9(b,c,d), 7.12, 7.14(a), 7.16, 7.18
 \end{frame}
 
-
-
 \begin{frame}{Matrices}
 	A table of numbers with $m$ rows and $n$ columns: $A\in \R^{m\times n}$. The $(i,j)$-th entry is denoted by $a_{ij}$.\\[.3cm]
 	Special matrices: 
@@ -464,12 +487,14 @@ c_{ij}=\sum_{k=1}^p a_{ik}b_{kj}.
 \begin{frame}{Algebraic properties}
 \textcolor{SeaGreen}{Facts:}
 \begin{enumerate}
-\item $(AB)C=A(BC)$
-\item $A(B+C)=AB+AC$ and $(A+B)C=AC+BC$
-\item Generally \textbf{not} commutative: $AB\neq BA$
-\item $AI_n=I_mA=A$ (dimensions must match)
+\item $(AB)C=A(BC)$\\[3mm]
+\item $A(B+C)=AB+AC$ and $(A+B)C=AC+BC$\\[3mm]
+\item Generally \textbf{not} commutative: $AB\neq BA$\\[3mm]
+\item $AI_n=I_mA=A$ (dimensions must match)\\[3mm]
 \item $(A^T)^T=A$, $(A+B)^T=A^T+B^T$, $(\lambda A)^T=\lambda A^T$, $(AB)^T=B^T A^T$
 \end{enumerate}
+\bigskip
+ 
 \textcolor{SeaGreen}{Remark:} $AA^T$ is always symmetric.
 \end{frame}
 
@@ -493,7 +518,10 @@ Finds the closest point to $\bs y$ in the space spanned by the columns of $\bs X
 	$\bs X\in \R^{n\times d}$ with columns  $\bs x_1,\ldots,\bs x_d$.\\[.5cm]
 	$\hat{\bs y}\in V$ means \quad $\hat{\bs y}=\bs X\bs \lambda$\quad  for some $\bs \lambda=(\lambda_1,\ldots,\lambda_d)$.\\[.3cm]
 	$\bs y-\hat{\bs y}\in V^\perp$ \quad means \quad $\bs X^\top(\bs y-\hat{\bs y})=\bs 0$.\\[.5cm]
-	The unique solution: \quad $\bs \lambda=(\bs X^\top \bs X)^{-1}\bs X^\top\bs y$.
+	The unique solution: \quad $\bs \lambda=(\bs X^\top \bs X)^{-1}\bs X^\top\bs y$ giving
+	$$
+	\hat{\bs y}\;=\;\alert{\bs X (\bs X^\top \bs X)^{-1}\bs X^\top}\bs y.
+	$$
 \end{frame}
 
 
@@ -543,10 +571,10 @@ For $A\in\mathbb{R}^{m\times n}$:
 
 
 \begin{frame}[plain,noframenumbering]{}
-\begin{textblock*}{4cm}(5cm,1cm)
+\begin{textblock*}{4cm}(3.5cm,1cm)
 	\includegraphics[scale=.5]{vbreaks/sf1}
 \end{textblock*}
-	\begin{textblock*}{4cm}(2cm,4.2cm)
+	\begin{textblock*}{4cm}(1cm,4.2cm)
 \includegraphics[scale=.7]{vbreaks/sf2}
 	\end{textblock*}	
 \end{frame}
@@ -556,7 +584,7 @@ For $A\in\mathbb{R}^{m\times n}$:
 \begin{frame}{Orthogonal matrices}
 An $n \times n$ matrix $A$ is called \textcolor{SeaGreen}{orthogonal} if  $AA^\top=I_n$.
 \vskip 12pt
-\textcolor{SeaGreen}{Remark:} If $A$ is orthogonal, its row vectors (and also its column vectors) are pairwise orthogonal unit vectors.
+\textcolor{SeaGreen}{Remark:} If $A$ is orthogonal, its row vectors (and also its column vectors) are pairwise orthogonal unit vectors.\\[3mm]
 
 \begin{small}Proof: Let $\bs r_i$ and $\bs r_j$ be the $i$-th and $j$-th rows of $A$.  
 The $(i,j)$ entry of $AA^\top$ is the scalar product $\bs r_i^\top\bs r_j$.  
@@ -580,7 +608,30 @@ The same holds for columns using $A^\top A = I_n$.\end{small}
 \end{align*}
 \end{frame}
 
+\begin{frame}{Singular value decomposition (SVD)}
+\begin{alertblock}{Singular value decomposition}
+	For every $A\in \R^{m\times n}$ there exist orthogonal matrices $U\in \R^{m\times m}$, $V\in \R^{n\times n}$ and a ``diagonal'' matrix $\Lambda\in \R^{m\times n}$ such that 	
+	$$
+	A\;=\;U\Lambda V^\top.
+	$$
+\end{alertblock}
+	 
+If $m\leq n$ then $\Lambda$ has $m$ ``diagonal'' entries.\\[4mm]
+	 We can assume $\Lambda_{11}\geq \cdots \geq \Lambda_{mm}\geq 0$.\\[4mm]
+	 These diagonal entries are called \alert{singular values} of $A$.
+\end{frame}
 
+\begin{frame}{Spectral decomposition}
+	\begin{alertblock}{Singular value decomposition}
+	Suppose $A\in \R^{n\times n}$ is symmetric. Then there exist orthogonal  $U\in\R^{n\times n}$ and a diagonal $\Lambda$ such that  
+	$$
+	A\;=\;U\Lambda U^\top.
+	$$
+\end{alertblock}
+Denote $(\lambda_1,\ldots,\lambda_n)={\rm diag}(\Lambda)$.\\[3mm]
+
+We take $\lambda_1\geq \lambda_2\geq\cdots\geq \lambda_m$.\\[3mm]
+\end{frame}
 
 \begin{frame}{Elementary matrix operations}
 Column or row operations:
@@ -592,7 +643,7 @@ Column or row operations:
 Each is implemented by multiplying by a suitable elementary matrix on the right (for column ops) or left (for row ops). Useful for Gaussian elimination and determinant computation.
 
 \begin{block}{}
-	Let $A=\begin{bmatrix}
+To see what is happening, let $A=\begin{bmatrix}
 	a_{11} & a_{12}\\
 	a_{21} & a_{22}
 \end{bmatrix}$ and multiply from the right by $\begin{bmatrix}

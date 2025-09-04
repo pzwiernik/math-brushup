@@ -64,20 +64,20 @@ These tools are \textcolor{SeaGreen}{crucial} in courses on micro/macro, econome
 (any other standard textbook should be fine)
 \end{frame}
 
-\begin{frame}{Course content}
-
-\begin{enumerate}
-\item Sequences and series
-\item Functions of one variable
-\item Differentiation
-\item Integration
-\item Vectors
-\item Matrices and determinants
-\item Systems of linear equations
-\item Eigenvalue problems and quadratic forms
-\item Functions of several variables
-%\item Introduction to differential equations
-\end{enumerate}
+\begin{frame}[plain]{Course content (math tapas)}
+\includegraphics[width=\textwidth]{img/tapas.png}
+%\begin{enumerate}
+%\item Sequences and series
+%\item Functions of one variable
+%\item Differentiation
+%\item Integration
+%\item Vectors
+%\item Matrices and determinants
+%\item Systems of linear equations
+%\item Eigenvalue problems and quadratic forms
+%\item Functions of several variables
+%%\item Introduction to differential equations
+%\end{enumerate}
 \end{frame}
 
 \begin{frame}{Cultivate a Critical Mindset}
@@ -236,7 +236,7 @@ A sequence is \textcolor{SeaGreen}{increasing} if $a_{n+1}\ge a_n$ (strictly if 
 
 \begin{frame}{Limit of a sequence}
 A sequence $(a_n)_{n\in \mathbb N}$ \alert{converges to zero} if $a_n$ get arbitrarly close to zero. \\[3mm]
-More generally, $a\in \mathbb R$ is the \alert{limit} of $(a_n)_{n\in \mathbb N}$ if, as $n\to\infty$, $a_n$ gets arbitrarily close to $a$.\\
+Also, $a\in \mathbb R$ is the \alert{limit} of $(a_n)_{n\in \mathbb N}$ if, as $n\to\infty$, $a_n$ gets arbitrarily close to $a$.\\
 (equivalently $d_n=|a_n-a|$ converges to zero)
 \\[3mm] \textcolor{SeaGreen}{Notation:} \hl{$\lim_{n \rightarrow \infty} a_n=a$}.
 \vskip 8pt
@@ -268,7 +268,7 @@ $
  	\item If $a_n=a$ for all $n$, then $\lim a_n=a$.
  \end{itemize}
 \bigskip
-\begin{block}{Theorem(Squeeze theorem:) }
+\begin{block}{Theorem(Squeeze theorem): Consider three sequences $(a_n)$, $(b_n)$, $(c_n)$. }
 If $a_n\leq b_n\leq c_n$ for all $n\in \mathbb N$ and $\lim_{n\to \infty}a_n=\lim_{n\to \infty}c_n=L$ then $\lim_{n\to \infty}b_n=L$.\\[3mm]
 \qquad e.g. $0<\frac{1}{2n^2-1}\le \frac{1}{n}$ for $n\in \mathbb N$, then $\lim_{n\to \infty} \frac{1}{2n^2-1}=0$.
 \end{block}
@@ -279,8 +279,7 @@ If $a_n\leq b_n\leq c_n$ for all $n\in \mathbb N$ and $\lim_{n\to \infty}a_n=\li
 \end{frame}
 
 
-\begin{frame}{Limits that matter in practice}
-
+\begin{frame}{Some limits that matter in practice}
 \textcolor{SeaGreen}{Classics} 
 \begin{enumerate}
 \item $\Bigl(1+\frac{1}{n}\Bigr)^n \to e$
@@ -289,10 +288,10 @@ If $a_n\leq b_n\leq c_n$ for all $n\in \mathbb N$ and $\lim_{n\to \infty}a_n=\li
 
 \textcolor{SeaGreen}{Continuous compounding \& EAR:} If APR is $R$, then
 \[
-\lim_{m\to\infty}\Bigl(1+\frac{R}{m}\Bigr)^m=e^R,\quad
-\text{EAR}=e^R-1.
+\lim_{m\to\infty}\Bigl(1+\frac{R}{m}\Bigr)^m=e^R,\qquad
+\text{EAR}\approx e^R-1.
 \]
-\textcolor{SeaGreen}{Example:} APR $=8\%$ $\Rightarrow$ EAR $\approx 8.329\%$.\\[3mm]
+\textcolor{SeaGreen}{Example:} APR $=8\%$ \;\;$\Rightarrow$\;\; EAR $\approx 8.329\%$.\\[3mm]
 \quad With monthly compounding ($m=12$) EAR is $8.3\%$.\\ 
 \quad With daily compounding ($m=365$) EAR is $8.328\%$
 \end{frame}

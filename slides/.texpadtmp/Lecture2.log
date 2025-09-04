@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  19 AUG 2025 10:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  4 SEP 2025 05:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -576,7 +576,7 @@ Package textpos Info: choosing support for LaTeX3 on input line 60.
 \TP@margin=\dimen306
 \TP@absmargin=\dimen307
 
-Grid set 16 x 16 = 28.45274pt x 16.00467pt
+Grid set 16 x 16 = 22.7622pt x 17.07166pt
 \TPboxrulesize=\dimen308
 \TP@ox=\dimen309
 \TP@oy=\dimen310
@@ -692,12 +692,12 @@ LaTeX Font Info:    ... okay on input line 22.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: includehead includefoot 
-* h-part:(L,W,R)=(5.69046pt, 443.86316pt, 5.69046pt)
-* v-part:(T,H,B)=(0.0pt, 256.0748pt, 0.0pt)
-* \paperwidth=455.24408pt
-* \paperheight=256.0748pt
-* \textwidth=443.86316pt
-* \textheight=227.62207pt
+* h-part:(L,W,R)=(5.69046pt, 352.81444pt, 5.69046pt)
+* v-part:(T,H,B)=(0.0pt, 273.14662pt, 0.0pt)
+* \paperwidth=364.19536pt
+* \paperheight=273.14662pt
+* \textwidth=352.81444pt
+* \textheight=244.6939pt
 * \oddsidemargin=-66.57953pt
 * \evensidemargin=-66.57953pt
 * \topmargin=-72.26999pt
@@ -856,121 +856,99 @@ Package pdftex.def Info: img/bse.png  used on input line 25.
 [7
 
 ]
-<vbreaks/combo.png, id=64, 1027.84pt x 1027.84pt>
-File: vbreaks/combo.png Graphic file (type png)
-<use vbreaks/combo.png>
-Package pdftex.def Info: vbreaks/combo.png  used on input line 136.
-(pdftex.def)             Requested size: 256.95937pt x 256.95937pt.
-
-Overfull \vbox (0.88457pt too high) detected at line 136
- []
-
-
 
 [8
 
- <./vbreaks/combo.png (PNG copy)>]
+]
+<vbreaks/combo.png, id=70, 1027.84pt x 1027.84pt>
+File: vbreaks/combo.png Graphic file (type png)
+<use vbreaks/combo.png>
+Package pdftex.def Info: vbreaks/combo.png  used on input line 143.
+(pdftex.def)             Requested size: 256.95937pt x 256.95937pt.
+
 
 [9
 
-]
-Overfull \vbox (11.32867pt too high) detected at line 182
- []
-
-
+ <./vbreaks/combo.png (PNG copy)>]
 
 [10
 
 ]
-<img/qed.jpg, id=83, 1084.05pt x 1084.05pt>
-File: img/qed.jpg Graphic file (type jpg)
-<use img/qed.jpg>
-Package pdftex.def Info: img/qed.jpg  used on input line 208.
-(pdftex.def)             Requested size: 28.45274pt x 28.45094pt.
-
-Overfull \vbox (7.0347pt too high) detected at line 208
- []
-
-
 
 [11
 
- <./img/qed.jpg>]
+]
+Overfull \vbox (0.75685pt too high) detected at line 192
+ []
+
+
 
 [12
 
 ]
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10.95> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 247.
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <8> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 247.
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <6> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 247.
+<img/qed.jpg, id=94, 1084.05pt x 1084.05pt>
+File: img/qed.jpg Graphic file (type jpg)
+<use img/qed.jpg>
+Package pdftex.def Info: img/qed.jpg  used on input line 218.
+(pdftex.def)             Requested size: 28.45274pt x 28.45094pt.
 
 
 [13
 
-{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
+ <./img/qed.jpg>]
 
 [14
 
 ]
-<img/sum.png, id=107, 248.93pt x 176.66pt>
-File: img/sum.png Graphic file (type png)
-<use img/sum.png>
-Package pdftex.def Info: img/sum.png  used on input line 270.
-(pdftex.def)             Requested size: 180.67499pt x 128.22482pt.
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10.95> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 260.
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <8> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 260.
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <6> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 260.
 
 
 [15
 
- <./img/sum.png>]
+{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
 
 [16
 
 ]
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 308.
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <7> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 308.
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <5> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 308.
-<img/cos.png, id=119, 221.32687pt x 171.64125pt>
-File: img/cos.png Graphic file (type png)
-<use img/cos.png>
-Package pdftex.def Info: img/cos.png  used on input line 308.
-(pdftex.def)             Requested size: 180.67499pt x 140.12338pt.
-
-Overfull \hbox (38.41121pt too wide) in paragraph at lines 308--308
-[][] 
- []
-
-
-Overfull \vbox (0.94176pt too high) detected at line 308
- []
-
-
 
 [17
 
- <./img/cos.png>]
+]
+<img/sum.png, id=124, 248.93pt x 176.66pt>
+File: img/sum.png Graphic file (type png)
+<use img/sum.png>
+Package pdftex.def Info: img/sum.png  used on input line 290.
+(pdftex.def)             Requested size: 180.67499pt x 128.22482pt.
+
 
 [18
 
-]
-File: img/qed.jpg Graphic file (type jpg)
-<use img/qed.jpg>
-Package pdftex.def Info: img/qed.jpg  used on input line 343.
-(pdftex.def)             Requested size: 28.45274pt x 28.45094pt.
-
+ <./img/sum.png>]
 
 [19
 
 ]
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 328.
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <7> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 328.
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <5> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 328.
+<img/cos.png, id=137, 221.32687pt x 171.64125pt>
+File: img/cos.png Graphic file (type png)
+<use img/cos.png>
+Package pdftex.def Info: img/cos.png  used on input line 328.
+(pdftex.def)             Requested size: 141.12361pt x 109.4493pt.
+
 
 [20
 
-]
+ <./img/cos.png>]
 
 [21
 
@@ -979,20 +957,15 @@ Package pdftex.def Info: img/qed.jpg  used on input line 343.
 [22
 
 ]
-<img/LinAlg10days.png, id=157, 958.58125pt x 789.95125pt>
-File: img/LinAlg10days.png Graphic file (type png)
-<use img/LinAlg10days.png>
-Package pdftex.def Info: img/LinAlg10days.png  used on input line 395.
-(pdftex.def)             Requested size: 310.73074pt x 256.0748pt.
-
-Overfull \vbox (13.10002pt too high) detected at line 395
- []
-
+File: img/qed.jpg Graphic file (type jpg)
+<use img/qed.jpg>
+Package pdftex.def Info: img/qed.jpg  used on input line 368.
+(pdftex.def)             Requested size: 28.45274pt x 28.45094pt.
 
 
 [23
 
- <./img/LinAlg10days.png>]
+]
 
 [24
 
@@ -1005,10 +978,20 @@ Overfull \vbox (13.10002pt too high) detected at line 395
 [26
 
 ]
+<img/LinAlg10days.png, id=181, 958.58125pt x 789.95125pt>
+File: img/LinAlg10days.png Graphic file (type png)
+<use img/LinAlg10days.png>
+Package pdftex.def Info: img/LinAlg10days.png  used on input line 420.
+(pdftex.def)             Requested size: 331.45685pt x 273.14662pt.
+
+Overfull \vbox (13.10002pt too high) detected at line 420
+ []
+
+
 
 [27
 
-]
+ <./img/LinAlg10days.png>]
 
 [28
 
@@ -1017,9 +1000,6 @@ Overfull \vbox (13.10002pt too high) detected at line 395
 [29
 
 ]
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <9> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 522.
-
 
 [30
 
@@ -1028,35 +1008,17 @@ LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <9> not available
 [31
 
 ]
-<vbreaks/sf1.jpg, id=214, 513.92pt x 385.44pt>
-File: vbreaks/sf1.jpg Graphic file (type jpg)
-<use vbreaks/sf1.jpg>
-Package pdftex.def Info: vbreaks/sf1.jpg  used on input line 552.
-(pdftex.def)             Requested size: 256.95937pt x 192.71953pt.
-
-Overfull \hbox (143.14835pt too wide) in paragraph at lines 552--552
-[][]  
- []
-
-<vbreaks/sf2.jpg, id=215, 200.75pt x 183.68625pt>
-File: vbreaks/sf2.jpg Graphic file (type jpg)
-<use vbreaks/sf2.jpg>
-Package pdftex.def Info: vbreaks/sf2.jpg  used on input line 552.
-(pdftex.def)             Requested size: 140.52403pt x 128.57947pt.
-
-Overfull \hbox (26.71301pt too wide) in paragraph at lines 552--552
-[][]  
- []
-
-
 
 [32
 
- <./vbreaks/sf1.jpg> <./vbreaks/sf2.jpg>]
+]
 
 [33
 
 ]
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <9> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 552.
+
 
 [34
 
@@ -1065,18 +1027,31 @@ Overfull \hbox (26.71301pt too wide) in paragraph at lines 552--552
 [35
 
 ]
-<img/deter.jpg, id=237, 421.575pt x 194.7275pt>
-File: img/deter.jpg Graphic file (type jpg)
-<use img/deter.jpg>
-Package pdftex.def Info: img/deter.jpg  used on input line 635.
-(pdftex.def)             Requested size: 289.07999pt x 133.53014pt.
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <14.4> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 635.
+<vbreaks/sf1.jpg, id=236, 513.92pt x 385.44pt>
+File: vbreaks/sf1.jpg Graphic file (type jpg)
+<use vbreaks/sf1.jpg>
+Package pdftex.def Info: vbreaks/sf1.jpg  used on input line 582.
+(pdftex.def)             Requested size: 256.95937pt x 192.71953pt.
+
+Overfull \hbox (143.14835pt too wide) in paragraph at lines 582--582
+[][]  
+ []
+
+<vbreaks/sf2.jpg, id=237, 200.75pt x 183.68625pt>
+File: vbreaks/sf2.jpg Graphic file (type jpg)
+<use vbreaks/sf2.jpg>
+Package pdftex.def Info: vbreaks/sf2.jpg  used on input line 582.
+(pdftex.def)             Requested size: 140.52403pt x 128.57947pt.
+
+Overfull \hbox (26.71301pt too wide) in paragraph at lines 582--582
+[][]  
+ []
+
 
 
 [36
 
- <./img/deter.jpg>]
+ <./vbreaks/sf1.jpg> <./vbreaks/sf2.jpg>]
 
 [37
 
@@ -1093,10 +1068,18 @@ LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <14.4> not available
 [40
 
 ]
+<img/deter.jpg, id=264, 421.575pt x 194.7275pt>
+File: img/deter.jpg Graphic file (type jpg)
+<use img/deter.jpg>
+Package pdftex.def Info: img/deter.jpg  used on input line 677.
+(pdftex.def)             Requested size: 289.07999pt x 133.53014pt.
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <14.4> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 677.
+
 
 [41
 
-]
+ <./img/deter.jpg>]
 
 [42
 
@@ -1111,6 +1094,26 @@ LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <14.4> not available
 ]
 
 [45
+
+]
+
+[46
+
+]
+
+[47
+
+]
+
+[48
+
+]
+
+[49
+
+]
+
+[50
 
 ]
 \tf@nav=\write6
@@ -1131,18 +1134,18 @@ Package rerunfilecheck Info: File `Lecture2.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 22367 strings out of 473190
- 428541 string characters out of 5715801
- 799390 words of memory out of 5000000
- 45034 multiletter control sequences out of 15000+600000
- 589772 words of font info for 126 fonts, out of 8000000 for 9000
+ 22389 strings out of 473190
+ 428746 string characters out of 5715801
+ 799346 words of memory out of 5000000
+ 45045 multiletter control sequences out of 15000+600000
+ 590078 words of font info for 127 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,17n,123p,401b,459s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfso0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfso0900.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfso1000.pfb>
-Output written on /Users/piotrzwiernik/Documents/GitHub/math-brushup/slides/.texpadtmp/Lecture2.pdf (45 pages, 3746564 bytes).
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfso0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfso0900.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfso1000.pfb>
+Output written on /Users/piotrzwiernik/Documents/GitHub/math-brushup/slides/.texpadtmp/Lecture2.pdf (50 pages, 3760851 bytes).
 PDF statistics:
- 412 PDF objects out of 1000 (max. 8388607)
- 297 compressed objects within 3 object streams
- 97 named destinations out of 1000 (max. 500000)
+ 445 PDF objects out of 1000 (max. 8388607)
+ 322 compressed objects within 4 object streams
+ 107 named destinations out of 1000 (max. 500000)
  88 words of extra memory for PDF output out of 10000 (max. 10000000)
 
