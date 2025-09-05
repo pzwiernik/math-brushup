@@ -241,7 +241,7 @@ If  $n\geq 2$,
  by a polynomial} called the \textcolor{DarkRed}{Taylor polynomial}.
  \bigskip
 
-\textcolor{SeaGreen}{Economics/data:} local linear/quadratic approximations underlie elasticity (log-linearization), Delta method, and second-order price responses.
+%\textcolor{SeaGreen}{Economics/data:} local linear/quadratic approximations underlie elasticity (log-linearization), Delta method, and second-order price responses.
 \end{frame}
 
 \begin{frame}{Taylor remainder and a handy expansion}
@@ -251,14 +251,14 @@ R_n^y(x)=\frac{f^{(n+1)}(y)}{(n+1)!}(x-x_0)^{n+1}\quad\text{for some }y\text{ be
 \]
 \end{alertblock}
 If $|f^{(n+1)}|\le M$ near $x_0$, then $|R_n^y(x)|\le \dfrac{M}{(n+1)!}|x-x_0|^{n+1}$.
-\smallskip
+\bigskip
 
 \textcolor{SeaGreen}{Example (log around 1):} With $x_0=1$,
 \[
 \log x \approx (x-1)-\tfrac12(x-1)^2,\quad 
 R_2^y(x)=\frac{1}{3y^3}(x-1)^3.
 \]
-\textcolor{SeaGreen}{Finance quick check:} For small $r$, $\log(1+r)\approx r-\frac{r^2}{2}$ $\Rightarrow$ EAR $\approx$ APR $-\ \frac12 \text{APR}^2$ (small correction).
+%\textcolor{SeaGreen}{Finance quick check:} For small $r$, $\log(1+r)\approx r-\frac{r^2}{2}$ $\Rightarrow$ EAR $\approx$ APR $-\ \frac12 \text{APR}^2$ (small correction).
 \end{frame}
 
 % (Optional advanced finance slides removed as requested earlier; calculus focus retained.)
