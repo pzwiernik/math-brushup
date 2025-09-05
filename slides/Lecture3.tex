@@ -1,6 +1,6 @@
 \documentclass{beamer}
 \input{./defs.tex}
-
+\usepackage[absolute,overlay]{textpos}
 
 
 
@@ -18,6 +18,557 @@ Mathematics Brush-up\\[8pt]
 \begin{frame}
 \titlepage
 \end{frame}
+
+
+\begin{frame}[plain]{Course content (math tapas)}
+\includegraphics[width=\textwidth]{img/tapas3.png}
+\end{frame}
+
+\begin{frame}[plain,noframenumbering] \begin{center}
+	\alert{\Huge Orthogonality and linear independence}
+\end{center}\end{frame}
+
+
+\begin{frame}{Orthogonality}
+\textcolor{SeaGreen}{Definition:} $\bs u\perp \bs v$ if $\langle \bs u,\bs v\rangle=0$.
+\bigskip
+
+\textcolor{SeaGreen}{Angle example:} For $\bs u=(2,-1,3)$ and $\bs v=(5,-4,-1)$,
+\[
+\langle \bs u,\bs v\rangle=11,\quad
+\cos\angle(\bs u,\bs v)=\frac{11}{\sqrt{14}\sqrt{42}}\approx 0.4537,
+\]
+so the angle is about $63^\circ$.
+\bigskip
+
+\textcolor{SeaGreen}{Geometric test:} $\bs u\perp \bs v$ if and only if $\|\bs u-\bs v\|^2=\|\bs u\|^2+\|\bs v\|^2$.
+\end{frame}
+
+\begin{frame}{Cauchy-Schwarz via completing the square}
+Assume nonzero $\bs u,\bs v$. For any real $t$,
+\[
+0\le \|\bs u-t\bs v\|^2=\|\bs u\|^2-2t\,\langle \bs u,\bs v\rangle+t^2\|\bs v\|^2.
+\]
+Complete the square in $t$:
+\[
+\|\bs u\|^2-2t\,\langle \bs u,\bs v\rangle+t^2\|\bs v\|^2
+=\|\bs v\|^2\!\left(t-\frac{\langle \bs u,\bs v\rangle}{\|\bs v\|^2}\right)^{\!2}
++\Big(\,\|\bs u\|^2-\frac{\langle \bs u,\bs v\rangle^2}{\|\bs v\|^2}\Big).
+\]
+Since the left side is $\ge 0$ for all $t$, the second term must be $\ge 0$:
+\[
+\langle \bs u,\bs v\rangle^2\le \|\bs u\|^2\,\|\bs v\|^2.
+\]
+\textcolor{SeaGreen}{Equality condition:} equality holds if and only if $\|\bs u-t\bs v\|^2=0$ for $t=\frac{\langle \bs u,\bs v\rangle}{\|\bs v\|^2}$, i.e., $\bs u=t\,\bs v$ (collinear vectors).
+
+\hfill\includegraphics[width=1cm]{img/qed.jpg}
+\end{frame}
+
+
+
+\begin{frame}{Linear dependence, independence, and bases}
+\textcolor{SeaGreen}{Linear combination:} $\bs u=\sum_{i=1}^m \lambda_i \bs v_i$.
+\bigskip
+
+\textcolor{SeaGreen}{Linear independence:} $\{\bs v_1,\ldots,\bs v_m\}$ is linearly independent if
+\[
+\sum_{i=1}^m \lambda_i \bs v_i=\bs 0 \quad\Rightarrow\quad \lambda_1=\cdots=\lambda_m=0.
+\]
+\textcolor{SeaGreen}{Basis:} Any $n$ linearly independent vectors in $\mathbb{R}^n$ form a basis. Then every $\bs u\in\mathbb{R}^n$ has a \alert{unique} representation $\bs u=\sum_{i=1}^n \lambda_i \bs v_i$.
+\bigskip
+
+\textcolor{SeaGreen}{Standard basis:} $\{\bs e_1,\ldots,\bs e_n\}$.
+\end{frame}
+
+\begin{frame}{Subspaces, span, and dimension}
+For $E=\{\bs v_1,\ldots,\bs v_k\}$, the \textcolor{SeaGreen}{span} is
+\[
+\mathrm{span}(E)=\Big\{\sum_{i=1}^k \lambda_i \bs v_i:\ \lambda_i\in\mathbb{R}\Big\}.
+\]
+A \textcolor{SeaGreen}{subspace} $V\subset\mathbb{R}^n$ is any span. A \textcolor{SeaGreen}{basis of $V$} is a linearly independent set that spans $V$.
+The \textcolor{SeaGreen}{dimension} of $V$ is the size of any basis.
+\bigskip
+
+\textcolor{SeaGreen}{Exercise:} Basis of $V=\{(x_1,x_2,x_3)\in\mathbb{R}^3:\ x_1+x_2+x_3=0\}$.
+\end{frame}
+
+
+
+\begin{frame}[label=orthogonal]{Orthogonal complement and projection}
+\begin{block}{Orthogonal complement}
+For a subspace $V\subset\mathbb{R}^n$,
+\[
+V^\perp=\{\bs x:\ \langle \bs x,\bs v\rangle=0\ \forall \bs v\in V\}.
+\]
+\end{block}
+\begin{alertblock}{Projection theorem}
+For any $\bs y\in\mathbb{R}^n$ and subspace $V$, there is a unique $\hat{\bs y}\in V$ with $\bs y-\hat{\bs y}\in V^\perp$. We call $\hat{\bs y}$ the orthogonal projection of $\bs y$ onto $V$.
+\end{alertblock}
+
+\textcolor{SeaGreen}{Least squares view:} With design matrix $\bs X\in\mathbb{R}^{n\times d}$ and response $\bs y$, the LS fit $\hat{\bs y}$ is the projection of $\bs y$ onto the column space of $\bs X$.
+\[
+\hat{\bs y}=\bs X(\bs X^\top\bs X)^{-1}\bs X^\top\bs y.
+\]
+\end{frame}
+
+
+\begin{frame}{}
+\centering\includegraphics[height=\paperheight]{img/LinAlg10days.png}	
+\end{frame}
+
+%========================================================
+%                  MATRICES
+%========================================================
+
+\begin{frame}{Chapter 6: Matrices and determinants}
+A \textcolor{SeaGreen}{matrix} $A\in\mathbb{R}^{m\times n}$ is a table with $m$ rows, $n$ columns. The $(i,j)$ entry is $a_{ij}$.
+\bigskip
+
+We recall basic facts about matrices.
+\bigskip
+
+\textcolor{SeaGreen}{Why care:} matrices express linear maps, data tables, network flows, input-output models, regressions, transformations, and more.
+\bigskip
+
+\textcolor{SeaGreen}{Read} Werner-Sotskov Ch. 7; Simon-Blume Chs. 8-9. \\[4mm]
+\textcolor{SeaGreen}{Exercises} 7.6, 7.9(b,c,d), 7.12, 7.14(a), 7.16, 7.18
+\end{frame}
+
+\begin{frame}{Matrices}
+	A table of numbers with $m$ rows and $n$ columns: $A\in \R^{m\times n}$. The $(i,j)$-th entry is denoted by $a_{ij}$.\\[.3cm]
+	Special matrices: 
+\begin{itemize}
+	\item zero matrix: $\bs 0_{m\times n}\in \R^{m\times n}$\\[.2cm]
+	\item identity matrix: $\mathbb I_n\in \R^{n\times n}$.\\[.2cm]
+		\item \textcolor{SeaGreen}{transposition}: $A^T\in \R^{n\times m}$, $(A^T)_{ij}=a_{ji}$.\\[.2cm]
+		\item square matrix: $m=n$.\\[.2cm]
+		\item symmetric matrix: square matrix such that $A=A^T$.\\[.2cm]
+		\item diagonal matrix: $a_{ij}=0$ if $i\neq j$.\\[.2cm]
+		\item lower (upper) trianglar: $a_{ij}=0$ if $i<j$ ($i>j$).\\[.2cm]
+		\item $\bs v\in \R^n$ is treated as $n\times 1$ matrix, $\R^n\simeq \R^{n\times 1}$. 
+\end{itemize}	
+\end{frame}
+
+
+
+
+\begin{frame}{Basic matrix operations}
+Addition and scalar multiplication are entrywise:
+\[
+(A+B)_{ij}=a_{ij}+b_{ij},\qquad (\lambda A)_{ij}=\lambda a_{ij}.
+\]
+They satisfy the usual commutative, associative, and distributive laws.
+\bigskip
+
+\textcolor{SeaGreen}{Matrix product:} If $A\in\mathbb{R}^{m\times p}$ and $B\in\mathbb{R}^{p\times n}$, then $C=AB\in\mathbb{R}^{m\times n}$ with
+\[
+c_{ij}=\sum_{k=1}^p a_{ik}b_{kj}.
+\]
+\textcolor{SeaGreen}{Example:}
+\[
+\begin{pmatrix}2& 3 & 4 & 1\\
+7 & -1 & 0 & 4
+\end{pmatrix} 
+\begin{pmatrix}2& 7\\
+3 & -1 \\
+4 & 0 \\
+1& 4
+\end{pmatrix}
+=
+\begin{pmatrix}30&  15\\
+15 & 66
+\end{pmatrix}.
+\]
+\end{frame}
+
+\begin{frame}{Algebraic properties}
+\textcolor{SeaGreen}{Facts:}
+\begin{enumerate}
+\item $(AB)C=A(BC)$\\[3mm]
+\item $A(B+C)=AB+AC$ and $(A+B)C=AC+BC$\\[3mm]
+\item Generally \textbf{not} commutative: $AB\neq BA$\\[3mm]
+\item $AI_n=I_mA=A$ (dimensions must match)\\[3mm]
+\item $(A^T)^T=A$, $(A+B)^T=A^T+B^T$, $(\lambda A)^T=\lambda A^T$, $(AB)^T=B^T A^T$
+\end{enumerate}
+\bigskip
+ 
+\textcolor{SeaGreen}{Remark:} $AA^T$ is always symmetric.
+\end{frame}
+
+\begin{frame}{Matrix times vector}
+We treat $\mathbb{R}^n$ as column vectors $\mathbb{R}^{n\times 1}$. If $A\in\mathbb{R}^{m\times n}$ and $\bs x\in\mathbb{R}^n$ then $A\bs x\in\mathbb{R}^m$ is a linear combination of the columns of $A$ with coefficients $x_i$:
+\[
+A\bs x = x_1\bs a_1+\cdots+x_n\bs a_n.
+\]
+\bigskip
+
+e.g. \textbf{Another look at the LS method}: $\bs X\in \R^{n\times d}$, $\bs y\in \R^n$
+$$
+{\rm minimize}_{\beta\in \R^d}\quad \|\bs y-\bs X\beta\|^2
+$$
+Finds the closest point to $\bs y$ in the space spanned by the columns of $\bs X$.
+\end{frame}
+
+\begin{frame}[label=orthogonal2]{Orthogonal projection}
+		\textbf{Theorem: }Given a vector $\bs y\in \R^n$ and a subspace $V\subset \R^n$ there exists a unique $\hat{\bs y}\in V$ such that \;\;$\bs y-\hat{\bs y}\in V^\perp$.
+	Let $\bs x_1,\ldots,\bs x_d$ be a basis of $V\subset \R^n$.\\[.3cm]
+	$\bs X\in \R^{n\times d}$ with columns  $\bs x_1,\ldots,\bs x_d$.\\[.5cm]
+	$\hat{\bs y}\in V$ means \quad $\hat{\bs y}=\bs X\bs \lambda$\quad  for some $\bs \lambda=(\lambda_1,\ldots,\lambda_d)$.\\[.3cm]
+	$\bs y-\hat{\bs y}\in V^\perp$ \quad means \quad $\bs X^\top(\bs y-\hat{\bs y})=\bs 0$.\\[.5cm]
+	The unique solution: \quad $\bs \lambda=(\bs X^\top \bs X)^{-1}\bs X^\top\bs y$ giving
+	$$
+	\hat{\bs y}\;=\;\alert{\bs X (\bs X^\top \bs X)^{-1}\bs X^\top}\bs y.
+	$$
+\end{frame}
+
+
+\begin{frame}{Matrix inverse}
+A square matrix $A$ is \textcolor{SeaGreen}{invertible} if there exists a matrix $A^{-1}$ such that
+$$
+A A^{-1}=A^{-1}A=I.
+$$
+	We want to show:
+		\begin{beamercolorbox}[wd=\paperwidth,sep=0pt]{important}	
+		\begin{center}
+$A\in \R^{n\times n}$ is invertible \quad $\Longleftrightarrow$\quad $A\bs x=\bs 0_n$ only for $\bs x= \bs 0_n$.		
+		\end{center}
+\end{beamercolorbox}
+Two observations:
+\begin{enumerate}
+	\item $A\bs x=\bs 0$ only for $\bs x=\bs 0$\quad iff\quad columns of $A$ are lin. independent.
+	\item $n$ independent vectors in $\R^n$ form a basis and so $\forall i=1,\ldots, n$ $\exists \bs b_i$ such that $A\bs b_i=\bs e_i$.
+	\item This gives $B\in \R^{n\times n}$ such that $AB=\mathbb I_n$.
+%	\item $AB=\mathbb I_n$ means $A\bs b_i=\bs e_i$ for $i=1,\ldots, n$ and so the columns of $A$ form a basis of $\R^n$. 
+\end{enumerate}
+\bigskip
+
+This is enough to show that the matrix $\bs X^\top\bs X$ on slide~\ref{orthogonal2} is invertible.\\
+\quad {\footnotesize Note: If $(\bs X^\top \bs X)\bs x=\bs 0$ then $\bs x^\top(\bs X^\top \bs X)\bs x=\bs 0$ but this only possible if $\bs x=\bs 0$.} 
+\end{frame}
+
+
+
+
+\begin{frame}{Important spaces and rank}
+For $A\in\mathbb{R}^{m\times n}$:
+\begin{itemize}
+\item \textcolor{SeaGreen}{Column space} (image) $\mathrm{Im}(A)=\{A\bs x:\bs x\in\mathbb{R}^n\}\subset\mathbb{R}^m$
+\item \textcolor{SeaGreen}{Row space} $\mathrm{Im}(A^T)\subset\mathbb{R}^n$
+\item \textcolor{SeaGreen}{Kernel} (null space) $\ker(A)=\{\bs x:\ A\bs x=\bs 0\}\subset\mathbb{R}^n$
+\item \textcolor{SeaGreen}{Rank} $\mathrm{rank}(A)=\dim \mathrm{Im}(A)=\dim \mathrm{Im}(A^T)$
+\end{itemize}
+\textcolor{SeaGreen}{Orthogonality:} Row space is orthogonal to $\ker(A)$.
+\bigskip
+
+\textcolor{SeaGreen}{Rank-nullity:} $\mathrm{rank}(A)+\dim\ker(A)=n$.
+\bigskip
+
+\textcolor{SeaGreen}{Try:} $A=\begin{bmatrix}1&0&2\\[2pt]0&1&1\end{bmatrix}$.
+\end{frame}
+
+
+\begin{frame}[plain,noframenumbering]{}
+\begin{textblock*}{4cm}(3.5cm,1cm)
+	\includegraphics[scale=.5]{vbreaks/sf1}
+\end{textblock*}
+	\begin{textblock*}{4cm}(1cm,4.2cm)
+\includegraphics[scale=.7]{vbreaks/sf2}
+	\end{textblock*}	
+\end{frame}
+
+
+
+\begin{frame}{Orthogonal matrices}
+An $n \times n$ matrix $A$ is called \textcolor{SeaGreen}{orthogonal} if  $AA^\top=I_n$.
+\vskip 12pt
+\textcolor{SeaGreen}{Remark:} If $A$ is orthogonal, its row vectors (and also its column vectors) are pairwise orthogonal unit vectors.\\[3mm]
+
+\begin{small}Proof: Let $\bs r_i$ and $\bs r_j$ be the $i$-th and $j$-th rows of $A$.  
+The $(i,j)$ entry of $AA^\top$ is the scalar product $\bs r_i^\top\bs r_j$.  
+If $AA^\top=I$, then $\bs r_i^\top\bs r_j = 0$ for $i\neq j$ (orthogonality) and  
+$\bs r_i^\top\bs r_i = \|\bs r_i\|^2 = 1$ (unit length).  
+The same holds for columns using $A^\top A = I_n$.\end{small}
+\vskip 12pt
+\textcolor{SeaGreen}{Example:}
+\begin{align*}
+\begin{pmatrix}\tfrac{1}{\sqrt{2}}& \tfrac{1}{\sqrt{2}} \\
+-\tfrac{1}{\sqrt{2}}& \tfrac{1}{\sqrt{2}}
+\end{pmatrix}
+\begin{pmatrix}
+\tfrac{1}{\sqrt{2}}& -\tfrac{1}{\sqrt{2}}\\
+\tfrac{1}{\sqrt{2}}& \tfrac{1}{\sqrt{2}}
+\end{pmatrix}
+=
+\begin{pmatrix}1&  0\\
+0 & 1
+\end{pmatrix}
+\end{align*}
+\end{frame}
+
+\begin{frame}{Singular value decomposition (SVD)}
+\begin{alertblock}{Singular value decomposition}
+	For every $A\in \R^{m\times n}$ there exist orthogonal matrices $U\in \R^{m\times m}$, $V\in \R^{n\times n}$ and a ``diagonal'' matrix $\Lambda\in \R^{m\times n}$ such that 	
+	$$
+	A\;=\;U\Lambda V^\top.
+	$$
+\end{alertblock}
+	 
+If $m\leq n$ then $\Lambda$ has $m$ ``diagonal'' entries.\\[4mm]
+	 We can assume $\Lambda_{11}\geq \cdots \geq \Lambda_{mm}\geq 0$.\\[4mm]
+	 These diagonal entries are called \alert{singular values} of $A$.
+\end{frame}
+
+\begin{frame}{Spectral decomposition}
+	\begin{alertblock}{Singular value decomposition}
+	Suppose $A\in \R^{n\times n}$ is symmetric. Then there exist orthogonal  $U\in\R^{n\times n}$ and a diagonal $\Lambda$ such that  
+	$$
+	A\;=\;U\Lambda U^\top.
+	$$
+\end{alertblock}
+Denote $(\lambda_1,\ldots,\lambda_n)={\rm diag}(\Lambda)$.\\[3mm]
+
+We take $\lambda_1\geq \lambda_2\geq\cdots\geq \lambda_m$.\\[3mm]
+\end{frame}
+
+\begin{frame}{Elementary matrix operations}
+Column or row operations:
+\begin{enumerate}
+\item \textcolor{SeaGreen}{Swap} two columns (or rows)
+\item \textcolor{SeaGreen}{Scale} a column (or row) by $\lambda\neq 0$
+\item \textcolor{SeaGreen}{Add} a multiple of one column (or row) to another
+\end{enumerate}
+Each is implemented by multiplying by a suitable elementary matrix on the right (for column ops) or left (for row ops). Useful for Gaussian elimination and determinant computation.
+
+\begin{block}{}
+To see what is happening, let $A=\begin{bmatrix}
+	a_{11} & a_{12}\\
+	a_{21} & a_{22}
+\end{bmatrix}$ and multiply from the right by $\begin{bmatrix}
+	0 & 1\\
+	1 & 0
+\end{bmatrix}$, $\begin{bmatrix}
+	\lambda & 0\\
+	0 & 1
+\end{bmatrix}$, or $\begin{bmatrix}
+	1 & 0\\
+	\lambda & 1
+\end{bmatrix}$.
+\end{block}
+
+\end{frame}
+
+%========================================================
+%                  DETERMINANTS
+%========================================================
+
+\begin{frame}{Determinants: definition}
+For $A\in\mathbb{R}^{n\times n}$, let $A_{ij}$ be the submatrix with row $i$ and column $j$ removed. Define recursively
+\[
+\det(A)=\sum_{j=1}^n (-1)^{1+j} a_{1j} \det(A_{1j}),\quad \det([a_{11}])=a_{11}.
+\]
+For $n=2$: $\det\begin{pmatrix}a&b\\ c&d\end{pmatrix}=ad-bc$.
+\bigskip
+
+For $n=3$:
+\[
+\det(A)=a_{11}a_{22}a_{33}+a_{12}a_{23}a_{31}+a_{13}a_{21}a_{32}
+- a_{11}a_{23}a_{32}-a_{12}a_{21}a_{33}-a_{13}a_{22}a_{31}.
+\]
+\end{frame}
+
+\begin{frame}{A memory aid for $n=3$}
+\begin{figure}
+\includegraphics[width=4in]{img/deter} 
+\end{figure}
+\end{frame}
+
+\begin{frame}{Cofactor expansion and properties}
+\textcolor{SeaGreen}{Cofactor expansion:} expand by any row $i$ or any column $j$:
+\[
+\det(A)=\sum_{j=1}^n (-1)^{i+j} a_{ij}\det(A_{ij})
+=\sum_{i=1}^n (-1)^{i+j} a_{ij}\det(A_{ij}).
+\]
+\textcolor{SeaGreen}{Properties:}
+\begin{enumerate}
+\item $\det(A)=\det(A^T)$
+\item If $A$ is triangular, $\det(A)$ is the product of diagonal entries
+\item $\det(AB)=\det(A)\det(B)$
+\item Swapping two rows (or columns) flips the sign of $\det$
+\item Scaling a row (or column) by $\lambda$ scales $\det$ by $\lambda$
+\item Adding a multiple of one row to another leaves $\det$ unchanged
+\item $\det(A)=0$ if and only if rows (or columns) are linearly dependent
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Determinants by elimination}
+Use row operations (keeping track of determinant changes) to reach triangular form.
+\[
+\begin{vmatrix}
+1 & 2 & 0\\
+3 & 0 & 1\\
+1 & 2 & 3
+\end{vmatrix}
+\to
+\begin{vmatrix}
+1 & 2 & 0\\
+0 & -6 & 1\\
+1 & 2 & 3
+\end{vmatrix}
+\to
+\begin{vmatrix}
+1 & 2 & 0\\
+0 & -6 & 1\\
+0 & 0 & 3
+\end{vmatrix}
+= (-6)\cdot 3 = -18.
+\]
+{\tiny First: $r_2\leftarrow r_2-3r_1$. Then: $r_3\leftarrow r_3-r_1$.}
+\bigskip
+
+\textcolor{SeaGreen}{Geometric meaning:} $|\det(A)|$ is the area/volume scaling of the linear map $x\mapsto Ax$ (and its sign encodes orientation).
+\end{frame}
+
+%========================================================
+%                  LINEAR SYSTEMS
+%========================================================
+
+\begin{frame}{Linear systems and Cramer's rule}
+A system $A\bs x=\bs b$ with $A\in\mathbb{R}^{n\times n}$, unknown $\bs x\in\mathbb{R}^n$, and data $\bs b$.
+If $A$ is \textcolor{SeaGreen}{nonsingular} ($\det A\neq 0$), the solution is unique.
+\bigskip
+
+\textcolor{SeaGreen}{Cramer's rule:} Let $A_j(\bs b)$ be $A$ with column $j$ replaced by $\bs b$. Then
+\[
+x_j=\frac{\det A_j(\bs b)}{\det A},\quad j=1,\ldots,n.
+\]
+\textcolor{SeaGreen}{Note:} Great for theory, not used for large-scale computation.
+\bigskip
+
+\textcolor{SeaGreen}{Example:}
+\[
+A=\begin{pmatrix}
+2 & 3 & 5\\
+1 & 0 & 2\\
+-1 & -4 & 2
+\end{pmatrix},\quad
+\bs b=\begin{pmatrix}1\\7\\4\end{pmatrix}
+\ \Rightarrow\
+\bs x=\Big(\tfrac{75}{8},-\tfrac{63}{16},-\tfrac{19}{16}\Big).
+\]
+\end{frame}
+
+%========================================================
+%                  LINEAR MAPPINGS
+%========================================================
+
+\begin{frame}{Linear mappings}
+A mapping $A:\mathbb{R}^n\to\mathbb{R}^m$ is \textcolor{SeaGreen}{linear} if
+\[
+A(\bs x_1+\bs x_2)=A(\bs x_1)+A(\bs x_2),\qquad
+A(\lambda \bs x)=\lambda A(\bs x).
+\]
+Then there exists an $m\times n$ matrix (also denoted $A$) with $A(\bs x)=A\bs x$.
+\bigskip
+
+\textcolor{SeaGreen}{Columns as images:} $A(\bs e_i)=\bs a_i$ (the $i$-th column), and $A(\bs x)=\sum_i x_i A(\bs e_i)$.
+\bigskip
+
+\textcolor{SeaGreen}{Examples:} scalings, rotations, reflections, projections, feature maps in ML, Leontief input-output in economics.
+\end{frame}
+
+\begin{frame}{Two simple linear maps}
+\begin{enumerate}
+\item Reflection across the $y$-axis:
+\[
+A=\begin{pmatrix}-1&0\\ 0&1\end{pmatrix},\qquad
+A\begin{pmatrix}x\\y\end{pmatrix}=\begin{pmatrix}-x\\y\end{pmatrix}.
+\]
+\item Rotation by $45^\circ$ counterclockwise:
+\[
+A=\begin{pmatrix}\tfrac{1}{\sqrt{2}}&-\tfrac{1}{\sqrt{2}}\\[2pt]
+\tfrac{1}{\sqrt{2}}&\tfrac{1}{\sqrt{2}}\end{pmatrix}.
+\]
+Check the images of $\bs e_1$ and $\bs e_2$ to see the action.
+\end{enumerate}
+\end{frame}
+
+%========================================================
+%                  INVERSE MATRIX
+%========================================================
+
+\begin{frame}{Inverse matrix and properties}
+A square $A$ is invertible if $A^{-1}$ exists with $AA^{-1}=A^{-1}A=I_n$.
+\bigskip
+
+\textcolor{SeaGreen}{Properties:}
+\begin{enumerate}
+\item $(A^{-1})^{-1}=A$
+\item $(AB)^{-1}=B^{-1}A^{-1}$
+\item $(A^T)^{-1}=(A^{-1})^T$
+\item $(\lambda A)^{-1}=\lambda^{-1}A^{-1}$ for $\lambda\neq 0$
+\item $\det(A^{-1})=1/\det(A)$
+\end{enumerate}
+
+\textcolor{SeaGreen}{Solve} $A\bs x=\bs b$ by $\bs x=A^{-1}\bs b$ when $A$ is invertible.
+\end{frame}
+
+\begin{frame}{Computing inverses}
+\textcolor{SeaGreen}{Cofactor formula:} If $A$ is nonsingular,
+\[
+A^{-1}=\frac{1}{\det A}\,C(A)^T,\quad C(A)_{ij}=(-1)^{i+j}\det(A_{ij}).
+\]
+For $2\times 2$:
+\[
+\begin{pmatrix}a&b\\ c&d\end{pmatrix}^{-1}
+=\frac{1}{ad-bc}\begin{pmatrix}d&-b\\ -c&a\end{pmatrix}.
+\]
+For larger $n$, numerical methods use elimination (LU), not cofactors.
+\end{frame}
+
+%========================================================
+%                  INPUT-OUTPUT
+%========================================================
+
+\begin{frame}{Example: Input-output model}
+Let $a_{ij}$ be units of good $i$ needed to produce 1 unit of good $j$. Put $A=(a_{ij})$.
+Let $\bs x$ be total output and $\bs y$ the vector of final demand.
+\bigskip
+
+\textcolor{SeaGreen}{Accounting identity:} output = internal demand + final demand
+\[
+\bs x = A\bs x + \bs y
+\quad\Leftrightarrow\quad
+(I_n-A)\bs x=\bs y
+\quad\Rightarrow\quad
+\bs x=(I_n-A)^{-1}\bs y
+\]
+provided $I_n-A$ is invertible.
+\bigskip
+
+\textcolor{SeaGreen}{Interpretation:} $(I-A)^{-1}=I+A+A^2+\cdots$ accumulates direct, indirect, and higher-order input needs when it converges.
+\end{frame}
+
+\begin{frame}{A triangular example}
+\textcolor{SeaGreen}{Theorem:} If $A$ is strictly upper triangular (zeros on and below diagonal), then $A^n=0$ and
+\[
+(I_n-A)^{-1}=I_n+A+A^2+\cdots+A^{n-1}.
+\]
+{\tiny Check $(I-A)(I+A+\cdots+A^{n-1})=I-A^n=I$.}
+\bigskip
+
+\textcolor{SeaGreen}{Example:}
+\[
+A=\begin{pmatrix}
+0&3&5\\
+0&0&2\\
+0&0&0
+\end{pmatrix},\quad
+\bs y=\begin{pmatrix}1\\ 7\\ 4\end{pmatrix}
+\ \Rightarrow\
+\bs x=(66,15,4).
+\]
+\end{frame}
+
 
 %==============================
 %   CHAPTER 7: LINEAR SYSTEMS
