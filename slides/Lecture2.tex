@@ -335,6 +335,7 @@ If $t=g(x)$ and $F$ is an antiderivative of $f$, then
 \[
 \int f(g(x))\,g'(x)\,dx=\int f(t)\,dt=F(t)+c=F(g(x))+c.
 \]
+{\small (if $F'(t)=f(t)$ then $f(g(x))g'(x)=(F(g(x)))'$ by the chain rule)}
 \end{block}
 \textcolor{SeaGreen}{Examples:}
 \[
@@ -405,7 +406,7 @@ For continuous $f:[a,b]\to\mathbb{R}$ with $f\ge 0$, the \textcolor{SeaGreen}{de
 \[
 \int_a^b f(x)\,dx
 \]
-is the area under $f$ between $a$ and $b$. More generally it accumulates signed change.
+is the area under $f$ between $a$ and $b$. It accumulates signed change.
 \bigskip
 
 \textcolor{SeaGreen}{Properties:}
@@ -468,23 +469,33 @@ and let $n\to\infty$.
 \hfill\includegraphics[width=1cm]{img/qed.jpg}
 \end{frame}
 
+
+
+
 \begin{frame}{Application: Taylor with integral remainder (up to $n=2$)}
-Apply FTC repeatedly:
 
-{\small
-\begin{align*}
-f(x)
-&= f(x_0)+\int_{x_0}^x f'(t_1)\,dt_1 \\
-&= f(x_0)+f'(x_0)(x-x_0)+\int_{x_0}^x\!\int_{x_0}^{t_1} f''(t_2)\,dt_2\,dt_1 \\
-&= f(x_0)+f'(x_0)(x-x_0)+\frac{f''(x_0)}{2}(x-x_0)^2
-+ \int_{x_0}^x\!\int_{x_0}^{t_1}\!\int_{x_0}^{t_2} f^{(3)}(t_3)\,dt_3\,dt_2\,dt_1.
-\end{align*}}
-
-By the intermediate value theorem there is $y$ between $x_0$ and $x$ with
+Start with Fundamental Theorem of Calculus (FTC):
 \[
-\int\!\!\int\!\!\int f^{(3)}(t_3)\,dt_3\,dt_2\,dt_1
-= \frac{f^{(3)}(y)}{3!}(x-x_0)^3.
+f(x) = f(x_0) + \int_{x_0}^x f'(t_1)\,dt_1.
 \]
+
+Apply FTC again to $f'(t_1)$:
+\[
+f'(t_1) = f'(x_0) + \int_{x_0}^{t_1} f''(t_2)\,dt_2.
+\]
+
+Substitute:
+\[
+f(x) = f(x_0) + f'(x_0)(x-x_0) 
++ \int_{x_0}^x\int_{x_0}^{t_1} f''(t_2)\,dt_2\,dt_1.
+\]
+
+Repeating once more gives the quadratic term plus an integral remainder:
+\[
+f(x) = f(x_0)+f'(x_0)(x-x_0)+\tfrac{f''(x_0)}{2}(x-x_0)^2
++ R_2(x).
+\]
+
 \end{frame}
 
 %========================================================
@@ -595,7 +606,7 @@ By Pythagoras, $x^2+y^2=b^2$ and $(a-x)^2+y^2=c^2$. Subtract to eliminate $y^2$ 
 so the angle is about $63^\circ$.
 \bigskip
 
-\textcolor{SeaGreen}{Geometric test:} $\bs u\perp \bs v$ iff $\|\bs u-\bs v\|^2=\|\bs u\|^2+\|\bs v\|^2$.
+\textcolor{SeaGreen}{Geometric test:} $\bs u\perp \bs v$ if and only if $\|\bs u-\bs v\|^2=\|\bs u\|^2+\|\bs v\|^2$.
 \end{frame}
 
 \begin{frame}{Cauchy-Schwarz via completing the square}
@@ -613,7 +624,7 @@ Since the left side is $\ge 0$ for all $t$, the second term must be $\ge 0$:
 \[
 \langle \bs u,\bs v\rangle^2\le \|\bs u\|^2\,\|\bs v\|^2.
 \]
-\textcolor{SeaGreen}{Equality condition:} equality holds iff $\|\bs u-t\bs v\|^2=0$ for $t=\frac{\langle \bs u,\bs v\rangle}{\|\bs v\|^2}$, i.e., $\bs u=t\,\bs v$ (collinear vectors).
+\textcolor{SeaGreen}{Equality condition:} equality holds if and only if $\|\bs u-t\bs v\|^2=0$ for $t=\frac{\langle \bs u,\bs v\rangle}{\|\bs v\|^2}$, i.e., $\bs u=t\,\bs v$ (collinear vectors).
 
 \hfill\includegraphics[width=1cm]{img/qed.jpg}
 \end{frame}
@@ -950,7 +961,7 @@ For $n=3$:
 \item Swapping two rows (or columns) flips the sign of $\det$
 \item Scaling a row (or column) by $\lambda$ scales $\det$ by $\lambda$
 \item Adding a multiple of one row to another leaves $\det$ unchanged
-\item $\det(A)=0$ iff rows (or columns) are linearly dependent
+\item $\det(A)=0$ if and only if rows (or columns) are linearly dependent
 \end{enumerate}
 \end{frame}
 
