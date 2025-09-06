@@ -78,6 +78,10 @@ Since the left side is $\ge 0$ for all $t$, the second term must be $\ge 0$:
 \bigskip
 
 \textcolor{SeaGreen}{Standard basis:} $\{\bs e_1,\ldots,\bs e_n\}$.
+\begin{alertblock}{}
+	Say $\bs v_1+\bs v_2=\bs v_3$. Show that $\bs v_1,\bs v_2,\bs v_3$ are NOT linearly independent.
+\end{alertblock}
+
 \end{frame}
 
 \begin{frame}{Subspaces, span, and dimension}
@@ -111,6 +115,22 @@ For any $\bs y\in\mathbb{R}^n$ and subspace $V$, there is a unique $\hat{\bs y}\
 \]
 \end{frame}
 
+\begin{frame}{}
+	Suppose $n=2$ and $V={\rm span}\{\bs u\}$. Take any $\bs y\in \R^2$.\\[4mm]
+	We have
+	$$
+	V^\perp\;=\;\{\bs x:\;\;\<\bs x,\bs v\>=0\;\forall \bs v\in V\}\;=\;\{\bs x:\;\;\<\bs x,\bs u\>=0\}.
+	$$ 
+	The projection $\bs y$ must satisfy
+	\begin{itemize}
+		\item $\bs y-\hat{\bs y}\in V^\perp$ or, equivalently, $\<\bs y,\bs u\>=\<\hat{\bs y},\bs u\>$. 
+		\item $\hat{\bs y}\in V$ or, equivalently, $\hat{\bs y}=\lambda \bs u$.
+	\end{itemize}
+	Using these two properties, we get $\hat{\bs y}=\lambda \bs u$, where
+	$$
+	\lambda\;=\;\frac{\<\bs y,\bs u\>}{\<\bs u,\bs u\>}
+	$$
+\end{frame}
 
 \begin{frame}{}
 \centering\includegraphics[height=\paperheight]{img/LinAlg10days.png}	
@@ -219,13 +239,14 @@ Finds the closest point to $\bs y$ in the space spanned by the columns of $\bs X
 	$$
 	\hat{\bs y}\;=\;\alert{\bs X (\bs X^\top \bs X)^{-1}\bs X^\top}\bs y.
 	$$
+	(We still need to show that $\bs X^\top \bs X$ is invertible. )
 \end{frame}
 
 
 \begin{frame}{Matrix inverse}
 A square matrix $A$ is \textcolor{SeaGreen}{invertible} if there exists a matrix $A^{-1}$ such that
 $$
-A A^{-1}=A^{-1}A=I.
+A A^{-1}=I_n.
 $$
 	We want to show:
 		\begin{beamercolorbox}[wd=\paperwidth,sep=0pt]{important}	
@@ -235,7 +256,7 @@ $A\in \R^{n\times n}$ is invertible \quad $\Longleftrightarrow$\quad $A\bs x=\bs
 \end{beamercolorbox}
 Two observations:
 \begin{enumerate}
-	\item $A\bs x=\bs 0$ only for $\bs x=\bs 0$\quad iff\quad columns of $A$ are lin. independent.
+	\item $A\bs x=\bs 0_n$ only for $\bs x=\bs 0_n$ if and only if  columns of $A$ are linearly independent.
 	\item $n$ independent vectors in $\R^n$ form a basis and so $\forall i=1,\ldots, n$ $\exists \bs b_i$ such that $A\bs b_i=\bs e_i$.
 	\item This gives $B\in \R^{n\times n}$ such that $AB=\mathbb I_n$.
 %	\item $AB=\mathbb I_n$ means $A\bs b_i=\bs e_i$ for $i=1,\ldots, n$ and so the columns of $A$ form a basis of $\R^n$. 
@@ -246,7 +267,19 @@ This is enough to show that the matrix $\bs X^\top\bs X$ on slide~\ref{orthogona
 \quad {\footnotesize Note: If $(\bs X^\top \bs X)\bs x=\bs 0$ then $\bs x^\top(\bs X^\top \bs X)\bs x=\bs 0$ but this only possible if $\bs x=\bs 0$.} 
 \end{frame}
 
-
+\begin{frame}{Side remark}
+	We defined the inverse of $A$ as the matrix $A^{-1}$ such that $AA^{-1}=I_n$.\\[3mm] 
+	But of course, equivalently, $A^{-1}A=I_n$.\\[3mm]
+	Indeed, if $AA^{-1}=I_n$ then $AA^{-1}A=A$ or, equivalently,
+	$$
+	A(A^{-1}A-I_n)\;=\;\bs 0_{n\times n}.
+	$$
+	Using the fact that the columns of $A\bs x=\bs 0_n$ if and only if $\bs x=\bs 0_n$, we can conclude that each column of  $A^{-1}A-I_n$ is zero, and so 
+	$$
+	A^{-1}A-I_n\;=\;0
+	$$
+	as claimed.
+\end{frame}
 
 
 \begin{frame}{Important spaces and rank}
@@ -276,6 +309,20 @@ For $A\in\mathbb{R}^{m\times n}$:
 	\end{textblock*}	
 \end{frame}
 
+\begin{frame}{}
+\[
+\vcenter{\hbox{\includegraphics[width=30pt]{vbreaks/sf2}}}\,\mathbf{1}_4
+= \alert{33}\cdot \mathbf{1}_4\quad \mbox{and} \qquad\bs 1^\top_4\vcenter{\hbox{\includegraphics[width=30pt]{vbreaks/sf2}}}
+= \alert{33}\cdot \mathbf{1}_4^\top.
+\]
+$$
+{\rm trace}(\vcenter{\hbox{\includegraphics[width=30pt]{vbreaks/sf2}}})\;=\;\alert{33},\qquad {\rm det}(\vcenter{\hbox{\includegraphics[width=30pt]{vbreaks/sf2}}})\;=\;-1485\;=\;45\cdot \alert{33}.
+$$
+$$
+{\rm rank}(\vcenter{\hbox{\includegraphics[width=30pt]{vbreaks/sf2}}})\;=\;4\qquad {\rm ker}(\vcenter{\hbox{\includegraphics[width=30pt]{vbreaks/sf2}}})\;=\;\{\bs 0_4\}. 
+$$
+Row/column space are both equal to $\R^4$
+\end{frame}
 
 
 \begin{frame}{Orthogonal matrices}
@@ -395,7 +442,7 @@ For $n=3$:
 \item $\det(AB)=\det(A)\det(B)$
 \item Swapping two rows (or columns) flips the sign of $\det$
 \item Scaling a row (or column) by $\lambda$ scales $\det$ by $\lambda$
-\item Adding a multiple of one row to another leaves $\det$ unchanged
+\item Adding a multiple of one row to another leaves determinant  unchanged
 \item $\det(A)=0$ if and only if rows (or columns) are linearly dependent
 \end{enumerate}
 \end{frame}
@@ -425,7 +472,15 @@ Use row operations (keeping track of determinant changes) to reach triangular fo
 {\tiny First: $r_2\leftarrow r_2-3r_1$. Then: $r_3\leftarrow r_3-r_1$.}
 \bigskip
 
-\textcolor{SeaGreen}{Geometric meaning:} $|\det(A)|$ is the area/volume scaling of the linear map $x\mapsto Ax$ (and its sign encodes orientation).
+\textcolor{SeaGreen}{Geometric meaning:} $|\det(A)|$ is the area/volume scaling of the linear map $x\mapsto Ax$ (and the sign encodes orientation).
+\medskip
+
+\textcolor{RoyalBlue}{2D example:} 
+\[
+A=\begin{pmatrix}2&1\\1&1\end{pmatrix},\quad \det(A)=1.
+\]
+The unit square is mapped to a parallelogram of the same area but tilted. 
+If $\det(A)=-1$, the square would be flipped (orientation reversed).
 \end{frame}
 
 %========================================================
@@ -606,28 +661,42 @@ An inhomogeneous system can be \textcolor{SeaGreen}{inconsistent} (no solution) 
 % --- Motivating example: modern & concrete (PageRank) ---
 \begin{frame}{Motivating example: ranking the web (PageRank)}
 
-Modern search engines rank pages by solving a linear system. Build a row-stochastic transition matrix \(P\) where \(P_{ij}\) is the probability to move from page \(i\) to page \(j\). The long-run visit probabilities \(\mathbf{x}\) solve
-\[
-\big(I-\alpha P^{\top}\big)\,\mathbf{x}=(1-\alpha)\,\mathbf{v},\quad 0<\alpha<1,
-\]
-with \(\mathbf{v}\) a teleport vector (often uniform).
+Modern search engines rank pages by modeling a \textcolor{SeaGreen}{random surfer}:  
+a user who clicks links from page to page.
 
-\textcolor{SeaGreen}{Mini-web example}: pages \(A,B,C,D\) with links
-\(A\to\{B,C\}\), \(B\to C\), \(C\to A\), \(D\to\{A,C\}\). Then
+\medskip
+Let \(P\) be the \textcolor{SeaGreen}{transition matrix} where \(P_{ij}\) is the probability of moving from page \(i\) to \(j\).  
+In the simplest model, the long-run probabilities \(\mathbf{x}\) satisfy
 \[
-{\scriptsize P=\begin{pmatrix}
-0 & \tfrac12 & \tfrac12 & 0\\
-0 & 0 & 1 & 0\\
-1 & 0 & 0 & 0\\
-\tfrac12 & 0 & \tfrac12 & 0
-\end{pmatrix}},\quad
-\alpha=0.85,\ \mathbf{v}=\tfrac14(1,1,1,1)^{\top}.
+\mathbf{x} = P^{\top}\mathbf{x},
 \]
-Solving gives
+so \(\mathbf{x}\) is the stationary distribution of the Markov chain.
+
+\medskip
+\textcolor{SeaGreen}{Issue:} If a page has no outgoing links, or if the web splits into parts, this system can break down (no unique stationary distribution).
+
+\end{frame}
+
+\begin{frame}{Teleportation and damping}
+
+To fix these problems, PageRank introduces two ingredients:
+
+\begin{itemize}
+\item \textbf{Teleportation vector \(\mathbf{v}\)}: with some probability, the surfer jumps to any page instead of following links.  
+Often chosen uniform: $\mathbf{v}=\tfrac{1}{n}(1,\dots,1)$ so every page is reachable.
+
+\item \textbf{Damping factor \(\alpha\)}: probability of \emph{following links}.  
+Typical choice: $\alpha=0.85$ (85\% follow a link, 15\% teleport).
+
+\end{itemize}
+
+The modified PageRank system is:
 \[
-\mathbf{x}\approx (0.380,0.199,0.384,0.038),
+\big(I - \alpha P^{\top}\big)\,\mathbf{x} = (1-\alpha)\,\mathbf{v}.
 \]
-so \(C\) and \(A\) rank highest.\\[2mm] Node \(D\) is rarely visited because nobody links to it (only teleportation contributes).
+
+\medskip
+\textcolor{SeaGreen}{Result:} This ensures a unique ranking vector $\mathbf{x}$ for any web structure.
 \end{frame}
 
 % --- Alternative motivation that connects to least squares later ---
@@ -637,7 +706,7 @@ Phone photos often suffer from motion blur. Blurring is (approximately) linear:
 \[
 b=A\,x+\text{noise},
 \]
-where \(x\) is the unknown sharp image (vectorized), \(b\) is the observed blurred image, and \(A\) encodes the blur kernel (convolution).
+where \(x\) is the unknown sharp image (vectorized), \(b\) is the observed blurred image, and known \(A\) encodes the blur kernel (convolution).
 
 \begin{itemize}
 \item \textcolor{SeaGreen}{Ideal case}: noise-free, known \(A\) \(\Rightarrow\) solve the linear system \(A x=b\).
@@ -653,27 +722,27 @@ Same linear algebra ideas: vector form, consistency, rank, and algorithms to sol
 \end{frame}
 
 
-\begin{frame}{Rank and existence/uniqueness}
- \begin{alertblock}{Theorem (Column rank = Row rank)}
- 	The maximum number of linearly independent columns of $A$ equals the maximum number of linearly independent rows. This common number is the \textcolor{SeaGreen}{rank} of $A$, denoted $\rank(A)$.
- \end{alertblock}
-
-\vskip 6pt
-\textcolor{SeaGreen}{Fact:} $\rank(A)$ equals the largest order of a \textcolor{SeaGreen}{minor} (determinant of a square submatrix) that is nonzero.
-\vskip 8pt
-\textcolor{SeaGreen}{Example:}
-\[
-A=\begin{pmatrix}
-1&2&0\\
-4&6&2\\
-3&2&4
-\end{pmatrix}
-\]
-Here $\det(A)=0$, so $\rank(A)\le 2$. Since $\det(A_{33})=\det\!\begin{pmatrix}1&2\\4&6\end{pmatrix}=-2\ne 0$, we get $\rank(A)=2$.
-\vskip 4pt
-{\tiny Note $2{\bf a}_1-{\bf a}_2={\bf a}_3$, but no single column is a multiple of another. Any two of the three columns form a basis of the column space.}
- 
-\end{frame}
+%\begin{frame}{Rank and existence/uniqueness}
+% \begin{alertblock}{Theorem (Column rank = Row rank)}
+% 	The maximum number of linearly independent columns of $A$ equals the maximum number of linearly independent rows. This common number is the \textcolor{SeaGreen}{rank} of $A$, denoted $\rank(A)$.
+% \end{alertblock}
+%
+%\vskip 6pt
+%\textcolor{SeaGreen}{Fact:} $\rank(A)$ equals the largest order of a \textcolor{SeaGreen}{minor} (determinant of a square submatrix) that is nonzero.
+%\vskip 8pt
+%\textcolor{SeaGreen}{Example:}
+%\[
+%A=\begin{pmatrix}
+%1&2&0\\
+%4&6&2\\
+%3&2&4
+%\end{pmatrix}
+%\]
+%Here $\det(A)=0$, so $\rank(A)\le 2$. Since $\det(A_{33})=\det\!\begin{pmatrix}1&2\\4&6\end{pmatrix}=-2\ne 0$, we get $\rank(A)=2$.
+%\vskip 4pt
+%{\tiny Note $2{\bf a}_1-{\bf a}_2={\bf a}_3$, but no single column is a multiple of another. Any two of the three columns form a basis of the column space.}
+% 
+%\end{frame}
 
 \begin{frame}{Computing the rank with Gaussian elimination}
  
