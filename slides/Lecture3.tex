@@ -81,8 +81,12 @@ Since the left side is $\ge 0$ for all $t$, the second term must be $\ge 0$:
 \begin{alertblock}{}
 	Say $\bs v_1+\bs v_2=\bs v_3$. Show that $\bs v_1,\bs v_2,\bs v_3$ are NOT linearly independent.
 \end{alertblock}
-
 \end{frame}
+
+
+\begin{frame}[plain,noframenumbering] \begin{center}
+	\alert{\Huge Orthogonal complements and other subspaces}
+\end{center}\end{frame}
 
 \begin{frame}{Subspaces, span, and dimension}
 For $E=\{\bs v_1,\ldots,\bs v_k\}$, the \textcolor{SeaGreen}{span} is
@@ -153,6 +157,10 @@ We recall basic facts about matrices.
 \textcolor{SeaGreen}{Read} Werner-Sotskov Ch. 7; Simon-Blume Chs. 8-9. \\[4mm]
 \textcolor{SeaGreen}{Exercises} 7.6, 7.9(b,c,d), 7.12, 7.14(a), 7.16, 7.18
 \end{frame}
+
+\begin{frame}[plain,noframenumbering] \begin{center}
+	\alert{\Huge Matrix basics}
+\end{center}\end{frame}
 
 \begin{frame}{Matrices}
 	A table of numbers with $m$ rows and $n$ columns: $A\in \R^{m\times n}$. The $(i,j)$-th entry is denoted by $a_{ij}$.\\[.3cm]
@@ -281,6 +289,9 @@ This is enough to show that the matrix $\bs X^\top\bs X$ on slide~\ref{orthogona
 	as claimed.
 \end{frame}
 
+\begin{frame}[plain,noframenumbering] \begin{center}
+	\alert{\Huge Matrix subspaces and decompositions}
+\end{center}\end{frame}
 
 \begin{frame}{Important spaces and rank}
 For $A\in\mathbb{R}^{m\times n}$:
@@ -376,6 +387,12 @@ Denote $(\lambda_1,\ldots,\lambda_n)={\rm diag}(\Lambda)$.\\[3mm]
 
 We take $\lambda_1\geq \lambda_2\geq\cdots\geq \lambda_m$.\\[3mm]
 \end{frame}
+
+
+\begin{frame}[plain,noframenumbering] \begin{center}
+	\alert{\Huge Column/row reductions and determinant}
+\end{center}\end{frame}
+
 
 \begin{frame}{Elementary matrix operations}
 Column or row operations:
@@ -483,34 +500,40 @@ The unit square is mapped to a parallelogram of the same area but tilted.
 If $\det(A)=-1$, the square would be flipped (orientation reversed).
 \end{frame}
 
+
+\begin{frame}[plain,noframenumbering] \begin{center}
+	\alert{\Huge Linear mappings and their inverse}
+\end{center}\end{frame}
+
+
 %========================================================
 %                  LINEAR SYSTEMS
 %========================================================
 
-\begin{frame}{Linear systems and Cramer's rule}
-A system $A\bs x=\bs b$ with $A\in\mathbb{R}^{n\times n}$, unknown $\bs x\in\mathbb{R}^n$, and data $\bs b$.
-If $A$ is \textcolor{SeaGreen}{nonsingular} ($\det A\neq 0$), the solution is unique.
-\bigskip
-
-\textcolor{SeaGreen}{Cramer's rule:} Let $A_j(\bs b)$ be $A$ with column $j$ replaced by $\bs b$. Then
-\[
-x_j=\frac{\det A_j(\bs b)}{\det A},\quad j=1,\ldots,n.
-\]
-\textcolor{SeaGreen}{Note:} Great for theory, not used for large-scale computation.
-\bigskip
-
-\textcolor{SeaGreen}{Example:}
-\[
-A=\begin{pmatrix}
-2 & 3 & 5\\
-1 & 0 & 2\\
--1 & -4 & 2
-\end{pmatrix},\quad
-\bs b=\begin{pmatrix}1\\7\\4\end{pmatrix}
-\ \Rightarrow\
-\bs x=\Big(\tfrac{75}{8},-\tfrac{63}{16},-\tfrac{19}{16}\Big).
-\]
-\end{frame}
+%\begin{frame}{Linear systems and Cramer's rule}
+%A system $A\bs x=\bs b$ with $A\in\mathbb{R}^{n\times n}$, unknown $\bs x\in\mathbb{R}^n$, and data $\bs b$.
+%If $A$ is \textcolor{SeaGreen}{nonsingular} ($\det A\neq 0$), the solution is unique.
+%\bigskip
+%
+%\textcolor{SeaGreen}{Cramer's rule:} Let $A_j(\bs b)$ be $A$ with column $j$ replaced by $\bs b$. Then
+%\[
+%x_j=\frac{\det A_j(\bs b)}{\det A},\quad j=1,\ldots,n.
+%\]
+%\textcolor{SeaGreen}{Note:} Great for theory, not used for large-scale computation.
+%\bigskip
+%
+%\textcolor{SeaGreen}{Example:}
+%\[
+%A=\begin{pmatrix}
+%2 & 3 & 5\\
+%1 & 0 & 2\\
+%-1 & -4 & 2
+%\end{pmatrix},\quad
+%\bs b=\begin{pmatrix}1\\7\\4\end{pmatrix}
+%\ \Rightarrow\
+%\bs x=\Big(\tfrac{75}{8},-\tfrac{63}{16},-\tfrac{19}{16}\Big).
+%\]
+%\end{frame}
 
 %========================================================
 %                  LINEAR MAPPINGS
@@ -638,8 +661,12 @@ In this chapter we recall core facts and \textcolor{SeaGreen}{general solution p
 \bigskip
 
 \textcolor{SeaGreen}{Exercises} 8.5, 8.6, 8.8 (Werner--Sotskov).
- 
 \end{frame}
+
+\begin{frame}[plain,noframenumbering] \begin{center}
+	\alert{\Huge System of linear equations}
+\end{center}\end{frame}
+
 
 \begin{frame}{Systems of linear equations}
  
@@ -700,26 +727,26 @@ The modified PageRank system is:
 \end{frame}
 
 % --- Alternative motivation that connects to least squares later ---
-\begin{frame}{Motivating example: deblurring a photo}
-\begin{small}
-Phone photos often suffer from motion blur. Blurring is (approximately) linear:
-\[
-b=A\,x+\text{noise},
-\]
-where \(x\) is the unknown sharp image (vectorized), \(b\) is the observed blurred image, and known \(A\) encodes the blur kernel (convolution).
-
-\begin{itemize}
-\item \textcolor{SeaGreen}{Ideal case}: noise-free, known \(A\) \(\Rightarrow\) solve the linear system \(A x=b\).
-\item \textcolor{SeaGreen}{Realistic case}: noisy or overdetermined \(\Rightarrow\) solve a least-squares problem
-\[
-\min_{x}\ \|A x-b\|^2+\lambda\|x\|^2,
-\]
-which leads to the normal equations \((A^{\top}A+\lambda  I_n)x=A^{\top}b\).
-\end{itemize}
-
-Same linear algebra ideas: vector form, consistency, rank, and algorithms to solve large systems.
-\end{small}
-\end{frame}
+%\begin{frame}{Motivating example: deblurring a photo}
+%\begin{small}
+%Phone photos often suffer from motion blur. Blurring is (approximately) linear:
+%\[
+%b=A\,x+\text{noise},
+%\]
+%where \(x\) is the unknown sharp image (vectorized), \(b\) is the observed blurred image, and known \(A\) encodes the blur kernel (convolution).
+%
+%\begin{itemize}
+%\item \textcolor{SeaGreen}{Ideal case}: noise-free, known \(A\) \(\Rightarrow\) solve the linear system \(A x=b\).
+%\item \textcolor{SeaGreen}{Realistic case}: noisy or overdetermined \(\Rightarrow\) solve a least-squares problem
+%\[
+%\min_{x}\ \|A x-b\|^2+\lambda\|x\|^2,
+%\]
+%which leads to the normal equations \((A^{\top}A+\lambda  I_n)x=A^{\top}b\).
+%\end{itemize}
+%
+%Same linear algebra ideas: vector form, consistency, rank, and algorithms to solve large systems.
+%\end{small}
+%\end{frame}
 
 
 %\begin{frame}{Rank and existence/uniqueness}
@@ -781,7 +808,10 @@ Thus $(\lambda_1,\lambda_2,\lambda_3)=(-2\lambda_3,\lambda_3,\lambda_3)$ and, e.
 \[
 -2{\bf a}_1+{\bf a}_2+{\bf a}_3={\bf 0}.
 \]
- 
+\vspace{-9mm}
+ \begin{alertblock}{}
+ 	Note that this relation holds for all three matrices above. Why?
+ \end{alertblock}
 \end{frame}
 
 \begin{frame}{Augmented matrix; consistency}
@@ -797,6 +827,12 @@ The \textcolor{SeaGreen}{augmented matrix} of the linear system $A\bs x=\bs b$ i
 \end{enumerate}
  
 \end{frame}
+
+
+\begin{frame}[plain,noframenumbering] \begin{center}
+	\alert{\Huge Solving with Gaussian elimination}
+\end{center}\end{frame}
+
 
 \begin{frame}{Triangularization (Gaussian elimination)}
  \begin{alertblock}{Theorem}
