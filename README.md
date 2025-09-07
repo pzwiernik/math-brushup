@@ -22,7 +22,8 @@
 ***
 
 ### Announcements:
-- Sep 6: Please see examples of exam questions [here](./materials/exam_questions.pdf). 
+- Sep 6: Please see examples of exam questions [here](./materials/exam_questions.pdf).
+- Sep 4: For Friday, take a look at the following exercises in Werner&Sotskov: 2.7 (series), 3.6 (functions of one variable), 4.6 (differentiation), 4.14 (local optima), 4.15 (L’Hôpital) and 4.17 (Taylor series).
 - Aug 25: I created an experimental [forum](https://classroom.google.com/u/2/w/NzcwNDYxODI2ODky/tc/Nzk5NzA1OTA0NDE3) on our Google Classroom. 
 
 ***
