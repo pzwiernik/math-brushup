@@ -22,6 +22,7 @@
 ***
 
 ### Announcements:
+- Sep 8: For those of you who have no experience with matrix algebra. Please make sure that you revise the corresponding chapter in WS (or any equivalent material). 
 - Sep 7: For Monday, take a look at the following exercises in [WS]: 4.17 (Taylor series), 5.1, 5.2, 5.3 (integrals), 6.2, 6.3 and 6.4 (vectors).
 - Sep 6: Please see examples of exam questions [here](./materials/Exam_questions.pdf).
 - Sep 4: For Friday, take a look at the following exercises in [WS]: 2.7 (series), 3.6 (functions of one variable), 4.6 (differentiation), 4.14 (local optima), 4.15 (L’Hôpital).
@@ -65,5 +66,5 @@ The following books complement the material presented in the lecture.
 | 1 | Introduction, sequences, 1D functions, limits, differentiation, continuity.  | [slides1](./slides/Lecture1.pdf) |  |  
 | 2 | Optimization in 1D, Taylor series, integration, Euclidean space, linear independence, orthogonality.  | [slides2](./slides/Lecture2.pdf) |  |  
 | 3 | Matrices, determinants, rank, inverse, systems of linear equations.   | [slides3](./slides/Lecture3.pdf) |  |  
-| 4 | Eigenvalues and eigenvactors, spectral decomposition, quadratic forms.  | slides4 |  |  
+| 4 | S ystems of linear equations, eigenvalues and eigenvactors, spectral decomposition, quadratic forms.  | [slides4](./slides/Lecture4.pdf) |  |  
 | 5 | Multivariate functions, partial derivatives, differentiation, linear approximation. Multivariate optimization, convexity.   | slides5 |  |  
