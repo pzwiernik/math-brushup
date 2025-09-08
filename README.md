@@ -22,6 +22,7 @@
 ***
 
 ### Announcements:
+- Sep 8: Exercises for tomorrow: 6.2, 6.4 (left from today), 6.6, 6.7, 6.8, 7.14,  and maybe 7.6 depending on time.
 - Sep 8: For those of you who have no experience with matrix algebra. Please make sure that you revise the corresponding chapter in WS (or any equivalent material). 
 - Sep 7: For Monday, take a look at the following exercises in [WS]: 4.17 (Taylor series), 5.1, 5.2, 5.3 (integrals), 6.2, 6.3 and 6.4 (vectors).
 - Sep 6: Please see examples of exam questions [here](./materials/Exam_questions.pdf).
