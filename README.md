@@ -25,7 +25,7 @@
 - Sep 8: Exercises for Tuesday: 6.2, 6.4 (left from Monday), 6.6, 6.7, 6.8, 7.14,  and maybe 7.6 depending on time.
 - Sep 8: For those of you who have no experience with matrix algebra. Please make sure that you revise the corresponding chapter in WS (or any equivalent material). 
 - Sep 7: For Monday, take a look at the following exercises in [WS]: 4.17 (Taylor series), 5.1, 5.2, 5.3 (integrals), 6.2, 6.3 and 6.4 (vectors).
-- Sep 6: Please see examples of exam questions [here](./materials/Exam_questions.pdf).
+- Sep 6: Please see examples of exam questions [here](./materials/exam_questions.pdf).
 - Sep 4: For Friday, take a look at the following exercises in [WS]: 2.7 (series), 3.6 (functions of one variable), 4.6 (differentiation), 4.14 (local optima), 4.15 (L’Hôpital).
 - Aug 25: I created an experimental [forum](https://classroom.google.com/u/2/w/NzcwNDYxODI2ODky/tc/Nzk5NzA1OTA0NDE3) on our Google Classroom. 
 
