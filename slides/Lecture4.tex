@@ -23,6 +23,48 @@
 % ------------------------------------------------
 
 
+\begin{frame}[plain]{Course content (math tapas)}
+\includegraphics[width=\textwidth]{img/tapas4.png}
+\end{frame}
+
+\begin{frame}[plain,noframenumbering] \begin{center}
+	\alert{\Huge Linear subspaces}
+\end{center}\end{frame}
+
+\begin{frame}{Linear subspace}
+	The set $V\subset \R^n$ is a \alert{linear subspace} of $\R^n$ if
+	$$
+	\forall \bs u,\bs v\in V\quad \forall a,b\in \R\qquad a\bs u+b\bs v\in V.
+	$$
+	(closure under taking linear combinations)\\[5mm]
+	There are two ways we can describe a linear subspace $V$:
+	\begin{itemize}
+		\item $V={\rm span}\{\bs v_1,\ldots,\bs v_m\}$ for some vectors $\bs v_1,\ldots,\bs v_m\in V$.
+		\item Solution set of $A\bs x=\bs 0_m$ for some $A\in \R^{m\times n}$. 
+	\end{itemize}
+	
+	Some examples: 
+	\begin{itemize}
+		\item kernel of $A\in \R^{m\times n}$
+		\item image of $A$
+		\item Points in $\R^3$ satisfying $x_1+x_2+x_3=0$.
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Why subspaces must have this form?}
+	Let $V\subseteq \R^n$ be a linear subspace. \\[3mm]
+	Take any nonzero $\bs v_1\in V$. Then ${\rm span}(\bs v_1)\subseteq V$. \\[3mm]
+	If ${\rm span}(\bs v_1)\subseteq V$, we are done.\\[3mm]
+	If not, take any nonzero $\bs v_2\in V\setminus {\rm span}(\bs v_1)$.\\[3mm]
+	Then $\{\bs v_1,\bs v_2\}$ is linearly independent and again ${\rm span}\{\bs v_1,\bs v_2\}\subseteq V$.\\[3mm]
+	We proceed iteratively until we reach step $m$ such that 
+	$$
+	V\;=\;{\rm span}\{\bs v_1,\ldots,\bs v_m\}.
+	$$
+	This procedure must stop as we cannot have more than $n$ linearly independent vectors in $V\subseteq \R^n$.
+\end{frame}
+
 \begin{frame}[plain,noframenumbering] \begin{center}
 	\alert{\Huge System of linear equations}
 \end{center}\end{frame}
@@ -140,7 +182,7 @@ The remaining variables can be chosen freely, hence called \textbf{free variable
 A matrix is in \textcolor{SeaGreen}{row echelon form (REF)} if:
 \begin{enumerate}
 \item All nonzero rows appear above any zero rows.
-\item Each pivot (leading entry in a row) is to the right of the pivot in the row above it.
+\item Each \alert{pivot} (leading entry in a row) is to the right of the pivot in the row above it.
 \item All entries below a pivot are zero.
 \end{enumerate}
 
@@ -155,16 +197,16 @@ It is in \textcolor{SeaGreen}{reduced row echelon form (RREF)} if, in addition:
 \textcolor{SeaGreen}{Example:}
 \[
 \begin{pmatrix}
-1 & 2 & 0 & 3 \\
-0 & 1 & 4 & -1 \\
-0 & 0 & 0 & 1
+\alert{1} & 2 & 0 & 3 \\
+0 & \alert{1} & 4 & -1 \\
+0 & 0 & 0 & \alert{1}
 \end{pmatrix}
 \quad \text{(REF, not RREF).}
 \quad\quad
 \begin{pmatrix}
-1 & 0 & 0 & 2 \\
-0 & 1 & 0 & -3 \\
-0 & 0 & 1 & 5
+\alert{1} & 0 & 0 & 2 \\
+0 & \alert{1} & 0 & -3 \\
+0 & 0 & \alert{1} & 5
 \end{pmatrix}
 \quad \text{(RREF).}
 \]
@@ -220,13 +262,13 @@ x_1+x_2+x_3+x_4+x_5+x_6&=0,\\
 Row-reducing the coefficient matrix gives
 \[
 \begin{pmatrix}
-1&1&0&0&0&0\\
-0&0&1&1&0&0\\
-0&0&0&0&1&1
+\alert{1}&1&0&0&0&0\\
+0&0&\alert{1}&1&0&0\\
+0&0&0&0&\alert{1}&1
 \end{pmatrix}.
 \]
 
-So there are $3$ pivots, $\rank(A)=3$, and the solution space has dimension $6-\rank=3$:
+So there are $3$ pivots, $\rank(A)=3$, and the solution space has dimension $6-\rank(A)=3$:
 \[
 (x_1,-x_1,\,x_3,-x_3,\,x_5,-x_5).
 \]
