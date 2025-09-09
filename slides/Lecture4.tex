@@ -101,19 +101,30 @@ Intersecting \(\Rightarrow\) one point. Coincident \(\Rightarrow\) all points. P
 
 \begin{frame}{Augmented matrix; consistency}
  
-The \textcolor{SeaGreen}{augmented matrix} of the linear system $A\bs x=\bs b$ is $A_{\bf b}=\big[A\ \ {\bf b}\big]\in\R^{m\times(n+1)}$.\\[4mm]
-\textcolor{SeaGreen}{Remark:} Either $\rank(A_{\bf b})=\rank(A)$ or $\rank(A_{\bf b})=\rank(A)+1$.\\[4mm]
-\textcolor{SeaGreen}{Theorem (Rouché--Capelli):} $A{\bf x}={\bf b}$ is \textcolor{SeaGreen}{consistent} $\Longleftrightarrow$ $\rank(A_{\bf b})=\rank(A)$ \ {\tiny (equivalently ${\bf b}\in\mathrm{span}\{{\bf a}_1,\ldots,{\bf a}_n\}$).}\\[6mm]
+The \textcolor{SeaGreen}{augmented matrix} of the linear system $A\bs x=\bs b$ is 
+\[
+A_{\bf b}=\big[A\ \ {\bf b}\big]\in\R^{m\times(n+1)}.
+\]
+
+\medskip
+\textcolor{SeaGreen}{Remark:} Either $\rank(A_{\bf b})=\rank(A)$ or $\rank(A_{\bf b})=\rank(A)+1$.
+
+\begin{alertblock}{Theorem (Rouché--Capelli)}
+$A{\bf x}={\bf b}$ is \textcolor{SeaGreen}{consistent}  
+\quad $\Longleftrightarrow$\quad  
+$\rank(A_{\bf b})=\rank(A)$ \quad 
+{\tiny (equivalently ${\bf b}\in\mathrm{span}\{{\bf a}_1,\ldots,{\bf a}_n\}$).}
+\end{alertblock}
 
 \textcolor{SeaGreen}{Moreover:}
 \begin{enumerate}
 \item If $\rank(A)=\rank(A_{\bf b})=n$, the solution is \textcolor{SeaGreen}{unique}. \alert{Q:} What is it?
-\item If $\rank(A)=\rank(A_{\bf b})<n$, there are \textcolor{SeaGreen}{infinitely many} solutions; choose $n-\rank(A)$ variables \textcolor{SeaGreen}{free}.
+\item If $\rank(A)=\rank(A_{\bf b})<n$, there are \textcolor{SeaGreen}{infinitely many} solutions.  
 \end{enumerate}
- 
+\medskip
+The rank tells us how many variables are \textbf{pivots} (determined by equations).  \\[3mm]
+The remaining variables can be chosen freely, hence called \textbf{free variables}.
 \end{frame}
-
-
 
 
 % ------------------------------------------------
