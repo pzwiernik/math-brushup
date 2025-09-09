@@ -290,7 +290,7 @@ Every solution of $A{\bf x}={\bf b}$ can be written as
 \end{block}
 
 \medskip
-\textcolor{SeaGreen}{Corollary:} If $A{\bf x}={\bf b}$ is consistent, then the set of solutions is an affine subspace parallel to $\ker(A)$.
+\textcolor{SeaGreen}{Corollary:} If $A{\bf x}={\bf b}$ is consistent, then the set of solutions is an \alert{affine subspace} parallel to $\ker(A)$.
 
 \medskip
 \textcolor{SeaGreen}{Example:} Three identical equations
@@ -501,10 +501,21 @@ The \textcolor{SeaGreen}{characteristic polynomial} $P(\lambda)=\det(A-\lambda I
 \item Solve $\det(A-\lambda I_n)=0$ for eigenvalues.
 \item For each $\lambda$, solve $(A-\lambda I_n){\bf x}={\bf 0}$ for eigenvectors.
 \end{enumerate}
+{\tiny e,g. $\begin{bmatrix}
+	1 & 1\\
+	0 & 1
+\end{bmatrix}$, $\begin{bmatrix}
+	2 & 3\\
+	1 & 4
+\end{bmatrix}$, $\begin{bmatrix}
+	1 & -1\\
+	1 & 1
+\end{bmatrix}$}
 \end{frame}
 
+
 \begin{frame}{Why eigenvalues matter (at a glance)}
-\small
+If $A\bs x=\lambda \bs x$ then $A^k\bs x=A^{k-1}(A\bs x)=\lambda A^{k-1}\bs x=\cdots=\lambda^k \bs x$.\\[3mm]
 \begin{itemize}
 \item \textbf{Markov chains:} steady state = eigenvector for $\lambda=1$.
 \item \textbf{Growth/dynamics:} long-run rate $\approx$ spectral radius $\rho(A)$.
