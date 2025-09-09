@@ -1,7 +1,7 @@
 \documentclass{beamer}
 \usepackage[utf8]{inputenc} % safe for pdfLaTeX / TexpadTeX
 \input{./defs.tex}
-
+\usepackage{tikz}
 
 % Local macros for this lecture
 \DeclareMathOperator{\rank}{rank}
@@ -46,6 +46,59 @@ An inhomogeneous system can be \textcolor{SeaGreen}{inconsistent} (no solution) 
  \end{frame}
 
 
+
+% ------------------------------------------------
+\begin{frame}{Geometry of $2\times 2$ linear systems}
+
+\centering
+\begin{tikzpicture}[scale=0.7,>=stealth]
+% --------- Unique solution ----------
+\begin{scope}[xshift=-5.5cm]
+  % Axes
+  \draw[->,thin,gray!70] (-2.2,0) -- (2.2,0) node[below right] {$x_1$};
+  \draw[->,thin,gray!70] (0,-2.2) -- (0,2.2) node[left] {$x_2$};
+  % Two lines
+  \draw[line width=1pt,SeaGreen!80] (-2,-0.2) -- (2,1.8) node[above] {$\ell_1$};
+  \draw[line width=1pt,DarkRed!80] (-2,1.6) -- (2,-0.4) node[below] {$\ell_2$};
+  % Intersection point
+  \fill[black] (-0.18,0.7) circle (1.6pt) node[above right] {\small unique solution};
+  \node[font=\small,anchor=north] at (0,-2.4) {Unique solution};
+\end{scope}
+
+% --------- Infinitely many solutions ----------
+\begin{scope}
+  % Axes
+  \draw[->,thin,gray!70] (-2.2,0) -- (2.2,0) node[below right] {$x_1$};
+  \draw[->,thin,gray!70] (0,-2.2) -- (0,2.2) node[left] {$x_2$};
+  % Same line drawn twice (coincident)
+  \draw[line width=1pt,SeaGreen!80] (-2,-1.2) -- (2,1.2);
+  \draw[line width=2.4pt,SeaGreen!30] (-2,-1.2) -- (2,1.2);
+  \node[font=\small,anchor=north] at (0,-2.4) {Infinitely many solutions};
+  \node[font=\scriptsize,anchor=south east] at (1.6,1.0) {$\ell_1=\ell_2$};
+\end{scope}
+
+% --------- No solution (parallel lines) ----------
+\begin{scope}[xshift=5.5cm]
+  % Axes
+  \draw[->,thin,gray!70] (-2.2,0) -- (2.2,0) node[below right] {$x_1$};
+  \draw[->,thin,gray!70] (0,-2.2) -- (0,2.2) node[left] {$x_2$};
+  % Parallel lines
+  \draw[line width=1pt,SeaGreen!80] (-2,-0.4) -- (2,1.6) node[above] {$\ell_1$};
+  \draw[line width=1pt,DarkRed!80] (-2,-1.0) -- (2,1.0) node[below] {$\ell_2$};
+  \node[font=\small,anchor=north] at (0,-2.4) {No solution (inconsistent)};
+\end{scope}
+
+\end{tikzpicture}
+
+\vspace{0.5em}
+{\footnotesize
+\textcolor{SeaGreen}{Key:} Lines are the solution sets of single linear equations.  
+Intersecting \(\Rightarrow\) one point. Coincident \(\Rightarrow\) all points. Parallel \(\Rightarrow\) none.
+}
+\end{frame}
+% ------------------------------------------------
+
+
 \begin{frame}{Augmented matrix; consistency}
  
 The \textcolor{SeaGreen}{augmented matrix} of the linear system $A\bs x=\bs b$ is $A_{\bf b}=\big[A\ \ {\bf b}\big]\in\R^{m\times(n+1)}$.\\[4mm]
@@ -61,93 +114,179 @@ The \textcolor{SeaGreen}{augmented matrix} of the linear system $A\bs x=\bs b$ i
 \end{frame}
 
 
-\begin{frame}[plain,noframenumbering] \begin{center}
+
+
+% ------------------------------------------------
+\begin{frame}[plain,noframenumbering]
+\begin{center}
 	\alert{\Huge Solving with Gaussian elimination}
-\end{center}\end{frame}
+\end{center}
+\end{frame}
 
+% ------------------------------------------------
+\begin{frame}{Row echelon forms}
 
-\begin{frame}{Triangularization (Gaussian elimination)}
- \begin{alertblock}{Theorem}
-Applying elementary row operations to $A_{\bf b}$ transforms any system into an equivalent \textcolor{SeaGreen}{upper-triangular} one. 	
- \end{alertblock}
- {\tiny This follows essentially from the fact that $A\bs x=\bs b$ $\Leftrightarrow$ $A_b \begin{bmatrix}
- 	\x\\
- 	-1
- \end{bmatrix}=\bs 0$ $\Leftrightarrow$ $CA_b \begin{bmatrix}
- 	\x\\
- 	-1
- \end{bmatrix}=\bs 0$ for any invertible $C$}
+A matrix is in \textcolor{SeaGreen}{row echelon form (REF)} if:
+\begin{enumerate}
+\item All nonzero rows appear above any zero rows.
+\item Each pivot (leading entry in a row) is to the right of the pivot in the row above it.
+\item All entries below a pivot are zero.
+\end{enumerate}
+
+\medskip
+It is in \textcolor{SeaGreen}{reduced row echelon form (RREF)} if, in addition:
+\begin{enumerate}
+\item Each pivot is equal to $1$.
+\item Each pivot is the only nonzero entry in its column.
+\end{enumerate}
+
+\medskip
+\textcolor{SeaGreen}{Example:}
+\[
+\begin{pmatrix}
+1 & 2 & 0 & 3 \\
+0 & 1 & 4 & -1 \\
+0 & 0 & 0 & 1
+\end{pmatrix}
+\quad \text{(REF, not RREF).}
+\quad\quad
+\begin{pmatrix}
+1 & 0 & 0 & 2 \\
+0 & 1 & 0 & -3 \\
+0 & 0 & 1 & 5
+\end{pmatrix}
+\quad \text{(RREF).}
+\]
+\end{frame}
+
+% ------------------------------------------------
+% ------------------------------------------------
+% ------------------------------------------------
+\begin{frame}{Gaussian elimination and RREF}
+
+\begin{alertblock}{Theorem}
+By applying elementary row operations to the augmented matrix $A_{\bf b}$, any system $A{\bf x}={\bf b}$ can be transformed into an equivalent system in \textcolor{SeaGreen}{reduced row echelon form (RREF)}.  
+\end{alertblock}
+
 \[
 \begin{aligned}
 x_1+x_2+x_3&=3\\
 x_1-x_2+2x_3&=2\\
 4x_1+6x_2-x_3&=9
 \end{aligned}
-\qquad\Longleftrightarrow\qquad
-\begin{aligned}
-x_1+x_2+x_3&=3\\
--2x_2+x_3&=-1\\
--4x_3&=-4
-\end{aligned}
+\quad\Longleftrightarrow\quad
+\begin{pmatrix}
+1 & 0 & 0 & \vline & 1 \\
+0 & 1 & 0 & \vline & 1 \\
+0 & 0 & 1 & \vline & 1
+\end{pmatrix}
 \]
-{\tiny Row ops: $r_2\!\leftarrow r_2-r_1$, $r_3\!\leftarrow r_3-4r_1$, $r_3\!\leftarrow r_3+r_2$.}
-\vskip 4pt
-We have $\rank(A)=\rank(A_{\bf b})=3$ $\Rightarrow$ unique solution ${\bf x}=(1,1,1)$.
- 
+
+\smallskip
+So the unique solution is ${\bf x}=(1,1,1)$.
+
+\bigskip
+\begin{block}{Why equivalence holds:  }
+	$A{\bf x}={\bf b}\;\Leftrightarrow\; A_{\bf b}\begin{bmatrix}{\bf x}\\-1\end{bmatrix}={\bf 0}$.  
+Row operations correspond to multiplying $A_{\bf b}$ on the left by an invertible matrix $C$, so the solution set is unchanged.
+\end{block}
 \end{frame}
 
+
+
+% ------------------------------------------------
 \begin{frame}{A homogeneous example}
- 
+
 Consider
 \[
 \begin{aligned}
-a+b+c+d+e+f&=0,\\
-2a+2b+2c+2d-e-f&=0,\\
-3a+3b-c-d-e-f&=0.
+x_1+x_2+x_3+x_4+x_5+x_6&=0,\\
+2x_1+2x_2+2x_3+2x_4-x_5-x_6&=0,\\
+3x_1+3x_2-x_3-x_4-x_5-x_6&=0.
 \end{aligned}
 \]
+
 Row-reducing the coefficient matrix gives
 \[
 \begin{pmatrix}
 1&1&0&0&0&0\\
 0&0&1&1&0&0\\
 0&0&0&0&1&1
-\end{pmatrix},
+\end{pmatrix}.
 \]
-so there are $3$ pivots, $\rank=3$, and the solution space has dimension $6-\rank=3$:
+
+So there are $3$ pivots, $\rank(A)=3$, and the solution space has dimension $6-\rank=3$:
 \[
-(a,-a,c,-c,e,-e).
+(x_1,-x_1,\,x_3,-x_3,\,x_5,-x_5).
 \]
+
 {\tiny A basis is $\{(1,-1,0,0,0,0),(0,0,1,-1,0,0),(0,0,0,0,1,-1)\}$.}
- 
 \end{frame}
 
+
+
+
+
+% ------------------------------------------------
+% ------------------------------------------------
 \begin{frame}{General solution structure}
- 
-\textcolor{SeaGreen}{Theorem:} Every solution of $A{\bf x}={\bf b}$ can be written as
-\[
-{\bf x}={\bf x}_h+{\bf x}_p,
-\]
-where ${\bf x}_h$ is the \textcolor{SeaGreen}{general solution} of $A{\bf x}={\bf 0}$ and ${\bf x}_p$ is any \textcolor{SeaGreen}{particular solution} of $A{\bf x}={\bf b}$.
-\vskip 6pt
-\textcolor{SeaGreen}{Corollary:} If $A{\bf x}={\bf b}$ is consistent, it has as many solutions as $A{\bf x}={\bf 0}$.
-\vskip 6pt
+
+\begin{block}{Theorem}
+Every solution of $A{\bf x}={\bf b}$ can be written as
+\hl{${\bf x} = {\bf x}_h + {\bf x}_p$}, where ${\bf x}_h$ is the \textcolor{SeaGreen}{general solution} of the homogeneous system $A{\bf x}={\bf 0}$ and ${\bf x}_p$ is any \textcolor{SeaGreen}{particular solution} of $A{\bf x}={\bf b}$.
+\end{block}
+
+\medskip
+\textcolor{SeaGreen}{Corollary:} If $A{\bf x}={\bf b}$ is consistent, then the set of solutions is an affine subspace parallel to $\ker(A)$.
+
+\medskip
 \textcolor{SeaGreen}{Example:} Three identical equations
 \[
 x_1+x_2+x_3=1
 \]
-yield $\rank(A)=\rank(A_{\bf b})=1$. Choose two free variables:
+reduce to
 \[
-\begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix}
-=\lambda_1\!\begin{pmatrix}-1\\1\\0\end{pmatrix}
-+\lambda_2\!\begin{pmatrix}-1\\0\\1\end{pmatrix}
-+\begin{pmatrix}1\\0\\0\end{pmatrix},\quad \lambda_1,\lambda_2\in\R.
+\begin{pmatrix}
+1&1&1 &\vline& 1\\
+0&0&0 &\vline& 0\\
+0&0&0 &\vline& 0
+\end{pmatrix}
+\ \leadsto\ 
+\begin{aligned}
+x_1 &= 1 - x_2 - x_3,\\
+x_2,x_3 &\ \text{free}.
+\end{aligned}
 \]
+So
+\[
+{\bf x} = (1,0,0) + \lambda_1(-1,1,0) + \lambda_2(-1,0,1).
+\]
+
 \end{frame}
 
 
+
+\begin{frame}{Recipe: solving $A{\bf x}=b$ with Gaussian elimination}
+\begin{enumerate}
+\item Write down the augmented matrix $\big[A\mid b\big]$.
+\item Use row operations to reduce to RREF.
+\item Identify pivot and free variables.
+\item Express the solution: ${\bf x} = {\bf x}_p + {\bf x}_h$.
+\end{enumerate}
+\begin{alertblock}{Always}
+	\begin{itemize}
+		\item The number of pivot variables is the rank of $A$,
+		\item the number of free variables = $n-\rank(A)$,
+		\item the free variables parametrize the solution set.
+	\end{itemize}
+\end{alertblock}
+\end{frame}
+
+
+
+% ------------------------------------------------
 \begin{frame}{Two quick examples}
- 
+
 \begin{enumerate}
 \item For
 \(
@@ -156,58 +295,93 @@ A=\begin{pmatrix}
 4&6&2\\
 3&2&4
 \end{pmatrix}
+\),
+RREF gives
+\(
+\begin{pmatrix}
+1&0&2\\
+0&1&-1\\
+0&0&0
+\end{pmatrix}.
 \)
-we found $\rank(A)=2$. Thus $\dim\ker(A)=3-2=1$ and
+So $\rank(A)=2$, $\dim\ker(A)=1$, and
 \[
 \ker(A)=\{\lambda(-2,1,1):\ \lambda\in\R\}.
 \]
-\item Consider
-\[
-\begin{aligned}
-x_1+x_2+x_3&=-1,\\
-x_1+2x_2+4x_3&=2.
-\end{aligned}
-\]
-Row reduction gives
+
+\item For
 \(
-x_1+x_2+x_3=-1,\ \ x_2+3x_3=3
-\),
-so $\rank(A)=\rank(A_{\bf b})=2$. One free variable:
+\begin{cases}
+x_1+x_2+x_3=-1\\
+x_1+2x_2+4x_3=2
+\end{cases},
+\)
+the augmented matrix reduces to
+\(
+\begin{pmatrix}
+1&0&-2 &\vline& -4\\
+0&1&3 &\vline& 3
+\end{pmatrix}.
+\)
+So $\rank(A)=2$, one free variable $x_3=\lambda$, and
 \[
-\{\,\lambda(2,-3,1)+(-4,3,0):\ \lambda\in\R\,\}.
+{\bf x} = (-4,3,0) + \lambda(2,-3,1).
 \]
 \end{enumerate}
- 
+
 \end{frame}
 
+% ------------------------------------------------
 \begin{frame}{Finding a basis for a span}
- 
+
 Let
 \[
-{\bf v}_1=\begin{pmatrix}2\\-1\\0\end{pmatrix},\quad
-{\bf v}_2=\begin{pmatrix}3\\0\\-1\end{pmatrix},\quad
-{\bf v}_3=\begin{pmatrix}0\\3\\-2\end{pmatrix}.
+{\bf v}_1=\begin{pmatrix}2\\3\\0\end{pmatrix},\quad
+{\bf v}_2=\begin{pmatrix}-1\\0\\3\end{pmatrix},\quad
+{\bf v}_3=\begin{pmatrix}0\\-1\\-2\end{pmatrix}.
 \]
-Form the $3\times 3$ matrix with these as \textcolor{SeaGreen}{columns}:
+
+Put them as columns of a matrix:
 \[
-\begin{pmatrix}
+M=\begin{pmatrix}
 2&-1&0\\
 3&0&-1\\
 0&3&-2
-\end{pmatrix}\ \sim\
+\end{pmatrix}.
+\]
+
+Row-reduction gives
+\(
+M \sim
 \begin{pmatrix}
 1&0&-1/3\\
 0&1&-2/3\\
 0&0&0
 \end{pmatrix}.
-\]
-Thus $\rank=2$ and $3{\bf v}_1-2{\bf v}_2+{\bf v}_3={\bf 0}$. A convenient basis of $\mathrm{span}\{{\bf v}_1,{\bf v}_2,{\bf v}_3\}$ is
+\)
+
+Thus $\rank(M)=2$ and there is one linear dependence:  
+$3{\bf v}_1-2{\bf v}_2+{\bf v}_3=0$.  
+
+A basis for $\mathrm{span}\{{\bf v}_1,{\bf v}_2,{\bf v}_3\}$ can be taken as the first two pivot columns, e.g.
 \[
-\left\{\begin{pmatrix}1\\0\\-1/3\end{pmatrix},\ \begin{pmatrix}0\\1\\-2/3\end{pmatrix}\right\}
+\{{\bf v}_1,\ {\bf v}_2\}.
 \]
-(or, equivalently, two of the original vectors that are independent).
- 
+
 \end{frame}
+
+
+\begin{frame}{Quick recap}
+\begin{itemize}
+\item \textbf{Homogeneous system:} $A{\bf x}=0$. Always has at least the trivial solution.
+\item \textbf{Inhomogeneous system:} $A{\bf x}=b$. May or may not be solvable.
+\item \textbf{Augmented matrix:} $\big[A \mid b\big]$, i.e. stick $b$ as a new column.
+\item \textbf{Rank:} Number of pivot columns after row reduction = dimension of the column space.
+\end{itemize}
+\end{frame}
+
+
+
 
 \begin{frame}{Standing on the shoulders of giants}
 \begin{minipage}{0.35\textwidth}
@@ -243,105 +417,157 @@ Thus $\rank=2$ and $3{\bf v}_1-2{\bf v}_2+{\bf v}_3={\bf 0}$. A convenient basis
 
 
 
+\begin{frame}[plain,noframenumbering] \begin{center}
+	\alert{\Huge Eigenvalues and eigenvectors}
+\end{center}\end{frame}
 
 
 \begin{frame}{Eigenvalues and eigenvectors: definitions}
- 
-For $A\in\R^{n\times n}$, $\lambda\in\R$ is an \textcolor{SeaGreen}{eigenvalue} if there exists ${\bf x}\ne{\bf 0}$ with
+For $A\in\R^{n\times n}$, a scalar $\lambda$ is an \textcolor{SeaGreen}{eigenvalue} if there exists ${\bf x}\neq{\bf 0}$ with
 \[
-A{\bf x}=\lambda{\bf x}\quad\Longleftrightarrow\quad (A-\lambda   I_n){\bf x}={\bf 0}.
+A{\bf x}=\lambda{\bf x}
+\quad\Longleftrightarrow\quad
+(A-\lambda I_n){\bf x}={\bf 0}.
 \]
 Then ${\bf x}$ is an \textcolor{SeaGreen}{eigenvector} for $\lambda$.
-\vskip 6pt
+\medskip
+
 \textcolor{SeaGreen}{Characterization:}
 \[
-\lambda\ \text{eigenvalue}\ \Longleftrightarrow\ \rank(A-\lambda  I_n)<n\ \Longleftrightarrow\ \det(A-\lambda  I_n)=0.
+\lambda\ \text{eigenvalue}
+\ \Longleftrightarrow\
+\rank(A-\lambda I_n)<n
+\ \Longleftrightarrow\
+\det(A-\lambda I_n)=0.
 \]
-The \textcolor{SeaGreen}{characteristic polynomial} $P(\lambda)=\det(A-\lambda  I_n)$ has degree $n$; the real roots (at most $n$) are the eigenvalues.
-\vskip 6pt
+The \textcolor{SeaGreen}{characteristic polynomial} $P(\lambda)=\det(A-\lambda I_n)$ has degree $n$; its real roots (at most $n$) are the real eigenvalues.
+\medskip
+
 \textcolor{SeaGreen}{Procedure:}
 \begin{enumerate}
-\item Solve $\det(A-\lambda  I_n)=0$ to get eigenvalues.
-\item For each $\lambda$, solve $(A-\lambda  I_n){\bf x}={\bf 0}$ for eigenvectors.
+\item Solve $\det(A-\lambda I_n)=0$ for eigenvalues.
+\item For each $\lambda$, solve $(A-\lambda I_n){\bf x}={\bf 0}$ for eigenvectors.
 \end{enumerate}
+\end{frame}
+
+\begin{frame}{Why eigenvalues matter (at a glance)}
+\small
+\begin{itemize}
+\item \textbf{Markov chains:} steady state = eigenvector for $\lambda=1$.
+\item \textbf{Growth/dynamics:} long-run rate $\approx$ spectral radius $\rho(A)$.
+\item \textbf{PCA:} principal directions = eigenvectors of covariance; explained variances = eigenvalues.
+\item \textbf{Quadratic forms:} curvature of $x^\top A x$ aligned with eigenvectors; definiteness from eigenvalue signs.
+\end{itemize}
 \end{frame}
 
 
 \begin{frame}{Eigenvalues and eigenvectors: migration example}
-
-Consider a population split between two regions: city ($x_t^C$) and countryside ($x_t^R$) at time $t$.
-Suppose each year a fraction of people move between the two regions:
+\small
+Two regions: city ($x_t^C$) and countryside ($x_t^R$). Let $\bs x_t=(x_t^C,x_t^R)^\top$.
+Assume next-year proportions follow a \textbf{column-stochastic} transition:
 \[
-\begin{pmatrix}x^C_{t+1}\\ x^R_{t+1}\end{pmatrix}
-=
-\begin{pmatrix}0.8 & 0.4 \\ 0.2 & 0.6\end{pmatrix}
-\begin{pmatrix}x^C_t\\ x^R_t\end{pmatrix}
-= A\begin{pmatrix}x^C_t\\ x^R_t\end{pmatrix}.
+\bs x_{t+1}=A\,\bs x_t,
+\qquad
+A=\begin{pmatrix}0.8&0.4\\[2pt] 0.2&0.6\end{pmatrix},
 \]
-
+so each column sums to $1$ (fractions of people who \emph{arrive} from each region).
 \medskip
-Here, $0.8$ means that $80\%$ of city dwellers stay in the city, while $0.4$
-means that $40\%$ of rural dwellers move to the city in the next period.
 
-\medskip
-If the \textcolor{SeaGreen}{urban/rural ratio stabilizes}, the next state must be a constant multiple of the current state:
+A \textcolor{SeaGreen}{stable composition} $\bs u$ satisfies $A\bs u=\bs u$ and $u_1+u_2=1$:
 \[
-\begin{pmatrix}x^C_{t+1}\\ x^R_{t+1}\end{pmatrix}
-\;=\;A\begin{pmatrix}x^C_t\\ x^R_t\end{pmatrix}\;=\;\lambda \begin{pmatrix}x^C_t\\ x^R_t\end{pmatrix}.
+(A-I)\bs u=0
+\ \Rightarrow\
+\bs u=\begin{pmatrix}\tfrac{2}{3}\\[2pt]\tfrac{1}{3}\end{pmatrix}.
 \]
-
+\textcolor{SeaGreen}{Spectrum:} $\lambda_1=1$, $\lambda_2=0.4$.
 \medskip
-The long-run stable distribution of the population is given by an
-\textcolor{SeaGreen}{eigenvector} of $A$, and $\lambda$ is the associated
-\textcolor{SeaGreen}{eigenvalue} describing the growth rate.
+
+\begin{block}{Any initial $x_0$ with positive entries converges to $u$.}\small
+	\begin{itemize}
+		\item Check $\bs v=(1,-1)$ is the $0.4$-eigenvector.\\[1mm]
+		\item $\bs x_0$ can be written as $\bs x_0=\bs u+\lambda \bs v$\\[1mm]
+		\item $\bs x_t=A^t(\bs u+\lambda \bs v)=\bs u+\lambda\cdot 0.4^t\cdot \bs v$.\\[1mm]
+		\item $\|\bs x_t-\bs u\|=|\lambda| \cdot 0.4^t \sqrt{2}\to 0$.\\[1mm]
+	\end{itemize}
+\end{block}
 \end{frame}
 
 
-
-
-\begin{frame}{}
- 
-With
-\(
-A=\begin{pmatrix}0.8&0.4\\ 0.3&0.9\end{pmatrix}
-\),
-\[
-(0.8-\lambda)(0.9-\lambda)-0.12=0
-\; \Longleftrightarrow\;
-\lambda^2-1.7\lambda+0.6=0.
-\]
-The solutions are $\lambda_1=1.2$ and $\lambda_2=0.5$.
-\vskip 4pt
-For $\lambda_1=1.2$, eigenvectors are multiples of $(1,1)$. For $\lambda_2=0.5$, eigenvectors are multiples of $(1,-\tfrac{3}{4})$.
-\vskip 4pt
-{\tiny For a population-growth interpretation we keep the dominant eigenpair: equal cohort proportions grow by $20\%$ per step.}
- 
-\end{frame}
-
+% ------------------------------------------------
 \begin{frame}{Basic spectral facts}
-\begin{block}{}
-If $A\in\R^{n\times n}$,
+\begin{block}{For $A\in\R^{n\times n}$}
 \begin{enumerate}
 \item Eigenvectors associated with distinct eigenvalues are \textcolor{SeaGreen}{linearly independent}.
-
 \item If $A$ is \textcolor{SeaGreen}{symmetric}, then all eigenvalues are real and eigenvectors for distinct eigenvalues are \textcolor{SeaGreen}{orthogonal} (Spectral Theorem).
 \end{enumerate}
 \end{block}
 
-\bigskip
+\medskip
 \textcolor{SeaGreen}{Example:}
 \[
 A=\begin{pmatrix}1&2\\ 2&1\end{pmatrix}.
 \]
 Then $P(\lambda)=\lambda^2-2\lambda-3$, so $\lambda_1=3$, $\lambda_2=-1$ with eigenvectors along $(1,1)$ and $(-1,1)$, respectively.
-\begin{alertblock}{}
-\scriptsize 	Take the spectral decomposition $A=U\Lambda U^\top$. Show columns of $U$ are the eigenvectors.
-\end{alertblock}
+\end{frame}
+
+\begin{frame}[plain,noframenumbering] \begin{center}
+	\alert{\Huge Matrix diagonalization}
+\end{center}\end{frame}
+
+
+% ------------------------------------------------
+\begin{frame}{Diagonalizable or not?}
+
+\textcolor{SeaGreen}{Definitions:}
+\begin{itemize}
+\item $A\in\R^{n\times n}$ is \textbf{diagonalizable} if there exists an invertible $P$ such that
+\[
+P^{-1}AP=\mathrm{diag}(\lambda_1,\ldots,\lambda_n).
+\]
+Equivalently, $A$ has a basis of eigenvectors.
+\item For each eigenvalue $\lambda$, the \textbf{eigenspace} is
+\[
+E_\lambda=\ker(A-\lambda I).
+\]
+Its dimension is the \textbf{geometric multiplicity}.
+\item The number of times $\lambda$ appears as a root of the characteristic polynomial is its \textbf{algebraic multiplicity}.
+\end{itemize}
+\medskip
+\textcolor{SeaGreen}{Why it matters:} diagonalization simplifies $A^k$, $e^A$.
+
+
+\end{frame}
+
+\begin{frame}{}
+	\begin{alertblock}{Fact:}
+		$A$ is diagonalizable \qquad $\Longleftrightarrow\qquad \sum_\lambda \dim E_\lambda=n$.
+	\end{alertblock}
+
+\textcolor{SeaGreen}{Example 1 (diagonalizable).}
+\[
+A=\begin{pmatrix}2&	1\\1&2\end{pmatrix}
+\]
+Characteristic polynomial: $(2-\lambda)^2-1$.  
+Distinct eigenvalues $\Rightarrow$ eigenvectors span $\R^2$.  
+So $A$ is diagonalizable: $A=PDP^{-1}$ with $D=\mathrm{diag}(3,1)$ and $P=\begin{bmatrix}
+	1 & 1\\
+	1 & -1
+\end{bmatrix}$.
+
+\medskip
+\textcolor{SeaGreen}{Example 2 (defective).}
+\[
+B=\begin{pmatrix}1&1\\0&1\end{pmatrix}.
+\]
+Characteristic polynomial: $(\lambda-1)^2$ (algebraic multiplicity $2$).  
+Eigenspace: $\ker(B-I)=\mathrm{span}\{(1,0)\}$ has dimension $1$.  
+So $B$ is \textbf{not} diagonalizable.
 
 \end{frame}
 
 
 
+% ------------------------------------------------
 \begin{frame}{Repeated eigenvalues}
 Consider
 \[
@@ -355,15 +581,34 @@ The characteristic polynomial is
 \[
 p_A(\lambda)=\lambda^3-5\lambda^2+8\lambda-4=(\lambda-2)^2(\lambda-1).
 \]
-Hence the eigenvalues are $\lambda=2$ (algebraic multiplicity $2$) and $\lambda=1$ (algebraic multiplicity $1$).
-\vskip6pt
+Hence the eigenvalues are $\lambda=2$ (algebraic mult.\ $2$) and $\lambda=1$ (algebraic mult.\ $1$).
+\medskip
+
 \textcolor{SeaGreen}{Eigenspaces:}
 \[
 E_{2}=\ker(A-2I)=\operatorname{span}\!\left\{(1,-1,1)\right\}, 
 \qquad
 E_{1}=\ker(A-I)=\operatorname{span}\!\left\{(2,1,3)\right\}.
 \]
-Since $\dim E_{2}=1<2$, $A$ is \textcolor{SeaGreen}{defective} (not diagonalizable). 
+Since $\dim E_{2}=1<2$, $A$ is \textcolor{SeaGreen}{defective}.
+\end{frame}
+
+
+\begin{frame}[plain,noframenumbering] \begin{center}
+	\alert{\Huge Spectral decomposition and applications}
+\end{center}\end{frame}
+
+
+% ------------------------------------------------
+\begin{frame}{Spectral decomposition (symmetric case)}
+\begin{alertblock}{Theorem (Spectral Theorem)}
+If $A\in\R^{n\times n}$ is symmetric, then there exist an orthogonal $U\in\R^{n\times n}$ and a diagonal $\Lambda=\mathrm{diag}(\lambda_1,\dots,\lambda_n)$ such that
+\[
+A=U\Lambda U^\top,
+\quad \lambda_1\ge\lambda_2\ge\cdots\ge\lambda_n.
+\]
+The columns of $U$ are orthonormal eigenvectors of $A$.
+\end{alertblock}
 \end{frame}
 
 
@@ -449,43 +694,115 @@ Applied motif analysis to compare styles across teams. The data are projected to
 \end{minipage}
 \end{frame}
 
+\begin{frame}[plain,noframenumbering] \begin{center}
+	\alert{\Huge Quadratic forms}
+\end{center}\end{frame}
+
 
 \begin{frame}{Quadratic forms}
-A \textcolor{SeaGreen}{quadratic form} is $Q({\bf x})={\bf x}^\top  A{\bf x}=\sum_{i,j=1}^n a_{ij}x_ix_j$ with $A\in\R^{n\times n}$ symmetric.
-\vskip 6pt
-\textcolor{SeaGreen}{Remark:} Since the coefficient of $x_ix_j$ is $a_{ij}+a_{ji}$, every quadratic form has a unique symmetric representative (replace $A$ by $\tfrac{1}{2}(A+A^\top )$).
-\vskip 6pt
-\textcolor{SeaGreen}{Example:}
-\(
-\begin{pmatrix}1&2\\ 3&4\end{pmatrix}
-\)
-and
-\(
-\begin{pmatrix}1&5/2\\ 5/2&4\end{pmatrix}
-\)
-define the same $Q(x,y)=x^2+5xy+4y^2$.
- 
+A \textcolor{SeaGreen}{quadratic form} is
+\[
+Q(\mathbf{x}) = \mathbf{x}^\top A \mathbf{x}, \qquad A \in \R^{n\times n}.
+\]
+
+\medskip
+\textcolor{SeaGreen}{Why symmetric?}  
+If $a_{ij}\neq a_{ji}$, the asymmetric part cancels:
+\[
+x^\top A x = x^\top \tfrac{1}{2}(A+A^\top)x.
+\]
+So every quadratic form has a unique symmetric representative.
+
+\medskip
+\textcolor{SeaGreen}{Examples:}
+\[
+Q(x,y) = x^2+5xy+4y^2
+\]
+comes from
+$\begin{pmatrix}1&2\\3&4\end{pmatrix}$
+or equivalently
+$\begin{pmatrix}1&2.5\\2.5&4\end{pmatrix}$.
+
+\medskip
+\textcolor{SeaGreen}{Geometry:} level sets $\{x:Q(x)=c\}$ are ellipses, hyperbolas, or paraboloids.
 \end{frame}
 
+
+
+
 \begin{frame}{Signs of quadratic forms}
- 
 For symmetric $A$:
-\begin{enumerate}
-\item \textcolor{SeaGreen}{Positive definite}: ${\bf x}^\top  A{\bf x}>0$ for all ${\bf x}\ne{\bf 0}$.
-\item \textcolor{SeaGreen}{Negative definite}: ${\bf x}^\top  A{\bf x}<0$ for all ${\bf x}\ne{\bf 0}$.
-\item \textcolor{SeaGreen}{Positive semidefinite}: ${\bf x}^\top  A{\bf x}\ge 0$ for all ${\bf x}$.
-\item \textcolor{SeaGreen}{Negative semidefinite}: ${\bf x}^\top  A{\bf x}\le 0$ for all ${\bf x}$.
-\item \textcolor{SeaGreen}{Indefinite}: takes both positive and negative values.
-\end{enumerate}
+\begin{itemize}
+\item \textcolor{SeaGreen}{Positive definite (PD):} $x^\top A x > 0$ for all $x\neq 0$.
+\item \textcolor{SeaGreen}{Negative definite (ND):} $x^\top A x < 0$ for all $x\neq 0$.
+\item \textcolor{SeaGreen}{Semidefinite:} always $\ge 0$ (PSD) or $\le 0$ (NSD).
+\item \textcolor{SeaGreen}{Indefinite:} can take both signs.
+\end{itemize}
+
+\medskip
+\textcolor{SeaGreen}{Why it matters:}
+\begin{itemize}
+\item In optimization, a PD Hessian $\Rightarrow$ strict local minimum.  
+\item In economics, concave utility functions $\Rightarrow$ risk aversion.  
+\end{itemize}
+
+\medskip
 \textcolor{SeaGreen}{Example:}
 \[
-{\bf x}^\top 
-\begin{pmatrix}1&-1\\ -1&1\end{pmatrix}
-{\bf x}=(x-y)^2\ge 0
+x^\top
+\begin{pmatrix}1&-1\\-1&1\end{pmatrix}
+x = (x-y)^2 \ge 0
 \]
-so the matrix is positive semidefinite.
- 
+so the matrix is PSD.
 \end{frame}
+
+
+\begin{frame}{Geometry of quadratic forms}
+\small
+Level sets $\{x: \, Q(x)=c\}$ illustrate definiteness:
+
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+  % Positive definite: ellipse
+  \begin{scope}[shift={(-4,0)}]
+    \draw[thick,->] (-2,0)--(2,0) node[right]{$x_1$};
+    \draw[thick,->] (0,-2)--(0,2) node[above]{$x_2$};
+    \foreach \a in {0.5,1,1.5} {
+      \draw[SeaGreen] (0,0) ellipse ({\a} and {0.6*\a});
+    }
+    \node at (0,-2.3) {\scriptsize Positive definite};
+  \end{scope}
+
+  % Indefinite: hyperbola
+  \begin{scope}[shift={(0,0)}]
+    \draw[thick,->] (-2,0)--(2,0) node[right]{$x_1$};
+    \draw[thick,->] (0,-2)--(0,2) node[above]{$x_2$};
+    \foreach \a in {0.5,1,1.5} {
+      \draw[DarkRed,domain=-2:2,smooth,variable=\x] 
+        plot ({\x},{sqrt(\x*\x+\a)-\x});
+      \draw[DarkRed,domain=-2:2,smooth,variable=\x] 
+        plot ({\x},{-sqrt(\x*\x+\a)-\x});
+    }
+    \node at (0,-2.3) {\scriptsize Indefinite};
+  \end{scope}
+
+  % Semidefinite: parallel lines
+  \begin{scope}[shift={(4,0)}]
+    \draw[thick,->] (-2,0)--(2,0) node[right]{$x_1$};
+    \draw[thick,->] (0,-2)--(0,2) node[above]{$x_2$};
+    \foreach \a in {-1,0,1} {
+      \draw[blue,thick] (-2,\a)--(2,\a);
+    }
+    \node at (0,-2.3) {\scriptsize Semidefinite};
+  \end{scope}
+\end{tikzpicture}
+\end{center}
+
+\medskip
+\textcolor{SeaGreen}{Ellipses $\to$ PD, Hyperbolas $\to$ Indefinite, Parallel lines $\to$ Semidefinite.}
+\end{frame}
+
+
 
 \begin{frame}{Eigenvalue and minor tests}
  
@@ -508,59 +825,68 @@ has $D_1=-3$, $D_2=5$, $D_3=-25$ $\Rightarrow$ negative definite.
  
 \end{frame}
 
-\begin{frame}{Examples}
- 
+
+
+
+\begin{frame}{Examples of quadratic forms}
 \begin{enumerate}
 \item
 $
 A=\begin{pmatrix}1&4&6\\ 4&2&1\\ 6&1&6\end{pmatrix}
-$:
-$D_1=1$, $D_2=-14$, $D_3=-109$ $\Rightarrow$ \textcolor{SeaGreen}{indefinite}.\\[8mm]
+$  
+$\Rightarrow$ indefinite (mixed signs of minors).
+
 \item
 $
 A=\begin{pmatrix}3&-1&0\\ -1&2&-1\\ 0&-1&3\end{pmatrix}
-$:
-$D_1=3$, $D_2=5$, $D_3=12$ $\Rightarrow$ \textcolor{SeaGreen}{positive definite}.\\[8mm]
-\item The symmetric matrix of $Q(x,y,z)=xy+yz$ is indefinite since $D_1=D_3=0$ and $D_2=-\tfrac14$.
+$  
+$\Rightarrow$ positive definite.
+
+\item
+$Q(x,y,z)=xy+yz$  
+$\Rightarrow$ indefinite (matrix has both positive and negative eigenvalues).
 \end{enumerate}
- 
+
+\medskip
+\textcolor{SeaGreen}{Takeaway:} sign of eigenvalues $=$ curvature type.
 \end{frame}
-
-
 
 
 % ------------------------------------------------
 \begin{frame}{Chapter 9: Functions of several variables}
 Many economic and data science models depend on \textcolor{SeaGreen}{several variables simultaneously}.
 
-\vskip 10pt
+\vskip 6pt
+\textcolor{SeaGreen}{Why this matters:} In economics, technologies and preferences are multivariate (production, utility). In data science/ML, high-dimensional loss functions \(L(\theta_1,\dots,\theta_d)\) are optimized using gradients/Hessians.
+
+\vskip 8pt
 \textcolor{SeaGreen}{Examples:}
 \begin{itemize}
-\item \textbf{Economics:} Cobb--Douglas production $Y=K^\alpha L^{1-\alpha}$, or utility $U(x,y)$.
-\item \textbf{Data science:} Loss functions $L(\theta_1,\ldots,\theta_d)$ depending on many parameters.
+\item \textbf{Economics:} Cobb--Douglas production \(Y=K^\alpha L^{1-\alpha}\), utility \(U(x,y)\).
+\item \textbf{Data science:} Loss functions \(L(\theta)\) with \(d\gg1\) parameters.
 \end{itemize}
 
 \vskip 8pt
-\textcolor{SeaGreen}{Reading:} Werner--Sotskov (Ch. 11); Simon--Blume (Chs. 14, 17).\\
+\textcolor{SeaGreen}{Reading:} Werner--Sotskov (Ch.~11); Simon--Blume (Chs.~14, 17). \quad
 \textcolor{SeaGreen}{Exercises:} 11.11(a), 11.21, 11.22 (Werner--Sotskov).
 \end{frame}
 
+
+
 % ------------------------------------------------
 \begin{frame}{What is a multivariable function?}
-
-A \textcolor{SeaGreen}{function of $n$ variables} is a map
+A \textcolor{SeaGreen}{function of \(n\) variables} is a map
 \[
 f:\ D \subset \R^n \to \R, 
-\qquad \mathbf{x}=(x_1,\dots,x_n)\mapsto f(\mathbf{x}).
+\qquad \mathbf{x}=(x_1,\dots,x_n)\mapsto f(\mathbf{x}),
 \]
+typically with \(D\) open. When discussing gradients/tangent planes we assume \(f\in C^1\) on \(D\).
 
 \begin{itemize}
-\item For $n=2$: graph $z=f(x,y)$ is a \textcolor{SeaGreen}{surface} in $\R^3$.
-\item \textcolor{SeaGreen}{Level curves} (contours): 
-\[
-\{(x,y)\in D:\ f(x,y)=c\}.
-\]
-\item For $n>2$: use \textcolor{SeaGreen}{slices or projections} to visualize.
+\item For \(n=2\): the graph \(z=f(x,y)\) is a \textcolor{SeaGreen}{surface} in \(\R^3\).
+\item \textcolor{SeaGreen}{Level curves} (contours): \(\{(x,y)\in D:\ f(x,y)=c\}\).
+\item \textcolor{SeaGreen}{Sub/superlevel sets}: \(\{f\le c\},\{f\ge c\}\) — useful for (quasi-)convexity.
+\item For \(n>2\): use \textcolor{SeaGreen}{slices or projections} to visualize.
 \end{itemize}
 \end{frame}
 
@@ -604,30 +930,31 @@ D=\{(L,K)\in\R^2:\ L\ge 0,\ K\ge 0\}.
 
 % ------------------------------------------------
 \begin{frame}{Returns to scale in Cobb--Douglas}
-
+For \(t>0\):
+\[
+P(tL,tK)=b\,(tL)^{\alpha}(tK)^{\beta}=t^{\alpha+\beta}P(L,K).
+\]
 \begin{itemize}
-\item \(\alpha\) (resp.\ \(\beta\)) measures the \textcolor{SeaGreen}{\% change in output} after a \(1\%\) change in labour (resp.\ capital), ceteris paribus.
-\item If \(\alpha+\beta=1\), there are \textcolor{SeaGreen}{constant returns to scale}: scaling \((L,K)\) by \(t>0\) scales \(P\) by \(t\).
-\item If \(\alpha+\beta<1\), \textcolor{SeaGreen}{decreasing returns}; if \(\alpha+\beta>1\), \textcolor{SeaGreen}{increasing returns}.
+\item \(\alpha+\beta=1\): \textcolor{SeaGreen}{constant} returns to scale,
+\item \(\alpha+\beta<1\): \textcolor{SeaGreen}{decreasing} returns,
+\item \(\alpha+\beta>1\): \textcolor{SeaGreen}{increasing} returns.
 \end{itemize}
-
 \end{frame}
+
+
 
 % ------------------------------------------------
 \begin{frame}{Multivariate Gaussian density}
-
-A random vector \({\bf X}\in\R^d\) is \textcolor{SeaGreen}{multivariate normal} with mean \({\bf m}\) and positive definite covariance \(\Sigma\) if
+A random vector \(\mathbf{X}\in\R^d\) is \textcolor{SeaGreen}{multivariate normal} with mean \(\mathbf{m}\) and \(\Sigma\succ0\) if
 \[
-f({\bf x})=(2\pi)^{-d/2}(\det \Sigma)^{-1/2}
-\exp\!\left(-\tfrac12({\bf x}-{\bf m})^{\top}\Sigma^{-1}({\bf x}-{\bf m})\right),
+f(\mathbf{x})=(2\pi)^{-d/2}(\det \Sigma)^{-1/2}
+\exp\!\left(-\tfrac12(\mathbf{x}-\mathbf{m})^{\top}\Sigma^{-1}(\mathbf{x}-\mathbf{m})\right).
 \]
-where 
 \begin{itemize}
-	\item \({\bf m}=E({\bf X})\) is the mean,
-	\item \(\Sigma=E\!\big(({\bf X}-{\bf m})({\bf X}-{\bf m})^{\top}\big)\) is the covariance matrix.\\[4mm]
+\item \(\mathbf{m}=E(\mathbf{X})\), \(\ \Sigma= \mathrm{Cov}(\mathbf{X})\succ0\).
+\item Depends on \textit{Mahalanobis} distance \(\|\mathbf{x}-\mathbf{m}\|_{\Sigma}=\sqrt{(\mathbf{x}-\mathbf{m})^\top\Sigma^{-1}(\mathbf{x}-\mathbf{m})}\).
+\item Level sets are ellipsoids \((\mathbf{x}-\mathbf{m})^\top\Sigma^{-1}(\mathbf{x}-\mathbf{m})=\text{const}\).
 \end{itemize}
-Note: $f$ is strictly positive. It depends on $\x$ through the Mahalonobis distance $$\|\x-\bs m\|_{\Sigma}\;:=\;\sqrt{({\bf x}-{\bf m})^{\top}\Sigma^{-1}({\bf x}-{\bf m})}$$
-Thus, the level sets are the elipsoids $\{\x:\|\x-\bs m\|={\rm const}\}$.
 \end{frame}
 
 % ------------------------------------------------
@@ -664,36 +991,36 @@ then \(C_x(x,y)=22\) and \(C_y(x,y)=24\sqrt{y}\).
 
 % ------------------------------------------------
 \begin{frame}{Cobb--Douglas: marginal productivities}
-
 For \(P(L,K)=b\,L^{\alpha}K^{\beta}\),
 \[
 \frac{\partial P}{\partial L}=\alpha\,\frac{P}{L},\qquad
 \frac{\partial P}{\partial K}=\beta\,\frac{P}{K}.
 \]
-\textcolor{SeaGreen}{Interpretation:} marginal productivity of labour/capital is proportional to average productivity per unit.
-{\footnotesize Under suitable regularity, these proportionality laws lead back to the Cobb--Douglas form.}
-
+\textcolor{SeaGreen}{Elasticities:}
+\(\displaystyle \varepsilon_{P,L}=\frac{\partial P}{\partial L}\cdot\frac{L}{P}=\alpha,\quad
+\varepsilon_{P,K}=\beta.\)
 \end{frame}
 
+
+
+% ------------------------------------------------
 \begin{frame}{Tangent plane and linear approximation}
+Geometrically, \(f_x(x_0,y_0)\)  is the slope of the tangent to the curve cut by \(y=y_0\)  at \((x_0,y_0,z_0)\), \(z_0=f(x_0,y_0)\).
 
-Geometrically, \(f_x(x_0,y_0)\) (resp.\ \(f_y(x_0,y_0)\)) is the slope of the tangent to the curve cut by the plane \(y=y_0\) (resp.\ \(x=x_0\)) at \((x_0,y_0,z_0)\), where \(z_0=f(x_0,y_0)\).
-
-\vskip 6pt
-The \textcolor{SeaGreen}{tangent plane} at \((x_0,y_0,z_0)\) is
+\medskip
+\textcolor{SeaGreen}{Tangent plane at \((x_0,y_0,z_0)\):}
 \[
 z = f(x_0,y_0)+f_x(x_0,y_0)(x-x_0)+f_y(x_0,y_0)(y-y_0).
 \]
 
-\vskip 6pt
-\textcolor{SeaGreen}{Linear (first-order) approximation} near \((x_0,y_0)\):
-\[
-f(x,y)\approx f(x_0,y_0)+f_x(x_0,y_0)\,\Delta x+f_y(x_0,y_0)\,\Delta y,
-\]
 \medskip
-
-In differential notation: \(df\approx f_x\,dx+f_y\,dy\).
+If \(f\in C^1\), then for \(\Delta=(\Delta x,\Delta y)\),
+\[
+f(x_0+\Delta x,y_0+\Delta y)=f(x_0,y_0)+f_x\,\Delta x+f_y\,\Delta y+o(\|\Delta\|).
+\]
 \end{frame}
+
+
 % ------------------------------------------------
 \begin{frame}{Tangent plane (visual)}
 \begin{figure}
@@ -703,18 +1030,21 @@ In differential notation: \(df\approx f_x\,dx+f_y\,dy\).
 
 % ------------------------------------------------
 \begin{frame}{Higher partial derivatives}
-
-Higher derivatives are defined by iterating partials, e.g.
+Higher partials are iterated derivatives, e.g.
 \[
-f_{xy}(x,y)=\frac{\partial}{\partial y}\!\left(\frac{\partial f}{\partial x}(x,y)\right)
-=\frac{\partial^2 f}{\partial y\,\partial x}(x,y).
+f_{xy}(x,y)=\frac{\partial}{\partial y}\!\left(\frac{\partial f}{\partial x}(x,y)\right).
 \]
-\vskip 6pt
 \textcolor{SeaGreen}{Young's theorem:} If \(f_{xy}\) and \(f_{yx}\) are continuous near a point, then \(f_{xy}=f_{yx}\) there.
-\vskip 4pt
-\textcolor{SeaGreen}{Example:} \(f(x,y)=\sin(3x-y)\Rightarrow f_{xy}=f_{yx}=3\sin(3x-y)\).
 
+\medskip
+\textcolor{SeaGreen}{Example:} \(f(x,y)=x^2y+e^{xy}\) gives
+\[
+f_{xy}=2x+e^{xy}(1+xy)=f_{yx}.
+\]
 \end{frame}
+
+
+
 
 % ------------------------------------------------
 \begin{frame}[label=LinAp]{The gradient and linear approximation}
@@ -725,14 +1055,15 @@ For ${\bf x}\in\R^n$, the \textcolor{SeaGreen}{gradient} is
 \]
 
 \vskip 6pt
-\begin{alertblock}{best linear approximation}	
+\begin{alertblock}{Best linear approximation}	
 If $f$ is a $C^1$-function, then for $\bs h\in \R^n$,
 \[
-f({\bf x}+\bs h)=f({\bf x})+\langle \nabla f({\bf x}),\bs h\rangle + o(\|\bs h\|).
+f({\bf x}+\bs h)=f({\bf x})+\nabla f({\bf x})^\top \bs h + o(\|\bs h\|).
 \]
 
 So the gradient gives the \alert{best linear approximation} of $f$ near ${\bf x}$.
 \end{alertblock}
+\textcolor{SeaGreen}{Geometry:} \(\nabla f\) is normal to level sets \(f(\mathbf{x})=c\)
 \end{frame}
 
 % ------------------------------------------------
@@ -789,49 +1120,49 @@ Note: {$\nabla f$ is always normal to level sets. Why?}
 
 % ------------------------------------------------
 \begin{frame}{Jacobian and matrix differentiation rules}
-
-Let \(F:\R^n \to \R^m\).  
-The \textcolor{SeaGreen}{Jacobian matrix} of \(F\) at \({\bf x}\in\R^n\) is
+Let \(F:\R^n\to\R^m\). The \textcolor{SeaGreen}{Jacobian} at \(\mathbf{x}\) is
 \[
-{\rm J}F({\bf x}) = 
-\left[\frac{\partial F_i}{\partial x_j}({\bf x})\right]_{i=1,\dots,m;\,j=1,\dots,n}
-\in \R^{m\times n}.
+{\rm J}F(\mathbf{x})
+=\left[\frac{\partial F_i}{\partial x_j}(\mathbf{x})\right]_{i=1,\dots,m;\,j=1,\dots,n}\in\R^{m\times n}.
+\]
+If \(m=1\), \(F=f\), then \({\rm J}f(\mathbf{x})=\nabla f(\mathbf{x})^\top\).
+
+\medskip
+\textcolor{SeaGreen}{Chain rule:}
+If \(G:\R^m\to\R^p\), \(H=G\circ F\), then
+\[
+{\rm J}H(\mathbf{x})={\rm J}G(F(\mathbf{x}))\,{\rm J}F(\mathbf{x}).
 \]
 
-\begin{itemize}
-\item If \(m=1\), then \(F=f:\R^n \to \R\) and  
-\({\rm J}f({\bf x}) = \nabla f({\bf x})^{\top}\).
-\end{itemize}
-
-\vskip 8pt
-\textcolor{SeaGreen}{Useful identities:}
+\medskip
+\textcolor{SeaGreen}{Quick identities:}
 \begin{enumerate}
-\item If \(F({\bf x})=A{\bf x}\) with \(A\in\R^{m\times n}\), then \({\rm J}F({\bf x}) = A\).
-\item If \(f({\bf x})={\bf a}^{\top}{\bf x}\) with \({\bf a}\in\R^n\), then \(\nabla f({\bf x})={\bf a}\).
-\item If \(f({\bf x})={\bf x}^{\top}A{\bf x}\) with \(A\in\R^{n\times n}\), then  
-\(\nabla f({\bf x})=(A+A^{\top}){\bf x}\).  
-If \(A\) is symmetric: \(\nabla f({\bf x})=2A{\bf x}\).
+\item If \(F(\mathbf{x})=A\mathbf{x}\) with \(A\in\R^{m\times n}\): \({\rm J}F=A\).
+\item If \(f(\mathbf{x})=\mathbf{a}^{\top}\mathbf{x}\): \(\nabla f=\mathbf{a}\).
+\item If \(f(\mathbf{x})=\mathbf{x}^{\top}A\mathbf{x}\): \(\nabla f=(A+A^{\top})\mathbf{x}\) (\(=2A\mathbf{x}\) if \(A\) symmetric).
 \end{enumerate}
-
 \end{frame}
+
+
+
+
 % ------------------------------------------------
 \begin{frame}{Unconstrained optimization}
-
-A point \({\bf x}_0\) is a \textcolor{SeaGreen}{local maximum} (\textcolor{SeaGreen}{minimum}) if there exists a ball \(B_r({\bf x}_0)\subset D\) such that
+\textcolor{SeaGreen}{Local optima.}
+\(\mathbf{x}_0\) is a local max (min) if \(f(\mathbf{x})\le (\ge)\ f(\mathbf{x}_0)\) nearby.
+If \(f\) is differentiable and \(\mathbf{x}_0\) is an interior local extremum,
 \[
-f({\bf x})\le f({\bf x}_0)\quad (\text{resp.\ } f({\bf x})\ge f({\bf x}_0))
-\quad\text{for all }{\bf x}\in B_r({\bf x}_0).
+\nabla f(\mathbf{x}_0)=\mathbf{0}\quad\text{(first-order condition).}
 \]
-If this holds on all of \(D\), the optimum is \textcolor{SeaGreen}{global}.
-\vskip 6pt
-If \({\bf x}_0\) is an interior local extremum and \(f\) is differentiable, then the \textcolor{SeaGreen}{first-order condition} holds:
-\[
-\nabla f({\bf x}_0)={\bf 0}.
-\]
-Such points are \textcolor{SeaGreen}{stationary}; a stationary point that is neither max nor min is a \textcolor{SeaGreen}{saddle}.\\[4mm]
 
-Indeed: By Slide~\ref{LinAp}, if $\nabla f({\bf x}_0)\neq {\bf 0}$, an infinitesimal move can increase/decrease the value of $f$.
+\medskip
+If \(f\in C^2\), Taylor expansion at a stationary point \(\mathbf{x}_0\) gives
+\[
+f(\mathbf{x}_0+\mathbf{h})=f(\mathbf{x}_0)+\tfrac12\,\mathbf{h}^{\top}H_f(\mathbf{x}_0)\mathbf{h}+o(\|\mathbf{h}\|^2),
+\]
+so the sign of the quadratic form \(\mathbf{h}^{\top}H_f(\mathbf{x}_0)\mathbf{h}\) determines local behavior.
 \end{frame}
+
 
 % ------------------------------------------------
 \begin{frame}{Unconstrained optimization (pictures)}
@@ -894,32 +1225,25 @@ A set \(D\subset\R^n\) is \textcolor{SeaGreen}{convex} if for any \({\bf x},{\bf
 
 % ------------------------------------------------
 \begin{frame}{Convexity, concavity, and global optimality}
-
-\begin{alertblock}{Definition (Convexity/Concavity)}
-Let \(D \subset \R^n\) be convex.  
-A function \(f:D\to\R\) is \textcolor{SeaGreen}{convex} if for all \({\bf x},{\bf y}\in D\) and \(\theta\in[0,1]\),
+\begin{alertblock}{Definition}
+On a convex domain \(D\subset\R^n\), \(f\) is \textcolor{SeaGreen}{convex} if
 \[
-f(\theta{\bf x}+(1-\theta){\bf y}) 
-\;\leq\; \theta f({\bf x})+(1-\theta)f({\bf y}),
+f(\theta\mathbf{x}+(1-\theta)\mathbf{y})\le \theta f(\mathbf{x})+(1-\theta)f(\mathbf{y}),\quad
+\forall\,\mathbf{x},\mathbf{y}\in D,\ \theta\in[0,1].
 \]
-i.e.\ the graph lies \emph{below} every chord.\\[2mm]
-$\bullet$  $f$ is \textcolor{SeaGreen}{concave} if the inequality is reversed,
-i.e.\ the graph lies \emph{above} every chord.
+\textcolor{SeaGreen}{Concave}: reverse the inequality.
 \end{alertblock}
 
-\medskip
 \begin{block}{Curvature test (for \(C^2\) functions)}
-\begin{enumerate}
-\item \(H_f({\bf x})\succeq 0\) on \(D\) \(\;\Leftrightarrow\;\) \(f\) convex.  
-      \(H_f({\bf x})\preceq 0\) on \(D\) \(\;\Leftrightarrow\;\) \(f\) concave.
-\item Strict definiteness implies strict convexity/concavity.
-\end{enumerate}
+\(H_f(\mathbf{x})\succeq 0\ \forall \mathbf{x}\in D \iff f \text{ convex on }D,\quad
+H_f(\mathbf{x})\preceq 0 \iff f \text{ concave.}\)
+Strict definiteness \(\Rightarrow\) strict convexity/concavity.
 \end{block}
 
-\medskip
-\textcolor{SeaGreen}{Key fact:} If \(f\) is convex (concave) on \(D\), any stationary point is a \textbf{global} minimum (maximum).
-
+\textcolor{SeaGreen}{Composition rule:}
+If \(g\) is convex and \(f:\R\to\R\) is nondecreasing and convex, then \(f\circ g\) is convex.
 \end{frame}
+
 
 % ------------------------------------------------
 \begin{frame}{Example}
