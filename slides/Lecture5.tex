@@ -82,27 +82,27 @@ Sorting eigenvalues in decreasing order ranks components by variance captured.
 \end{frame}
 
 
-\begin{frame}{Numerical toy example}
-\begin{small}
-Covariance matrix:
-\[
-S=
-\begin{pmatrix}
-72.9&87.5&6.875\\
-87.5&108.3&8.75\\
-6.875&8.75&0.73
-\end{pmatrix}.
-\]
-
-Spectral decomposition:
-\[
-S = U \Lambda U^\top, \quad
-\Lambda=\mathrm{diag}(180,\ 1.38,\ 0.005).
-\]
-
-$\Rightarrow$ The first component explains $>99\%$ of the variance; the last can be safely ignored.  
-\end{small}
-\end{frame}
+%\begin{frame}{Numerical toy example}
+%\begin{small}
+%Covariance matrix:
+%\[
+%S=
+%\begin{pmatrix}
+%72.9&87.5&6.875\\
+%87.5&108.3&8.75\\
+%6.875&8.75&0.73
+%\end{pmatrix}.
+%\]
+%
+%Spectral decomposition:
+%\[
+%S = U \Lambda U^\top, \quad
+%\Lambda=\mathrm{diag}(180,\ 1.38,\ 0.005).
+%\]
+%
+%$\Rightarrow$ The first component explains $>99\%$ of the variance; the last can be safely ignored.  
+%\end{small}
+%\end{frame}
 
 
 \begin{frame}{PCA \& Unique football styles}
@@ -355,18 +355,18 @@ D=\{(L,K)\in\R^2:\ L\ge 0,\ K\ge 0\}.
 \end{figure}
 \end{frame}
 
-% ------------------------------------------------
-\begin{frame}{Returns to scale in Cobb--Douglas}
-For \(t>0\):
-\[
-P(tL,tK)=b\,(tL)^{\alpha}(tK)^{\beta}=t^{\alpha+\beta}P(L,K).
-\]
-\begin{itemize}
-\item \(\alpha+\beta=1\): \textcolor{SeaGreen}{constant} returns to scale,
-\item \(\alpha+\beta<1\): \textcolor{SeaGreen}{decreasing} returns,
-\item \(\alpha+\beta>1\): \textcolor{SeaGreen}{increasing} returns.
-\end{itemize}
-\end{frame}
+%% ------------------------------------------------
+%\begin{frame}{Returns to scale in Cobb--Douglas}
+%For \(t>0\):
+%\[
+%P(tL,tK)=b\,(tL)^{\alpha}(tK)^{\beta}=t^{\alpha+\beta}P(L,K).
+%\]
+%\begin{itemize}
+%\item \(\alpha+\beta=1\): \textcolor{SeaGreen}{constant} returns to scale,
+%\item \(\alpha+\beta<1\): \textcolor{SeaGreen}{decreasing} returns,
+%\item \(\alpha+\beta>1\): \textcolor{SeaGreen}{increasing} returns.
+%\end{itemize}
+%\end{frame}
 
 
 
@@ -378,8 +378,8 @@ f(\mathbf{x})=(2\pi)^{-d/2}(\det \Sigma)^{-1/2}
 \exp\!\left(-\tfrac12(\mathbf{x}-\mathbf{m})^{\top}\Sigma^{-1}(\mathbf{x}-\mathbf{m})\right).
 \]
 \begin{itemize}
-\item \(\mathbf{m}=E(\mathbf{X})\), \(\ \Sigma= \mathrm{Cov}(\mathbf{X})\succ0\).
-\item Depends on \textit{Mahalanobis} distance \(\|\mathbf{x}-\mathbf{m}\|_{\Sigma}=\sqrt{(\mathbf{x}-\mathbf{m})^\top\Sigma^{-1}(\mathbf{x}-\mathbf{m})}\).
+\item Parameters: \(\mathbf{m}=E(\mathbf{X})\), \(\ \Sigma= \mathrm{Cov}(\mathbf{X})\succ0\).\\[4mm]
+\item Depends on \textit{Mahalanobis} distance $$\|\mathbf{x}-\mathbf{m}\|_{\Sigma}=\sqrt{(\mathbf{x}-\mathbf{m})^\top\Sigma^{-1}(\mathbf{x}-\mathbf{m})}.$$
 \item Level sets are ellipsoids \((\mathbf{x}-\mathbf{m})^\top\Sigma^{-1}(\mathbf{x}-\mathbf{m})=\text{const}\).
 \end{itemize}
 \end{frame}
@@ -459,22 +459,7 @@ then \(C_x(x,y)=22\) and \(C_y(x,y)=24\sqrt{y}\).
 %\end{figure}
 %\end{frame}
 
-% ------------------------------------------------
-\begin{frame}{Higher partial derivatives}
-Higher partials are iterated derivatives, e.g.
-\[
-f_{xy}(x,y)=\frac{\partial}{\partial y}\!\left(\frac{\partial f}{\partial x}(x,y)\right).
-\]
-\begin{alertblock}{Young's Theorem:}
-If \(f_{xy}\) and \(f_{yx}\) are continuous near a point, then \(f_{xy}=f_{yx}\) there.	
-\end{alertblock}
-\bigskip
 
-\textcolor{SeaGreen}{Example:} \(f(x,y)=x^2y+e^{xy}\) gives
-\[
-f_{xy}=2x+e^{xy}(1+xy)=f_{yx}.
-\]
-\end{frame}
 
 
 
@@ -557,11 +542,15 @@ Let \(F:\R^n\to\R^m\). The \textcolor{SeaGreen}{Jacobian} at \(\mathbf{x}\) is
 If \(m=1\), \(F=f\), then \({\rm J}f(\mathbf{x})=\nabla f(\mathbf{x})^\top\).
 
 \medskip
-\textcolor{SeaGreen}{Chain rule:}
-If \(G:\R^m\to\R^p\), \(H=G\circ F\), then
-\[
-{\rm J}H(\mathbf{x})={\rm J}G(F(\mathbf{x}))\,{\rm J}F(\mathbf{x}).
-\]
+\begin{block}{First-order approximation}
+	$$F(\bs x+\bs h)\;=\;F(\bs x)+{\rm J}F(\bs x)\bs h +o(\|\bs h\|).$$
+\end{block}
+
+%\textcolor{SeaGreen}{Chain rule:}
+%If \(G:\R^m\to\R^p\), \(H=G\circ F\), then
+%\[
+%{\rm J}H(\mathbf{x})={\rm J}G(F(\mathbf{x}))\,{\rm J}F(\mathbf{x}).
+%\]
 
 \medskip
 \textcolor{SeaGreen}{Quick identities:}
@@ -573,16 +562,34 @@ If \(G:\R^m\to\R^p\), \(H=G\circ F\), then
 \end{frame}
 
 
+% ------------------------------------------------
+\begin{frame}{Higher partial derivatives}
+Higher partials are iterated derivatives, e.g.
+\[
+f_{xy}(x,y)=\frac{\partial}{\partial y}\!\left(\frac{\partial f}{\partial x}(x,y)\right).
+\]
+\begin{alertblock}{Young's Theorem:}
+If \(f_{xy}\) and \(f_{yx}\) are continuous, then \(f_{xy}=f_{yx}\).	We write $\frac{\partial^2 f}{\partial x\partial y}$.
+\end{alertblock}
+\bigskip
+
+\textcolor{SeaGreen}{Example:} \(f(x,y)=x^2y+e^{xy}\) gives
+\[
+f_{xy}=2x+e^{xy}(1+xy)=f_{yx}.
+\]
+\begin{block}{Hessian $\nabla^2 f(\x)\in \R^{n\times n}$}
+This is a $n\times n$ matrix defined by $(\nabla^2 f(\x))_{ij}=\frac{\partial^2 f }{\partial x_i \partial x_j}$. (symmetric matrix!)
+\end{block}
+\qquad If $f(\bs x)=\bs x^\top A\bs x$ with $A$ symmetric, then $\nabla^2f(\bs x)=2A$.
+\end{frame}
+
 \begin{frame}[plain,noframenumbering] \begin{center}
 	\alert{\Huge Elements of optimization}
 \end{center}\end{frame}
 
 % ------------------------------------------------
 \begin{frame}{Unconstrained optimization}
-\begin{block}{Hessian $\nabla^2 f(\x)\in \R^{n\times n}$}
-This is a $n\times n$ matrix defined by $(\nabla^2 f(\x))_{ij}=\frac{\partial^2 f }{\partial x_i \partial x_j}$.	\\
-{\small (By Young's theorem, this is a symmetric matrix.)}
-\end{block}
+
 
 \textcolor{SeaGreen}{Local optima.}
 \(\mathbf{x}_0\) is a local max (min) if \(f(\mathbf{x})\le (\ge)\ f(\mathbf{x}_0)\) nearby.
