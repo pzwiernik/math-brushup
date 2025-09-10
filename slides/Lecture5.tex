@@ -583,6 +583,22 @@ This is a $n\times n$ matrix defined by $(\nabla^2 f(\x))_{ij}=\frac{\partial^2 
 \qquad If $f(\bs x)=\bs x^\top A\bs x$ with $A$ symmetric, then $\nabla^2f(\bs x)=2A$.
 \end{frame}
 
+\begin{frame}{Second order Taylor expansion}
+	If $f:D\to \R$ with $D\subseteq \R^n$ is $C^2$ then 
+	$$
+	f(\bs x+\bs h)\;=\;f(\bs x)+\nabla f(\bs x)^\top \bs h+\tfrac12 \bs h^\top (\nabla^2 f(\bs x)) \bs h +o(\|\bs h\|^2) 
+	$$ 
+	
+	Note that $\bs h^\top (\nabla^2 f(\bs x)) \bs h$ is a quadratic form in $\bs h$.
+	\bigskip
+	
+	If you prefer working with indices (which you should not) this becomes
+	$$
+	f(\bs x+\bs h)=f(\bs x)+\sum_{i=1}^n \tfrac{\partial f}{\partial x_i}(\bs x)h_i+\tfrac12\sum_{i,j=1}^n \tfrac{\partial^2 f}{\partial x_i\partial x_j}(\bs x)h_i h_j + o(\|\bs h\|^2).
+	$$
+	
+\end{frame}
+
 \begin{frame}[plain,noframenumbering] \begin{center}
 	\alert{\Huge Elements of optimization}
 \end{center}\end{frame}
