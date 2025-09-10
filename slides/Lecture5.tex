@@ -149,7 +149,7 @@ or equivalently
 $\begin{pmatrix}1&2.5\\2.5&4\end{pmatrix}$.
 
 \medskip
-\textcolor{SeaGreen}{Geometry:} level sets $\{x:Q(x)=c\}$ are ellipses, hyperbolas, or paraboloids.
+\textcolor{SeaGreen}{Geometry:} level sets $\{x:Q(x)=c\}$ are ellipses, hyperboloids, linear spaces.
 \end{frame}
 
 
@@ -296,7 +296,9 @@ Many economic and data science models depend on \textcolor{SeaGreen}{several var
 \textcolor{SeaGreen}{Exercises:} 11.11(a), 11.21, 11.22 (Werner--Sotskov).
 \end{frame}
 
-
+\begin{frame}[plain,noframenumbering] \begin{center}
+	\alert{\Huge Basic definitions and examples}
+\end{center}\end{frame}
 
 % ------------------------------------------------
 \begin{frame}{What is a multivariable function?}
@@ -392,6 +394,10 @@ f(\mathbf{x})=(2\pi)^{-d/2}(\det \Sigma)^{-1/2}
 \end{figure}
 \end{frame}
 
+\begin{frame}[plain,noframenumbering] \begin{center}
+	\alert{\Huge Differentiation}
+\end{center}\end{frame}
+
 % ------------------------------------------------
 \begin{frame}{Partial derivatives}
 \begin{block}{Definition}
@@ -415,43 +421,43 @@ then \(C_x(x,y)=22\) and \(C_y(x,y)=24\sqrt{y}\).
 \end{frame}
 
 % ------------------------------------------------
-\begin{frame}{Cobb--Douglas: marginal productivities}
-For \(P(L,K)=b\,L^{\alpha}K^{\beta}\),
-\[
-\frac{\partial P}{\partial L}=\alpha\,\frac{P}{L},\qquad
-\frac{\partial P}{\partial K}=\beta\,\frac{P}{K}.
-\]
-\textcolor{SeaGreen}{Elasticities:}
-\(\displaystyle \varepsilon_{P,L}=\frac{\partial P}{\partial L}\cdot\frac{L}{P}=\alpha,\quad
-\varepsilon_{P,K}=\beta.\)
-\end{frame}
+%\begin{frame}{Cobb--Douglas: marginal productivities}
+%For \(P(L,K)=b\,L^{\alpha}K^{\beta}\),
+%\[
+%\frac{\partial P}{\partial L}=\alpha\,\frac{P}{L},\qquad
+%\frac{\partial P}{\partial K}=\beta\,\frac{P}{K}.
+%\]
+%\textcolor{SeaGreen}{Elasticities:}
+%\(\displaystyle \varepsilon_{P,L}=\frac{\partial P}{\partial L}\cdot\frac{L}{P}=\alpha,\quad
+%\varepsilon_{P,K}=\beta.\)
+%\end{frame}
 
 
 
 % ------------------------------------------------
-\begin{frame}{Tangent plane and linear approximation}
-Geometrically, \(f_x(x_0,y_0)\)  is the slope of the tangent to the curve cut by \(y=y_0\)  at \((x_0,y_0,z_0)\), \(z_0=f(x_0,y_0)\).
-
-\medskip
-\textcolor{SeaGreen}{Tangent plane at \((x_0,y_0,z_0)\):}
-\[
-z = f(x_0,y_0)+f_x(x_0,y_0)(x-x_0)+f_y(x_0,y_0)(y-y_0).
-\]
-
-\medskip
-If \(f\in C^1\), then for \(\Delta=(\Delta x,\Delta y)\),
-\[
-f(x_0+\Delta x,y_0+\Delta y)=f(x_0,y_0)+f_x\,\Delta x+f_y\,\Delta y+o(\|\Delta\|).
-\]
-\end{frame}
-
+%\begin{frame}{Tangent plane and linear approximation}
+%Geometrically, \(f_x(x_0,y_0)\)  is the slope of the tangent to the curve cut by \(y=y_0\)  at \((x_0,y_0,z_0)\), \(z_0=f(x_0,y_0)\).
+%
+%\medskip
+%\textcolor{SeaGreen}{Tangent plane at \((x_0,y_0,z_0)\):}
+%\[
+%z = f(x_0,y_0)+f_x(x_0,y_0)(x-x_0)+f_y(x_0,y_0)(y-y_0).
+%\]
+%
+%\medskip
+%If \(f\in C^1\), then for \(\Delta=(\Delta x,\Delta y)\),
+%\[
+%f(x_0+\Delta x,y_0+\Delta y)=f(x_0,y_0)+f_x\,\Delta x+f_y\,\Delta y+o(\|\Delta\|).
+%\]
+%\end{frame}
+%
 
 % ------------------------------------------------
-\begin{frame}{Tangent plane (visual)}
-\begin{figure}
-\includegraphics[width=3in]{img/tp.jpg}
-\end{figure}
-\end{frame}
+%\begin{frame}{Tangent plane (visual)}
+%\begin{figure}
+%\includegraphics[width=3in]{img/tp.jpg}
+%\end{figure}
+%\end{frame}
 
 % ------------------------------------------------
 \begin{frame}{Higher partial derivatives}
@@ -459,9 +465,11 @@ Higher partials are iterated derivatives, e.g.
 \[
 f_{xy}(x,y)=\frac{\partial}{\partial y}\!\left(\frac{\partial f}{\partial x}(x,y)\right).
 \]
-\textcolor{SeaGreen}{Young's theorem:} If \(f_{xy}\) and \(f_{yx}\) are continuous near a point, then \(f_{xy}=f_{yx}\) there.
+\begin{alertblock}{Young's Theorem:}
+If \(f_{xy}\) and \(f_{yx}\) are continuous near a point, then \(f_{xy}=f_{yx}\) there.	
+\end{alertblock}
+\bigskip
 
-\medskip
 \textcolor{SeaGreen}{Example:} \(f(x,y)=x^2y+e^{xy}\) gives
 \[
 f_{xy}=2x+e^{xy}(1+xy)=f_{yx}.
@@ -476,7 +484,7 @@ f_{xy}=2x+e^{xy}(1+xy)=f_{yx}.
 
 For ${\bf x}\in\R^n$, the \textcolor{SeaGreen}{gradient} is
 \[
-\nabla f({\bf x})=\big(f_{x_1}({\bf x}),\dots,f_{x_n}({\bf x})\big).
+\nabla f({\bf x})\;=\;\big(f_{x_1}({\bf x}),\dots,f_{x_n}({\bf x})\big)\;\in \;\R^n.
 \]
 
 \vskip 6pt
@@ -506,9 +514,9 @@ D_u f({\bf x})\;:=\;\lim_{t\to 0}\frac{f({\bf x}+t\bs u)-f({\bf x})}{t} \;=\; \l
 \]
 
 \vskip 6pt
-By Cauchy–Schwarz,
+By Cauchy-Schwarz,
 \[
-|D_u f({\bf x})| \le \|\nabla f({\bf x})\|,
+|D_u f({\bf x})| \;\le\; \|\nabla f({\bf x})\|,
 \]
 with equality if $u$ points in the same direction as $\nabla f({\bf x})$.
 
@@ -520,27 +528,23 @@ $-\nabla f({\bf x})$ in the direction of \alert{steepest decrease}.
 
 % ------------------------------------------------
 \begin{frame}{Example: gradient and level curves}
-\begin{minipage}{6cm}
+\begin{minipage}{0.4\paperwidth}
 	\begin{figure}
 \includegraphics[width=0.95\textwidth]{img/gradient_level_sets}
 \end{figure}
-\end{minipage}\begin{minipage}{9cm}
+\end{minipage}\begin{minipage}{0.6\paperwidth}
 	Let $f(x,y)=2x^2+\tfrac12 y^2$.
 \[
 \nabla f(x,y) = (4x,y).
 \]
 At $(1,2)$, $\nabla f=(4,2)$.
-
-\vskip 6pt
+\end{minipage}
 \textcolor{SeaGreen}{Geometry:}  
 The gradient is perpendicular to the level curve 
 \[
 2x^2+\tfrac12 y^2=c
 \]
 through $(1,2)$.
-\end{minipage}
-Note: {$\nabla f$ is always normal to level sets. Why?}
-
 \end{frame}
 
 % ------------------------------------------------
@@ -569,10 +573,17 @@ If \(G:\R^m\to\R^p\), \(H=G\circ F\), then
 \end{frame}
 
 
-
+\begin{frame}[plain,noframenumbering] \begin{center}
+	\alert{\Huge Elements of optimization}
+\end{center}\end{frame}
 
 % ------------------------------------------------
 \begin{frame}{Unconstrained optimization}
+\begin{block}{Hessian $\nabla^2 f(\x)\in \R^{n\times n}$}
+This is a $n\times n$ matrix defined by $(\nabla^2 f(\x))_{ij}=\frac{\partial^2 f }{\partial x_i \partial x_j}$.	\\
+{\small (By Young's theorem, this is a symmetric matrix.)}
+\end{block}
+
 \textcolor{SeaGreen}{Local optima.}
 \(\mathbf{x}_0\) is a local max (min) if \(f(\mathbf{x})\le (\ge)\ f(\mathbf{x}_0)\) nearby.
 If \(f\) is differentiable and \(\mathbf{x}_0\) is an interior local extremum,
@@ -583,9 +594,9 @@ If \(f\) is differentiable and \(\mathbf{x}_0\) is an interior local extremum,
 \medskip
 If \(f\in C^2\), Taylor expansion at a stationary point \(\mathbf{x}_0\) gives
 \[
-f(\mathbf{x}_0+\mathbf{h})=f(\mathbf{x}_0)+\tfrac12\,\mathbf{h}^{\top}H_f(\mathbf{x}_0)\mathbf{h}+o(\|\mathbf{h}\|^2),
+f(\mathbf{x}_0+\mathbf{h})=f(\mathbf{x}_0)+\tfrac12\,\mathbf{h}^{\top}( \nabla^2 f(\bs x_0)) \mathbf{h}+o(\|\mathbf{h}\|^2),
 \]
-so the sign of the quadratic form \(\mathbf{h}^{\top}H_f(\mathbf{x}_0)\mathbf{h}\) determines local behavior.
+so the sign of the quadratic form \(\mathbf{h}^{\top}( \nabla^2 f(\bs x_0)) \mathbf{h}\) determines local behavior.
 \end{frame}
 
 
@@ -599,13 +610,13 @@ so the sign of the quadratic form \(\mathbf{h}^{\top}H_f(\mathbf{x}_0)\mathbf{h}
 % ------------------------------------------------
 \begin{frame}{Local optimality: second-order tests}
 
-Assume \(f\in C^2\) and let \(H_f({\bf x})=[f_{x_i x_j}({\bf x})]_{i,j}\) be the (symmetric) Hessian.
+Assume \(f\in C^2\) and let \(\nabla^2 f({\bf x})\) be the Hessian matrix.
 \vskip 6pt
 \textcolor{SeaGreen}{At a stationary point \({\bf x}_0\):}
 \begin{itemize}
-\item \(H_f({\bf x}_0)\) positive definite \(\Rightarrow\) local minimum.
-\item \(H_f({\bf x}_0)\) negative definite \(\Rightarrow\) local maximum.
-\item \(H_f({\bf x}_0)\) indefinite \(\Rightarrow\) saddle.
+\item \(\nabla^2 f({\bs x_0})\) positive definite \(\Rightarrow\) local minimum.
+\item \(\nabla^2 f({\bs x_0})\) negative definite \(\Rightarrow\) local maximum.
+\item \(\nabla^2 f({\bs x_0})\) indefinite \(\Rightarrow\) saddle.
 \end{itemize}
 \vskip 6pt
 \textcolor{SeaGreen}{\(n=2\) test:} Let \(D_2=f_{xx}f_{yy}-f_{xy}^2\) at \({\bf x}_0\).
@@ -625,18 +636,23 @@ D_2<0 \Rightarrow \text{saddle},\quad D_2=0:\ \text{inconclusive}.
 \begin{enumerate}
 \item \(f(x,y)=x^2-y^2-xy\). Then \(\nabla f=(2x-y,\,-2y-x)\). The only stationary point is \((0,0)\). The Hessian
 \(
-H_f=\begin{pmatrix}2&-1\\ -1&-2\end{pmatrix}
+\nabla^2 f(0,0)=\begin{pmatrix}2&-1\\ -1&-2\end{pmatrix}
 \)
 is \textcolor{SeaGreen}{indefinite} \(\Rightarrow\) \((0,0)\) is a \textcolor{SeaGreen}{saddle}.
 \item \(f(x,y)=x^2+y^4\). Stationary point: \((0,0)\). 
 \(
-H_f(0,0)=\begin{pmatrix}2&0\\ 0&0\end{pmatrix}
+\nabla^2 f(0,0)=\begin{pmatrix}2&0\\ 0&0\end{pmatrix}
 \)
 is positive semidefinite; \(f\ge 0\) so \((0,0)\) is a \textcolor{SeaGreen}{global minimum}.
 \item \(f(x,y)=x^3+y^3\). Stationary point: \((0,0)\). The Hessian at \((0,0)\) is \(0\); the point is a \textcolor{SeaGreen}{saddle}.
 \end{enumerate}
 
 \end{frame}
+
+
+\begin{frame}[plain,noframenumbering] \begin{center}
+	\alert{\Huge Convexity}
+\end{center}\end{frame}
 
 % ------------------------------------------------
 \begin{frame}{Convex domains}
@@ -653,20 +669,21 @@ A set \(D\subset\R^n\) is \textcolor{SeaGreen}{convex} if for any \({\bf x},{\bf
 \begin{alertblock}{Definition}
 On a convex domain \(D\subset\R^n\), \(f\) is \textcolor{SeaGreen}{convex} if
 \[
-f(\theta\mathbf{x}+(1-\theta)\mathbf{y})\le \theta f(\mathbf{x})+(1-\theta)f(\mathbf{y}),\quad
+f(\theta\mathbf{x}+(1-\theta)\mathbf{y})\;\le\; \theta f(\mathbf{x})+(1-\theta)f(\mathbf{y}),\quad
 \forall\,\mathbf{x},\mathbf{y}\in D,\ \theta\in[0,1].
 \]
 \textcolor{SeaGreen}{Concave}: reverse the inequality.
 \end{alertblock}
+\bigskip
 
 \begin{block}{Curvature test (for \(C^2\) functions)}
-\(H_f(\mathbf{x})\succeq 0\ \forall \mathbf{x}\in D \iff f \text{ convex on }D,\quad
-H_f(\mathbf{x})\preceq 0 \iff f \text{ concave.}\)
+\(\nabla^2 f(\bs x)\succeq 0\ \forall \mathbf{x}\in D \iff f \text{ convex on }D,\quad
+\nabla^2 f(\bs x)\preceq 0 \iff f \text{ concave.}\)
 Strict definiteness \(\Rightarrow\) strict convexity/concavity.
 \end{block}
+\bigskip
 
-\textcolor{SeaGreen}{Composition rule:}
-If \(g\) is convex and \(f:\R\to\R\) is nondecreasing and convex, then \(f\circ g\) is convex.
+\alert{Important fact:} If $f$ is strictly convex (concave) then any local minimum (maximum) is a global minimum (maximum). 
 \end{frame}
 
 
@@ -676,9 +693,9 @@ If \(g\) is convex and \(f:\R\to\R\) is nondecreasing and convex, then \(f\circ 
 Let \(f(x,y)=2x-y-x^2+xy-y^2\). Then
 \[
 \nabla f=(2-2x+y,\ -1+x-2y),\qquad
-H_f=\begin{pmatrix}-2&1\\[2pt]1&-2\end{pmatrix}.
+\nabla^2 f(\bs x)=\begin{pmatrix}-2&1\\[2pt]1&-2\end{pmatrix}.
 \]
-\(H_f\) is \textcolor{SeaGreen}{negative definite} \(\Rightarrow\) \(f\) is strictly concave. The unique stationary point solves \(\nabla f={\bf 0}\), giving \((x,y)=(0,1)\), which is a \textcolor{SeaGreen}{global maximum}.
+\(\nabla^2 f(\bs x)\) is \textcolor{SeaGreen}{negative definite} \(\Rightarrow\) \(f\) is strictly concave. The unique stationary point solves \(\nabla f={\bf 0}\), giving \((x,y)=(0,1)\), which is a \textcolor{SeaGreen}{global maximum}.
 
 \begin{figure}
 \includegraphics[width=2in]{img/plotxy}
@@ -696,32 +713,31 @@ Profit \(f(x,y)=R(x,y)-C(x,y)\). Then
 \[
 f_x=-2x+70,\qquad f_y=-3y+90 \ \Rightarrow\ (x^\ast,y^\ast)=(35,30).
 \]
-Since \(H_f=\begin{pmatrix}-2&0\\[2pt]0&-3\end{pmatrix}\) is negative definite everywhere, \(f\) is strictly concave and \((35,30)\) is the \textcolor{SeaGreen}{global maximum}. The maximal profit is \(f(35,30)=2275\).
+Since \(\nabla^2 f(\bs x)=\begin{pmatrix}-2&0\\[2pt]0&-3\end{pmatrix}\) is negative definite everywhere, \(f\) is strictly concave and \((35,30)\) is the \textcolor{SeaGreen}{global maximum}. The maximal profit is \(f(35,30)=2275\).
 
 \end{frame}
 
 % ------------------------------------------------
 \begin{frame}{Least squares as orthogonal projection}
-Given data $X\in\R^{n\times d}$ and response $y\in\R^n$, the least–squares estimator solves
+Given data $\bs X\in\R^{n\times d}$ and response $\bs y\in\R^n$, the least-squares estimator solves
 \[
-\hat\beta=\arg\min_\beta \|y-X\beta\|^2,
+\hat\beta=\arg\min_{\beta\in \R^d} \|\bs y-\bs X\beta\|^2,
 \qquad
-\hat y=X\hat\beta.
+\hat {\bs y}=\bs X\hat\beta.
 \]
-\textcolor{SeaGreen}{Geometric view (recall Lecture 2):} $\hat y$ is the orthogonal projection of $y$ onto the column space $\mathcal C(X)$, hence
+\textcolor{SeaGreen}{Geometric view (recall Lecture 2):} $\hat {\bs y}$ is the orthogonal projection of $\bs y$ onto the column space of $\bs X$, hence
 \[
-X^\top (y-X\hat\beta)=0
+\bs X^\top (\bs y-\bs X\hat\beta)=\bs 0
 \quad\Longleftrightarrow\quad
-(X^\top X)\hat\beta=X^\top y
-\ \ (\text{if $X^\top X$ invertible}).
+(\bs X^\top \bs X)\hat\beta=\bs X^\top \bs y.
 \]
 
 \medskip
 \textcolor{SeaGreen}{Polynomial regression:}  
-A common use of least squares is fitting nonlinear trends by expanding the design matrix $X$.  
+A common use of least squares is fitting nonlinear trends by expanding the design matrix $\bs X$.  
 For instance, with one predictor $x$, we can set
 \[
-X=\begin{pmatrix}
+\bs X=\begin{pmatrix}
 1 & x_1 & x_1^2 & \cdots & x_1^m\\
 \vdots & \vdots & \vdots & & \vdots \\
 1 & x_n & x_n^2 & \cdots & x_n^m
@@ -730,19 +746,19 @@ X=\begin{pmatrix}
 so that the fitted model is $y\approx c_0+c_1 x+\cdots+c_m x^m$.
 \end{frame}
 % ------------------------------------------------
-\begin{frame}{Ridge regression: stabilizing high–variance fits}
-When $X^\top X$ is ill-conditioned or $d$ is large, add $\ell_2$ regularization:
+\begin{frame}{Ridge regression: stabilizing high-variance fits}
+When $\bs X^\top \bs X$ is ill-conditioned or $d$ is large, add $\ell_2$ regularization:
 \[
-\hat\beta_\lambda=\arg\min_\beta \big(\|y-X\beta\|^2+\lambda\|\beta\|^2\big)
+\hat\beta_\lambda=\arg\min_\beta \big(\|\bs y-\bs X\beta\|^2+\lambda\|\beta\|^2\big)
 \quad\Longrightarrow\quad
-\hat\beta_\lambda=(X^\top X+\lambda I)^{-1}X^\top y.
+\hat\beta_\lambda=(\bs X^\top \bs X+\lambda I)^{-1}\bs X^\top \bs y.
 \]
-\textcolor{SeaGreen}{Spectral view:} if $X^\top X=U{\rm diag}(s_1^2,\ldots,s_d^2)U^\top$, then
-\[
-\hat\beta_\lambda
-=\sum_{j=1}^d \frac{s_j}{s_j^2+\lambda}\, u_j\, \langle y,\, X u_j\rangle,
-\]
-so ridge \textcolor{SeaGreen}{shrinks} directions with small $s_j$ (low variance) the most $\big(\tfrac{s_j}{s_j^2+\lambda}<\tfrac1{s_j}\big)$, reducing variance and overfitting.
+%\textcolor{SeaGreen}{Spectral view:} if $X^\top X=U{\rm diag}(s_1^2,\ldots,s_d^2)U^\top$, then
+%\[
+%\hat\beta_\lambda
+%=\sum_{j=1}^d \frac{s_j}{s_j^2+\lambda}\, u_j\, \langle y,\, X u_j\rangle,
+%\]
+%so ridge \textcolor{SeaGreen}{shrinks} directions with small $s_j$ (low variance) the most $\big(\tfrac{s_j}{s_j^2+\lambda}<\tfrac1{s_j}\big)$, reducing variance and overfitting.
 \end{frame}
 
 % ------------------------------------------------
@@ -784,81 +800,163 @@ P(L,K)=A\big(\theta\big)\,L^{\alpha}K^{\beta}.
 \end{frame}
 
 
+\begin{frame}[plain,noframenumbering] \begin{center}
+	\alert{\Huge Numerical optimization}
+\end{center}\end{frame}
+
+
 % ------------------------------------------------
 \begin{frame}{Gradient descent }
 
-Goal: minimize \(f(\theta)\).
+Goal: minimize \(f(\bs x)\).
 \[
-\theta_{t+1}=\theta_t-\eta_t\,\nabla f(\theta_t).
+\bs x_{t+1}=\bs x_t-\eta_t\,\nabla f(\bs x_t).
 \]
 \textbf{Pieces you pick:}
 \begin{itemize}
 \item \textbf{Step size} \(\eta_t\): constant, diminishing, or via backtracking.
-\item \textbf{Stop} when \(\|\nabla f(\theta_t)\|\) small.
+\item \textbf{Stop} when \(\|\nabla f(\bs x_t)\|\) small.
 %\item \textbf{Guarantee (sketch):} if \(J\) is convex with \(L\)-Lipschitz gradient, then for \(0<\eta<2/L\) constant, GD converges to a global minimizer.
 \end{itemize}
-{\footnotesize In practice: feature scaling and a good \(\eta_t\) schedule matter a lot.}
+{\footnotesize In practice: a good \(\eta_t\) schedule matter a lot.}
 
 \end{frame}
 
 % ------------------------------------------------
 \begin{frame}{GD on least squares (closed form vs iterations)}
-Least squares problem has a closed form solution. This still requires inverting a potentially large matrix $X^\top X$. GD gives an alternative  way to find a solution. 
+Least squares problem has a closed form solution. This still requires inverting a potentially large matrix $\bs X^\top \bs X$. GD gives an alternative  way to find a solution. 
 \[
-f(\beta)=\frac{1}{n}\|X\beta-{\bf y}\|^2,\qquad
-\nabla f(\beta)=\frac{2}{n}\,X^{\top}(X\beta-{\bf y}).
+f(\beta)=\frac{1}{n}\|\bs X\beta-{\bf y}\|^2,\qquad
+\nabla f(\beta)=\frac{2}{n}\,\bs X^{\top}(\bs X\beta-{\bf y}).
 \]
 \textbf{GD update:}
 \[
-\beta_{t+1}=\beta_t-\eta\,\frac{2}{n}\,X^{\top}\big(X\beta_t-{\bf y}\big).
+\beta_{t+1}=\beta_t-\eta\,\frac{2}{n}\,\bs X^{\top}\big(\bs X\beta_t-{\bf y}\big).
 \]
 \textbf{Ridge:}
 \[
-f_{\lambda}(\beta)=\frac{1}{n}\|X\beta-{\bf y}\|^2+\lambda\|\beta\|_2^2,\quad
-\nabla f_{\lambda}=\frac{2}{n}X^{\top}(X\beta-{\bf y})+2\lambda\beta.
+f_{\lambda}(\beta)=\frac{1}{n}\|\bs X\beta-{\bf y}\|^2+\lambda\|\beta\|_2^2,\quad
+\nabla f_{\lambda}=\frac{2}{n}\bs X^{\top}(\bs X\beta-{\bf y})+2\lambda\beta.
 \]
-{\footnotesize Closed form exists \((X^{\top}X)^{-1}X^{\top}{\bf y}\), but GD scales better to huge \(n,p\) or streaming data.}
-
-\end{frame}
-
-
-% ------------------------------------------------
-\begin{frame}{Constrained optimization: Lagrange and KKT (teaser)}
-
-Equality constraints \(g_i(x)=0\) and inequality constraints \(h_j(x)\le 0\).
-The Lagrangian:
-\[
-\mathcal{L}(x,\lambda,\mu)=f(x)+\sum_i \lambda_i g_i(x)+\sum_j \mu_j h_j(x).
-\]
-\textbf{KKT conditions} (when they apply):
-\begin{itemize}
-\item \textbf{Stationarity: } \(\nabla_x \mathcal{L}(x^*,\lambda^*,\mu^*)=\mathbf{0}\).
-\item \textbf{Primal feasibility: } \(g_i(x^*)=0,\; h_j(x^*)\le 0\).
-\item \textbf{Dual feasibility: } \(\mu_j^*\ge 0\).
-\item \textbf{Complementary slackness: } \(\mu_j^*\,h_j(x^*)=0\).
-\end{itemize}
-\textbf{Example (budgeted utility max):} maximize \(U(x)\) s.t. \(p^{\top}x\le B\).
-Then \(\mathcal{L}(x,\mu)=U(x)+\mu\,(B-p^{\top}x)\) and at optimum
-\(\nabla U(x^*)=\mu^* p\), \(p^{\top}x^*\le B\), \(\mu^*\ge 0\), \(\mu^*(B-p^{\top}x^*)=0\).
-
+{\footnotesize Closed form exists \((\bs X^{\top}\bs X)^{-1}\bs X^{\top}{\bf y}\), but GD scales better to huge \(n,p\) or streaming data.}
 \end{frame}
 
 % ------------------------------------------------
 \begin{frame}{When to use second order methods?}
 
-In general, we update $\theta_t$ as
+In general, we update $\bs x_t$ as
 $$
-\theta_{t+1}\;:=\;\arg\min f(\theta_t)+\<\nabla f(\theta_t),\theta\>+\tfrac12 (\theta-\theta_t)^\top \alert{K} (\theta-\theta_t).
+\bs x_{t+1}\;:=\;\arg\min f(\bs x_t)+\<\nabla f(\bs x_t),\bs x\>+\tfrac12 (\bs x-\bs x_t)^\top \alert{K} (\bs x-\bs x_t).
 $$
 If $\alert{K}=I_n$, we recover gradient descent. \\[2mm]
-If $\alert{K}=\nabla\nabla^\top f(\theta_t)$, we get the \textcolor{SeaGreen}{Newton method}. \\[2mm]
+If $\alert{K}=\nabla\nabla^\top f(\bs x_t)$, we get the \textcolor{SeaGreen}{Newton method}. \\[2mm]
 
 
 \begin{itemize}
-\item \textbf{Newton:} \(\theta_{t+1}=\theta_t-H^{-1}(\theta_t)\nabla J(\theta_t)\) (fast near solution, expensive to form/solve).
+\item \textbf{Newton:} \(\bs x_{t+1}=\bs x_t-H^{-1}(\bs x_t)\nabla J(\bs x_t)\) (fast near solution, expensive to form/solve).
 \item \textbf{Quasi-Newton (e.g., BFGS, L\!-\!BFGS):} approximate \(H^{-1}\) from gradients only; great for medium scale convex problems.
 \item \textbf{Takeaway:} for huge data/models use (S)GD; for smaller smooth convex problems, quasi-Newton shines.
 \end{itemize}
 
+\end{frame}
+
+
+\begin{frame}[plain,noframenumbering] \begin{center}
+	\alert{\Huge Constrained optimization}
+\end{center}\end{frame}
+
+% ------------------------------------------------
+% ------------------------------------------------
+\begin{frame}{Constrained optimization: Lagrange and KKT (teaser)}
+
+We want to maximize/minimize $f(\bs x)$ subject to constraints:  
+\[
+g_i(\bs x)=0 \quad\text{(equalities)}, 
+\qquad
+h_j(\bs x)\le 0 \quad\text{(inequalities)}.
+\]
+
+\medskip
+\textcolor{SeaGreen}{Lagrangian:}
+\[
+\mathcal{L}(\bs x,\bs \lambda,\bs \mu)
+= f(\bs x)+\sum_i \lambda_i g_i(\bs x)+\sum_j \mu_j h_j(\bs x).
+\]
+
+\textcolor{SeaGreen}{KKT conditions} (when applicable):
+\begin{enumerate}
+\item \textbf{Stationarity: } $\nabla_x \mathcal{L}(\bs x^*,\bs \lambda^*,\bs \mu^*)=0$.
+\item \textbf{Primal feasibility: } $g_i(\bs x^*)=0,\; h_j(\bs x^*)\le 0$.
+\item \textbf{Dual feasibility: } $\mu_j^*\ge 0$.
+\item \textbf{Complementary slackness: } $\mu_j^*\,h_j(\bs x^*)=0$.
+\end{enumerate}
+
+%\medskip
+%\alert{Example (budgeted utility max):} maximize $U(x)$ s.t.\ $p^{\top}x\le B$.  
+%At optimum: $\nabla U(x^*)=\mu^*p$, $p^\top x^*\le B$, $\mu^*\ge 0$, and $\mu^*(B-p^\top x^*)=0$.
+
+\end{frame}
+
+% ------------------------------------------------
+\begin{frame}{Constrained optimization in 3D (example)}
+
+\textcolor{SeaGreen}{Problem:} maximize
+\[
+f(x,y,z)=xyz
+\quad\text{subject to}\quad
+g(x,y,z)=x+y+z-1=0,\;\; x,y,z\ge 0.
+\]
+
+\medskip
+\textcolor{SeaGreen}{Lagrangian:}
+\[
+\mathcal{L}(x,y,z,\lambda,\mu_1,\mu_2,\mu_3)
+= xyz+\lambda(1-x-y-z)-\mu_1x-\mu_2y-\mu_3z.
+\]
+
+\textcolor{SeaGreen}{Stationarity:}
+\[
+\begin{aligned}
+\partial_x \mathcal L &= yz-\lambda-\mu_1=0,\\
+\partial_y \mathcal L &= xz-\lambda-\mu_2=0,\\
+\partial_z \mathcal L &= xy-\lambda-\mu_3=0.
+\end{aligned}
+\]
+
+\textcolor{SeaGreen}{Complementary slackness:}  
+$\mu_1x=\mu_2y=\mu_3z=0$.
+
+\end{frame}
+
+% ------------------------------------------------
+\begin{frame}{Solution and geometry}
+
+At an interior solution ($x,y,z>0$), complementary slackness $\Rightarrow \mu_1=\mu_2=\mu_3=0$.  
+
+\medskip
+\textcolor{SeaGreen}{Simplified system:}
+\[
+\begin{aligned}
+yz&=\lambda,\\
+xz&=\lambda,\\
+xy&=\lambda,\\
+x+y+z&=1.
+\end{aligned}
+\]
+
+\textcolor{SeaGreen}{Deduction:}  
+$yz=xz=xy \;\Rightarrow\; x=y=z$.  
+Constraint $\Rightarrow\; x=y=z=\tfrac13$.
+
+\medskip
+\textcolor{SeaGreen}{Maximizer:} $(\tfrac13,\tfrac13,\tfrac13)$, value $f^\ast=\tfrac1{27}$.
+
+\medskip
+\textcolor{SeaGreen}{Geometric intuition:}
+\begin{itemize}
+\item Constraint $x+y+z=1$ is a plane.
+\item Level sets $xyz=c$ are curved surfaces.
+\item At optimum: $\nabla f=(yz,xz,xy)$ is parallel to $\nabla g=(1,1,1)$ — the plane just \emph{touches} the surface.
+\end{itemize}
 \end{frame}
 \end{document}
